@@ -13,13 +13,24 @@ namespace GUI
 {
     public partial class frmEdicionDeducciones : Form
     {
+        /// <summary>
+        /// Atributos de la clase
+        /// </summary>
         private Boolean aceptar;
         private DeduccionesL oDeduccionesL;
+
+        /// <summary>
+        /// Metodo Costructor sin parametros
+        /// </summary>
         public frmEdicionDeducciones()
         {
             InitializeComponent();
             this.aceptar = false;
         }
+        /// <summary>
+        /// Metodo constructor con parametros
+        /// </summary>
+        /// <param name="pDeduccionesL"></param>
          public frmEdicionDeducciones(DeduccionesL pDeduccionesL)
         {
             InitializeComponent();
@@ -33,6 +44,9 @@ namespace GUI
             this.txtModificado_por.Text = pDeduccionesL.ModificadoPor;
             this.oDeduccionesL = pDeduccionesL;
         }
+        /// <summary>
+        /// Propiedades de los atributos
+        /// </summary>
          public DeduccionesL ODeduccionesL
          {
              get { return oDeduccionesL; }
@@ -42,10 +56,20 @@ namespace GUI
          {
              get { return aceptar; }
          }
+        /// <summary>
+        /// Metodo el botón cancelar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
          private void btnCancelar_Click(object sender, EventArgs e)
          {
              this.Close();
          }
+        /// <summary>
+        /// Metodo del botón Aceptar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
          private void btnAceptar_Click(object sender, EventArgs e)
          {
 

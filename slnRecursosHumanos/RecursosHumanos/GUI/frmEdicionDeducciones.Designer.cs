@@ -195,7 +195,7 @@
             this.chkActivo.Location = new System.Drawing.Point(178, 111);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(56, 17);
-            this.chkActivo.TabIndex = 14;
+            this.chkActivo.TabIndex = 4;
             this.chkActivo.Text = "Activo";
             this.chkActivo.UseVisualStyleBackColor = true;
             // 

@@ -13,15 +13,24 @@ namespace GUI
 {
     public partial class frmEdicionDepartamento : Form
     {
+        /// <summary>
+        /// Atributos de la clase
+        /// </summary>
         private Boolean aceptar;
         private DepartamentoL oDepartamentoL;
 
+        /// <summary>
+        /// Metodo constructor que no recibe parametro
+        /// </summary>
         public frmEdicionDepartamento()
         {
             InitializeComponent();
             this.aceptar = false;
         }
-
+        /// <summary>
+        /// Metodo costructor con parametros
+        /// </summary>
+        /// <param name="pDepartamentoL"></param>
         public frmEdicionDepartamento(DepartamentoL pDepartamentoL)
         {
             InitializeComponent();
@@ -30,6 +39,9 @@ namespace GUI
             this.txtNombreDepa.Text = pDepartamentoL.NombreDepartamento.ToString();
             this.oDepartamentoL = pDepartamentoL;
         }
+        /// <summary>
+        /// Propiedades de los atributos
+        /// </summary>
         public DepartamentoL ODepartamentoL
         {
             get { return oDepartamentoL; }
@@ -41,6 +53,11 @@ namespace GUI
             get { return aceptar; }
             set { aceptar = value; }
         }
+        /// <summary>
+        /// Metodo del botón Aceptar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {

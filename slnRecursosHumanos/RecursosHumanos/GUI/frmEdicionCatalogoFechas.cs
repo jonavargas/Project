@@ -13,6 +13,9 @@ namespace GUI
 {
     public partial class frmEdicionCatalogoFechas : Form
     {
+        /// <summary>
+        /// Atributos de la clase
+        /// </summary>
         private Boolean aceptar;
         private CatalogoFechasL oCatalogoFechasL;
         
@@ -21,6 +24,10 @@ namespace GUI
             InitializeComponent();
             this.aceptar = false;
         }
+        /// <summary>
+        /// Metodo costructor que inicializa las variables
+        /// </summary>
+        /// <param name="pCatalogoFechasL"></param>
         public frmEdicionCatalogoFechas(CatalogoFechasL pCatalogoFechasL)
         {
             InitializeComponent();
@@ -34,47 +41,60 @@ namespace GUI
             this.txtActivo.Text = pCatalogoFechasL.Activo;
             this.oCatalogoFechasL = pCatalogoFechasL;
         }
-           public CatalogoFechasL OCatalogoFechasL
-           {
-               get { return oCatalogoFechasL; }
-           }
+        /// <summary>
+        /// Propiedades de la clase
+        /// </summary>
+        public CatalogoFechasL OCatalogoFechasL
+        {
+            get { return oCatalogoFechasL; }
+        }
 
-           public Boolean Aceptar
-           {
-               get { return aceptar; }
-           }
-           private void btnCancelar_Click(object sender, EventArgs e)
-           {
-               this.Close();
-           }
+        public Boolean Aceptar
+        {
+            get { return aceptar; }
+        }
+        /// <summary>
+        /// Metodo del botón cancelar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCancelar_Click(object sender, EventArgs e)
+         {
+             this.Close();
+         }
+        /// <summary>
+        /// Metodo del botón Aceptar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
-           private void btnAceptar_Click(object sender, EventArgs e)
-           {
-               bool estadoFecha = false;
-               String activo = "No";
+         private void btnAceptar_Click(object sender, EventArgs e)
+         {
+             bool estadoFecha = false;
+             String activo = "No";
 
-               if (this.chkActivo.Checked)
-               {
-                   activo = "Sí";
-               }
+             if (this.chkActivo.Checked)
+             {
+                 activo = "Sí";
+             }
 
-               try
-               {
-                   if (!this.cmbMes.SelectedItem.Equals("") && (!this.cmbDia.SelectedItem.Equals("")))
-                   {
-                       estadoFecha = true;
-                   }
-                   else
-                   {
-                       estadoFecha = true;
-                   }
+             try
+             {
+                 if (!this.cmbMes.SelectedItem.Equals("") && (!this.cmbDia.SelectedItem.Equals("")))
+                 {
+                     estadoFecha = true;
+                 }
+                 else
+                 {
+                     estadoFecha = true;
+                 }
 
-                   if ((this.txtCatalogoFechas.Text == "") || (estadoFecha == false) ||
+                 if ((this.txtCatalogoFechas.Text == "") || (estadoFecha == false) ||
                        (this.txtDescripcion.Text == ""))
-                   {
-                       MessageBox.Show("Faltan datos requeridos!!!");
-                       return;
-                   }
+                 {
+                     MessageBox.Show("Faltan datos requeridos!!!");
+                     return;
+                 }
                }
                catch(Exception E) 
                {
@@ -88,9 +108,14 @@ namespace GUI
                this.aceptar = true;
                this.Close();
            }
+        /// <summary>
+        /// Metodo que realiza el cambio de dias dependiendo del mes que seleccionara el usuario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
-           private void cmbMes_SelectedIndexChanged(object sender, EventArgs e)
-           {
+         private void cmbMes_SelectedIndexChanged(object sender, EventArgs e)
+         {
 
                switch (this.cmbMes.SelectedIndex)
                {
