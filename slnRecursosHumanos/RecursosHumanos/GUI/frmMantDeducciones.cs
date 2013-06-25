@@ -14,13 +14,24 @@ namespace GUI
 {
     public partial class frmMantDeducciones : Form
     {
+        /// <summary>
+        /// Aributo de la clase
+        /// </summary>
         AccesoDatosOracle cnx;
+
+        /// <summary>
+        /// Metodo constructor con parametros
+        /// </summary>
+        /// <param name="pConexion"></param>
         public frmMantDeducciones(AccesoDatosOracle pConexion)
         {
             InitializeComponent();
             this.cnx = pConexion;
             this.cargarGrid();
         }
+        /// <summary>
+        /// Meto que cargar el datagridview
+        /// </summary>
         public void cargarGrid()
         {
             try
@@ -37,11 +48,21 @@ namespace GUI
                 MessageBox.Show("Error cargando los datos" + e.Message);
             }
         }
+        /// <summary>
+        /// Metodo que refresca los cambios realizados
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRefrescar_Click(object sender, EventArgs e)
         {
             this.cargarGrid();
             MessageBox.Show("Datos actualizados!!!");
         }
+        /// <summary>
+        /// Metodo que elimina la línea seleccionada
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             if (this.grdDeducciones.RowCount > 0)
@@ -66,6 +87,11 @@ namespace GUI
                 }
             }
         }
+        /// <summary>
+        /// Metodo que realiza un nuevo registro
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             frmEdicionDeducciones ofrmEdicion = new frmEdicionDeducciones();
@@ -85,6 +111,11 @@ namespace GUI
                 }
             }
         }
+        /// <summary>
+        /// Metodo que refresca la línea la seleccionada
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (this.grdDeducciones.RowCount > 0)

@@ -15,7 +15,14 @@ namespace GUI
 {
     public partial class frmMantDepartamento : Form
     {
+        /// <summary>
+        /// Atributos de la clase
+        /// </summary>
         AccesoDatosOracle cnx;
+        /// <summary>
+        /// Metodo costructor con parametros
+        /// </summary>
+        /// <param name="pConexion"></param>
         public frmMantDepartamento(AccesoDatosOracle pConexion)
         {
             InitializeComponent();
@@ -23,6 +30,9 @@ namespace GUI
             this.cargarGrid();
 
         }
+        /// <summary>
+        /// Metodo que carga el datagridview
+        /// </summary>
         public void cargarGrid()
         {
             try
@@ -39,9 +49,11 @@ namespace GUI
                 MessageBox.Show("Error cargando los datos" + e.Message);
             }
         }
-
-
-
+        /// <summary>
+        /// Metodo que agrega un nuevo registro
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
@@ -61,14 +73,22 @@ namespace GUI
                     this.cargarGrid();
                 }
             }
-
-        }     
+        }  
+        /// <summary>
+        /// Metodo que refresca los datos con los cambios realizados
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void btnRefrescar_Click(object sender, EventArgs e)
         {
             this.cargarGrid();
         }
-
+        /// <summary>
+        /// Metodo que edita los cambios que se realizan en esa línea
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (this.grdDepartamento.RowCount > 0)
@@ -94,6 +114,11 @@ namespace GUI
                 }
             }
         }
+        /// <summary>
+        /// Metodo que borra la línea seleccionada
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {

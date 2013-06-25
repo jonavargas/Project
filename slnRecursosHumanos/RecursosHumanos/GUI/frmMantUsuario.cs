@@ -14,6 +14,9 @@ namespace GUI
 {
     public partial class frmMantUsuario : Form
     {
+        /// <summary>
+        /// Atributos de la clase
+        /// </summary>
         AccesoDatosOracle cnx;
         public frmMantUsuario(AccesoDatosOracle pConexion)
         {
@@ -21,6 +24,9 @@ namespace GUI
             this.cnx = pConexion;
             this.cargarGrid();
         }
+        /// <summary>
+        /// Metodo que se encarga de cargar el datagridview
+        /// </summary>
         public void cargarGrid()
         {
             try
@@ -37,11 +43,21 @@ namespace GUI
                 MessageBox.Show("Error cargando los datos" + e.Message);
             }
         }
+        /// <summary>
+        /// Metodo que refresca los datos realizados
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRefrescar_Click(object sender, EventArgs e)
         {
             this.cargarGrid();
             MessageBox.Show("Datos actualizados!!!");
         }
+        /// <summary>
+        /// Metodo que borra la línea seleccionada
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             if (this.grdUsuario.RowCount > 0)
@@ -66,6 +82,11 @@ namespace GUI
                 }
             }
         }
+        /// <summary>
+        /// Metodo que crea un nuevo registro
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             frmEdicionUsuario ofrmEdicion = new frmEdicionUsuario();
@@ -85,6 +106,11 @@ namespace GUI
                 }
             }
         }
+        /// <summary>
+        /// Metodo que edita la línea seleccionada 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (this.grdUsuario.RowCount > 0)
