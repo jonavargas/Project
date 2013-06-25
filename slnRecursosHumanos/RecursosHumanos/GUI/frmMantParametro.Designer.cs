@@ -146,12 +146,14 @@
             this.horaEntrada.DataPropertyName = "horaEntrada";
             this.horaEntrada.HeaderText = "Hora Entrada";
             this.horaEntrada.Name = "horaEntrada";
+            this.horaEntrada.Width = 125;
             // 
             // horaSalida
             // 
             this.horaSalida.DataPropertyName = "horaSalida";
             this.horaSalida.HeaderText = "Hora Salida";
             this.horaSalida.Name = "horaSalida";
+            this.horaSalida.Width = 125;
             // 
             // lunes
             // 
@@ -207,12 +209,14 @@
             this.fechaModificacion.DataPropertyName = "fechaModificacion";
             this.fechaModificacion.HeaderText = "Fecha Modificación";
             this.fechaModificacion.Name = "fechaModificacion";
+            this.fechaModificacion.Width = 125;
             // 
             // fechaCreacion
             // 
             this.fechaCreacion.DataPropertyName = "fechaCreacion";
             this.fechaCreacion.HeaderText = "Fecha Creación";
             this.fechaCreacion.Name = "fechaCreacion";
+            this.fechaCreacion.Width = 125;
             // 
             // creadoPor
             // 
