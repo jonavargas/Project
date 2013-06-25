@@ -52,7 +52,7 @@ namespace Datos
                 {
                     foreach (DataRow fila in datos.Tables[0].Rows)
                     {
-                        retorno.Add(
+                        retorno.Add(// Obtiene los datos de la base de datos
                                     new CatalogoFechasL(fila["idCatalogoFechas"].ToString(),
                                                         int.Parse(fila["dia"].ToString()),
                                                         fila["mes"].ToString(),
@@ -82,6 +82,10 @@ namespace Datos
             }
             return retorno;
         }
+        /// <summary>
+        /// Metodo que agrega nuevos datos a la tabla de catalogo de fechas.
+        /// </summary>
+        /// <param name="pCatalogoFechas"></param>
         public void agregarCatalogoFechas(CatalogoFechasL pCatalogoFechas)
         {
             try
@@ -89,49 +93,49 @@ namespace Datos
                 string sql = "insert into CatalogoFechas(idCatalogoFechas, dia, mes, descripcion, fechaCreacion, fechaModificacion, modificadoPor, creadoPor, activo) " +
                              "values(:idCatalogoFechas, :dia, :mes, :descripcion, :fechaCreacion, :fechaModificacion, :modificadoPor, :creadoPor, :activo)";
 
-                OracleParameter[] parametros = new OracleParameter[9];
+                OracleParameter[] parametros = new OracleParameter[9];//Parametros
 
-                parametros[0] = new OracleParameter();
+                parametros[0] = new OracleParameter();// Parametro que va a la base de datos a agregar un nuevo idCatalogoFechas 
                 parametros[0].OracleType = OracleType.VarChar;
                 parametros[0].ParameterName = ":idCatalogoFechas";
                 parametros[0].Value = pCatalogoFechas.IdCatalogoFechas;
 
-                parametros[1] = new OracleParameter();
+                parametros[1] = new OracleParameter();// Parametro que va a la base de datos a agregar un nuevo dia
                 parametros[1].OracleType = OracleType.Number;
                 parametros[1].ParameterName = ":dia";
                 parametros[1].Value = pCatalogoFechas.Dia;
 
-                parametros[2] = new OracleParameter();
+                parametros[2] = new OracleParameter();// Parametro que va a la base de datos a agregar un nuevo mes
                 parametros[2].OracleType = OracleType.VarChar;
                 parametros[2].ParameterName = ":mes";
                 parametros[2].Value = pCatalogoFechas.Mes;
 
-                parametros[3] = new OracleParameter();
+                parametros[3] = new OracleParameter();// Parametro que va a la base de datos a agregar un nuevo descripción
                 parametros[3].OracleType = OracleType.VarChar;
                 parametros[3].ParameterName = ":descripcion";
                 parametros[3].Value = pCatalogoFechas.Descripcion;
 
-                parametros[4] = new OracleParameter();
+                parametros[4] = new OracleParameter();// Parametro que va a la base de datos a agregar un nuevo fecha de creación
                 parametros[4].OracleType = OracleType.DateTime;
                 parametros[4].ParameterName = ":fechaCreacion";
                 parametros[4].Value = pCatalogoFechas.FechaCreacion;
 
-                parametros[5] = new OracleParameter();
+                parametros[5] = new OracleParameter();// Parametro que va a la base de datos a agregar un nuevo idCatalogoFechas
                 parametros[5].OracleType = OracleType.DateTime;
                 parametros[5].ParameterName = ":fechaModificacion";
                 parametros[5].Value = pCatalogoFechas.FechaModificacion;
 
-                parametros[6] = new OracleParameter();
+                parametros[6] = new OracleParameter();// Parametro que va a la base de datos a agregar un nuevo modificadopor
                 parametros[6].OracleType = OracleType.VarChar;
                 parametros[6].ParameterName = ":modificadoPor";
                 parametros[6].Value = pCatalogoFechas.ModificadoPor;
 
-                parametros[7] = new OracleParameter();
+                parametros[7] = new OracleParameter();// Parametro que va a la base de datos a agregar un nuevo creadopor
                 parametros[7].OracleType = OracleType.VarChar;
                 parametros[7].ParameterName = ":creadoPor";
                 parametros[7].Value = pCatalogoFechas.CreadoPor;
 
-                parametros[8] = new OracleParameter();
+                parametros[8] = new OracleParameter();// Parametro que va a la base de datos a agregar un nuevo estado
                 parametros[8].OracleType = OracleType.VarChar;
                 parametros[8].ParameterName = ":activo";
                 parametros[8].Value = pCatalogoFechas.Activo;
@@ -147,6 +151,10 @@ namespace Datos
                 this.errorDescription = "Error agregando CatalogoFechas: " + e.Message;
             }
         }
+        /// <summary>
+        /// Metodo que borra el registro de la base de datos
+        /// </summary>
+        /// <param name="pCatalogoFechas"></param>
         public void borrarCatalogoFechas(CatalogoFechasL pCatalogoFechas)
         {
             try
@@ -155,7 +163,7 @@ namespace Datos
 
                 OracleParameter[] parametros = new OracleParameter[1];
 
-                parametros[0] = new OracleParameter();
+                parametros[0] = new OracleParameter();// Parametro que va a la base de datos a borrar el catalogo de fechas
                 parametros[0].OracleType = OracleType.VarChar;
                 parametros[0].ParameterName = ":idCatalogoFechas";
                 parametros[0].Value = pCatalogoFechas.IdCatalogoFechas;
@@ -170,6 +178,11 @@ namespace Datos
                 this.errorDescription = "Error borrando CatalogoFechas: " + e.Message;
             }
         }
+        /// <summary>
+        /// Metodo que edita el catalogo de fechas
+        /// </summary>
+        /// <param name="pCatalogoFechasOriginal"></param>
+        /// <param name="pCatalogoFechasEditado"></param>
         public void editarCatalogoFechas(CatalogoFechasL pCatalogoFechasOriginal, CatalogoFechasL pCatalogoFechasEditado)
         {
             try
@@ -178,54 +191,54 @@ namespace Datos
                              "set idCatalogoFechas = :idCatalogoFechas, dia  = :dia, mes = :mes, descripcion = :descripcion, fechaModificacion = :fechaModificacion, fechaCreacion = :fechaCreacion, creadoPor = :creadoPor, modificadoPor = :modificadoPor, activo = :activo " +
                              "where idCatalogoFechas = :idCatalogoFechasOriginal";
 
-                OracleParameter[] parametros = new OracleParameter[10];
+                OracleParameter[] parametros = new OracleParameter[10];//Parametros
 
-                parametros[0] = new OracleParameter();
+                parametros[0] = new OracleParameter();// Parametro que va a la base de datos a editar el idCatalogoFecha
                 parametros[0].OracleType = OracleType.VarChar;
                 parametros[0].ParameterName = ":idCatalogoFechas";
                 parametros[0].Value = pCatalogoFechasEditado.IdCatalogoFechas;
 
-                parametros[1] = new OracleParameter();
+                parametros[1] = new OracleParameter();// Parametro que va a la base de datos a editar el día
                 parametros[1].OracleType = OracleType.Number;
                 parametros[1].ParameterName = ":dia";
                 parametros[1].Value = pCatalogoFechasEditado.Dia;
 
-                parametros[2] = new OracleParameter();
+                parametros[2] = new OracleParameter();// Parametro que va a la base de datos a editar el mes
                 parametros[2].OracleType = OracleType.VarChar;
                 parametros[2].ParameterName = ":mes";
                 parametros[2].Value = pCatalogoFechasEditado.Mes;
 
-                parametros[3] = new OracleParameter();
+                parametros[3] = new OracleParameter();// Parametro que va a la base de datos a editar la  descripción
                 parametros[3].OracleType = OracleType.VarChar;
                 parametros[3].ParameterName = ":descripcion";
                 parametros[3].Value = pCatalogoFechasEditado.Descripcion;
 
-                parametros[4] = new OracleParameter();
+                parametros[4] = new OracleParameter();// Parametro que va a la base de datos a editar la fechaModificación
                 parametros[4].OracleType = OracleType.DateTime;
                 parametros[4].ParameterName = ":fechaModificacion";
                 parametros[4].Value = pCatalogoFechasEditado.FechaModificacion;
 
-                parametros[5] = new OracleParameter();
+                parametros[5] = new OracleParameter();// Parametro que va a la base de datos a editar el idCatalogoFecha
                 parametros[5].OracleType = OracleType.DateTime;
                 parametros[5].ParameterName = ":fechaCreacion";
                 parametros[5].Value = pCatalogoFechasEditado.FechaCreacion;
 
-                parametros[6] = new OracleParameter();
+                parametros[6] = new OracleParameter();// Parametro que va a la base de datos a editar el creadopor
                 parametros[6].OracleType = OracleType.VarChar;
                 parametros[6].ParameterName = ":creadoPor";
                 parametros[6].Value = pCatalogoFechasEditado.CreadoPor;
 
-                parametros[7] = new OracleParameter();
+                parametros[7] = new OracleParameter();// Parametro que va a la base de datos a editar el modofocado por
                 parametros[7].OracleType = OracleType.VarChar;
                 parametros[7].ParameterName = ":modificadoPor";
                 parametros[7].Value = pCatalogoFechasEditado.ModificadoPor;
 
-                parametros[8] = new OracleParameter();
+                parametros[8] = new OracleParameter();// Parametro que va a la base de datos a editar el estado del catalogo
                 parametros[8].OracleType = OracleType.VarChar;
                 parametros[8].ParameterName = ":activo";
                 parametros[8].Value = pCatalogoFechasEditado.Activo;
 
-                parametros[9] = new OracleParameter();
+                parametros[9] = new OracleParameter();// Parametro que va a la base de datos a editar el original por el editado
                 parametros[9].OracleType = OracleType.VarChar;
                 parametros[9].ParameterName = ":idCatalogoFechasOriginal";
                 parametros[9].Value = pCatalogoFechasOriginal.IdCatalogoFechas;

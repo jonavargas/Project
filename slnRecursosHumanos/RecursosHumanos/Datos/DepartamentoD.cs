@@ -11,6 +11,9 @@ namespace Datos
 {
    public  class DepartamentoD
     {
+        /// <summary>
+        /// Atributos de la clase.
+        /// </summary>
         private AccesoDatosOracle cnx;
         private bool error = false;
         private string errorDescription = "";
@@ -19,7 +22,9 @@ namespace Datos
         {
             this.cnx = pCnx;
         }
-
+        /// <summary>
+        /// Propiedades de los atributos
+        /// </summary>
         public bool Error
         {
             get { return error; }
@@ -29,6 +34,11 @@ namespace Datos
         {
             get { return errorDescription; }
         }
+
+        /// <summary>
+        /// Metodo que obtiene los departamentos de la base de datos.
+        /// </summary>
+        /// <returns></returns>
 
         public List<DepartamentoL> obtenerDepartamentos()
         {
@@ -40,7 +50,7 @@ namespace Datos
                 {
                     foreach (DataRow fila in datos.Tables[0].Rows)
                     {
-                        retorno.Add(
+                        retorno.Add(// Obtiene los datos de la base de datos
                                     new DepartamentoL(fila["idDepartamento"].ToString(),
                                                       fila["nombreDepartamento"].ToString(),
                                                       DateTime.Parse(fila["fechaModificacion"].ToString()),
@@ -64,6 +74,10 @@ namespace Datos
             }
             return retorno;
         }
+        /// <summary>
+        /// Metodo que agrega un nuevo departamento a la base de datos
+        /// </summary>
+        /// <param name="pDepartamento"></param>
 
         public void agregarDepartamento(DepartamentoL pDepartamento)
         {
@@ -71,40 +85,40 @@ namespace Datos
             {
                 string sql = "insert into Departamento(idDepartamento, nombreDepartamento,fechaModificacion,fechaCreacion,creadoPor,modificadoPor,activo) " +
                              "values(:idDepartamento, :nombreDepartamento,:fechaModificacion,:fechaCreacion,:creadoPor,:modificadoPor,:activo)";
-                
-                OracleParameter[] parametros = new OracleParameter[7];
-                
-                parametros[0] = new OracleParameter();
+
+                OracleParameter[] parametros = new OracleParameter[7];// Parametros
+
+                parametros[0] = new OracleParameter();// Parametro que va a la base de datos a agregar un nuevo id departamento
                 parametros[0].OracleType = OracleType.VarChar;
                 parametros[0].ParameterName = ":idDepartamento";
                 parametros[0].Value = pDepartamento.IdDepartamento;
 
-                parametros[1] = new OracleParameter();
+                parametros[1] = new OracleParameter();// Parametro que va a la base de datos a agregar un nuevo nombre de departamento
                 parametros[1].OracleType = OracleType.VarChar;
                 parametros[1].ParameterName = ":nombreDepartamento";
                 parametros[1].Value = pDepartamento.NombreDepartamento;
 
-                parametros[2] = new OracleParameter();
+                parametros[2] = new OracleParameter();// Parametro que va a la base de datos a agregar un nueva fecha de creación
                 parametros[2].OracleType = OracleType.DateTime;
                 parametros[2].ParameterName = ":fechaCreacion";
                 parametros[2].Value = pDepartamento.FechaCreacion;
 
-                parametros[3] = new OracleParameter();
+                parametros[3] = new OracleParameter();// Parametro que va a la base de datos a agregar un nueva fecha de modificación
                 parametros[3].OracleType = OracleType.DateTime;
                 parametros[3].ParameterName = ":fechaModificacion";
                 parametros[3].Value = pDepartamento.FechaModificacion;
 
-                parametros[4] = new OracleParameter();
+                parametros[4] = new OracleParameter();// Parametro que va a la base de datos a agregar un nuevo creado por
                 parametros[4].OracleType = OracleType.VarChar;
                 parametros[4].ParameterName = ":creadoPor";
                 parametros[4].Value = pDepartamento.CreadoPor;
 
-                parametros[5] = new OracleParameter();
+                parametros[5] = new OracleParameter();// Parametro que va a la base de datos a agregar un nuevo modificado por
                 parametros[5].OracleType = OracleType.VarChar;
                 parametros[5].ParameterName = ":modificadoPor";
                 parametros[5].Value = pDepartamento.ModificadoPor;
 
-                parametros[6] = new OracleParameter();
+                parametros[6] = new OracleParameter();// Parametro que va a la base de datos a agregar un nuevo estado del departamento
                 parametros[6].OracleType = OracleType.VarChar;
                 parametros[6].ParameterName = ":activo";
                 parametros[6].Value = pDepartamento.Activo;
@@ -119,6 +133,10 @@ namespace Datos
                 this.errorDescription = "Error agregando departamento:" + e.Message;    
             }
         }
+        /// <summary>
+        /// Metodo que borra el departamento seleccionado
+        /// </summary>
+        /// <param name="pDepartamento"></param>
 
         public void borrarDepartamento(DepartamentoL pDepartamento)
         {
@@ -126,7 +144,7 @@ namespace Datos
             {
                 string sql = "delete from Departamento where idDepartamento = :idDepartamento";
 
-                OracleParameter[] parametros = new OracleParameter[1];
+                OracleParameter[] parametros = new OracleParameter[1];// Parametro
 
                 parametros[0] = new OracleParameter();
                 parametros[0].OracleType = OracleType.VarChar;
@@ -143,6 +161,11 @@ namespace Datos
                 this.errorDescription = "Error borrando departamento:" + e.Message;
             }
         }
+        /// <summary>
+        /// Metodo que edita el departamento seleccionado
+        /// </summary>
+        /// <param name="pDepartamentoOriginal"></param>
+        /// <param name="pDepartamentoEditado"></param>
 
         public void editarDepartamento(DepartamentoL pDepartamentoOriginal, DepartamentoL pDepartamentoEditado)
         {
@@ -152,44 +175,44 @@ namespace Datos
                              "set idDepartamento = :idDepartamento, nombreDepartamento = :nombreDepartamento, fechaModificacion= :fechaModificacion, fechaCreacion= :fechaCreacion, creadoPor= :creadoPor,  modificadoPor= :modificadoPor,activo= :activo " +
                              "where idDepartamento = :idDepartamentoOriginal";
 
-                OracleParameter[] parametros = new OracleParameter[8];
+                OracleParameter[] parametros = new OracleParameter[8];//Parametro
 
-                parametros[0] = new OracleParameter();
+                parametros[0] = new OracleParameter();// Parametro que va a la base de datos a editar un nuevo id departamento
                 parametros[0].OracleType = OracleType.VarChar;
                 parametros[0].ParameterName = ":idDepartamento";
                 parametros[0].Value = pDepartamentoEditado.IdDepartamento;
 
-                parametros[1] = new OracleParameter();
+                parametros[1] = new OracleParameter();// Parametro que va a la base de datos a editar un nuevo nombre de departamento
                 parametros[1].OracleType = OracleType.VarChar;
                 parametros[1].ParameterName = ":nombreDepartamento";
                 parametros[1].Value = pDepartamentoEditado.NombreDepartamento;
 
-                parametros[2] = new OracleParameter();
+                parametros[2] = new OracleParameter();// Parametro que va a la base de datos a editar una nueva fecha de creación
                 parametros[2].OracleType = OracleType.DateTime;
                 parametros[2].ParameterName = ":fechaCreacion";
                 parametros[2].Value = pDepartamentoEditado.FechaCreacion;
 
-                parametros[3] = new OracleParameter();
+                parametros[3] = new OracleParameter();// Parametro que va a la base de datos a editar una nueva fecha de modificación
                 parametros[3].OracleType = OracleType.DateTime;
                 parametros[3].ParameterName = ":fechaModificacion";
                 parametros[3].Value = pDepartamentoEditado.FechaModificacion;
 
-                parametros[4] = new OracleParameter();
+                parametros[4] = new OracleParameter();// Parametro que va a la base de datos a editar una nuevo creado por
                 parametros[4].OracleType = OracleType.VarChar;
                 parametros[4].ParameterName = ":creadoPor";
                 parametros[4].Value = pDepartamentoEditado.CreadoPor;
 
-                parametros[5] = new OracleParameter();
+                parametros[5] = new OracleParameter();// Parametro que va a la base de datos a editar una nuevo modificado por
                 parametros[5].OracleType = OracleType.VarChar;
                 parametros[5].ParameterName = ":modificadoPor";
                 parametros[5].Value = pDepartamentoEditado.ModificadoPor;
 
-                parametros[6] = new OracleParameter();
+                parametros[6] = new OracleParameter();// Parametro que va a la base de datos a editar una nuevo estado del departamento
                 parametros[6].OracleType = OracleType.VarChar;
                 parametros[6].ParameterName = ":activo";
                 parametros[6].Value = pDepartamentoEditado.Activo;
 
-                parametros[7] = new OracleParameter();
+                parametros[7] = new OracleParameter();// Parametro que va a la base de a modificar la linea original por una editada
                 parametros[7].OracleType = OracleType.VarChar;
                 parametros[7].ParameterName = ":idDepartamentoOriginal";
                 parametros[7].Value = pDepartamentoOriginal.IdDepartamento;

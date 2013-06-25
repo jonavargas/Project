@@ -11,6 +11,9 @@ namespace Datos
 {
   public  class UsuarioD
     {   
+      /// <summary>
+      /// Atributos de la clase
+      /// </summary>
         private AccesoDatosOracle cnx;
         private bool error = false;
         private string errorDescription = "";
