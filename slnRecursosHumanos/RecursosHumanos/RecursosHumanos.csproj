@@ -50,6 +50,7 @@
     <Compile Include="Datos\CatalogoFechasD.cs" />
     <Compile Include="Datos\DeduccionesD.cs" />
     <Compile Include="Datos\DepartamentoD.cs" />
+    <Compile Include="Datos\EmpleadoD.cs" />
     <Compile Include="Datos\ParametroD.cs" />
     <Compile Include="Datos\UsuarioD.cs" />
     <Compile Include="GUI\frmEdicionCatalogoFechas.cs">
@@ -121,6 +122,7 @@
     <Compile Include="Logica\CatalogoFechasL.cs" />
     <Compile Include="Logica\DeduccionesL.cs" />
     <Compile Include="Logica\DepartamentoL.cs" />
+    <Compile Include="Logica\EmpleadoL.cs" />
     <Compile Include="Logica\ParametroL.cs" />
     <Compile Include="Logica\UsuarioL.cs" />
     <Compile Include="Program.cs" />

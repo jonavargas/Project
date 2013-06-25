@@ -9,7 +9,7 @@ using Logica;
 
 namespace Datos
 {
-  public  class UsuarioD
+    public  class UsuarioD
     {   
       /// <summary>
       /// Atributos de la clase

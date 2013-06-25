@@ -31,12 +31,12 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.grpDepartamento = new System.Windows.Forms.GroupBox();
+            this.chkActivo = new System.Windows.Forms.CheckBox();
+            this.lblEstado = new System.Windows.Forms.Label();
             this.txtNombreDepa = new System.Windows.Forms.TextBox();
             this.txtIdDepartamento = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblNombreDepa = new System.Windows.Forms.Label();
-            this.lblEstado = new System.Windows.Forms.Label();
-            this.chkActivo = new System.Windows.Forms.CheckBox();
             this.grpDepartamento.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,6 +48,7 @@
             this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAceptar
             // 
@@ -73,6 +74,25 @@
             this.grpDepartamento.Size = new System.Drawing.Size(402, 131);
             this.grpDepartamento.TabIndex = 3;
             this.grpDepartamento.TabStop = false;
+            // 
+            // chkActivo
+            // 
+            this.chkActivo.AutoSize = true;
+            this.chkActivo.Location = new System.Drawing.Point(198, 100);
+            this.chkActivo.Name = "chkActivo";
+            this.chkActivo.Size = new System.Drawing.Size(56, 17);
+            this.chkActivo.TabIndex = 3;
+            this.chkActivo.Text = "Activo";
+            this.chkActivo.UseVisualStyleBackColor = true;
+            // 
+            // lblEstado
+            // 
+            this.lblEstado.AutoSize = true;
+            this.lblEstado.Location = new System.Drawing.Point(40, 100);
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(97, 13);
+            this.lblEstado.TabIndex = 3;
+            this.lblEstado.Text = "Estado del usuario:";
             // 
             // txtNombreDepa
             // 
@@ -105,25 +125,6 @@
             this.lblNombreDepa.Size = new System.Drawing.Size(89, 13);
             this.lblNombreDepa.TabIndex = 0;
             this.lblNombreDepa.Text = "Id Departamento:";
-            // 
-            // lblEstado
-            // 
-            this.lblEstado.AutoSize = true;
-            this.lblEstado.Location = new System.Drawing.Point(40, 100);
-            this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(97, 13);
-            this.lblEstado.TabIndex = 3;
-            this.lblEstado.Text = "Estado del usuario:";
-            // 
-            // chkActivo
-            // 
-            this.chkActivo.AutoSize = true;
-            this.chkActivo.Location = new System.Drawing.Point(198, 100);
-            this.chkActivo.Name = "chkActivo";
-            this.chkActivo.Size = new System.Drawing.Size(56, 17);
-            this.chkActivo.TabIndex = 3;
-            this.chkActivo.Text = "Activo";
-            this.chkActivo.UseVisualStyleBackColor = true;
             // 
             // frmEdicionDepartamento
             // 
