@@ -133,6 +133,7 @@
             this.txtPorcentaje.Name = "txtPorcentaje";
             this.txtPorcentaje.Size = new System.Drawing.Size(239, 20);
             this.txtPorcentaje.TabIndex = 2;
+            this.txtPorcentaje.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPorcentaje_KeyPress);
             // 
             // txtFecha_Creacion
             // 

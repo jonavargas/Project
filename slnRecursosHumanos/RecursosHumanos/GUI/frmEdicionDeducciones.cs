@@ -93,5 +93,18 @@ namespace GUI
              this.Close();
          }
 
+         private void txtPorcentaje_KeyPress(object sender, KeyPressEventArgs e)
+         {
+             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',')              
+             {
+
+                 MessageBox.Show("Solo se permiten números!!!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                 e.Handled = true;
+                 return;                          
+             }
+
+                     
+        }
+
     }
 }
