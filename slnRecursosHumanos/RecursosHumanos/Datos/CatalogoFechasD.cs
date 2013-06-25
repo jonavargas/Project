@@ -26,6 +26,9 @@ namespace Datos
         {
             this.cnx = pCnx;
         }
+        /// <summary>
+        /// Propiedades de los atributos
+        /// </summary>
         public bool Error
         {
             get { return error; }
@@ -35,6 +38,10 @@ namespace Datos
         {
             get { return errorDescription; }
         }
+        /// <summary>
+        /// Metodo que obtiene de la base de datos el catalogo de fechas
+        /// </summary>
+        /// <returns></returns>
         public List<CatalogoFechasL> obtenerCatalogoFechas()
         {
             List<CatalogoFechasL> retorno = new List<CatalogoFechasL>();
