@@ -36,6 +36,144 @@ namespace Datos
             set { errorDescription = value; }
         }
 
+        public List<EmpleadoL> obtenerEmpleado()
+        {
+            List<EmpleadoL> retorno = new List<EmpleadoL>();
+            try
+            {
+                DataSet datos = this.cnx.ejecutarConsultaSQL("select * from Empleado");
+                if (this.cnx.IsError == false)
+                {
+                    foreach (DataRow fila in datos.Tables[0].Rows)
+                    {
+                        retorno.Add(
+                                    new EmpleadoL(fila["idEmpleado"].ToString(),
+                                                     fila["idDepartamento"].ToString(),
+                                                     fila["nombreEmpleado"].ToString(),
+                                                     fila["apellido1"].ToString(),
+                                                     fila["apellido2"].ToString(),
+                                                     int.Parse(fila["numCedula"].ToString()),
+                                                     int.Parse(fila["telefono"].ToString()),
+                                                     fila["fechaNacimiento"].ToString(),
+                                                     double.Parse(fila["salarioPorHora"].ToString()),
+                                                     fila["creadoPor"].ToString(),
+                                                     DateTime.Parse(fila["fechaCreacion"].ToString()),
+                                                     fila["modificadoPor"].ToString(),
+                                                     DateTime.Parse(fila["fechaModificacion"].ToString()),
+                                                     fila["activo"].ToString()
+                                                    )
 
+                                   );
+                    }
+                }
+                else
+                {
+                    this.error = true;
+                    this.errorDescription = "Error obteniendo Usuario:" +
+                                            this.cnx.ErrorDescripcion;
+                }
+            }
+            catch (Exception e)
+            {
+                this.error = true;
+                this.errorDescription = "Error obteniendo Usuario:" + e.Message;
+            }
+            return retorno;
+        }
+
+        public void agregarUsuario(EmpleadoL pEmpleado)
+        {
+            try
+            {
+                string sql = "insert into Usuario(idEmpleado,idDepartamento,nombreEmpleado,apellido1,apellido2,numCedula,telefono,fechaNacimiento,salarioPorHora,creadoPor,fechaCreacion,modificadoPor,fechaModificacion,activo) " +
+                             "values(:idEmpleado, :idDepartamento, :nombreEmpleado, :apellido1, :apellido2, :numCedula, :telefono, :fechaNacimiento, :salarioPorHora, :creadoPor, :fechaCreacion, :modificadoPor, :fechaModificacion, :activo)";
+
+                OracleParameter[] parametros = new OracleParameter[14];// Parametros
+
+                parametros[0] = new OracleParameter();// Parametro que va a la base de datos a agregar el id Empleado
+                parametros[0].OracleType = OracleType.VarChar;
+                parametros[0].ParameterName = ":idEmpleado";
+                parametros[0].Value = pEmpleado.IdEmpleado;
+
+                parametros[1] = new OracleParameter();// Parametro que va a la base de datos a agregar el id Departamento
+                parametros[1].OracleType = OracleType.VarChar;
+                parametros[1].ParameterName = ":idDepartamento";
+                parametros[1].Value = pEmpleado.IdDepartamento;
+
+                parametros[2] = new OracleParameter();// Parametro que va a la base de datos a agregar el Nombre del Empleado
+                parametros[2].OracleType = OracleType.VarChar;
+                parametros[2].ParameterName = ":nombreEmpleado";
+                parametros[2].Value = pEmpleado.NombreEmpleado;
+
+                parametros[3] = new OracleParameter();// Parametro que va a la base de datos a agregar el Apellido1
+                parametros[3].OracleType = OracleType.VarChar;
+                parametros[3].ParameterName = ":apellido1";
+                parametros[3].Value = pEmpleado.Apellido1;
+
+                parametros[4] = new OracleParameter();// Parametro que va a la base de datos a agregar el Apellido2
+                parametros[4].OracleType = OracleType.VarChar;
+                parametros[4].ParameterName = ":apellido2";
+                parametros[4].Value = pEmpleado.Apellido2;
+
+                parametros[5] = new OracleParameter();// Parametro que va a la base de datos a agregar el Numero de Cedula
+                parametros[5].OracleType = OracleType.Number;
+                parametros[5].ParameterName = ":numCedula";
+                parametros[5].Value = pEmpleado.NumCedula;
+
+                parametros[6] = new OracleParameter();// Parametro que va a la base de datos a agregar el Telefono 
+                parametros[6].OracleType = OracleType.Number;
+                parametros[6].ParameterName = ":telefono";
+                parametros[6].Value = pEmpleado.ModificadoPor;
+
+                parametros[7] = new OracleParameter();// Parametro que va a la base de datos a agregar la Fecha de Nacimiento 
+                parametros[7].OracleType = OracleType.DateTime;
+                parametros[7].ParameterName = ":fechaNacimiento";
+                parametros[7].Value = pEmpleado.FechaNacimiento;
+
+                parametros[8] = new OracleParameter();// Parametro que va a la base de datos a agregar el Salario Por Hora  
+                parametros[8].OracleType = OracleType.Number;
+                parametros[8].ParameterName = ":salarioPorHora";
+                parametros[8].Value = pEmpleado.SalarioPorHora;
+
+                parametros[9] = new OracleParameter();// Parametro que va a la base de datos a agregar Creado Por 
+                parametros[9].OracleType = OracleType.VarChar;
+                parametros[9].ParameterName = ":creadoPor";
+                parametros[9].Value = pEmpleado.CreadoPor;
+
+                parametros[10] = new OracleParameter();// Parametro que va a la base de datos a agregar la FechaCreacion
+                parametros[10].OracleType = OracleType.DateTime;
+                parametros[10].ParameterName = ":fechaCreacion";
+                parametros[10].Value = pEmpleado.FechaCreacion;
+
+                parametros[11] = new OracleParameter();// Parametro que va a la base de datos a agregar Modificado Por 
+                parametros[11].OracleType = OracleType.VarChar;
+                parametros[11].ParameterName = ":modificadoPor";
+                parametros[11].Value = pEmpleado.ModificadoPor;
+
+                parametros[12] = new OracleParameter();// Parametro que va a la base de datos a agregar la FechaCreacion
+                parametros[12].OracleType = OracleType.DateTime;
+                parametros[12].ParameterName = ":fechaModificacion";
+                parametros[12].Value = pEmpleado.FechaModificacion;
+
+                parametros[13] = new OracleParameter();// Parametro que va a la base de datos a agregar la FechaCreacion
+                parametros[13].OracleType = OracleType.DateTime;
+                parametros[13].ParameterName = ":fechaModificacion";
+                parametros[13].Value = pEmpleado.FechaModificacion;
+
+                parametros[14] = new OracleParameter();// Parametro que va a la base de datos a agregar el Activo
+                parametros[14].OracleType = OracleType.VarChar;
+                parametros[14].ParameterName = ":activo";
+                parametros[14].Value = pEmpleado.Activo;
+
+                this.cnx.ejecutarSQL(sql, parametros);
+                this.error = this.cnx.IsError;
+                this.errorDescription = this.cnx.ErrorDescripcion;
+            }
+            catch (Exception e)
+            {
+                this.error = true;
+                this.errorDescription = "Error agregando Usuario:" + e.Message;
+            }
+        }
     }
 }

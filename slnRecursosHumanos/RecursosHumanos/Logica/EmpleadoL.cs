@@ -8,6 +8,7 @@ namespace Logica
 {
     public class EmpleadoL
     {
+        private string idEmpleado;
         private string idDepartamento;
         private string nombreEmpleado;
         private string apellido1;
@@ -22,8 +23,9 @@ namespace Logica
         private DateTime fechaModificacion;
         private string activo;
 
-        public EmpleadoL(string pIdDepartamento, string pNombreEmpleado, string pApellido1, string pApellido2, int pNumCedula, int pTelefono, string pFechaNacimiento, double pSalarioPorHora, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, DateTime pFechaModificacion, string pActivo)
+        public EmpleadoL(string pIdEmpleado, string pIdDepartamento, string pNombreEmpleado, string pApellido1, string pApellido2, int pNumCedula, int pTelefono, string pFechaNacimiento, double pSalarioPorHora, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, DateTime pFechaModificacion, string pActivo)
         {
+            this.idEmpleado = pIdEmpleado;
             this.idDepartamento = pIdDepartamento;
             this.nombreEmpleado = pNombreEmpleado;
             this.apellido1 = pApellido1;
@@ -37,6 +39,12 @@ namespace Logica
             this.modificadoPor = pModificadoPor;
             this.fechaModificacion = pFechaModificacion;
             this.activo = pActivo;
+        }
+
+        public string IdEmpleado
+        {
+            get { return idEmpleado; }
+            set { idEmpleado = value; }
         }
 
         public string IdDepartamento
@@ -119,7 +127,8 @@ namespace Logica
 
         public override string ToString()
         {
-            return "ID Departamento: " + this.idDepartamento +
+            return "ID Empleado: " + this.idEmpleado +
+                   "ID Departamento: " + this.idDepartamento +
                    "Nombre Empleado: " + this.nombreEmpleado +
                    "Apellido 1: " + this.apellido1 +
                    "Apellido 2: " + this.apellido2 +

@@ -75,7 +75,7 @@ create table Empleado
        idEmpleado varchar(50),
        idDepartamento varchar(50),
        nombreEmpleado varchar(50),
-       apelllido1 varchar(50),
+       apellido1 varchar(50),
        apellido2 varchar(50),
        numCedula number,
        telefono number,
