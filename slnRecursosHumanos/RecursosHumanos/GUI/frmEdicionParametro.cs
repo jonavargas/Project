@@ -13,14 +13,24 @@ namespace GUI
 {
     public partial class frmEdicionParametro : Form
     {
+        /// <summary>
+        /// Atributos de la clase.
+        /// </summary>
         private Boolean aceptar;
         private ParametroL oParametroL;
-        
+
+        /// <summary>
+        /// Metodo constructor sin parametros
+        /// </summary>
         public frmEdicionParametro()
         {
             InitializeComponent();
             this.aceptar = false;
         }
+        /// <summary>
+        /// Metodo constructor con parametros
+        /// </summary>
+        /// <param name="pParametroL"></param>
         public frmEdicionParametro(ParametroL pParametroL)
         {
             InitializeComponent();
@@ -30,6 +40,9 @@ namespace GUI
             this.txtHoraSalida.Text = Convert.ToString( pParametroL.HoraSalida);            
             this.oParametroL = pParametroL;
         }
+        /// <summary>
+        /// Propiedades de los atributos
+        /// </summary>
         public ParametroL OParametroL
         {
             get { return oParametroL; }
@@ -39,6 +52,11 @@ namespace GUI
         {
             get { return aceptar; }
         }
+        /// <summary>
+        /// Metodo del botón Cancelar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -52,6 +70,10 @@ namespace GUI
             }
             return respuesta;       
         }
+        /// <summary>
+        /// Metodo para validar si el check de activo se encuentra seleccionado
+        /// </summary>
+        /// <returns></returns>
         private bool validarSeleccionActivo() {
             bool respuesta = false;
             if(ckdActivo.Checked){
@@ -59,6 +81,10 @@ namespace GUI
             }
             return respuesta;        
         }
+        /// <summary>
+        /// Metodo para validar si activo esta activo
+        /// </summary>
+        /// <returns></returns>
         private string validarActivo()
         {
             string respuesta = "No";
@@ -68,6 +94,10 @@ namespace GUI
             }
             return respuesta;
         }
+        /// <summary>
+        ///  Metodo para validar si lunes tiene el check
+        /// </summary>
+        /// <returns></returns>
         private string validarLunes() {
             string respuesta ="No";
             if(ckdLunes.Checked){
@@ -75,6 +105,10 @@ namespace GUI
             }
             return respuesta;
         }
+        /// <summary>
+        /// Metodo para validar si Martes tiene el check
+        /// </summary>
+        /// <returns></returns>
         private string validarMartes()
         {
             string respuesta = "No";
@@ -84,6 +118,10 @@ namespace GUI
             }
             return respuesta;
         }
+        /// <summary>
+        /// Metodo para validar si Miércoles tiene el check
+        /// </summary>
+        /// <returns></returns>
         private string validarMiercoles()
         {
             string respuesta = "No";
@@ -93,6 +131,10 @@ namespace GUI
             }
             return respuesta;
         }
+        /// <summary>
+        /// Metodo para validar si jueves tiene el check
+        /// </summary>
+        /// <returns></returns>
         private string validarJueves()
         {
             string respuesta = "No";
@@ -102,6 +144,10 @@ namespace GUI
             }
             return respuesta;
         }
+        /// <summary>
+        /// Metodo para validar si Viernes tiene el check
+        /// </summary>
+        /// <returns></returns>
         private string validarViernes()
         {
             string respuesta = "No";
@@ -111,6 +157,10 @@ namespace GUI
             }
             return respuesta;
         }
+        /// <summary>
+        /// Metodo para validar si Sábado tiene el check
+        /// </summary>
+        /// <returns></returns>
         private string validarSabado()
         {
             string respuesta = "No";
@@ -120,6 +170,10 @@ namespace GUI
             }
             return respuesta;
         }
+        /// <summary>
+        /// Metodo para validar si Domingo tiene el check
+        /// </summary>
+        /// <returns></returns>
         private string validarDomingo()
         {
             string respuesta = "No";
@@ -129,6 +183,11 @@ namespace GUI
             }
             return respuesta;
         }
+        /// <summary>
+        /// Metodo del botón aceptar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {

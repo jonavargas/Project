@@ -199,7 +199,7 @@
             this.btnAceptar.Location = new System.Drawing.Point(92, 289);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
-            this.btnAceptar.TabIndex = 30;
+            this.btnAceptar.TabIndex = 12;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
@@ -209,7 +209,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(193, 289);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 31;
+            this.btnCancelar.TabIndex = 13;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -220,7 +220,7 @@
             this.ckdLunes.Location = new System.Drawing.Point(151, 94);
             this.ckdLunes.Name = "ckdLunes";
             this.ckdLunes.Size = new System.Drawing.Size(55, 17);
-            this.ckdLunes.TabIndex = 32;
+            this.ckdLunes.TabIndex = 4;
             this.ckdLunes.Text = "Lunes";
             this.ckdLunes.UseVisualStyleBackColor = true;
             // 
@@ -230,7 +230,7 @@
             this.ckdMartes.Location = new System.Drawing.Point(151, 117);
             this.ckdMartes.Name = "ckdMartes";
             this.ckdMartes.Size = new System.Drawing.Size(58, 17);
-            this.ckdMartes.TabIndex = 33;
+            this.ckdMartes.TabIndex = 5;
             this.ckdMartes.Text = "Martes";
             this.ckdMartes.UseVisualStyleBackColor = true;
             // 
@@ -240,7 +240,7 @@
             this.ckdMiercoles.Location = new System.Drawing.Point(151, 140);
             this.ckdMiercoles.Name = "ckdMiercoles";
             this.ckdMiercoles.Size = new System.Drawing.Size(71, 17);
-            this.ckdMiercoles.TabIndex = 34;
+            this.ckdMiercoles.TabIndex = 6;
             this.ckdMiercoles.Text = "Miércoles";
             this.ckdMiercoles.UseVisualStyleBackColor = true;
             // 
@@ -250,7 +250,7 @@
             this.ckdJueves.Location = new System.Drawing.Point(151, 163);
             this.ckdJueves.Name = "ckdJueves";
             this.ckdJueves.Size = new System.Drawing.Size(60, 17);
-            this.ckdJueves.TabIndex = 35;
+            this.ckdJueves.TabIndex = 7;
             this.ckdJueves.Text = "Jueves";
             this.ckdJueves.UseVisualStyleBackColor = true;
             // 
@@ -260,7 +260,7 @@
             this.ckdViernes.Location = new System.Drawing.Point(151, 186);
             this.ckdViernes.Name = "ckdViernes";
             this.ckdViernes.Size = new System.Drawing.Size(61, 17);
-            this.ckdViernes.TabIndex = 36;
+            this.ckdViernes.TabIndex = 8;
             this.ckdViernes.Text = "Viernes";
             this.ckdViernes.UseVisualStyleBackColor = true;
             // 
@@ -270,7 +270,7 @@
             this.ckdSabado.Location = new System.Drawing.Point(151, 209);
             this.ckdSabado.Name = "ckdSabado";
             this.ckdSabado.Size = new System.Drawing.Size(63, 17);
-            this.ckdSabado.TabIndex = 37;
+            this.ckdSabado.TabIndex = 9;
             this.ckdSabado.Text = "Sábado";
             this.ckdSabado.UseVisualStyleBackColor = true;
             // 
@@ -280,7 +280,7 @@
             this.ckdDomingo.Location = new System.Drawing.Point(151, 232);
             this.ckdDomingo.Name = "ckdDomingo";
             this.ckdDomingo.Size = new System.Drawing.Size(68, 17);
-            this.ckdDomingo.TabIndex = 38;
+            this.ckdDomingo.TabIndex = 10;
             this.ckdDomingo.Text = "Domingo";
             this.ckdDomingo.UseVisualStyleBackColor = true;
             // 
@@ -299,7 +299,7 @@
             this.ckdActivo.Location = new System.Drawing.Point(151, 255);
             this.ckdActivo.Name = "ckdActivo";
             this.ckdActivo.Size = new System.Drawing.Size(56, 17);
-            this.ckdActivo.TabIndex = 40;
+            this.ckdActivo.TabIndex = 11;
             this.ckdActivo.Text = "Activo";
             this.ckdActivo.UseVisualStyleBackColor = true;
             // 

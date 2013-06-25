@@ -82,6 +82,11 @@ namespace GUI
             this.Close();
 
         }
+        /// <summary>
+        /// Metodo del botón cancelar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
