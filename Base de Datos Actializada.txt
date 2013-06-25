@@ -69,3 +69,23 @@ create table Departamento
   activo varchar(3),
   constraint PK_Departamento primary key (idDepartamento)
 );
+
+create table Empleado
+(
+       idEmpleado varchar(50),
+       idDepartamento varchar(50),
+       nombreEmpleado varchar(50),
+       apelllido1 varchar(50),
+       apellido2 varchar(50),
+       numCedula number,
+       telefono number,
+       fechaNacimiento varchar(50),
+       salarioPorHora decimal(10),
+       creadoPor varchar(100),
+       fechaCreacion date,
+       modificadoPor varchar(100),
+       fechaModificacion date,
+       activo varchar(3),
+       constraint PK_Empleado primary key (idEmpleado),
+       constraint Empleado_FK foreign key (idDepartamento)references Departamento(idDepartamento)
+);
