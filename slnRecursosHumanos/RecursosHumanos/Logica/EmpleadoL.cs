@@ -8,6 +8,9 @@ namespace Logica
 {
     public class EmpleadoL
     {
+        /// <summary>
+        /// Atributos de la clase
+        /// </summary>
         private string idEmpleado;
         private string idDepartamento;
         private string nombreEmpleado;
@@ -22,6 +25,10 @@ namespace Logica
         private string modificadoPor;
         private DateTime fechaModificacion;
         private string activo;
+
+        /// <summary>
+        /// Metodo constructor con parametros
+        /// </summary>        
 
         public EmpleadoL(string pIdEmpleado, string pIdDepartamento, string pNombreEmpleado, string pApellido1, string pApellido2, int pNumCedula, int pTelefono, string pFechaNacimiento, double pSalarioPorHora, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, DateTime pFechaModificacion, string pActivo)
         {
@@ -40,6 +47,9 @@ namespace Logica
             this.fechaModificacion = pFechaModificacion;
             this.activo = pActivo;
         }
+        /// <summary>
+        /// Propiedades de los atributos de la clase
+        /// </summary>
 
         public string IdEmpleado
         {
@@ -124,6 +134,10 @@ namespace Logica
             get { return activo; }
             set { activo = value; }
         }
+        /// <summary>
+        ///  Metodo ToString
+        /// </summary>
+        /// <returns></returns>
 
         public override string ToString()
         {

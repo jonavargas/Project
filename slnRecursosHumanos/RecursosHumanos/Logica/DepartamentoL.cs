@@ -8,6 +8,9 @@ namespace Logica
 {
    public  class DepartamentoL
     {
+       /// <summary>
+       /// Atributos de la clase
+       /// </summary>
         private string idDepartamento;
         private string nombreDepartamento;
         private DateTime fechaCreacion;
@@ -16,6 +19,16 @@ namespace Logica
         private string creadoPor;
         private string activo;
 
+       /// <summary>
+       /// Metodo constructor con parametros
+       /// </summary>
+       /// <param name="pIdDepartamento"></param>
+       /// <param name="pNombreDepartamento"></param>
+       /// <param name="pFechaModificacion"></param>
+       /// <param name="pFechaCreacion"></param>
+       /// <param name="pCreadoPor"></param>
+       /// <param name="pModificadoPor"></param>
+       /// <param name="pActivo"></param>
         public DepartamentoL(string pIdDepartamento, string pNombreDepartamento, DateTime pFechaModificacion, DateTime pFechaCreacion, string pCreadoPor, string pModificadoPor, string pActivo)
         {
             this.idDepartamento = pIdDepartamento;
@@ -26,6 +39,9 @@ namespace Logica
             this.modificadoPor = pModificadoPor;
             this.activo = pActivo;
         }   
+       /// <summary>
+       /// Propiedades de los atributos
+       /// </summary>
          
         public string NombreDepartamento
         {
@@ -65,6 +81,10 @@ namespace Logica
             get { return activo; }
             set { activo = value; }
         }
+       /// <summary>
+       /// Metodo ToString
+       /// </summary>
+       /// <returns></returns>
 
         public override string ToString()
         {

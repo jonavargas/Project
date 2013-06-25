@@ -8,6 +8,9 @@ namespace Logica
 {
      public class ParametroL
     {
+         /// <summary>
+         ///Atributos de la clase
+         /// </summary>
         private string idParametro;
         private DateTime horaEntrada;       
         private DateTime horaSalida;       
@@ -24,6 +27,24 @@ namespace Logica
         private string modificadoPor;
         private string activo;
 
+        /// <summary>
+        /// Metodo constructor con parametros
+        /// </summary>
+        /// <param name="pIdParametro"></param>
+        /// <param name="pHoraEntrada"></param>
+        /// <param name="pHoraSalida"></param>
+        /// <param name="pLunes"></param>
+        /// <param name="pMartes"></param>
+        /// <param name="pMiercoles"></param>
+        /// <param name="pJueves"></param>
+        /// <param name="pViernes"></param>
+        /// <param name="pSabado"></param>
+        /// <param name="pDomingo"></param>
+        /// <param name="pFechaModificacion"></param>
+        /// <param name="pFechaCreacion"></param>
+        /// <param name="pCreadoPor"></param>
+        /// <param name="pModificadoPor"></param>
+        /// <param name="pActivo"></param>
         public ParametroL(string pIdParametro, DateTime pHoraEntrada, DateTime pHoraSalida, string pLunes, string pMartes,
                            string pMiercoles, string pJueves, string pViernes, string pSabado, string pDomingo, DateTime pFechaModificacion, DateTime pFechaCreacion, string pCreadoPor, string pModificadoPor, string pActivo)
         {
@@ -41,9 +62,11 @@ namespace Logica
             this.fechaCreacion = pFechaCreacion;            
             this.creadoPor = pCreadoPor;
             this.modificadoPor = pModificadoPor;
-            this.activo = pActivo;
-            
+            this.activo = pActivo;            
         }
+         /// <summary>
+         /// Propiedades de la clase
+         /// </summary>
 
         public string IdParametro
         {
@@ -121,6 +144,10 @@ namespace Logica
             get { return activo; }
             set { activo = value; }
         }
+         /// <summary>
+        /// Metodo ToString
+         /// </summary>
+         /// <returns></returns>
         public override string ToString()
         {
             return "ID Parametro: " + this.IdParametro +

@@ -8,6 +8,9 @@ namespace Logica
 {
   public  class CatalogoFechasL
     {
+      /// <summary>
+      /// Atributos de la clase
+      /// </summary>
         private string idCatalogoFechas;       
         private int dia;       
         private string mes;        
@@ -18,6 +21,18 @@ namespace Logica
         private string creadoPor;
         private string activo;
 
+      /// <summary>
+      /// Metodo constructor con parametros
+      /// </summary>
+      /// <param name="pIdCatalogoFechas"></param>
+      /// <param name="pDia"></param>
+      /// <param name="pMes"></param>
+      /// <param name="pDescripcion"></param>
+      /// <param name="pFechaModificacion"></param>
+      /// <param name="pFechaCreacion"></param>
+      /// <param name="pCreadoPor"></param>
+      /// <param name="pModificadoPor"></param>
+      /// <param name="pActivo"></param>
         public CatalogoFechasL(string pIdCatalogoFechas, int pDia, string pMes, string pDescripcion, DateTime pFechaModificacion, DateTime pFechaCreacion, string pCreadoPor, string pModificadoPor, string pActivo)
         {
             this.idCatalogoFechas = pIdCatalogoFechas;
@@ -30,6 +45,9 @@ namespace Logica
             this.creadoPor = pCreadoPor;
             this.activo = pActivo;
         }
+      /// <summary>
+      /// Propiedades de los atributos
+      /// </summary>
         public string IdCatalogoFechas
         {
             get { return idCatalogoFechas; }
@@ -75,6 +93,10 @@ namespace Logica
             get { return activo; }
             set { activo = value; }
         }
+      /// <summary>
+      /// Metodo Tostring
+      /// </summary>
+      /// <returns></returns>
         public override string ToString()
         {
             return "ID Catalogo de Fechas: " + this.idCatalogoFechas +

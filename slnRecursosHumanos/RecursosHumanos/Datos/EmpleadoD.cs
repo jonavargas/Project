@@ -18,6 +18,9 @@ namespace Datos
         private bool error = false;
         private string errorDescription = "";
 
+        /// <summary>
+        /// Propiedades de los atributos
+        /// </summary>
         public AccesoDatosOracle Cnx
         {
             get { return cnx; }
@@ -35,6 +38,11 @@ namespace Datos
             get { return errorDescription; }
             set { errorDescription = value; }
         }
+
+        /// <summary>
+        /// Metodo que obtiene el empleado
+        /// </summary>
+        /// <returns></returns>
 
         public List<EmpleadoL> obtenerEmpleado()
         {
@@ -80,6 +88,10 @@ namespace Datos
             }
             return retorno;
         }
+        /// <summary>
+        /// Metodo que agrega un nuevo usuario
+        /// </summary>
+        /// <param name="pEmpleado"></param>
 
         public void agregarUsuario(EmpleadoL pEmpleado)
         {

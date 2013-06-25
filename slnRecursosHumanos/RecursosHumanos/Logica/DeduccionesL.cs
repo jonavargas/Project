@@ -8,6 +8,9 @@ namespace Logica
 {
    public class DeduccionesL
     {
+       /// <summary>
+       /// Atributos de la clase
+       /// </summary>
         private string idDeducciones;
         private double porcentaje;
         private string descripcion;       
@@ -17,6 +20,17 @@ namespace Logica
         private string creadoPor;        
         private string activo;
 
+       /// <summary>
+       /// Metodo constructor con parametros
+       /// </summary>
+       /// <param name="pIdDeducciones"></param>
+       /// <param name="pPorcentaje"></param>
+       /// <param name="pDescripcion"></param>
+       /// <param name="pFechaModificacion"></param>
+       /// <param name="pFechaCreacion"></param>
+       /// <param name="pCreadoPor"></param>
+       /// <param name="pModificadoPor"></param>
+       /// <param name="pActivo"></param>
         public DeduccionesL(string pIdDeducciones, double pPorcentaje, string pDescripcion, DateTime pFechaModificacion, DateTime pFechaCreacion, string pCreadoPor, string pModificadoPor, string pActivo)
         {
             this.idDeducciones = pIdDeducciones;
@@ -28,6 +42,9 @@ namespace Logica
             this.modificadoPor = pModificadoPor;
             this.activo = pActivo;
         }
+       /// <summary>
+       /// Propiedades de los atributos
+       /// </summary>
         public string IdDeducciones
         {
             get { return idDeducciones; }
@@ -69,6 +86,10 @@ namespace Logica
             get { return activo; }
             set { activo = value; }
         }
+       /// <summary>
+        /// Metodo ToString
+       /// </summary>
+       /// <returns></returns>
         public override string ToString()
         {
             return "ID Deducciones: " + this.IdDeducciones +

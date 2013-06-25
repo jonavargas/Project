@@ -8,6 +8,9 @@ namespace Logica
 {
     public class UsuarioL
     {
+        /// <summary>
+        /// Atributos de la clase
+        /// </summary>
         private String idUsuario;        
         private string tipoUsuario;        
         private string password;        
@@ -16,6 +19,11 @@ namespace Logica
         private string modificadoPor;
         private string creadoPor;
         private string activo;
+
+        /// <summary>
+        /// Metodo cpnstructor con parametros
+        /// </summary>
+        
 
         public UsuarioL(string pIdUsuario, string pTipoUsuario, string pPassword, DateTime pfechaModificacion, DateTime pfechaCreacion, string pcreadoPor, string pmodificadoPor, string pactivo)
         {
@@ -28,6 +36,10 @@ namespace Logica
             this.modificadoPor = pmodificadoPor;            
             this.activo = pactivo;
         }
+
+        /// <summary>
+        /// Propiedades de los atributos
+        /// </summary>
         public string IdUsuario
         {
             get { return idUsuario; }
@@ -68,6 +80,10 @@ namespace Logica
             get { return activo; }
             set { activo = value; }
         }
+        /// <summary>
+        /// Metodo ToString
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return "ID Usuario: " + this.idUsuario +
