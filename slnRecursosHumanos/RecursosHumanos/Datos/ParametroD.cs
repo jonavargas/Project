@@ -189,7 +189,7 @@ namespace Datos
           catch (Exception e)
           {
               this.error = true;
-              this.errorDescription = "Error borrando Parametro:" + e.Message;
+              this.errorDescription = "Error borrando Parametro: " + e.Message;
           }
       }
 
@@ -198,7 +198,7 @@ namespace Datos
           try
           {
               string sql = "update Parametro " +
-                           "set idParametro = :idParametro, horaEntrada  = :horaEntrada, horaSalida = :horaSalida, lunes = :lunes, martes = :martes, miercoles = :miercoles, jueves = :jueves, viernes = :viernes, sabado = :sabado, domingo = :domingo, fechaModificacion = :fechaModificacion, fechaCreacion = :fechaCreacion, creadoPor = :creadoPor, modificadoPor = :modificadoPor, activo = :activo " +
+                           "set idParametro = :idParametro, horaEntrada = :horaEntrada, horaSalida = :horaSalida, lunes = :lunes, martes = :martes, miercoles = :miercoles, jueves = :jueves, viernes = :viernes, sabado = :sabado, domingo = :domingo, fechaModificacion = :fechaModificacion, fechaCreacion = :fechaCreacion, creadoPor = :creadoPor, modificadoPor = :modificadoPor, activo = :activo " +
                            "where idParametro = :idParametroOriginal";
 
               OracleParameter[] parametros = new OracleParameter[16];
@@ -280,7 +280,7 @@ namespace Datos
 
               parametros[15] = new OracleParameter();
               parametros[15].OracleType = OracleType.VarChar;
-              parametros[15].ParameterName = ":idUsuarioOriginal";
+              parametros[15].ParameterName = ":idParametroOriginal";
               parametros[15].Value = pParametroOriginal.IdParametro;
 
               this.cnx.ejecutarSQL(sql, parametros);

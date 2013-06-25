@@ -133,7 +133,7 @@ namespace GUI
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             if ((this.txtIdParametro.Text == "") ||
-               (this.txtHoraEntrada.Text == "") || (this.txtHoraSalida.Text == "") || (this.ValidarSeleccionDias()==false) || (this.validarSeleccionActivo()==false))
+               (this.txtHoraEntrada.Text == "") || (this.txtHoraSalida.Text == ""))
             {
                 MessageBox.Show("Faltan datos requeridos");
                 return;

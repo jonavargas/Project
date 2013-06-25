@@ -41,7 +41,7 @@ namespace GUI
         private void btnRefrescar_Click(object sender, EventArgs e)
         {
             this.cargarGrid();
-            MessageBox.Show("Datos refrescados");
+            MessageBox.Show("Datos actualizados!!!");
         }
         private void btnBorrar_Click(object sender, EventArgs e)
         {
