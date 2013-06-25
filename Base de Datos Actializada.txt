@@ -1,0 +1,71 @@
+create table Usuario
+( 
+  idUsuario varchar(50) not null,
+  tipoUsuario varchar(10) not null,
+  password varchar(50) not null,
+  fechaModificacion date,
+  fechaCreacion date,
+  creadoPor varchar(100),
+  modificadoPor varchar(100),
+  activo varchar(3),
+  constraint PK_Usuario primary key (idUsuario)
+);
+
+create table Deducciones
+(
+  idDeducciones varchar(50) not null, 
+  porcentaje numeric(38,2) not null,
+  descripcion varchar(500) not null,
+  fechaModificacion date,
+  fechaCreacion date,
+  creadoPor varchar(100),
+  modificadoPor varchar(100),
+  activo varchar(3),
+  constraint PK_Deducciones primary key (idDeducciones)
+);
+
+create table CatalogoFechas
+(
+  idCatalogoFechas varchar(50) not null,
+  dia numeric not null,
+  mes varchar(50) not null,
+  descripcion varchar(500),
+  fechaModificacion date,
+  fechaCreacion date,
+  creadoPor varchar(100),
+  modificadoPor varchar(100),
+  activo varchar(3),
+  constraint PK_CatalogoFechas primary key (idCatalogoFechas)
+);
+
+create table Parametro
+( 
+  idParametro varchar(50) not null,
+  horaEntrada date not null,
+  horaSalida date not null,
+  lunes varchar(3),
+  martes varchar(3),
+  miercoles varchar(3),
+  jueves varchar(3),
+  viernes varchar(3),
+  sabado varchar(3),
+  domingo varchar(3),
+  fechaModificacion date,
+  fechaCreacion date,
+  creadoPor varchar(100),
+  modificadoPor varchar(100),
+  activo varchar(3),
+  constraint PK_Parametro primary key (idParametro)
+);
+
+create table Departamento
+(
+  idDepartamento varchar(50) not null,
+  nombreDepartamento varchar(50) not null,
+  fechaModificacion date,
+  fechaCreacion date,
+  creadoPor varchar(100),
+  modificadoPor varchar(100),
+  activo varchar(3),
+  constraint PK_Departamento primary key (idDepartamento)
+);

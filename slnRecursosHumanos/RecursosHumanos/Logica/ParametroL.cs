@@ -1,0 +1,144 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Logica
+{
+     public class ParametroL
+    {
+        private string idParametro;
+        private DateTime horaEntrada;       
+        private DateTime horaSalida;       
+        private string lunes;
+        private string martes;       
+        private string miercoles;       
+        private string jueves;      
+        private string viernes;      
+        private string sabado;
+        private string domingo;
+        private DateTime fechaModificacion;       
+        private DateTime fechaCreacion;      
+        private string creadoPor;
+        private string modificadoPor;
+        private string activo;
+
+        public ParametroL(string pIdParametro, DateTime pHoraEntrada, DateTime pHoraSalida, string pLunes, string pMartes,
+                           string pMiercoles, string pJueves, string pViernes, string pSabado, string pDomingo, DateTime pFechaModificacion, DateTime pFechaCreacion, string pCreadoPor, string pModificadoPor, string pActivo)
+        {
+            this.idParametro = pIdParametro;
+            this.horaEntrada = pHoraEntrada;
+            this.horaSalida = pHoraSalida;
+            this.lunes= pLunes;
+            this.martes = pMartes;
+            this.miercoles = pMiercoles;
+            this.jueves = pJueves;
+            this.viernes =pViernes;
+            this.sabado = pSabado;
+            this.domingo = pDomingo;
+            this.fechaModificacion = pFechaModificacion;
+            this.fechaCreacion = pFechaCreacion;            
+            this.creadoPor = pCreadoPor;
+            this.modificadoPor = pModificadoPor;
+            this.activo = pActivo;
+            
+        }
+
+        public string IdParametro
+        {
+            get { return idParametro; }
+            set { idParametro = value; }
+        }
+        public DateTime HoraEntrada
+        {
+            get { return horaEntrada; }
+            set { horaEntrada = value; }
+        }
+        public DateTime HoraSalida
+        {
+            get { return horaSalida; }
+            set { horaSalida = value; }
+        }
+        public string Lunes
+        {
+            get { return lunes; }
+            set { lunes = value; }
+        }
+        public string Martes
+        {
+            get { return martes; }
+            set { martes = value; }
+        }
+        public string Miercoles
+        {
+            get { return miercoles; }
+            set { miercoles = value; }
+        }
+        public string Jueves
+        {
+            get { return jueves; }
+            set { jueves = value; }
+        }
+        public string Viernes
+        {
+            get { return viernes; }
+            set { viernes = value; }
+        }
+        public string Sabado
+        {
+            get { return sabado; }
+            set { sabado = value; }
+        }
+        public string Domingo
+        {
+            get { return domingo; }
+            set { domingo = value; }
+        }
+        public DateTime FechaModificacion
+        {
+            get { return fechaModificacion; }
+            set { fechaModificacion = value; }
+        }
+        public DateTime FechaCreacion
+        {
+            get { return fechaCreacion; }
+            set { fechaCreacion = value; }
+        }
+       
+        public string ModificadoPor
+        {
+            get { return modificadoPor; }
+            set { modificadoPor = value; }
+        }
+        public string CreadoPor
+        {
+            get { return creadoPor; }
+            set { creadoPor = value; }
+        }
+        public string Activo
+        {
+            get { return activo; }
+            set { activo = value; }
+        }
+        public override string ToString()
+        {
+            return "ID Parametro: " + this.IdParametro +
+                   "Hora Entrada: " + this.HoraEntrada +
+                   "Hora Salida: " + this.HoraSalida+
+                   "Lunes: " + this.Lunes +
+                   "Martes: " + this.Martes +
+                   "Miércoles: " + this.Miercoles +
+                   "Jueves: " + this.Jueves+
+                   "Viernes: " + this.Viernes +
+                   "Sabado: " + this.Sabado+
+                   "Domingo: " + this.Domingo +
+                   "Fecha de Modificación: " + this.FechaModificacion +
+                   "Fecha de Creación: " + this.FechaCreacion +
+                   "Creado por: " + this.CreadoPor +
+                   "Modificado por: " + this.ModificadoPor +                   
+                   "Activo: " + this.Activo;
+        }
+
+    }
+}

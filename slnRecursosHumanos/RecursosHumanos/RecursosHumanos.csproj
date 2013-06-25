@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6D68F4DA-1030-4152-9D71-B336418105E8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RecursosHumanos</RootNamespace>
+    <AssemblyName>RecursosHumanos</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Datos\AccesoDatos.cs" />
+    <Compile Include="Datos\AccesoDatosOracle.cs" />
+    <Compile Include="Datos\CatalogoFechasD.cs" />
+    <Compile Include="Datos\DeduccionesD.cs" />
+    <Compile Include="Datos\DepartamentoD.cs" />
+    <Compile Include="Datos\ParametroD.cs" />
+    <Compile Include="Datos\UsuarioD.cs" />
+    <Compile Include="GUI\frmEdicionCatalogoFechas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmEdicionCatalogoFechas.Designer.cs">
+      <DependentUpon>frmEdicionCatalogoFechas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmEdicionDeducciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmEdicionDeducciones.Designer.cs">
+      <DependentUpon>frmEdicionDeducciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmEdicionDepartamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmEdicionDepartamento.Designer.cs">
+      <DependentUpon>frmEdicionDepartamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmEdicionParametro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmEdicionParametro.Designer.cs">
+      <DependentUpon>frmEdicionParametro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmEdicionUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmEdicionUsuario.Designer.cs">
+      <DependentUpon>frmEdicionUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmMantCatalogoFechas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmMantCatalogoFechas.Designer.cs">
+      <DependentUpon>frmMantCatalogoFechas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmMantDeducciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmMantDeducciones.Designer.cs">
+      <DependentUpon>frmMantDeducciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmMantDepartamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmMantDepartamento.Designer.cs">
+      <DependentUpon>FrmMantDepartamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmMantParametro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmMantParametro.Designer.cs">
+      <DependentUpon>frmMantParametro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmMantUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmMantUsuario.Designer.cs">
+      <DependentUpon>frmMantUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmPrincipal.Designer.cs">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Logica\CatalogoFechasL.cs" />
+    <Compile Include="Logica\DeduccionesL.cs" />
+    <Compile Include="Logica\DepartamentoL.cs" />
+    <Compile Include="Logica\ParametroL.cs" />
+    <Compile Include="Logica\UsuarioL.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\frmEdicionCatalogoFechas.resx">
+      <DependentUpon>frmEdicionCatalogoFechas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmEdicionDepartamento.resx">
+      <DependentUpon>frmEdicionDepartamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmEdicionParametro.resx">
+      <DependentUpon>frmEdicionParametro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmEdicionUsuario.resx">
+      <DependentUpon>frmEdicionUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmMantCatalogoFechas.resx">
+      <DependentUpon>frmMantCatalogoFechas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmMantDepartamento.resx">
+      <DependentUpon>FrmMantDepartamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmMantParametro.resx">
+      <DependentUpon>frmMantParametro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmMantUsuario.resx">
+      <DependentUpon>frmMantUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmEdicionDeducciones.resx">
+      <DependentUpon>frmEdicionDeducciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmMantDeducciones.resx">
+      <DependentUpon>frmMantDeducciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nuevo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\borrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actualizar.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
