@@ -296,6 +296,8 @@
             // ckdActivo
             // 
             this.ckdActivo.AutoSize = true;
+            this.ckdActivo.Checked = true;
+            this.ckdActivo.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ckdActivo.Location = new System.Drawing.Point(151, 255);
             this.ckdActivo.Name = "ckdActivo";
             this.ckdActivo.Size = new System.Drawing.Size(56, 17);

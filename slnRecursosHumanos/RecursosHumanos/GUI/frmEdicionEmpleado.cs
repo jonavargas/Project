@@ -80,14 +80,7 @@ namespace GUI
             }
             return respuesta;
         }
-        private bool validarFechaNacimiento() {
-            bool respuesta = false;
-           
-            
-            }
-        
-        }
-        
+       
         private void btnAceptar_Click_1(object sender, EventArgs e)
         {
             if ((this.txtEmpleado.Text == "") ||
@@ -112,6 +105,10 @@ namespace GUI
                                                 this.validarActivo());
             this.aceptar = true;
             this.Close();
+
+
+
+
         }
     }
 }
