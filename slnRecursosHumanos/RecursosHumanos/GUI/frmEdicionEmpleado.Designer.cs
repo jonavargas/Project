@@ -1,4 +1,4 @@
-﻿namespace RecursosHumanos.GUI
+﻿namespace GUI
 {
     partial class frmEdicionEmpleado
     {
@@ -48,6 +48,8 @@
             this.txtFechaNacimiento = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.lblSalarioHora = new System.Windows.Forms.Label();
+            this.txtSalarioPorHora = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblEmpleado
@@ -116,7 +118,7 @@
             // lblFechaNacimiento
             // 
             this.lblFechaNacimiento.AutoSize = true;
-            this.lblFechaNacimiento.Location = new System.Drawing.Point(41, 213);
+            this.lblFechaNacimiento.Location = new System.Drawing.Point(43, 237);
             this.lblFechaNacimiento.Name = "lblFechaNacimiento";
             this.lblFechaNacimiento.Size = new System.Drawing.Size(96, 13);
             this.lblFechaNacimiento.TabIndex = 7;
@@ -125,7 +127,7 @@
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
-            this.lblEstado.Location = new System.Drawing.Point(41, 239);
+            this.lblEstado.Location = new System.Drawing.Point(44, 263);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(95, 13);
             this.lblEstado.TabIndex = 8;
@@ -134,7 +136,7 @@
             // chkActivo
             // 
             this.chkActivo.AutoSize = true;
-            this.chkActivo.Location = new System.Drawing.Point(149, 239);
+            this.chkActivo.Location = new System.Drawing.Point(149, 263);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(56, 17);
             this.chkActivo.TabIndex = 9;
@@ -192,14 +194,14 @@
             // 
             // txtFechaNacimiento
             // 
-            this.txtFechaNacimiento.Location = new System.Drawing.Point(149, 210);
+            this.txtFechaNacimiento.Location = new System.Drawing.Point(149, 237);
             this.txtFechaNacimiento.Name = "txtFechaNacimiento";
             this.txtFechaNacimiento.Size = new System.Drawing.Size(190, 20);
             this.txtFechaNacimiento.TabIndex = 18;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(87, 281);
+            this.btnAceptar.Location = new System.Drawing.Point(87, 301);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 19;
@@ -208,18 +210,36 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(207, 281);
+            this.btnCancelar.Location = new System.Drawing.Point(207, 301);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 20;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
+            // lblSalarioHora
+            // 
+            this.lblSalarioHora.AutoSize = true;
+            this.lblSalarioHora.Location = new System.Drawing.Point(41, 211);
+            this.lblSalarioHora.Name = "lblSalarioHora";
+            this.lblSalarioHora.Size = new System.Drawing.Size(86, 13);
+            this.lblSalarioHora.TabIndex = 21;
+            this.lblSalarioHora.Text = "Salario por Hora;";
+            // 
+            // txtSalarioPorHora
+            // 
+            this.txtSalarioPorHora.Location = new System.Drawing.Point(149, 208);
+            this.txtSalarioPorHora.Name = "txtSalarioPorHora";
+            this.txtSalarioPorHora.Size = new System.Drawing.Size(190, 20);
+            this.txtSalarioPorHora.TabIndex = 22;
+            // 
             // frmEdicionEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(372, 324);
+            this.ClientSize = new System.Drawing.Size(387, 352);
+            this.Controls.Add(this.txtSalarioPorHora);
+            this.Controls.Add(this.lblSalarioHora);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.txtFechaNacimiento);
@@ -269,5 +289,7 @@
         private System.Windows.Forms.TextBox txtFechaNacimiento;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Label lblSalarioHora;
+        private System.Windows.Forms.TextBox txtSalarioPorHora;
     }
 }
