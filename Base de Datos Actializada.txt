@@ -80,7 +80,7 @@ create table Empleado
        numCedula number,
        telefono number,
        fechaNacimiento varchar(50),
-       salarioPorHora decimal(10),
+       salarioPorHora number(10),
        creadoPor varchar(100),
        fechaCreacion date,
        modificadoPor varchar(100),
