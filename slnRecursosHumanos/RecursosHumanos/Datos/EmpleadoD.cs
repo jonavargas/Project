@@ -18,6 +18,10 @@ namespace Datos
         private bool error = false;
         private string errorDescription = "";
 
+        public EmpleadoD(AccesoDatosOracle pCnx)
+        {
+            this.cnx = pCnx;
+        }
         /// <summary>
         /// Propiedades de los atributos
         /// </summary>
@@ -93,7 +97,7 @@ namespace Datos
         /// </summary>
         /// <param name="pEmpleado"></param>
 
-        public void agregarUsuario(EmpleadoL pEmpleado)
+        public void agregarEmpleado(EmpleadoL pEmpleado)
         {
             try
             {
