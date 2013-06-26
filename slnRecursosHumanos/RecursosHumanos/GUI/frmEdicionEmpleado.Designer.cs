@@ -262,6 +262,7 @@
             this.Controls.Add(this.lblDepartamento);
             this.Controls.Add(this.lblEmpleado);
             this.Name = "frmEdicionEmpleado";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edición Empleado";
             this.ResumeLayout(false);
             this.PerformLayout();

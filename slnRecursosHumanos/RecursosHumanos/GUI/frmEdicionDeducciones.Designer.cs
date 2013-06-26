@@ -224,7 +224,7 @@
             this.Controls.Add(this.lblPorcentaje);
             this.Controls.Add(this.lblIDDeducciones);
             this.Name = "frmEdicionDeducciones";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edición Deducciones";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -181,6 +181,7 @@
             this.Controls.Add(this.grdDeducciones);
             this.Controls.Add(this.tollDeducciones);
             this.Name = "frmMantDeducciones";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mantenimiento Deducciones";
             this.tollDeducciones.ResumeLayout(false);
             this.tollDeducciones.PerformLayout();

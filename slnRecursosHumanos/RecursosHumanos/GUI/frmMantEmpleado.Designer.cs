@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             this.grdEmpleado = new System.Windows.Forms.DataGridView();
-            this.tollEmpleado = new System.Windows.Forms.ToolStrip();
-            this.btnNuevo = new System.Windows.Forms.ToolStripButton();
-            this.btnEditar = new System.Windows.Forms.ToolStripButton();
-            this.btnBorrar = new System.Windows.Forms.ToolStripButton();
-            this.btnRefrescar = new System.Windows.Forms.ToolStripButton();
             this.idEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDepartamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +43,11 @@
             this.modificadoPor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaModificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tollEmpleado = new System.Windows.Forms.ToolStrip();
+            this.btnNuevo = new System.Windows.Forms.ToolStripButton();
+            this.btnEditar = new System.Windows.Forms.ToolStripButton();
+            this.btnBorrar = new System.Windows.Forms.ToolStripButton();
+            this.btnRefrescar = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.grdEmpleado)).BeginInit();
             this.tollEmpleado.SuspendLayout();
             this.SuspendLayout();
@@ -73,61 +73,8 @@
             this.grdEmpleado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdEmpleado.Location = new System.Drawing.Point(0, 52);
             this.grdEmpleado.Name = "grdEmpleado";
-            this.grdEmpleado.Size = new System.Drawing.Size(733, 208);
+            this.grdEmpleado.Size = new System.Drawing.Size(841, 213);
             this.grdEmpleado.TabIndex = 3;
-            // 
-            // tollEmpleado
-            // 
-            this.tollEmpleado.ImageScalingSize = new System.Drawing.Size(30, 30);
-            this.tollEmpleado.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnNuevo,
-            this.btnEditar,
-            this.btnBorrar,
-            this.btnRefrescar});
-            this.tollEmpleado.Location = new System.Drawing.Point(0, 0);
-            this.tollEmpleado.Name = "tollEmpleado";
-            this.tollEmpleado.Size = new System.Drawing.Size(733, 52);
-            this.tollEmpleado.TabIndex = 2;
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.Image = global::RecursosHumanos.Properties.Resources.nuevo;
-            this.btnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(46, 49);
-            this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnNuevo.ToolTipText = "Permite crear un nuevo Catalogo de Fechas";
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Image = global::RecursosHumanos.Properties.Resources.editar;
-            this.btnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(41, 49);
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnEditar.ToolTipText = "Permite editar una fecha ya creada dentro del Catalogo de Fechas";
-            // 
-            // btnBorrar
-            // 
-            this.btnBorrar.Image = global::RecursosHumanos.Properties.Resources.borrar;
-            this.btnBorrar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(43, 49);
-            this.btnBorrar.Text = "Borrar";
-            this.btnBorrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnBorrar.ToolTipText = "Permite borrar una fecha existente dentro del Catalogo de Fechas";
-            // 
-            // btnRefrescar
-            // 
-            this.btnRefrescar.Image = global::RecursosHumanos.Properties.Resources.actualizar;
-            this.btnRefrescar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnRefrescar.Name = "btnRefrescar";
-            this.btnRefrescar.Size = new System.Drawing.Size(59, 49);
-            this.btnRefrescar.Text = "Refrescar";
-            this.btnRefrescar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnRefrescar.ToolTipText = "Actualiza y muestra las Fechas existentes dentro del Catalogo de Fechas";
             // 
             // idEmpleado
             // 
@@ -222,11 +169,64 @@
             this.activo.HeaderText = "Activo";
             this.activo.Name = "activo";
             // 
+            // tollEmpleado
+            // 
+            this.tollEmpleado.ImageScalingSize = new System.Drawing.Size(30, 30);
+            this.tollEmpleado.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnNuevo,
+            this.btnEditar,
+            this.btnBorrar,
+            this.btnRefrescar});
+            this.tollEmpleado.Location = new System.Drawing.Point(0, 0);
+            this.tollEmpleado.Name = "tollEmpleado";
+            this.tollEmpleado.Size = new System.Drawing.Size(841, 52);
+            this.tollEmpleado.TabIndex = 2;
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Image = global::RecursosHumanos.Properties.Resources.nuevo;
+            this.btnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(46, 49);
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnNuevo.ToolTipText = "Permite crear un nuevo Catalogo de Fechas";
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Image = global::RecursosHumanos.Properties.Resources.editar;
+            this.btnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(41, 49);
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnEditar.ToolTipText = "Permite editar una fecha ya creada dentro del Catalogo de Fechas";
+            // 
+            // btnBorrar
+            // 
+            this.btnBorrar.Image = global::RecursosHumanos.Properties.Resources.borrar;
+            this.btnBorrar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(43, 49);
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnBorrar.ToolTipText = "Permite borrar una fecha existente dentro del Catalogo de Fechas";
+            // 
+            // btnRefrescar
+            // 
+            this.btnRefrescar.Image = global::RecursosHumanos.Properties.Resources.actualizar;
+            this.btnRefrescar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnRefrescar.Name = "btnRefrescar";
+            this.btnRefrescar.Size = new System.Drawing.Size(59, 49);
+            this.btnRefrescar.Text = "Refrescar";
+            this.btnRefrescar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnRefrescar.ToolTipText = "Actualiza y muestra las Fechas existentes dentro del Catalogo de Fechas";
+            // 
             // frmMantEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(733, 260);
+            this.ClientSize = new System.Drawing.Size(841, 265);
             this.Controls.Add(this.grdEmpleado);
             this.Controls.Add(this.tollEmpleado);
             this.Name = "frmMantEmpleado";

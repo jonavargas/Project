@@ -243,6 +243,8 @@
             // chkActivo
             // 
             this.chkActivo.AutoSize = true;
+            this.chkActivo.Checked = true;
+            this.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkActivo.Location = new System.Drawing.Point(160, 133);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(56, 17);
