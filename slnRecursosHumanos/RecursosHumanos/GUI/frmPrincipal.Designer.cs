@@ -35,6 +35,7 @@
             this.departamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.parametroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.empleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +56,8 @@
             this.deduccionesToolStripMenuItem,
             this.departamentoToolStripMenuItem,
             this.parametroToolStripMenuItem,
-            this.usuarioToolStripMenuItem});
+            this.usuarioToolStripMenuItem,
+            this.empleadoToolStripMenuItem});
             this.Mantenimientos.Name = "Mantenimientos";
             this.Mantenimientos.Size = new System.Drawing.Size(128, 22);
             this.Mantenimientos.Text = "Mantenimientos";
@@ -95,6 +97,12 @@
             this.usuarioToolStripMenuItem.Text = "Usuario";
             this.usuarioToolStripMenuItem.Click += new System.EventHandler(this.usuarioToolStripMenuItem_Click);
             // 
+            // empleadoToolStripMenuItem
+            // 
+            this.empleadoToolStripMenuItem.Name = "empleadoToolStripMenuItem";
+            this.empleadoToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.empleadoToolStripMenuItem.Text = "Empleado";
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -122,6 +130,7 @@
         private System.Windows.Forms.ToolStripMenuItem catalogoFechasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem parametroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem departamentoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem empleadoToolStripMenuItem;
     }
 }
 

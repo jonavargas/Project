@@ -107,6 +107,12 @@
     <Compile Include="GUI\FrmMantDepartamento.Designer.cs">
       <DependentUpon>FrmMantDepartamento.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frmMantEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmMantEmpleado.Designer.cs">
+      <DependentUpon>frmMantEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmMantParametro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmMantDepartamento.resx">
       <DependentUpon>FrmMantDepartamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmMantEmpleado.resx">
+      <DependentUpon>frmMantEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmMantParametro.resx">
       <DependentUpon>frmMantParametro.cs</DependentUpon>
