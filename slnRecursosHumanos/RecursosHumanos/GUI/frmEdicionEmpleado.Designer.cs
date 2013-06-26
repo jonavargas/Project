@@ -136,7 +136,7 @@
             // chkActivo
             // 
             this.chkActivo.AutoSize = true;
-            this.chkActivo.Location = new System.Drawing.Point(149, 263);
+            this.chkActivo.Location = new System.Drawing.Point(160, 263);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(56, 17);
             this.chkActivo.TabIndex = 9;
@@ -145,56 +145,56 @@
             // 
             // txtEmpleado
             // 
-            this.txtEmpleado.Location = new System.Drawing.Point(149, 28);
+            this.txtEmpleado.Location = new System.Drawing.Point(160, 28);
             this.txtEmpleado.Name = "txtEmpleado";
             this.txtEmpleado.Size = new System.Drawing.Size(190, 20);
             this.txtEmpleado.TabIndex = 10;
             // 
             // txtDepartamento
             // 
-            this.txtDepartamento.Location = new System.Drawing.Point(149, 54);
+            this.txtDepartamento.Location = new System.Drawing.Point(160, 54);
             this.txtDepartamento.Name = "txtDepartamento";
             this.txtDepartamento.Size = new System.Drawing.Size(190, 20);
             this.txtDepartamento.TabIndex = 11;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(149, 80);
+            this.txtNombre.Location = new System.Drawing.Point(160, 80);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(190, 20);
             this.txtNombre.TabIndex = 12;
             // 
             // txtApellido1
             // 
-            this.txtApellido1.Location = new System.Drawing.Point(149, 106);
+            this.txtApellido1.Location = new System.Drawing.Point(160, 106);
             this.txtApellido1.Name = "txtApellido1";
             this.txtApellido1.Size = new System.Drawing.Size(190, 20);
             this.txtApellido1.TabIndex = 13;
             // 
             // txtApellido2
             // 
-            this.txtApellido2.Location = new System.Drawing.Point(149, 132);
+            this.txtApellido2.Location = new System.Drawing.Point(160, 132);
             this.txtApellido2.Name = "txtApellido2";
             this.txtApellido2.Size = new System.Drawing.Size(190, 20);
             this.txtApellido2.TabIndex = 14;
             // 
             // txtCedula
             // 
-            this.txtCedula.Location = new System.Drawing.Point(149, 158);
+            this.txtCedula.Location = new System.Drawing.Point(160, 158);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(190, 20);
             this.txtCedula.TabIndex = 15;
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(149, 184);
+            this.txtTelefono.Location = new System.Drawing.Point(160, 182);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(190, 20);
             this.txtTelefono.TabIndex = 16;
             // 
             // txtFechaNacimiento
             // 
-            this.txtFechaNacimiento.Location = new System.Drawing.Point(149, 237);
+            this.txtFechaNacimiento.Location = new System.Drawing.Point(160, 234);
             this.txtFechaNacimiento.Name = "txtFechaNacimiento";
             this.txtFechaNacimiento.Size = new System.Drawing.Size(190, 20);
             this.txtFechaNacimiento.TabIndex = 18;
@@ -229,7 +229,7 @@
             // 
             // txtSalarioPorHora
             // 
-            this.txtSalarioPorHora.Location = new System.Drawing.Point(149, 208);
+            this.txtSalarioPorHora.Location = new System.Drawing.Point(160, 208);
             this.txtSalarioPorHora.Name = "txtSalarioPorHora";
             this.txtSalarioPorHora.Size = new System.Drawing.Size(190, 20);
             this.txtSalarioPorHora.TabIndex = 22;
