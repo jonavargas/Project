@@ -71,36 +71,35 @@ namespace GUI
         private string validarActivo()
         {
             string respuesta = "No";
-            if (ckdActivo.Checked)
+            if (chkActivo.Checked)
             {
                 respuesta = "Sí";
             }
             return respuesta;
         }
-        private void btnAceptar_Click(object sender, EventArgs e)
+        
+        private void btnAceptar_Click_1(object sender, EventArgs e)
         {
-            if ((this.txtIdParametro.Text == "") ||
-               (this.txtHoraEntrada.Text == "") || (this.txtHoraSalida.Text == "") || (this.ValidarSeleccionDias() == false))
+            if ((this.txtEmpleado.Text == "") ||
+              (this.txtDepartamento.Text == "") || (this.txtNombre.Text == "") || (this.txtSalarioPorHora.Text == ""))
             {
                 MessageBox.Show("Faltan datos requeridos");
                 return;
             }
-            this.oEmpleadoL = new EmpleadoL(    this.txtEmpleado.Text,
+            this.oEmpleadoL = new EmpleadoL(this.txtEmpleado.Text,
                                                 this.txtDepartamento.Text,
                                                 this.txtNombre.Text,
                                                 this.txtApellido1.Text,
                                                 this.txtApellido2.Text,
                                                 int.Parse(this.txtCedula.Text),
                                                 int.Parse(this.txtTelefono.Text),
-
-
-                                        Convert.ToDateTime(this.txtFechaNacimiento.Text),
-                                        double.Parse(this.txtSalarioPorHora.Text),
-                                        Program.usuario,
-                                        DateTime.Now,
-                                        Program.usuario,
-                                        DateTime.Now,  
-                                        this.validarActivo());
+                                                this.txtFechaNacimiento.Text,
+                                                double.Parse(this.txtSalarioPorHora.Text),
+                                                Program.usuario,
+                                                DateTime.Now,
+                                                Program.usuario,
+                                                DateTime.Now,
+                                                this.validarActivo());
             this.aceptar = true;
             this.Close();
         }
