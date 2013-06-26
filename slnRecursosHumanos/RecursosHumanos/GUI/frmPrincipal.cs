@@ -87,5 +87,11 @@ namespace GUI
             oFrmMantParametro.ShowDialog();
 
         }
+
+        private void empleadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMantEmpleado oFrmMantEmpleado = new frmMantEmpleado(this.cnx);
+            oFrmMantEmpleado.ShowDialog();
+        }
     }
 }

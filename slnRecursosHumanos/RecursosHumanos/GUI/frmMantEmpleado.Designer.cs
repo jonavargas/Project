@@ -179,7 +179,7 @@
             this.btnRefrescar});
             this.tollEmpleado.Location = new System.Drawing.Point(0, 0);
             this.tollEmpleado.Name = "tollEmpleado";
-
+            this.tollEmpleado.Size = new System.Drawing.Size(841, 52);
             this.tollEmpleado.TabIndex = 2;
             // 
             // btnNuevo
@@ -191,7 +191,7 @@
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnNuevo.ToolTipText = "Permite crear un nuevo Catalogo de Fechas";
-
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click_1);
             // 
             // btnEditar
             // 

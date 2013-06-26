@@ -104,5 +104,27 @@ namespace GUI
             this.aceptar = true;
             this.Close();
         }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            String activo = "No";
+
+            if (this.chkActivo.Checked)
+            {
+                activo = "Sí";
+            }
+
+            if ((this.txtEmpleado.Text == "") ||
+               (this.txtDepartamento.Text == "") || (this.txtNombre.Text == "") || (this.txtSalarioPorHora == null) || (this.txtTelefono == null) )
+            {
+                MessageBox.Show("Faltan datos requeridos");
+                return;
+            }
+            this.oEmpleadoL = new EmpleadoL(this.txtEmpleado.Text, this.txtDepartamento.Text, this.txtNombre.Text, this.txtApellido1.Text, this.txtApellido2.Text,
+                                     int.Parse(this.txtCedula.Text.ToString()), int.Parse(this.txtTelefono.Text.ToString()), DateTime.Parse(txtFechaNacimiento.ToString()),
+                                     double.Parse(this.txtSalarioPorHora.ToString()), Program.usuario, DateTime.Now, Program.usuario, DateTime.Now, activo);
+            this.aceptar = true;
+            this.Close();
+        }
     }
 }

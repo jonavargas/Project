@@ -40,7 +40,7 @@ namespace GUI
             }
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e)
+        private void btnNuevo_Click_1(object sender, EventArgs e)
         {
             frmEdicionEmpleado ofrmEdicionEmpleado = new frmEdicionEmpleado();
             ofrmEdicionEmpleado.ShowDialog();
