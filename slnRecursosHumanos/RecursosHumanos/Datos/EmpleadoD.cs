@@ -62,7 +62,7 @@ namespace Datos
                                                      fila["apellido2"].ToString(),
                                                      int.Parse(fila["numCedula"].ToString()),
                                                      int.Parse(fila["telefono"].ToString()),
-                                                     fila["fechaNacimiento"].ToString(),
+                                                     DateTime.Parse(fila["fechaNacimiento"].ToString()),
                                                      double.Parse(fila["salarioPorHora"].ToString()),
                                                      fila["creadoPor"].ToString(),
                                                      DateTime.Parse(fila["fechaCreacion"].ToString()),
