@@ -18,7 +18,7 @@ namespace Logica
         private string apellido2;
         private int numCedula;
         private int telefono;
-        private string fechaNacimiento;
+        private DateTime fechaNacimiento;
         private double salarioPorHora;
         private string creadoPor;
         private DateTime fechaCreacion;
@@ -30,7 +30,7 @@ namespace Logica
         /// Metodo constructor con parametros
         /// </summary>        
 
-        public EmpleadoL(string pIdEmpleado, string pIdDepartamento, string pNombreEmpleado, string pApellido1, string pApellido2, int pNumCedula, int pTelefono, string pFechaNacimiento, double pSalarioPorHora, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, DateTime pFechaModificacion, string pActivo)
+        public EmpleadoL(string pIdEmpleado, string pIdDepartamento, string pNombreEmpleado, string pApellido1, string pApellido2, int pNumCedula, int pTelefono, DateTime pFechaNacimiento, double pSalarioPorHora, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, DateTime pFechaModificacion, string pActivo)
         {
             this.idEmpleado = pIdEmpleado;
             this.idDepartamento = pIdDepartamento;
@@ -93,7 +93,7 @@ namespace Logica
             set { telefono = value; }
         }
 
-        public string FechaNacimiento
+        public DateTime FechaNacimiento
         {
             get { return fechaNacimiento; }
             set { fechaNacimiento = value; }
