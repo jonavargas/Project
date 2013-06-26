@@ -42,12 +42,12 @@ namespace GUI
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            frmEdicionEmpleado ofrmEmpleado = new frmEdicionEmpleado();
-            ofrmEmpleado.ShowDialog();
-            if (ofrmEmpleado.Aceptar)
+            frmEdicionEmpleado ofrmEdicionEmpleado = new frmEdicionEmpleado();
+            ofrmEdicionEmpleado.ShowDialog();
+            if (ofrmEdicionEmpleado.Aceptar)
             {
                 EmpleadoD oEmpleadoD = new EmpleadoD(this.cnx);
-                oEmpleadoD.agregarEmpleado(ofrmEmpleado.oEmpleadoL);
+                oEmpleadoD.agregarEmpleado(ofrmEdicionEmpleado.OEmpleadoL);
                 if (oEmpleadoD.Error)
                 {
                     MessageBox.Show("Error agregando los datos:" + oEmpleadoD.ErrorDescription);

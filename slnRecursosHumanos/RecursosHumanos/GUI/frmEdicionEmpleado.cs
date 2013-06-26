@@ -8,9 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logica;
-using System.Linq;
-using System.Text;
-using System.Globalization;
+
 
 namespace GUI
 {
@@ -105,10 +103,6 @@ namespace GUI
                                                 this.validarActivo());
             this.aceptar = true;
             this.Close();
-
-
-
-
         }
     }
 }
