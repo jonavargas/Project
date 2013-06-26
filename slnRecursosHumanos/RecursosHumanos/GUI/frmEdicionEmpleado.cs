@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logica;
+using System.Linq;
+using System.Text;
+using System.Globalization;
 
 namespace GUI
 {
@@ -77,6 +80,13 @@ namespace GUI
             }
             return respuesta;
         }
+        private bool validarFechaNacimiento() {
+            bool respuesta = false;
+           
+            
+            }
+        
+        }
         
         private void btnAceptar_Click_1(object sender, EventArgs e)
         {
@@ -93,7 +103,7 @@ namespace GUI
                                                 this.txtApellido2.Text,
                                                 int.Parse(this.txtCedula.Text),
                                                 int.Parse(this.txtTelefono.Text),
-                                                this.txtFechaNacimiento.Text,
+                                                DateTime.Parse( this.txtFechaNacimiento.Text),
                                                 double.Parse(this.txtSalarioPorHora.Text),
                                                 Program.usuario,
                                                 DateTime.Now,
