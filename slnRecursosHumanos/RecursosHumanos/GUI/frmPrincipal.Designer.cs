@@ -36,7 +36,9 @@
             this.parametroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.empleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pctMant = new System.Windows.Forms.PictureBox();
             this.mnuPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pctMant)).BeginInit();
             this.SuspendLayout();
             // 
             // mnuPrincipal
@@ -46,7 +48,7 @@
             this.Mantenimientos});
             this.mnuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mnuPrincipal.Name = "mnuPrincipal";
-            this.mnuPrincipal.Size = new System.Drawing.Size(574, 26);
+            this.mnuPrincipal.Size = new System.Drawing.Size(747, 26);
             this.mnuPrincipal.TabIndex = 0;
             // 
             // Mantenimientos
@@ -103,12 +105,28 @@
             this.empleadoToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.empleadoToolStripMenuItem.Text = "Empleado";
             this.empleadoToolStripMenuItem.Click += new System.EventHandler(this.empleadoToolStripMenuItem_Click);
+<<<<<<< HEAD
+=======
+            // 
+            // pctMant
+            // 
+            this.pctMant.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pctMant.Image = global::RecursosHumanos.Properties.Resources.mante;
+            this.pctMant.Location = new System.Drawing.Point(312, 26);
+            this.pctMant.MinimumSize = new System.Drawing.Size(400, 400);
+            this.pctMant.Name = "pctMant";
+            this.pctMant.Size = new System.Drawing.Size(435, 400);
+            this.pctMant.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pctMant.TabIndex = 1;
+            this.pctMant.TabStop = false;
+>>>>>>> cambios
             // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(574, 271);
+            this.ClientSize = new System.Drawing.Size(747, 389);
+            this.Controls.Add(this.pctMant);
             this.Controls.Add(this.mnuPrincipal);
             this.MainMenuStrip = this.mnuPrincipal;
             this.Name = "frmPrincipal";
@@ -117,6 +135,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.mnuPrincipal.ResumeLayout(false);
             this.mnuPrincipal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pctMant)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,6 +151,7 @@
         private System.Windows.Forms.ToolStripMenuItem parametroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem departamentoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem empleadoToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pctMant;
     }
 }
 
