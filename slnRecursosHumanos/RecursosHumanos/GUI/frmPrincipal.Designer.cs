@@ -105,8 +105,7 @@
             this.empleadoToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.empleadoToolStripMenuItem.Text = "Empleado";
             this.empleadoToolStripMenuItem.Click += new System.EventHandler(this.empleadoToolStripMenuItem_Click);
-<<<<<<< HEAD
-=======
+
             // 
             // pctMant
             // 
@@ -119,7 +118,7 @@
             this.pctMant.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pctMant.TabIndex = 1;
             this.pctMant.TabStop = false;
->>>>>>> cambios
+
             // 
             // frmPrincipal
             // 

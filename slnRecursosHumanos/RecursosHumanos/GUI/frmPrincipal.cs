@@ -92,11 +92,7 @@ namespace GUI
         {
             frmMantEmpleado oFrmMantEmpleado = new frmMantEmpleado(this.cnx);
             oFrmMantEmpleado.ShowDialog();
-<<<<<<< HEAD
-=======
 
-
->>>>>>> cambios
         }
     }
 }
