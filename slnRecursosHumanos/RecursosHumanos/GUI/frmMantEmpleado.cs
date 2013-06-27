@@ -42,22 +42,34 @@ namespace GUI
 
         private void btnNuevo_Click_1(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             frmEdicionEmpleado ofrmEdicionEmpleado = new frmEdicionEmpleado();
             ofrmEdicionEmpleado.ShowDialog();
             if (ofrmEdicionEmpleado.Aceptar)
             {
                 EmpleadoD oEmpleadoD = new EmpleadoD(this.cnx);
                 oEmpleadoD.agregarEmpleado(ofrmEdicionEmpleado.OEmpleadoL);
+=======
+             frmEdicionEmpleado ofrmEdicionEmple = new frmEdicionEmpleado();
+            ofrmEdicionEmple.ShowDialog();
+            if (ofrmEdicionEmple.Aceptar)
+            {
+                EmpleadoD oEmpleadoD = new EmpleadoD(this.cnx);
+                oEmpleadoD.agregarEmpleado(ofrmEdicionEmple.OEmpleadoL);
+>>>>>>> cambios
                 if (oEmpleadoD.Error)
                 {
                     MessageBox.Show("Error agregando los datos:" + oEmpleadoD.ErrorDescription);
                 }
                 else
                 {
-                    MessageBox.Show("Parametro agregado!!!");
+                    MessageBox.Show("Empleado agregado!!!");
                     this.cargarGrid();
                 }
+
             }
+           
+            
         }
     }
 }
