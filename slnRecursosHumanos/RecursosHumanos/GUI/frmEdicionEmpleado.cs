@@ -64,7 +64,7 @@ namespace GUI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        /// 
+        
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
