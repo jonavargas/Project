@@ -56,7 +56,7 @@
             this.btnRefrescar});
             this.tollDeducciones.Location = new System.Drawing.Point(0, 0);
             this.tollDeducciones.Name = "tollDeducciones";
-            this.tollDeducciones.Size = new System.Drawing.Size(861, 52);
+            this.tollDeducciones.Size = new System.Drawing.Size(883, 52);
             this.tollDeducciones.TabIndex = 0;
             // 
             // btnNuevo
@@ -114,7 +114,7 @@
             this.grdDeducciones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdDeducciones.Location = new System.Drawing.Point(0, 52);
             this.grdDeducciones.Name = "grdDeducciones";
-            this.grdDeducciones.Size = new System.Drawing.Size(861, 178);
+            this.grdDeducciones.Size = new System.Drawing.Size(883, 178);
             this.grdDeducciones.TabIndex = 1;
             // 
             // idDeducciones
@@ -151,6 +151,7 @@
             this.fechaCreacion.HeaderText = "Fecha Creación";
             this.fechaCreacion.Name = "fechaCreacion";
             this.fechaCreacion.ReadOnly = true;
+            this.fechaCreacion.Width = 120;
             // 
             // modificadoPor
             // 
@@ -165,6 +166,7 @@
             this.fechaModificacion.HeaderText = "Fecha Modificación";
             this.fechaModificacion.Name = "fechaModificacion";
             this.fechaModificacion.ReadOnly = true;
+            this.fechaModificacion.Width = 120;
             // 
             // activo
             // 
@@ -177,7 +179,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 230);
+            this.ClientSize = new System.Drawing.Size(883, 230);
             this.Controls.Add(this.grdDeducciones);
             this.Controls.Add(this.tollDeducciones);
             this.Name = "frmMantDeducciones";

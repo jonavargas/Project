@@ -37,7 +37,6 @@
             this.lblCreador = new System.Windows.Forms.Label();
             this.lblEstado = new System.Windows.Forms.Label();
             this.txtIdDeducciones = new System.Windows.Forms.TextBox();
-            this.txtPorcentaje = new System.Windows.Forms.TextBox();
             this.txtFecha_Creacion = new System.Windows.Forms.TextBox();
             this.txtFecha_Modificacion = new System.Windows.Forms.TextBox();
             this.txtModificado_por = new System.Windows.Forms.TextBox();
@@ -46,6 +45,8 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.chkActivo = new System.Windows.Forms.CheckBox();
+            this.txtPorcentaje = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPorcentaje)).BeginInit();
             this.SuspendLayout();
             // 
             // lblIDDeducciones
@@ -127,14 +128,6 @@
             this.txtIdDeducciones.Size = new System.Drawing.Size(239, 20);
             this.txtIdDeducciones.TabIndex = 1;
             // 
-            // txtPorcentaje
-            // 
-            this.txtPorcentaje.Location = new System.Drawing.Point(143, 47);
-            this.txtPorcentaje.Name = "txtPorcentaje";
-            this.txtPorcentaje.Size = new System.Drawing.Size(239, 20);
-            this.txtPorcentaje.TabIndex = 2;
-            this.txtPorcentaje.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPorcentaje_KeyPress);
-            // 
             // txtFecha_Creacion
             // 
             this.txtFecha_Creacion.Location = new System.Drawing.Point(143, 354);
@@ -202,11 +195,20 @@
             this.chkActivo.Text = "Activo";
             this.chkActivo.UseVisualStyleBackColor = true;
             // 
+            // txtPorcentaje
+            // 
+            this.txtPorcentaje.DecimalPlaces = 2;
+            this.txtPorcentaje.Location = new System.Drawing.Point(143, 47);
+            this.txtPorcentaje.Name = "txtPorcentaje";
+            this.txtPorcentaje.Size = new System.Drawing.Size(239, 20);
+            this.txtPorcentaje.TabIndex = 14;
+            // 
             // frmEdicionDeducciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(406, 178);
+            this.Controls.Add(this.txtPorcentaje);
             this.Controls.Add(this.chkActivo);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
@@ -215,7 +217,6 @@
             this.Controls.Add(this.txtModificado_por);
             this.Controls.Add(this.txtFecha_Modificacion);
             this.Controls.Add(this.txtFecha_Creacion);
-            this.Controls.Add(this.txtPorcentaje);
             this.Controls.Add(this.txtIdDeducciones);
             this.Controls.Add(this.lblEstado);
             this.Controls.Add(this.lblCreador);
@@ -228,6 +229,7 @@
             this.Name = "frmEdicionDeducciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edición Deducciones";
+            ((System.ComponentModel.ISupportInitialize)(this.txtPorcentaje)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,7 +246,6 @@
         private System.Windows.Forms.Label lblCreador;
         private System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.TextBox txtIdDeducciones;
-        private System.Windows.Forms.TextBox txtPorcentaje;
         private System.Windows.Forms.TextBox txtFecha_Creacion;
         private System.Windows.Forms.TextBox txtFecha_Modificacion;
         private System.Windows.Forms.TextBox txtModificado_por;
@@ -253,5 +254,6 @@
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.CheckBox chkActivo;
+        private System.Windows.Forms.NumericUpDown txtPorcentaje;
     }
 }

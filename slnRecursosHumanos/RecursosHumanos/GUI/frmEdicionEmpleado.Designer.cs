@@ -49,7 +49,8 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.lblSalarioHora = new System.Windows.Forms.Label();
-            this.txtSalarioPorHora = new System.Windows.Forms.TextBox();
+            this.txtSalarioPorHora = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSalarioPorHora)).BeginInit();
             this.SuspendLayout();
             // 
             // lblEmpleado
@@ -219,6 +220,7 @@
             this.btnCancelar.TabIndex = 20;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click_1);
             // 
             // lblSalarioHora
             // 
@@ -231,7 +233,7 @@
             // 
             // txtSalarioPorHora
             // 
-            this.txtSalarioPorHora.Location = new System.Drawing.Point(160, 208);
+            this.txtSalarioPorHora.Location = new System.Drawing.Point(160, 209);
             this.txtSalarioPorHora.Name = "txtSalarioPorHora";
             this.txtSalarioPorHora.Size = new System.Drawing.Size(190, 20);
             this.txtSalarioPorHora.TabIndex = 22;
@@ -266,6 +268,7 @@
             this.Name = "frmEdicionEmpleado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edición Empleado";
+            ((System.ComponentModel.ISupportInitialize)(this.txtSalarioPorHora)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,6 +297,6 @@
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label lblSalarioHora;
-        private System.Windows.Forms.TextBox txtSalarioPorHora;
+        private System.Windows.Forms.NumericUpDown txtSalarioPorHora;
     }
 }
