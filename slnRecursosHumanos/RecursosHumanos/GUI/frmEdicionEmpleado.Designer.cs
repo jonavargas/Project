@@ -233,8 +233,14 @@
             // 
             // txtSalarioPorHora
             // 
+            this.txtSalarioPorHora.Increment = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             this.txtSalarioPorHora.Location = new System.Drawing.Point(160, 209);
             this.txtSalarioPorHora.Name = "txtSalarioPorHora";
+            this.txtSalarioPorHora.ReadOnly = true;
             this.txtSalarioPorHora.Size = new System.Drawing.Size(190, 20);
             this.txtSalarioPorHora.TabIndex = 22;
             // 

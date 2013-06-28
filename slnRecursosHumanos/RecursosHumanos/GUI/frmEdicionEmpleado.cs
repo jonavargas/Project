@@ -115,7 +115,7 @@ namespace GUI
             }
 
             if ((this.txtEmpleado.Text == "") ||
-               (this.txtDepartamento.Text == "") || (this.txtNombre.Text == "") || (this.txtSalarioPorHora == null) || (this.txtTelefono == null) )
+               (this.txtDepartamento.Text == "") || (this.txtNombre.Text == "") || (this.txtTelefono == null) )
             {
                 MessageBox.Show("Faltan datos requeridos");
                 return;

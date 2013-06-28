@@ -192,7 +192,7 @@ namespace Datos
             }
         }
 
-        public void borrarUsuario(EmpleadoL pEmpleado)
+        public void borrarEmpleado(EmpleadoL pEmpleado)
         {
             try
             {
@@ -216,7 +216,7 @@ namespace Datos
             }
         }
 
-        public void editarUsuario(EmpleadoL pEmpleadoOriginal, EmpleadoL pEmpleadoEditado)
+        public void editarEmpleado(EmpleadoL pEmpleadoOriginal, EmpleadoL pEmpleadoEditado)
         {
             try
             {

@@ -89,6 +89,7 @@
             this.idDepartamento.HeaderText = "Id Departamento";
             this.idDepartamento.Name = "idDepartamento";
             this.idDepartamento.ReadOnly = true;
+            this.idDepartamento.Width = 115;
             // 
             // nombreEmpleado
             // 
@@ -202,6 +203,7 @@
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnEditar.ToolTipText = "Permite editar una fecha ya creada dentro del Catalogo de Fechas";
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnBorrar
             // 
@@ -212,6 +214,7 @@
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnBorrar.ToolTipText = "Permite borrar una fecha existente dentro del Catalogo de Fechas";
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // btnRefrescar
             // 
@@ -222,6 +225,7 @@
             this.btnRefrescar.Text = "Refrescar";
             this.btnRefrescar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnRefrescar.ToolTipText = "Actualiza y muestra las Fechas existentes dentro del Catalogo de Fechas";
+            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
             // 
             // frmMantEmpleado
             // 
