@@ -118,7 +118,7 @@
             // lblFechaNacimiento
             // 
             this.lblFechaNacimiento.AutoSize = true;
-            this.lblFechaNacimiento.Location = new System.Drawing.Point(43, 237);
+            this.lblFechaNacimiento.Location = new System.Drawing.Point(41, 237);
             this.lblFechaNacimiento.Name = "lblFechaNacimiento";
             this.lblFechaNacimiento.Size = new System.Drawing.Size(96, 13);
             this.lblFechaNacimiento.TabIndex = 7;
@@ -127,7 +127,7 @@
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
-            this.lblEstado.Location = new System.Drawing.Point(44, 263);
+            this.lblEstado.Location = new System.Drawing.Point(41, 263);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(95, 13);
             this.lblEstado.TabIndex = 8;
