@@ -113,7 +113,7 @@ namespace GUI
 
              this.oUsuarioL = new UsuarioL(this.txtidUsuario.Text,
                                          Convert.ToString(this.cmbTipoUsuario.SelectedItem), this.txtpassword.Text, DateTime.Now,
-                                         DateTime.Now, Program.usuario, Program.usuario,
+                                         DateTime.Now, Program.oUsuarioLogueado.Login, Program.oUsuarioLogueado.Login,
                                          activo);   
              this.aceptar = true;
              this.Close();

@@ -15,7 +15,7 @@ namespace GUI
     public partial class frmLogin : Form
     {
         private bool aceptar;
-        private LoginL oUsuario;
+        private LoginL oLogin;
         
         private AccesoDatosOracle conexion;
 
@@ -25,10 +25,10 @@ namespace GUI
             set { aceptar = value; }
         }
 
-        public LoginL OUsuario1
+        public LoginL OLogin
         {
-            get { return oUsuario; }
-            set { oUsuario = value; }
+            get { return oLogin; }
+            set { oLogin = value; }
         }
 
         public frmLogin(AccesoDatosOracle pConexion)
@@ -57,7 +57,7 @@ namespace GUI
                 if (respuesta.Count > 0)
                 {
                     this.aceptar = true;
-                    this.OUsuario1 = new LoginL(this.txtLogin.Text, respuesta[0].Descripcion, this.txtClave.Text);
+                    this.OLogin = new LoginL(this.txtLogin.Text, respuesta[0].Descripcion, this.txtClave.Text);
                     this.Close();
                 }
                 else

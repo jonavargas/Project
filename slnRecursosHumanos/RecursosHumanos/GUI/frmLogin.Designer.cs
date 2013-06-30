@@ -113,6 +113,7 @@
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.grpLogin);
             this.Name = "frmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio de Sesión";
             this.grpLogin.ResumeLayout(false);
             this.grpLogin.PerformLayout();

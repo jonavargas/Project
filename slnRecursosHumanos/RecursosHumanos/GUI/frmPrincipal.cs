@@ -29,6 +29,7 @@ namespace GUI
         {
             InitializeComponent();
             this.cnx = pConexion;
+            this.lblNombreUsuario.Text = Program.oUsuarioLogueado.Descripcion;
         }
         /// <summary>
         /// Metodo que levanta el formulario de mantenimiento de usuario

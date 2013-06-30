@@ -96,9 +96,9 @@ namespace GUI
                                                 int.Parse(this.txtTelefono.Text),
                                                 DateTime.Parse(this.txtFechaNacimiento.Text),
                                                 double.Parse(this.txtSalarioPorHora.Text),
-                                                Program.usuario,
+                                                Program.oUsuarioLogueado.ToString(),
                                                 DateTime.Now,
-                                                Program.usuario,
+                                                Program.oUsuarioLogueado.ToString(),
                                                 DateTime.Now,
                                                 this.validarActivo());
             this.aceptar = true;
@@ -122,7 +122,7 @@ namespace GUI
             }
             this.oEmpleadoL = new EmpleadoL(this.txtEmpleado.Text, this.txtDepartamento.Text, this.txtNombre.Text, this.txtApellido1.Text, this.txtApellido2.Text,
                                      int.Parse(this.txtCedula.Text), int.Parse(this.txtTelefono.Text), DateTime.Parse(this.txtFechaNacimiento.Text),
-                                     double.Parse(this.txtSalarioPorHora.Text), Program.usuario, DateTime.Today, Program.usuario, DateTime.Now, activo);
+                                     double.Parse(this.txtSalarioPorHora.Text), Program.oUsuarioLogueado.Login, DateTime.Today, Program.oUsuarioLogueado.Login, DateTime.Now, activo);
             this.aceptar = true;
             this.Close();
         }

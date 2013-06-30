@@ -104,7 +104,7 @@ namespace GUI
 
                this.oCatalogoFechasL = new CatalogoFechasL(this.txtCatalogoFechas.Text,
                                         int.Parse(this.cmbDia.SelectedItem.ToString()), this.cmbMes.SelectedItem.ToString(), this.txtDescripcion.Text, DateTime.Now,
-                                         DateTime.Now, this.txtCreadopor.Text, this.txtModificadopor.Text, activo);
+                                         DateTime.Now, Program.oUsuarioLogueado.Login, Program.oUsuarioLogueado.Login, activo);
                this.aceptar = true;
                this.Close();
            }

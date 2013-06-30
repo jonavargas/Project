@@ -36,9 +36,11 @@
             this.parametroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.empleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pctMant = new System.Windows.Forms.PictureBox();
+            this.statusBar = new System.Windows.Forms.StatusStrip();
+            this.lblSesion = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblNombreUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.mnuPrincipal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pctMant)).BeginInit();
+            this.statusBar.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuPrincipal
@@ -105,27 +107,35 @@
             this.empleadoToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.empleadoToolStripMenuItem.Text = "Empleado";
             this.empleadoToolStripMenuItem.Click += new System.EventHandler(this.empleadoToolStripMenuItem_Click);
-
             // 
-            // pctMant
+            // statusBar
             // 
-            this.pctMant.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pctMant.Image = global::RecursosHumanos.Properties.Resources.mante;
-            this.pctMant.Location = new System.Drawing.Point(312, 26);
-            this.pctMant.MinimumSize = new System.Drawing.Size(400, 400);
-            this.pctMant.Name = "pctMant";
-            this.pctMant.Size = new System.Drawing.Size(435, 400);
-            this.pctMant.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pctMant.TabIndex = 1;
-            this.pctMant.TabStop = false;
-
+            this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblSesion,
+            this.lblNombreUsuario});
+            this.statusBar.Location = new System.Drawing.Point(0, 367);
+            this.statusBar.Name = "statusBar";
+            this.statusBar.Size = new System.Drawing.Size(747, 22);
+            this.statusBar.TabIndex = 1;
+            this.statusBar.Text = "statusStrip1";
+            // 
+            // lblSesion
+            // 
+            this.lblSesion.Name = "lblSesion";
+            this.lblSesion.Size = new System.Drawing.Size(85, 17);
+            this.lblSesion.Text = "Usuario actual:";
+            // 
+            // lblNombreUsuario
+            // 
+            this.lblNombreUsuario.Name = "lblNombreUsuario";
+            this.lblNombreUsuario.Size = new System.Drawing.Size(0, 17);
             // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(747, 389);
-            this.Controls.Add(this.pctMant);
+            this.Controls.Add(this.statusBar);
             this.Controls.Add(this.mnuPrincipal);
             this.MainMenuStrip = this.mnuPrincipal;
             this.Name = "frmPrincipal";
@@ -134,7 +144,8 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.mnuPrincipal.ResumeLayout(false);
             this.mnuPrincipal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pctMant)).EndInit();
+            this.statusBar.ResumeLayout(false);
+            this.statusBar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,7 +161,9 @@
         private System.Windows.Forms.ToolStripMenuItem parametroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem departamentoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem empleadoToolStripMenuItem;
-        private System.Windows.Forms.PictureBox pctMant;
+        private System.Windows.Forms.StatusStrip statusBar;
+        private System.Windows.Forms.ToolStripStatusLabel lblSesion;
+        private System.Windows.Forms.ToolStripStatusLabel lblNombreUsuario;
     }
 }
 
