@@ -198,8 +198,8 @@ namespace GUI
                 return;
             }
             this.oParametroL = new ParametroL(this.txtIdParametro.Text,
-                                        Convert.ToDateTime(this.txtHoraEntrada.Text),
-                                        Convert.ToDateTime(this.txtHoraSalida.Text),
+                                        DateTime.Parse(this.txtHoraEntrada.Text.ToString()),
+                                        DateTime.Parse(this.txtHoraSalida.Text.ToString()),
                                         this.validarLunes(),
                                         this.validarMartes(),
                                         this.validarMiercoles(),

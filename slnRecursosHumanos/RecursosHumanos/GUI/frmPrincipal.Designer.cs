@@ -45,12 +45,12 @@
             // 
             // mnuPrincipal
             // 
-            this.mnuPrincipal.Font = new System.Drawing.Font("Centaur", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mnuPrincipal.Font = new System.Drawing.Font("Centaur", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mnuPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Mantenimientos});
             this.mnuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mnuPrincipal.Name = "mnuPrincipal";
-            this.mnuPrincipal.Size = new System.Drawing.Size(747, 26);
+            this.mnuPrincipal.Size = new System.Drawing.Size(747, 29);
             this.mnuPrincipal.TabIndex = 0;
             // 
             // Mantenimientos
@@ -63,48 +63,48 @@
             this.usuarioToolStripMenuItem,
             this.empleadoToolStripMenuItem});
             this.Mantenimientos.Name = "Mantenimientos";
-            this.Mantenimientos.Size = new System.Drawing.Size(128, 22);
+            this.Mantenimientos.Size = new System.Drawing.Size(181, 31);
             this.Mantenimientos.Text = "Mantenimientos";
             // 
             // catalogoFechasToolStripMenuItem
             // 
             this.catalogoFechasToolStripMenuItem.Name = "catalogoFechasToolStripMenuItem";
-            this.catalogoFechasToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.catalogoFechasToolStripMenuItem.Size = new System.Drawing.Size(241, 32);
             this.catalogoFechasToolStripMenuItem.Text = "Catalogo Fechas";
             this.catalogoFechasToolStripMenuItem.Click += new System.EventHandler(this.catalogoFechasToolStripMenuItem_Click);
             // 
             // deduccionesToolStripMenuItem
             // 
             this.deduccionesToolStripMenuItem.Name = "deduccionesToolStripMenuItem";
-            this.deduccionesToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.deduccionesToolStripMenuItem.Size = new System.Drawing.Size(241, 32);
             this.deduccionesToolStripMenuItem.Text = "Deducciones";
             this.deduccionesToolStripMenuItem.Click += new System.EventHandler(this.deduccionesToolStripMenuItem_Click);
             // 
             // departamentoToolStripMenuItem
             // 
             this.departamentoToolStripMenuItem.Name = "departamentoToolStripMenuItem";
-            this.departamentoToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.departamentoToolStripMenuItem.Size = new System.Drawing.Size(241, 32);
             this.departamentoToolStripMenuItem.Text = "Departamento";
             this.departamentoToolStripMenuItem.Click += new System.EventHandler(this.departamentoToolStripMenuItem_Click);
             // 
             // parametroToolStripMenuItem
             // 
             this.parametroToolStripMenuItem.Name = "parametroToolStripMenuItem";
-            this.parametroToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.parametroToolStripMenuItem.Size = new System.Drawing.Size(241, 32);
             this.parametroToolStripMenuItem.Text = "Parametro";
             this.parametroToolStripMenuItem.Click += new System.EventHandler(this.parametroToolStripMenuItem_Click);
             // 
             // usuarioToolStripMenuItem
             // 
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(241, 32);
             this.usuarioToolStripMenuItem.Text = "Usuario";
             this.usuarioToolStripMenuItem.Click += new System.EventHandler(this.usuarioToolStripMenuItem_Click);
             // 
             // empleadoToolStripMenuItem
             // 
             this.empleadoToolStripMenuItem.Name = "empleadoToolStripMenuItem";
-            this.empleadoToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.empleadoToolStripMenuItem.Size = new System.Drawing.Size(241, 32);
             this.empleadoToolStripMenuItem.Text = "Empleado";
             this.empleadoToolStripMenuItem.Click += new System.EventHandler(this.empleadoToolStripMenuItem_Click);
             // 

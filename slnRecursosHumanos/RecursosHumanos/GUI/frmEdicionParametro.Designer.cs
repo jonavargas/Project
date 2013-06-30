@@ -37,8 +37,6 @@
             this.lblcreado_Por = new System.Windows.Forms.Label();
             this.lblActivo = new System.Windows.Forms.Label();
             this.txtIdParametro = new System.Windows.Forms.TextBox();
-            this.txtHoraSalida = new System.Windows.Forms.TextBox();
-            this.txtHoraEntrada = new System.Windows.Forms.TextBox();
             this.txtFechaModificacion = new System.Windows.Forms.TextBox();
             this.txtModificadopor = new System.Windows.Forms.TextBox();
             this.txtFechaCreacion = new System.Windows.Forms.TextBox();
@@ -55,6 +53,8 @@
             this.ckdDomingo = new System.Windows.Forms.CheckBox();
             this.lblDiasLaborales = new System.Windows.Forms.Label();
             this.ckdActivo = new System.Windows.Forms.CheckBox();
+            this.txtHoraEntrada = new System.Windows.Forms.MaskedTextBox();
+            this.txtHoraSalida = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // lblIdParametro
@@ -137,22 +137,8 @@
             // 
             this.txtIdParametro.Location = new System.Drawing.Point(144, 9);
             this.txtIdParametro.Name = "txtIdParametro";
-            this.txtIdParametro.Size = new System.Drawing.Size(227, 20);
+            this.txtIdParametro.Size = new System.Drawing.Size(176, 20);
             this.txtIdParametro.TabIndex = 1;
-            // 
-            // txtHoraSalida
-            // 
-            this.txtHoraSalida.Location = new System.Drawing.Point(144, 61);
-            this.txtHoraSalida.Name = "txtHoraSalida";
-            this.txtHoraSalida.Size = new System.Drawing.Size(227, 20);
-            this.txtHoraSalida.TabIndex = 3;
-            // 
-            // txtHoraEntrada
-            // 
-            this.txtHoraEntrada.Location = new System.Drawing.Point(144, 35);
-            this.txtHoraEntrada.Name = "txtHoraEntrada";
-            this.txtHoraEntrada.Size = new System.Drawing.Size(227, 20);
-            this.txtHoraEntrada.TabIndex = 2;
             // 
             // txtFechaModificacion
             // 
@@ -305,11 +291,29 @@
             this.ckdActivo.Text = "Activo";
             this.ckdActivo.UseVisualStyleBackColor = true;
             // 
+            // txtHoraEntrada
+            // 
+            this.txtHoraEntrada.Location = new System.Drawing.Point(144, 35);
+            this.txtHoraEntrada.Mask = "00:00";
+            this.txtHoraEntrada.Name = "txtHoraEntrada";
+            this.txtHoraEntrada.Size = new System.Drawing.Size(176, 20);
+            this.txtHoraEntrada.TabIndex = 40;
+            // 
+            // txtHoraSalida
+            // 
+            this.txtHoraSalida.Location = new System.Drawing.Point(144, 61);
+            this.txtHoraSalida.Mask = "00:00";
+            this.txtHoraSalida.Name = "txtHoraSalida";
+            this.txtHoraSalida.Size = new System.Drawing.Size(176, 20);
+            this.txtHoraSalida.TabIndex = 41;
+            // 
             // frmEdicionParametro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(373, 324);
+            this.ClientSize = new System.Drawing.Size(350, 324);
+            this.Controls.Add(this.txtHoraSalida);
+            this.Controls.Add(this.txtHoraEntrada);
             this.Controls.Add(this.ckdActivo);
             this.Controls.Add(this.lblDiasLaborales);
             this.Controls.Add(this.ckdDomingo);
@@ -326,8 +330,6 @@
             this.Controls.Add(this.txtFechaCreacion);
             this.Controls.Add(this.txtModificadopor);
             this.Controls.Add(this.txtFechaModificacion);
-            this.Controls.Add(this.txtHoraEntrada);
-            this.Controls.Add(this.txtHoraSalida);
             this.Controls.Add(this.txtIdParametro);
             this.Controls.Add(this.lblActivo);
             this.Controls.Add(this.lblcreado_Por);
@@ -356,8 +358,6 @@
         private System.Windows.Forms.Label lblcreado_Por;
         private System.Windows.Forms.Label lblActivo;
         private System.Windows.Forms.TextBox txtIdParametro;
-        private System.Windows.Forms.TextBox txtHoraSalida;
-        private System.Windows.Forms.TextBox txtHoraEntrada;
         private System.Windows.Forms.TextBox txtFechaModificacion;
         private System.Windows.Forms.TextBox txtModificadopor;
         private System.Windows.Forms.TextBox txtFechaCreacion;
@@ -374,5 +374,7 @@
         private System.Windows.Forms.CheckBox ckdDomingo;
         private System.Windows.Forms.Label lblDiasLaborales;
         private System.Windows.Forms.CheckBox ckdActivo;
+        private System.Windows.Forms.MaskedTextBox txtHoraEntrada;
+        private System.Windows.Forms.MaskedTextBox txtHoraSalida;
     }
 }
