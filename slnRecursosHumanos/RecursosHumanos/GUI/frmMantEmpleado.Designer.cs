@@ -191,7 +191,7 @@
             this.btnNuevo.Size = new System.Drawing.Size(46, 49);
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnNuevo.ToolTipText = "Permite crear un nuevo Catalogo de Fechas";
+            this.btnNuevo.ToolTipText = "Permite crear un nuevo empleado";
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click_1);
             // 
             // btnEditar
@@ -202,7 +202,7 @@
             this.btnEditar.Size = new System.Drawing.Size(41, 49);
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnEditar.ToolTipText = "Permite editar una fecha ya creada dentro del Catalogo de Fechas";
+            this.btnEditar.ToolTipText = "Permite editar un empleado seleccionado";
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnBorrar
@@ -213,7 +213,7 @@
             this.btnBorrar.Size = new System.Drawing.Size(43, 49);
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnBorrar.ToolTipText = "Permite borrar una fecha existente dentro del Catalogo de Fechas";
+            this.btnBorrar.ToolTipText = "Permite borrar un empleado";
             this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // btnRefrescar
@@ -224,7 +224,7 @@
             this.btnRefrescar.Size = new System.Drawing.Size(59, 49);
             this.btnRefrescar.Text = "Refrescar";
             this.btnRefrescar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnRefrescar.ToolTipText = "Actualiza y muestra las Fechas existentes dentro del Catalogo de Fechas";
+            this.btnRefrescar.ToolTipText = "Actualiza los cambios en los empleados realizados";
             this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
             // 
             // frmMantEmpleado

@@ -104,7 +104,7 @@ namespace Datos
                 string sql = "insert into Usuario(idEmpleado,idDepartamento,nombreEmpleado,apellido1,apellido2,numCedula,telefono,fechaNacimiento,salarioPorHora,creadoPor,fechaCreacion,modificadoPor,fechaModificacion,activo) " +
                              "values(:idEmpleado, :idDepartamento, :nombreEmpleado, :apellido1, :apellido2, :numCedula, :telefono, :fechaNacimiento, :salarioPorHora, :creadoPor, :fechaCreacion, :modificadoPor, :fechaModificacion, :activo)";
 
-                OracleParameter[] parametros = new OracleParameter[15];// Parametros
+                OracleParameter[] parametros = new OracleParameter[14];// Parametros
 
                 parametros[0] = new OracleParameter();// Parametro que va a la base de datos a agregar el id Empleado
                 parametros[0].OracleType = OracleType.VarChar;
@@ -171,15 +171,10 @@ namespace Datos
                 parametros[12].ParameterName = ":fechaModificacion";
                 parametros[12].Value = pEmpleado.FechaModificacion;
 
-                parametros[13] = new OracleParameter();// Parametro que va a la base de datos a agregar la FechaCreacion
-                parametros[13].OracleType = OracleType.DateTime;
-                parametros[13].ParameterName = ":fechaModificacion";
-                parametros[13].Value = pEmpleado.FechaModificacion;
-
-                parametros[14] = new OracleParameter();// Parametro que va a la base de datos a agregar el Activo
-                parametros[14].OracleType = OracleType.VarChar;
-                parametros[14].ParameterName = ":activo";
-                parametros[14].Value = pEmpleado.Activo;
+                parametros[13] = new OracleParameter();// Parametro que va a la base de datos a agregar el Activo
+                parametros[13].OracleType = OracleType.VarChar;
+                parametros[13].ParameterName = ":activo";
+                parametros[13].Value = pEmpleado.Activo;
 
                 this.cnx.ejecutarSQL(sql, parametros);
                 this.error = this.cnx.IsError;
@@ -289,22 +284,17 @@ namespace Datos
                 parametros[12] = new OracleParameter();// Parametro que va a la base de datos a editar la FechaCreacion
                 parametros[12].OracleType = OracleType.DateTime;
                 parametros[12].ParameterName = ":fechaModificacion";
-                parametros[12].Value = pEmpleadoEditado.FechaModificacion;
+                parametros[12].Value = pEmpleadoEditado.FechaModificacion;                             
 
-                parametros[13] = new OracleParameter();// Parametro que va a la base de datos a editar la FechaCreacion
-                parametros[13].OracleType = OracleType.DateTime;
-                parametros[13].ParameterName = ":fechaModificacion";
-                parametros[13].Value = pEmpleadoEditado.FechaModificacion;
+                parametros[13] = new OracleParameter();// Parametro que va a la base de datos a editar el Activo
+                parametros[13].OracleType = OracleType.VarChar;
+                parametros[13].ParameterName = ":activo";
+                parametros[13].Value = pEmpleadoEditado.Activo;
 
-                parametros[14] = new OracleParameter();// Parametro que va a la base de datos a editar el Activo
+                parametros[14] = new OracleParameter();// Parametro que va a la base de datos a editar la linea editada por la original
                 parametros[14].OracleType = OracleType.VarChar;
-                parametros[14].ParameterName = ":activo";
-                parametros[14].Value = pEmpleadoEditado.Activo;
-
-                parametros[15] = new OracleParameter();// Parametro que va a la base de datos a editar la linea editada por la original
-                parametros[15].OracleType = OracleType.VarChar;
-                parametros[15].ParameterName = ":idEmpleadoOriginal";
-                parametros[15].Value = pEmpleadoOriginal.IdEmpleado;
+                parametros[14].ParameterName = ":idEmpleadoOriginal";
+                parametros[14].Value = pEmpleadoOriginal.IdEmpleado;
 
                 this.cnx.ejecutarSQL(sql, parametros);
                 this.error = this.cnx.IsError;

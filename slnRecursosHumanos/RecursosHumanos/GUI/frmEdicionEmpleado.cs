@@ -35,16 +35,17 @@ namespace GUI
         {
             InitializeComponent();
             this.aceptar = false;
-            this.txtEmpleado.Text = Convert.ToString(pEmpleadoL.IdEmpleado);
-            this.txtDepartamento.Text = Convert.ToString(pEmpleadoL.IdDepartamento);
-            this.txtNombre.Text = Convert.ToString( pEmpleadoL.NombreEmpleado);
-            this.txtApellido1.Text = Convert.ToString(pEmpleadoL.Apellido1);
-            this.txtApellido2.Text = Convert.ToString(pEmpleadoL.Apellido2);
-            this.txtCedula.Text = Convert.ToString(pEmpleadoL.NumCedula);
-            this.txtTelefono.Text = Convert.ToString(pEmpleadoL.Telefono);
-            this.txtFechaNacimiento.Text = Convert.ToString(pEmpleadoL.FechaNacimiento);
-            this.txtSalarioPorHora.Text = Convert.ToString(pEmpleadoL.SalarioPorHora);   
+            this.txtEmpleado.Text = (pEmpleadoL.IdEmpleado);
+            this.txtDepartamento.Text = (pEmpleadoL.IdDepartamento);
+            this.txtNombre.Text = (pEmpleadoL.NombreEmpleado);
+            this.txtApellido1.Text = (pEmpleadoL.Apellido1);
+            this.txtApellido2.Text = (pEmpleadoL.Apellido2);
+            this.txtCedula.Text = (pEmpleadoL.NumCedula.ToString());
+            this.txtTelefono.Text = (pEmpleadoL.Telefono.ToString());
+            this.txtFechaNacimiento.Text = (pEmpleadoL.FechaNacimiento.ToShortTimeString());
+            this.txtSalarioPorHora.Value = (Decimal)(pEmpleadoL.SalarioPorHora);   
             this.oEmpleadoL = pEmpleadoL;
+           
         }
 
         /// <summary>
@@ -95,7 +96,7 @@ namespace GUI
                                                 int.Parse(this.txtCedula.Text),
                                                 int.Parse(this.txtTelefono.Text),
                                                 DateTime.Parse(this.txtFechaNacimiento.Text),
-                                                double.Parse(this.txtSalarioPorHora.Text),
+                                                Double.Parse(this.txtSalarioPorHora.Text),
                                                 Program.oUsuarioLogueado.ToString(),
                                                 DateTime.Now,
                                                 Program.oUsuarioLogueado.ToString(),
