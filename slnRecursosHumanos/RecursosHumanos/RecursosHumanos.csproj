@@ -51,7 +51,6 @@
     <Compile Include="Datos\DeduccionesD.cs" />
     <Compile Include="Datos\DepartamentoD.cs" />
     <Compile Include="Datos\EmpleadoD.cs" />
-    <Compile Include="Datos\LoginD.cs" />
     <Compile Include="Datos\ParametroD.cs" />
     <Compile Include="Datos\UsuarioD.cs" />
     <Compile Include="GUI\frmEdicionCatalogoFechas.cs">
@@ -139,7 +138,6 @@
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Logica\CatalogoFechasL.cs" />
-    <Compile Include="Logica\LoginL.cs" />
     <Compile Include="Logica\DeduccionesL.cs" />
     <Compile Include="Logica\DepartamentoL.cs" />
     <Compile Include="Logica\EmpleadoL.cs" />

@@ -15,7 +15,7 @@ namespace GUI
     public partial class frmLogin : Form
     {
         private bool aceptar;
-        private LoginL oLogin;
+        private UsuarioL oLogin;
         
         private AccesoDatosOracle conexion;
 
@@ -25,7 +25,7 @@ namespace GUI
             set { aceptar = value; }
         }
 
-        public LoginL OLogin
+        public UsuarioL OLogin
         {
             get { return oLogin; }
             set { oLogin = value; }
@@ -47,17 +47,17 @@ namespace GUI
         {
             if ((this.txtLogin.Text != "") && (this.txtClave.Text != ""))
             {
-                LoginD oLoginD = new LoginD(this.conexion);
-                List<LoginL> respuesta = oLoginD.validarLogin(new LoginL(this.txtLogin.Text, "", this.txtClave.Text));
-                if (oLoginD.Error)
+                UsuarioD oUsuarioD = new UsuarioD(this.conexion);
+                List<UsuarioL> respuesta = oUsuarioD.validarLogin(new UsuarioL(this.txtLogin.Text, "", this.txtClave.Text));
+                if (oUsuarioD.Error)
                 {
-                    MessageBox.Show("Error validando login:" + oLoginD.ErrorDescription);
+                    MessageBox.Show("Error validando login:" + oUsuarioD.ErrorDescription);
                     return;
                 }
                 if (respuesta.Count > 0)
                 {
                     this.aceptar = true;
-                    this.OLogin = new LoginL(this.txtLogin.Text, respuesta[0].Descripcion, this.txtClave.Text);
+                    this.OLogin = new UsuarioL(this.txtLogin.Text, respuesta[0].TipoUsuario, this.txtClave.Text);
                     this.Close();
                 }
                 else

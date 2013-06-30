@@ -11,7 +11,7 @@ namespace Logica
         /// <summary>
         /// Atributos de la clase
         /// </summary>
-        private String idUsuario;        
+        private string idUsuario;        
         private string tipoUsuario;        
         private string password;        
         private DateTime fechaCreacion;
@@ -37,6 +37,12 @@ namespace Logica
             this.activo = pactivo;
         }
 
+        public UsuarioL(string pIdUsuario, string pTipoUsuario, string pPassword)
+        {
+            this.idUsuario = pIdUsuario;
+            this.tipoUsuario = pTipoUsuario;
+            this.password = pPassword;
+        }
         /// <summary>
         /// Propiedades de los atributos
         /// </summary>
@@ -88,7 +94,6 @@ namespace Logica
         {
             return "ID Usuario: " + this.idUsuario +
                    "Tipo Usuario: " + this.tipoUsuario +
-                   "Password" + this.password +
                    "Fecha de Modificación: " + this.fechaModificacion +
                    "Fecha de Creación: " + this.fechaCreacion +                   
                    "Creado por: " + this.creadoPor +
