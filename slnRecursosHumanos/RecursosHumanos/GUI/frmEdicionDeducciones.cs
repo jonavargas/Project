@@ -87,7 +87,7 @@ namespace GUI
                  return;
              }
              this.oDeduccionesL = new DeduccionesL(this.txtIdDeducciones.Text,
-                                      double.Parse(this.txtPorcentaje.Text), this.txtDescripcion.Text, DateTime.Now, DateTime.Now, Program.usuario, Program.usuario,
+                                      double.Parse(this.txtPorcentaje.Text), this.txtDescripcion.Text, DateTime.Now, DateTime.Now, Program.oUsuarioLogueado.Login, Program.oUsuarioLogueado.Login,
                                       activo);
              this.aceptar = true;
              this.Close();
@@ -102,7 +102,6 @@ namespace GUI
                  e.Handled = true;
                  return;                          
              }
-
                      
         }
 

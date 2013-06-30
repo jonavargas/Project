@@ -89,3 +89,15 @@ create table Empleado
        constraint PK_Empleado primary key (idEmpleado),
        constraint Empleado_FK foreign key (idDepartamento)references Departamento(idDepartamento)
 );
+
+CREATE TABLE login(
+  login varchar2(20) NOT NULL,
+  descripcion varchar2(100) NOT NULL,
+  clave varchar2(20) NOT NULL,
+  PRIMARY KEY (login)
+);
+
+
+insert into login(login, descripcion, clave) values('ericka','Ericka','12345');
+insert into login(login, descripcion, clave) values('jona','Proyecto','12345');
+insert into login(login, descripcion, clave) values('bryan','Bryan','12345');

@@ -208,7 +208,7 @@ namespace GUI
                                         this.validarSabado(),
                                         this.validarDomingo(),
                                         DateTime.Now,
-                                        DateTime.Now, Program.usuario, Program.usuario,
+                                        DateTime.Now, Program.oUsuarioLogueado.Login, Program.oUsuarioLogueado.Login,
                                         this.validarActivo());
             this.aceptar = true;
             this.Close();

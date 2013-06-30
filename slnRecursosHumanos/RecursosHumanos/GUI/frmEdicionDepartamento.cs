@@ -76,7 +76,7 @@ namespace GUI
             }
             this.oDepartamentoL = new DepartamentoL(this.txtIdDepartamento.Text,
                                       this.txtNombreDepa.Text, DateTime.Now,
-                                         DateTime.Now, Program.usuario, Program.usuario,
+                                         DateTime.Now, Program.oUsuarioLogueado.Login, Program.oUsuarioLogueado.Login,
                                          activo);
             this.aceptar = true;
             this.Close();

@@ -51,6 +51,7 @@
     <Compile Include="Datos\DeduccionesD.cs" />
     <Compile Include="Datos\DepartamentoD.cs" />
     <Compile Include="Datos\EmpleadoD.cs" />
+    <Compile Include="Datos\LoginD.cs" />
     <Compile Include="Datos\ParametroD.cs" />
     <Compile Include="Datos\UsuarioD.cs" />
     <Compile Include="GUI\frmEdicionCatalogoFechas.cs">
@@ -88,6 +89,12 @@
     </Compile>
     <Compile Include="GUI\frmEdicionUsuario.Designer.cs">
       <DependentUpon>frmEdicionUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\frmMantCatalogoFechas.cs">
       <SubType>Form</SubType>
@@ -132,6 +139,7 @@
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Logica\CatalogoFechasL.cs" />
+    <Compile Include="Logica\LoginL.cs" />
     <Compile Include="Logica\DeduccionesL.cs" />
     <Compile Include="Logica\DepartamentoL.cs" />
     <Compile Include="Logica\EmpleadoL.cs" />
@@ -153,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmEdicionUsuario.resx">
       <DependentUpon>frmEdicionUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmMantCatalogoFechas.resx">
       <DependentUpon>frmMantCatalogoFechas.cs</DependentUpon>

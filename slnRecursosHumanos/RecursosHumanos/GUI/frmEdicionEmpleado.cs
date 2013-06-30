@@ -46,7 +46,7 @@ namespace GUI
             this.txtSalarioPorHora.Text = Convert.ToString(pEmpleadoL.SalarioPorHora);   
             this.oEmpleadoL = pEmpleadoL;
         }
-        
+
         /// <summary>
         /// Propiedades de los atributos
         /// </summary>
@@ -94,11 +94,11 @@ namespace GUI
                                                 this.txtApellido2.Text,
                                                 int.Parse(this.txtCedula.Text),
                                                 int.Parse(this.txtTelefono.Text),
-                                                DateTime.Parse( this.txtFechaNacimiento.Text),
+                                                DateTime.Parse(this.txtFechaNacimiento.Text),
                                                 double.Parse(this.txtSalarioPorHora.Text),
-                                                Program.usuario,
+                                                Program.oUsuarioLogueado.ToString(),
                                                 DateTime.Now,
-                                                Program.usuario,
+                                                Program.oUsuarioLogueado.ToString(),
                                                 DateTime.Now,
                                                 this.validarActivo());
             this.aceptar = true;
@@ -115,14 +115,14 @@ namespace GUI
             }
 
             if ((this.txtEmpleado.Text == "") ||
-               (this.txtDepartamento.Text == "") || (this.txtNombre.Text == "") || (this.txtSalarioPorHora == null) || (this.txtTelefono == null) )
+               (this.txtDepartamento.Text == "") || (this.txtNombre.Text == "") || (this.txtTelefono == null) )
             {
                 MessageBox.Show("Faltan datos requeridos");
                 return;
             }
             this.oEmpleadoL = new EmpleadoL(this.txtEmpleado.Text, this.txtDepartamento.Text, this.txtNombre.Text, this.txtApellido1.Text, this.txtApellido2.Text,
-                                     int.Parse(this.txtCedula.Text.ToString()), int.Parse(this.txtTelefono.Text.ToString()), DateTime.Parse(txtFechaNacimiento.ToString()),
-                                     double.Parse(this.txtSalarioPorHora.ToString()), Program.usuario, DateTime.Now, Program.usuario, DateTime.Now, activo);
+                                     int.Parse(this.txtCedula.Text), int.Parse(this.txtTelefono.Text), DateTime.Parse(this.txtFechaNacimiento.Text),
+                                     double.Parse(this.txtSalarioPorHora.Text), Program.oUsuarioLogueado.Login, DateTime.Today, Program.oUsuarioLogueado.Login, DateTime.Now, activo);
             this.aceptar = true;
             this.Close();
         }

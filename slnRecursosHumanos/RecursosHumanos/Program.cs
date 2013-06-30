@@ -7,12 +7,14 @@ using System.Data;
 using System.Data.OracleClient;
 using GUI;
 using Datos;
+using Logica;
 
 namespace GUI
 {
     static class Program
     {
-        public static string usuario = "USER";
+        //public static string usuario = "USER";
+        public static LoginL oUsuarioLogueado;
 
         /// <summary>
         /// Punto de entrada principal para la aplicación.
@@ -40,7 +42,14 @@ namespace GUI
                 {
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(false);
-                    Application.Run(new frmPrincipal(conexion));
+
+                    frmLogin ofrmLogin = new frmLogin(conexion);
+                    ofrmLogin.ShowDialog();
+                    if (ofrmLogin.Aceptar)
+                    {
+                        oUsuarioLogueado = ofrmLogin.OLogin;
+                        Application.Run(new frmPrincipal(conexion));
+                    }
                 }
                 else
                 {
@@ -53,6 +62,7 @@ namespace GUI
                 MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         public static DataSet cargarArchivoConfiguracion(ref string estado)
         {
             DataSet dsetConf = new DataSet();

@@ -65,5 +65,63 @@ namespace GUI
            
             
         }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+
+            if (this.grdEmpleado.RowCount > 0)
+            {
+
+                EmpleadoL oEmpleadoOriginal = (EmpleadoL)this.grdEmpleado.CurrentRow.DataBoundItem;
+
+                frmEdicionEmpleado ofrmEdicion = new frmEdicionEmpleado(oEmpleadoOriginal);
+                ofrmEdicion.ShowDialog();
+                if (ofrmEdicion.Aceptar)
+                {
+                    EmpleadoD oParametroD = new EmpleadoD(this.cnx);
+                    oParametroD.editarEmpleado(oEmpleadoOriginal, ofrmEdicion.OEmpleadoL);
+                    if (oParametroD.Error)
+                    {
+                        MessageBox.Show("Error actualizando los datos del Empleado: " + oParametroD.ErrorDescription);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Empleado actualizado!!!");
+                        this.cargarGrid();
+                    }
+                }
+            }
+
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            if (this.grdEmpleado.RowCount > 0)
+            {
+                //pide confirmación:
+                DialogResult confirmacion = MessageBox.Show("¿Está seguro de borrar este Empleado?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirmacion == DialogResult.No) return;
+                EmpleadoL oEmpleadoL = (EmpleadoL)this.grdEmpleado.CurrentRow.DataBoundItem;
+
+                EmpleadoD oEmpleadoD = new EmpleadoD(this.cnx);
+                oEmpleadoD.borrarEmpleado(oEmpleadoL);
+
+                if (oEmpleadoD.Error)
+                {
+                    MessageBox.Show("Error borrando el Empleado: " + oEmpleadoD.ErrorDescription);
+                }
+                else
+                {
+                    MessageBox.Show("Empleado borrado!!!");
+                    this.cargarGrid();
+                }
+            }
+        }
+
+        private void btnRefrescar_Click(object sender, EventArgs e)
+        {
+            this.cargarGrid();
+            MessageBox.Show("Datos actualizados!!!");
+        }
     }
 }

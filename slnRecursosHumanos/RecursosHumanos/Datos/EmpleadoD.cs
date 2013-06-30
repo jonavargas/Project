@@ -104,7 +104,7 @@ namespace Datos
                 string sql = "insert into Usuario(idEmpleado,idDepartamento,nombreEmpleado,apellido1,apellido2,numCedula,telefono,fechaNacimiento,salarioPorHora,creadoPor,fechaCreacion,modificadoPor,fechaModificacion,activo) " +
                              "values(:idEmpleado, :idDepartamento, :nombreEmpleado, :apellido1, :apellido2, :numCedula, :telefono, :fechaNacimiento, :salarioPorHora, :creadoPor, :fechaCreacion, :modificadoPor, :fechaModificacion, :activo)";
 
-                OracleParameter[] parametros = new OracleParameter[14];// Parametros
+                OracleParameter[] parametros = new OracleParameter[15];// Parametros
 
                 parametros[0] = new OracleParameter();// Parametro que va a la base de datos a agregar el id Empleado
                 parametros[0].OracleType = OracleType.VarChar;
@@ -192,7 +192,7 @@ namespace Datos
             }
         }
 
-        public void borrarUsuario(EmpleadoL pEmpleado)
+        public void borrarEmpleado(EmpleadoL pEmpleado)
         {
             try
             {
@@ -216,7 +216,7 @@ namespace Datos
             }
         }
 
-        public void editarUsuario(EmpleadoL pEmpleadoOriginal, EmpleadoL pEmpleadoEditado)
+        public void editarEmpleado(EmpleadoL pEmpleadoOriginal, EmpleadoL pEmpleadoEditado)
         {
             try
             {
