@@ -64,14 +64,14 @@ namespace Datos
                 else
                 {
                     this.error = true;
-                    this.errorDescription = "Error validando inicio de sesión:" +
+                    this.errorDescription = "Error validando inicio de sesión: " +
                                             this.cnx.ErrorDescripcion;
                 }
             }
             catch (Exception e)
             {
                 this.error = true;
-                this.errorDescription = "Error validando inicio de sesión:" + e.Message;
+                this.errorDescription = "Error validando inicio de sesión: " + e.Message;
             }
             return retorno;
         }

@@ -14,7 +14,7 @@ namespace GUI
     static class Program
     {
         //public static string usuario = "USER";
-        public static LoginL oUsuarioLogueado;
+        public static UsuarioL oUsuarioLogueado;
 
         /// <summary>
         /// Punto de entrada principal para la aplicación.

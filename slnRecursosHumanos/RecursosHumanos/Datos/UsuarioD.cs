@@ -241,5 +241,50 @@ namespace Datos
               this.errorDescription = "Error editando Usuario:" + e.Message;
           }
        }
+
+      public List<UsuarioL> validarLogin(UsuarioL pLogin)
+      {
+          List<UsuarioL> retorno = new List<UsuarioL>();
+          try
+          {
+              OracleParameter[] parametros = new OracleParameter[2];
+
+              parametros[0] = new OracleParameter();
+              parametros[0].OracleType = OracleType.VarChar;
+              parametros[0].ParameterName = ":idUsuario";
+              parametros[0].Value = pLogin.IdUsuario;
+
+              parametros[1] = new OracleParameter();
+              parametros[1].OracleType = OracleType.VarChar;
+              parametros[1].ParameterName = ":password";
+              parametros[1].Value = pLogin.Password;
+
+              DataSet datos = this.cnx.ejecutarConsultaSQL("select * from usuario where idUsuario = :idUsuario and password = :password", "usuario", parametros);
+              if (this.cnx.IsError == false)
+              {
+                  foreach (DataRow fila in datos.Tables[0].Rows)
+                  {
+                      retorno.Add(
+                                  new UsuarioL(fila["idUsuario"].ToString(),
+                                              fila["tipoUsuario"].ToString(),
+                                              fila["password"].ToString())
+                                 );
+                  }
+              }
+              else
+              {
+                  this.error = true;
+                  this.errorDescription = "Error validando inicio de sesión: " +
+                                          this.cnx.ErrorDescripcion;
+              }
+          }
+          catch (Exception e)
+          {
+              this.error = true;
+              this.errorDescription = "Error validando inicio de sesión: " + e.Message;
+          }
+          return retorno;
+      }
+    
     }
 }
