@@ -58,18 +58,18 @@
             this.lblEmpleado.AutoSize = true;
             this.lblEmpleado.Location = new System.Drawing.Point(41, 31);
             this.lblEmpleado.Name = "lblEmpleado";
-            this.lblEmpleado.Size = new System.Drawing.Size(71, 13);
+            this.lblEmpleado.Size = new System.Drawing.Size(69, 13);
             this.lblEmpleado.TabIndex = 0;
-            this.lblEmpleado.Text = "ID Empleado:";
+            this.lblEmpleado.Text = "Id Empleado:";
             // 
             // lblDepartamento
             // 
             this.lblDepartamento.AutoSize = true;
             this.lblDepartamento.Location = new System.Drawing.Point(41, 57);
             this.lblDepartamento.Name = "lblDepartamento";
-            this.lblDepartamento.Size = new System.Drawing.Size(91, 13);
+            this.lblDepartamento.Size = new System.Drawing.Size(89, 13);
             this.lblDepartamento.TabIndex = 1;
-            this.lblDepartamento.Text = "ID Departamento:";
+            this.lblDepartamento.Text = "Id Departamento:";
             // 
             // lblNombre
             // 
@@ -213,7 +213,6 @@
             this.btnCancelar.TabIndex = 20;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click_1);
             // 
             // lblSalarioHora
             // 
@@ -232,6 +231,11 @@
             0,
             0});
             this.txtSalarioPorHora.Location = new System.Drawing.Point(160, 209);
+            this.txtSalarioPorHora.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
             this.txtSalarioPorHora.Name = "txtSalarioPorHora";
             this.txtSalarioPorHora.ReadOnly = true;
             this.txtSalarioPorHora.Size = new System.Drawing.Size(190, 20);

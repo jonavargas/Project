@@ -80,33 +80,12 @@ namespace GUI
             }
             return respuesta;
         }
+        /// <summary>
+        /// Metodo del botón aceptar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
        
-        private void btnAceptar_Click_1(object sender, EventArgs e)
-        {
-            if ((this.txtEmpleado.Text == "") ||
-              (this.txtDepartamento.Text == "") || (this.txtNombre.Text == "") || (this.txtSalarioPorHora.Text == ""))
-            {
-                MessageBox.Show("Faltan datos requeridos");
-                return;
-            }
-            this.oEmpleadoL = new EmpleadoL(this.txtEmpleado.Text,
-                                                this.txtDepartamento.Text,
-                                                this.txtNombre.Text,
-                                                this.txtApellido1.Text,
-                                                this.txtApellido2.Text,
-                                                int.Parse(this.txtCedula.Text),
-                                                int.Parse(this.txtTelefono.Text),
-                                                (this.txtFechaNacimiento.Text),
-                                                Double.Parse(this.txtSalarioPorHora.Text),
-                                                Program.oUsuarioLogueado.ToString(),
-                                                DateTime.Now,
-                                                Program.oUsuarioLogueado.ToString(),
-                                                DateTime.Now,
-                                                this.validarActivo());
-            this.aceptar = true;
-            this.Close();
-        }
-
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             String activo = "No";
@@ -128,10 +107,6 @@ namespace GUI
             this.aceptar = true;
             this.Close();
         }
-
-        private void btnCancelar_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+      
     }
 }
