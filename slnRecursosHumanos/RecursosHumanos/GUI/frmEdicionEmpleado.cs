@@ -14,12 +14,13 @@ namespace GUI
 {
     public partial class frmEdicionEmpleado : Form
     {/// <summary>
-        /// Atributos de la clase.
+        /// Atributos de la clase Empleado  el cual verifica el botón aceptar y un objeto tipo Empleado en la parte lógica
         /// </summary>
         private Boolean aceptar;
         private EmpleadoL oEmpleadoL;
         /// <summary>
-        /// Metodo constructor sin parametros
+        /// Metodo constructor sin parametros y que además inializa el atributo aceptar que corresponde al botón aceptar
+        /// en false
         /// </summary>
 
         public frmEdicionEmpleado()
@@ -28,7 +29,7 @@ namespace GUI
             this.aceptar = false;
         }
          /// <summary>
-        /// Metodo constructor con parametros
+        /// Método constructor el cual recibe por parámetro un Emoleado el cual inicializa los atributos existentes
         /// </summary>
         /// <param name="pParametroL"></param>
         public frmEdicionEmpleado(EmpleadoL pEmpleadoL)
@@ -50,7 +51,7 @@ namespace GUI
         }
 
         /// <summary>
-        /// Propiedades de los atributos
+        /// Properties de la Clase Empleado,el cual permite consultar los valores de los atributos
         /// </summary>
         public EmpleadoL OEmpleadoL
         {
@@ -61,12 +62,10 @@ namespace GUI
         {
             get { return aceptar; }
         }
+
         /// <summary>
-        /// Metodo del botón Cancelar
+        /// Evento del botón Cancelar el cual cierra la ventada si dan click en el
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -81,7 +80,8 @@ namespace GUI
             return respuesta;
         }
         /// <summary>
-        /// Metodo del botón aceptar
+        /// Metodo del botón aceptar,el cual verifica si el usuario preciono el botón aceptar o no,si lo hizo procede a revizar si no dejo
+        /// algún espacio en blanco sino lo hizo creado un empleado con los datos suministrados
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
