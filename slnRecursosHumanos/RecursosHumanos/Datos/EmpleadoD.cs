@@ -186,6 +186,10 @@ namespace Datos
                 this.errorDescription = "Error agregando Empleado: " + e.Message;
             }
         }
+        /// <summary>
+        /// Metodo que borra un empleado 
+        /// </summary>
+        /// <param name="pEmpleado"></param>
 
         public void borrarEmpleado(EmpleadoL pEmpleado)
         {
@@ -210,6 +214,11 @@ namespace Datos
                 this.errorDescription = "Error borrando Empleado: " + e.Message;
             }
         }
+        /// <summary>
+        /// Metodo que edita la línea que se encuentra seleccionada
+        /// </summary>
+        /// <param name="pEmpleadoOriginal"></param>
+        /// <param name="pEmpleadoEditado"></param>
 
         public void editarEmpleado(EmpleadoL pEmpleadoOriginal, EmpleadoL pEmpleadoEditado)
         {

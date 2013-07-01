@@ -88,6 +88,11 @@ namespace GUI
             oFrmMantParametro.ShowDialog();
 
         }
+        /// <summary>
+        /// /// Metodo que levanta el formulario de mantenimiento de empleado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void empleadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
