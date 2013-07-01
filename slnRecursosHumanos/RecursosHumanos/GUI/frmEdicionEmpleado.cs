@@ -19,7 +19,7 @@ namespace GUI
         private Boolean aceptar;
         private EmpleadoL oEmpleadoL;
         /// <summary>
-        /// Metodo constructor sin parametros y que además inializa el atributo aceptar que corresponde al botón aceptar
+        /// Método constructor sin parametros y que además inializa el atributo aceptar que corresponde al botón aceptar
         /// en false
         /// </summary>
 
@@ -80,7 +80,7 @@ namespace GUI
             return respuesta;
         }
         /// <summary>
-        /// Metodo del botón aceptar,el cual verifica si el usuario preciono el botón aceptar o no,si lo hizo procede a revizar si no dejo
+        /// Método del botón aceptar,el cual verifica si el usuario preciono el botón aceptar o no,si lo hizo procede a revizar si no dejo
         /// algún espacio en blanco sino lo hizo creado un empleado con los datos suministrados
         /// </summary>
         /// <param name="sender"></param>
