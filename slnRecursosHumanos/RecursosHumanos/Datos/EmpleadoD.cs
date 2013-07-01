@@ -12,18 +12,25 @@ namespace Datos
     public class EmpleadoD
     {
         /// <summary>
-        /// Atributos de la clase
+        /// Atributos de la clase Empleado en la parte de Datos donde establece conexión con la Base de Datos de Oracle,tambien se crea 
+        /// un atributo por si ocurre un error en el proceso de conexión y adémas detalla que tipo de error fue el que se presento
         /// </summary>
         private AccesoDatosOracle cnx;
         private bool error = false;
         private string errorDescription = "";
 
+
+        /// <summary>
+        /// Método Constructor de la Clase Empleado el cual recibe como  parámetro una conexión a Acceso de datos Oracle el cual es el que 
+        /// inicializa el atributo 
+        /// </summary>
         public EmpleadoD(AccesoDatosOracle pCnx)
         {
             this.cnx = pCnx;
         }
         /// <summary>
-        /// Propiedades de los atributos
+        /// Properties de la Clase Empleado en cual permite modificar o consultar los datos con los cuales fueron cargados los atributos de 
+        /// la clase existente
         /// </summary>
         public AccesoDatosOracle Cnx
         {
@@ -44,8 +51,10 @@ namespace Datos
         }
 
         /// <summary>
-        /// Metodo que obtiene el empleado
-        /// </summary>
+        /// Método que obtiene el Empleado el cual realiza una consulta a la base de datos en la tabla Empleado,luego consulta si 
+        /// ocurrio algún error y sino lo hubo procede a crear un empleado con los datos correspondientes y se los envia a la clase de
+        /// lógica del Empleado
+        /// /// </summary>
         /// <returns></returns>
 
         public List<EmpleadoL> obtenerEmpleado()
@@ -59,7 +68,7 @@ namespace Datos
                     foreach (DataRow fila in datos.Tables[0].Rows)
                     {
                         retorno.Add(
-                                    new EmpleadoL(fila["idEmpleado"].ToString(),
+                                    new EmpleadoL(   fila["idEmpleado"].ToString(),
                                                      fila["idDepartamento"].ToString(),
                                                      fila["nombreEmpleado"].ToString(),
                                                      fila["apellido1"].ToString(),
@@ -93,7 +102,9 @@ namespace Datos
             return retorno;
         }
         /// <summary>
-        /// Metodo que agrega un nuevo usuario
+        /// Método que agrega un nuevo Usuario a la Base de Datos de Oracle,el cual recibe por parámetro un Empleado que viene cargado con 
+        /// los respectivos valores para ser pasados a la base de datos ya creada,ademas procede a realizar una consulta al sql para saber si
+        /// los parámetros creados coinciden con los de la base de datos y si considen procede a insertarlos
         /// </summary>
         /// <param name="pEmpleado"></param>
 
@@ -106,72 +117,72 @@ namespace Datos
 
                 OracleParameter[] parametros = new OracleParameter[14];// Parametros
 
-                parametros[0] = new OracleParameter();// Parametro que va a la base de datos a agregar el id Empleado
+                parametros[0] = new OracleParameter();// Parámetro que va a la base de datos a agregar el id Empleado
                 parametros[0].OracleType = OracleType.VarChar;
                 parametros[0].ParameterName = ":idEmpleado";
                 parametros[0].Value = pEmpleado.IdEmpleado;
 
-                parametros[1] = new OracleParameter();// Parametro que va a la base de datos a agregar el id Departamento
+                parametros[1] = new OracleParameter();// Parámetro que va a la base de datos a agregar el id Departamento
                 parametros[1].OracleType = OracleType.VarChar;
                 parametros[1].ParameterName = ":idDepartamento";
                 parametros[1].Value = pEmpleado.IdDepartamento;
 
-                parametros[2] = new OracleParameter();// Parametro que va a la base de datos a agregar el Nombre del Empleado
+                parametros[2] = new OracleParameter();// Parámetro que va a la base de datos a agregar el Nombre del Empleado
                 parametros[2].OracleType = OracleType.VarChar;
                 parametros[2].ParameterName = ":nombreEmpleado";
                 parametros[2].Value = pEmpleado.NombreEmpleado;
 
-                parametros[3] = new OracleParameter();// Parametro que va a la base de datos a agregar el Apellido1
+                parametros[3] = new OracleParameter();// Parámetro que va a la base de datos a agregar el Apellido1
                 parametros[3].OracleType = OracleType.VarChar;
                 parametros[3].ParameterName = ":apellido1";
                 parametros[3].Value = pEmpleado.Apellido1;
 
-                parametros[4] = new OracleParameter();// Parametro que va a la base de datos a agregar el Apellido2
+                parametros[4] = new OracleParameter();// Parámetro que va a la base de datos a agregar el Apellido2
                 parametros[4].OracleType = OracleType.VarChar;
                 parametros[4].ParameterName = ":apellido2";
                 parametros[4].Value = pEmpleado.Apellido2;
 
-                parametros[5] = new OracleParameter();// Parametro que va a la base de datos a agregar el Numero de Cedula
+                parametros[5] = new OracleParameter();// Parámetro que va a la base de datos a agregar el Numero de Cedula
                 parametros[5].OracleType = OracleType.Number;
                 parametros[5].ParameterName = ":numCedula";
                 parametros[5].Value = pEmpleado.NumCedula;
 
-                parametros[6] = new OracleParameter();// Parametro que va a la base de datos a agregar el Telefono 
+                parametros[6] = new OracleParameter();// Parámetro que va a la base de datos a agregar el Telefono 
                 parametros[6].OracleType = OracleType.Number;
                 parametros[6].ParameterName = ":telefono";
                 parametros[6].Value = pEmpleado.ModificadoPor;
 
-                parametros[7] = new OracleParameter();// Parametro que va a la base de datos a agregar la Fecha de Nacimiento 
+                parametros[7] = new OracleParameter();// Parámetro que va a la base de datos a agregar la Fecha de Nacimiento 
                 parametros[7].OracleType = OracleType.VarChar;
                 parametros[7].ParameterName = ":fechaNacimiento";
                 parametros[7].Value = pEmpleado.FechaNacimiento;
 
-                parametros[8] = new OracleParameter();// Parametro que va a la base de datos a agregar el Salario Por Hora  
+                parametros[8] = new OracleParameter();// Parámetro que va a la base de datos a agregar el Salario Por Hora  
                 parametros[8].OracleType = OracleType.Number;
                 parametros[8].ParameterName = ":salarioPorHora";
                 parametros[8].Value = pEmpleado.SalarioPorHora;
 
-                parametros[9] = new OracleParameter();// Parametro que va a la base de datos a agregar Creado Por 
+                parametros[9] = new OracleParameter();// Parámetro que va a la base de datos a agregar Creado Por 
                 parametros[9].OracleType = OracleType.VarChar;
                 parametros[9].ParameterName = ":creadoPor";
                 parametros[9].Value = pEmpleado.CreadoPor;
 
-                parametros[10] = new OracleParameter();// Parametro que va a la base de datos a agregar la FechaCreacion
+                parametros[10] = new OracleParameter();// Parámetro que va a la base de datos a agregar la FechaCreacion
                 parametros[10].OracleType = OracleType.DateTime;
                 parametros[10].ParameterName = ":fechaCreacion";
                 parametros[10].Value = pEmpleado.FechaCreacion;
 
-                parametros[11] = new OracleParameter();// Parametro que va a la base de datos a agregar Modificado Por 
+                parametros[11] = new OracleParameter();// Parámetro que va a la base de datos a agregar Modificado Por 
                 parametros[11].OracleType = OracleType.VarChar;
                 parametros[11].ParameterName = ":modificadoPor";
                 parametros[11].Value = pEmpleado.ModificadoPor;
 
-                parametros[12] = new OracleParameter();// Parametro que va a la base de datos a agregar la FechaCreacion
+                parametros[12] = new OracleParameter();// Parámetro que va a la base de datos a agregar la FechaCreacion
                 parametros[12].OracleType = OracleType.DateTime;
                 parametros[12].ParameterName = ":fechaModificacion";
                 parametros[12].Value = pEmpleado.FechaModificacion;
 
-                parametros[13] = new OracleParameter();// Parametro que va a la base de datos a agregar el Activo
+                parametros[13] = new OracleParameter();// Parámetro que va a la base de datos a agregar el Activo
                 parametros[13].OracleType = OracleType.VarChar;
                 parametros[13].ParameterName = ":activo";
                 parametros[13].Value = pEmpleado.Activo;
@@ -187,7 +198,8 @@ namespace Datos
             }
         }
         /// <summary>
-        /// Metodo que borra un empleado 
+        /// Método que borra un Empleado,el cual procede a recibir un parámetro de tipo Empleado y verifica que en la base de datos 
+        /// exista un parámetro igual y procede a eliminar este
         /// </summary>
         /// <param name="pEmpleado"></param>
 
@@ -215,7 +227,8 @@ namespace Datos
             }
         }
         /// <summary>
-        /// Metodo que edita la línea que se encuentra seleccionada
+        /// Método que Edita los datos ya existentes en la Clase Empleado el cual recibe por parámetro los datos originales y los que vamos a editar para que 
+        /// pueda realizar el cambio
         /// </summary>
         /// <param name="pEmpleadoOriginal"></param>
         /// <param name="pEmpleadoEditado"></param>
@@ -230,77 +243,77 @@ namespace Datos
 
                 OracleParameter[] parametros = new OracleParameter[15];//Parametros
 
-                parametros[0] = new OracleParameter();// Parametro que va a la base de datos a editar el id Empleado
+                parametros[0] = new OracleParameter();// Parámetro que va a la base de datos a editar el id Empleado
                 parametros[0].OracleType = OracleType.VarChar;
                 parametros[0].ParameterName = ":idEmpleado";
                 parametros[0].Value = pEmpleadoEditado.IdEmpleado;
 
-                parametros[1] = new OracleParameter();// Parametro que va a la base de datos a editar el id Departamento
+                parametros[1] = new OracleParameter();// Parámetro que va a la base de datos a editar el id Departamento
                 parametros[1].OracleType = OracleType.VarChar;
                 parametros[1].ParameterName = ":idDepartamento";
                 parametros[1].Value = pEmpleadoEditado.IdDepartamento;
 
-                parametros[2] = new OracleParameter();// Parametro que va a la base de datos a editar el Nombre del Empleado
+                parametros[2] = new OracleParameter();// Parámetro que va a la base de datos a editar el Nombre del Empleado
                 parametros[2].OracleType = OracleType.VarChar;
                 parametros[2].ParameterName = ":nombreEmpleado";
                 parametros[2].Value = pEmpleadoEditado.NombreEmpleado;
 
-                parametros[3] = new OracleParameter();// Parametro que va a la base de datos a editar el Apellido1
+                parametros[3] = new OracleParameter();// Parámetro que va a la base de datos a editar el Apellido1
                 parametros[3].OracleType = OracleType.VarChar;
                 parametros[3].ParameterName = ":apellido1";
                 parametros[3].Value = pEmpleadoEditado.Apellido1;
 
-                parametros[4] = new OracleParameter();// Parametro que va a la base de datos a editar el Apellido2
+                parametros[4] = new OracleParameter();// Parámetro que va a la base de datos a editar el Apellido2
                 parametros[4].OracleType = OracleType.VarChar;
                 parametros[4].ParameterName = ":apellido2";
                 parametros[4].Value = pEmpleadoEditado.Apellido2;
 
-                parametros[5] = new OracleParameter();// Parametro que va a la base de datos a editar el Numero de Cedula
+                parametros[5] = new OracleParameter();// Parámetro que va a la base de datos a editar el Numero de Cedula
                 parametros[5].OracleType = OracleType.Number;
                 parametros[5].ParameterName = ":numCedula";
                 parametros[5].Value = pEmpleadoEditado.NumCedula;
 
-                parametros[6] = new OracleParameter();// Parametro que va a la base de datos a editar el Telefono 
+                parametros[6] = new OracleParameter();// Parámetro que va a la base de datos a editar el Telefono 
                 parametros[6].OracleType = OracleType.Number;
                 parametros[6].ParameterName = ":telefono";
                 parametros[6].Value = pEmpleadoEditado.ModificadoPor;
 
-                parametros[7] = new OracleParameter();// Parametro que va a la base de datos a editar la Fecha de Nacimiento 
+                parametros[7] = new OracleParameter();// Parámetro que va a la base de datos a editar la Fecha de Nacimiento 
                 parametros[7].OracleType = OracleType.DateTime;
                 parametros[7].ParameterName = ":fechaNacimiento";
                 parametros[7].Value = pEmpleadoEditado.FechaNacimiento;
 
-                parametros[8] = new OracleParameter();// Parametro que va a la base de datos a editar el Salario Por Hora  
+                parametros[8] = new OracleParameter();// Parámetro que va a la base de datos a editar el Salario Por Hora  
                 parametros[8].OracleType = OracleType.Double;
                 parametros[8].ParameterName = ":salarioPorHora";
                 parametros[8].Value = pEmpleadoEditado.SalarioPorHora;
 
-                parametros[9] = new OracleParameter();// Parametro que va a la base de datos a editar Creado Por 
+                parametros[9] = new OracleParameter();// Parámetro que va a la base de datos a editar Creado Por 
                 parametros[9].OracleType = OracleType.VarChar;
                 parametros[9].ParameterName = ":creadoPor";
                 parametros[9].Value = pEmpleadoEditado.CreadoPor;
 
-                parametros[10] = new OracleParameter();// Parametro que va a la base de datos a editar la FechaCreacion
+                parametros[10] = new OracleParameter();// Parámetro que va a la base de datos a editar la FechaCreacion
                 parametros[10].OracleType = OracleType.DateTime;
                 parametros[10].ParameterName = ":fechaCreacion";
                 parametros[10].Value = pEmpleadoEditado.FechaCreacion;
 
-                parametros[11] = new OracleParameter();// Parametro que va a la base de datos a editar Modificado Por 
+                parametros[11] = new OracleParameter();// Parámetro que va a la base de datos a editar Modificado Por 
                 parametros[11].OracleType = OracleType.VarChar;
                 parametros[11].ParameterName = ":modificadoPor";
                 parametros[11].Value = pEmpleadoEditado.ModificadoPor;
 
-                parametros[12] = new OracleParameter();// Parametro que va a la base de datos a editar la FechaCreacion
+                parametros[12] = new OracleParameter();// Parámetro que va a la base de datos a editar la FechaCreacion
                 parametros[12].OracleType = OracleType.DateTime;
                 parametros[12].ParameterName = ":fechaModificacion";
                 parametros[12].Value = pEmpleadoEditado.FechaModificacion;                             
 
-                parametros[13] = new OracleParameter();// Parametro que va a la base de datos a editar el Activo
+                parametros[13] = new OracleParameter();// Parámetro que va a la base de datos a editar el Activo
                 parametros[13].OracleType = OracleType.VarChar;
                 parametros[13].ParameterName = ":activo";
                 parametros[13].Value = pEmpleadoEditado.Activo;
 
-                parametros[14] = new OracleParameter();// Parametro que va a la base de datos a editar la linea editada por la original
+                parametros[14] = new OracleParameter();// Parámetro que va a la base de datos a editar la linea editada por la original
                 parametros[14].OracleType = OracleType.VarChar;
                 parametros[14].ParameterName = ":idEmpleadoOriginal";
                 parametros[14].Value = pEmpleadoOriginal.IdEmpleado;
