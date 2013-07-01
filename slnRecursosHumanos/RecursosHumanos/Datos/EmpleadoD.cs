@@ -67,7 +67,7 @@ namespace Datos
                                                      int.Parse(fila["numCedula"].ToString()),
                                                      int.Parse(fila["telefono"].ToString()),
                                                      (fila["fechaNacimiento"].ToString()),
-                                                     Double.Parse(fila["salarioPorHora"].ToString()),
+                                                     double.Parse(fila["salarioPorHora"].ToString()),
                                                      fila["creadoPor"].ToString(),
                                                      DateTime.Parse(fila["fechaCreacion"].ToString()),
                                                      fila["modificadoPor"].ToString(),
@@ -139,7 +139,7 @@ namespace Datos
                 parametros[6] = new OracleParameter();// Parametro que va a la base de datos a agregar el Telefono 
                 parametros[6].OracleType = OracleType.Number;
                 parametros[6].ParameterName = ":telefono";
-                parametros[6].Value = pEmpleado.ModificadoPor;
+                parametros[6].Value = pEmpleado.Telefono;
 
                 parametros[7] = new OracleParameter();// Parametro que va a la base de datos a agregar la Fecha de Nacimiento 
                 parametros[7].OracleType = OracleType.VarChar;
@@ -263,10 +263,10 @@ namespace Datos
                 parametros[6] = new OracleParameter();// Parametro que va a la base de datos a editar el Telefono 
                 parametros[6].OracleType = OracleType.Number;
                 parametros[6].ParameterName = ":telefono";
-                parametros[6].Value = pEmpleadoEditado.ModificadoPor;
+                parametros[6].Value = pEmpleadoEditado.Telefono;
 
                 parametros[7] = new OracleParameter();// Parametro que va a la base de datos a editar la Fecha de Nacimiento 
-                parametros[7].OracleType = OracleType.DateTime;
+                parametros[7].OracleType = OracleType.VarChar;
                 parametros[7].ParameterName = ":fechaNacimiento";
                 parametros[7].Value = pEmpleadoEditado.FechaNacimiento;
 
