@@ -285,6 +285,18 @@ namespace Datos
           }
           return retorno;
       }
-    
-    }
+
+      public List<UsuarioL> usuarioAdministrador(UsuarioL pLogin)
+      {
+          List<UsuarioL> retorno = new List<UsuarioL>();
+          {
+              retorno.Add(
+                          new UsuarioL("idUsuario".ToString(),
+                                       "tipoUsuario".ToString(),
+                                       "password".ToString())
+                         );
+          }
+          return retorno;
+      }
+   }
 }

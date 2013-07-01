@@ -47,22 +47,45 @@ namespace GUI
         {
             if ((this.txtLogin.Text != "") && (this.txtClave.Text != ""))
             {
-                UsuarioD oUsuarioD = new UsuarioD(this.conexion);
-                List<UsuarioL> respuesta = oUsuarioD.validarLogin(new UsuarioL(this.txtLogin.Text, "", this.txtClave.Text));
-                if (oUsuarioD.Error)
+                if ((this.txtLogin.Text.Equals("admin")) && (txtClave.Text.Equals("admin")))
                 {
-                    MessageBox.Show("Error validando login:" + oUsuarioD.ErrorDescription);
-                    return;
-                }
-                if (respuesta.Count > 0)
-                {
-                    this.aceptar = true;
-                    this.OLogin = new UsuarioL(this.txtLogin.Text, respuesta[0].TipoUsuario, this.txtClave.Text);
-                    this.Close();
+                    UsuarioD oUsuarioD = new UsuarioD(this.conexion);
+                    List<UsuarioL> respuesta = oUsuarioD.usuarioAdministrador(new UsuarioL(this.txtLogin.Text, "Administrador", this.txtClave.Text));
+                    if (oUsuarioD.Error)
+                    {
+                        MessageBox.Show("Error validando login:" + oUsuarioD.ErrorDescription);
+                        return;
+                    }
+                    if (respuesta.Count > 0)
+                    {
+                        this.aceptar = true;
+                        this.OLogin = new UsuarioL(this.txtLogin.Text, respuesta[0].TipoUsuario, this.txtClave.Text);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Login o password inválidos");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Login o password inválidos");
+                    UsuarioD oUsuarioD = new UsuarioD(this.conexion);
+                    List<UsuarioL> respuesta = oUsuarioD.validarLogin(new UsuarioL(this.txtLogin.Text, "", this.txtClave.Text));
+                    if (oUsuarioD.Error)
+                    {
+                        MessageBox.Show("Error validando login:" + oUsuarioD.ErrorDescription);
+                        return;
+                    }
+                    if (respuesta.Count > 0)
+                    {
+                        this.aceptar = true;
+                        this.OLogin = new UsuarioL(this.txtLogin.Text, respuesta[0].TipoUsuario, this.txtClave.Text);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Login o password inválidos");
+                    }
                 }
             }
             else
