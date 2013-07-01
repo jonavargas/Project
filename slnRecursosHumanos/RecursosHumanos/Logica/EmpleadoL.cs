@@ -9,7 +9,7 @@ namespace Logica
     public class EmpleadoL
     {
         /// <summary>
-        /// Atributos de la clase
+        /// Atributos de la clase Empleado
         /// </summary>
         private string idEmpleado;
         private string idDepartamento;
@@ -27,7 +27,7 @@ namespace Logica
         private string activo;
 
         /// <summary>
-        /// Metodo constructor con parametros
+        /// Metodo Constructor con parámetros los cuales cargan con valores los atributos de la clase
         /// </summary>        
 
         public EmpleadoL(string pIdEmpleado, string pIdDepartamento, string pNombreEmpleado, string pApellido1, string pApellido2, int pNumCedula, int pTelefono, string pFechaNacimiento, double pSalarioPorHora, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, DateTime pFechaModificacion, string pActivo)
@@ -48,7 +48,7 @@ namespace Logica
             this.activo = pActivo;
         }
         /// <summary>
-        /// Propiedades de los atributos de la clase
+        /// Properties de cada atributo de la clase Empleado el cual permite consultar o modificar el valor de los mismos 
         /// </summary>
 
         public string IdEmpleado
@@ -135,7 +135,7 @@ namespace Logica
             set { activo = value; }
         }
         /// <summary>
-        ///  Metodo ToString
+        ///  Metodo ToString el cual devuelve todos los datos con sus respectivos valores
         /// </summary>
         /// <returns></returns>
 
