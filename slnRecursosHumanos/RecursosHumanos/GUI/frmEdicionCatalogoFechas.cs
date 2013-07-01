@@ -40,6 +40,10 @@ namespace GUI
             this.txtModificadopor.Text = pCatalogoFechasL.ModificadoPor;
             this.txtActivo.Text = pCatalogoFechasL.Activo;
             this.oCatalogoFechasL = pCatalogoFechasL;
+
+            this.cmbDia.SelectedValue = pCatalogoFechasL.Dia;
+            this.cmbMes.SelectedValue = pCatalogoFechasL.Mes; 
+           
         }
         /// <summary>
         /// Propiedades de la clase

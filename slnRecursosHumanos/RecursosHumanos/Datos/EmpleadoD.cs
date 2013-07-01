@@ -66,8 +66,8 @@ namespace Datos
                                                      fila["apellido2"].ToString(),
                                                      int.Parse(fila["numCedula"].ToString()),
                                                      int.Parse(fila["telefono"].ToString()),
-                                                     DateTime.Parse(fila["fechaNacimiento"].ToString()),
-                                                     double.Parse(fila["salarioPorHora"].ToString()),
+                                                     (fila["fechaNacimiento"].ToString()),
+                                                     Double.Parse(fila["salarioPorHora"].ToString()),
                                                      fila["creadoPor"].ToString(),
                                                      DateTime.Parse(fila["fechaCreacion"].ToString()),
                                                      fila["modificadoPor"].ToString(),
@@ -142,7 +142,7 @@ namespace Datos
                 parametros[6].Value = pEmpleado.ModificadoPor;
 
                 parametros[7] = new OracleParameter();// Parametro que va a la base de datos a agregar la Fecha de Nacimiento 
-                parametros[7].OracleType = OracleType.DateTime;
+                parametros[7].OracleType = OracleType.VarChar;
                 parametros[7].ParameterName = ":fechaNacimiento";
                 parametros[7].Value = pEmpleado.FechaNacimiento;
 
@@ -262,7 +262,7 @@ namespace Datos
                 parametros[7].Value = pEmpleadoEditado.FechaNacimiento;
 
                 parametros[8] = new OracleParameter();// Parametro que va a la base de datos a editar el Salario Por Hora  
-                parametros[8].OracleType = OracleType.Number;
+                parametros[8].OracleType = OracleType.Double;
                 parametros[8].ParameterName = ":salarioPorHora";
                 parametros[8].Value = pEmpleadoEditado.SalarioPorHora;
 

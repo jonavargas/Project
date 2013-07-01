@@ -80,7 +80,7 @@ create table Empleado
        numCedula number,
        telefono number,
        fechaNacimiento varchar(50),
-       salarioPorHora number(10),
+       salarioPorHora number(10,2),
        creadoPor varchar(100),
        fechaCreacion date,
        modificadoPor varchar(100),
@@ -90,6 +90,6 @@ create table Empleado
        constraint Empleado_FK foreign key (idDepartamento)references Departamento(idDepartamento)
 );
 
-insert into usuario(login, tipoUsuario, clave) values('ericka','supervisor','12345');
-insert into usuario(login, tipoUsuario, clave) values('jona','supervisor','12345');
-insert into usuario(login, tipoUsuario, clave) values('bryan','supervisor','12345');
+insert into usuario(idUsuario, tipoUsuario, password) values('ericka','supervisor','12345');
+insert into usuario(idUsuario, tipoUsuario, password) values('jona','supervisor','12345');
+insert into usuario(idUsuario, tipoUsuario, password) values('bryan','supervisor','12345');

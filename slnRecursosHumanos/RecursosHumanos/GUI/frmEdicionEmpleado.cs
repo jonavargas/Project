@@ -42,8 +42,9 @@ namespace GUI
             this.txtApellido2.Text = (pEmpleadoL.Apellido2);
             this.txtCedula.Text = (pEmpleadoL.NumCedula.ToString());
             this.txtTelefono.Text = (pEmpleadoL.Telefono.ToString());
-            this.txtFechaNacimiento.Text = (pEmpleadoL.FechaNacimiento.ToShortTimeString());
-            this.txtSalarioPorHora.Value = (Decimal)(pEmpleadoL.SalarioPorHora);   
+            this.txtFechaNacimiento.Text = (pEmpleadoL.FechaNacimiento.ToString());
+            this.txtSalarioPorHora.Value = (Decimal)(pEmpleadoL.SalarioPorHora); 
+           
             this.oEmpleadoL = pEmpleadoL;
            
         }
@@ -95,7 +96,7 @@ namespace GUI
                                                 this.txtApellido2.Text,
                                                 int.Parse(this.txtCedula.Text),
                                                 int.Parse(this.txtTelefono.Text),
-                                                DateTime.Parse(this.txtFechaNacimiento.Text),
+                                                (this.txtFechaNacimiento.Text),
                                                 Double.Parse(this.txtSalarioPorHora.Text),
                                                 Program.oUsuarioLogueado.ToString(),
                                                 DateTime.Now,
@@ -122,8 +123,8 @@ namespace GUI
                 return;
             }
             this.oEmpleadoL = new EmpleadoL(this.txtEmpleado.Text, this.txtDepartamento.Text, this.txtNombre.Text, this.txtApellido1.Text, this.txtApellido2.Text,
-                                     int.Parse(this.txtCedula.Text), int.Parse(this.txtTelefono.Text), DateTime.Parse(this.txtFechaNacimiento.Text),
-                                     double.Parse(this.txtSalarioPorHora.Text), Program.oUsuarioLogueado.IdUsuario, DateTime.Today, Program.oUsuarioLogueado.IdUsuario, DateTime.Now, activo);
+                                     int.Parse(this.txtCedula.Text), int.Parse(this.txtTelefono.Text),(this.txtFechaNacimiento.Text),
+                                     Double.Parse(this.txtSalarioPorHora.Text), Program.oUsuarioLogueado.IdUsuario, DateTime.Today, Program.oUsuarioLogueado.IdUsuario, DateTime.Now, activo);
             this.aceptar = true;
             this.Close();
         }

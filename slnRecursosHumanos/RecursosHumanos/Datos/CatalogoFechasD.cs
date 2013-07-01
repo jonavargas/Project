@@ -243,6 +243,8 @@ namespace Datos
                 parametros[9].ParameterName = ":idCatalogoFechasOriginal";
                 parametros[9].Value = pCatalogoFechasOriginal.IdCatalogoFechas;
 
+
+
                 this.cnx.ejecutarSQL(sql, parametros);
                 this.error = this.cnx.IsError;
                 this.errorDescription = this.cnx.ErrorDescripcion;
