@@ -89,7 +89,3 @@ create table Empleado
        constraint PK_Empleado primary key (idEmpleado),
        constraint Empleado_FK foreign key (idDepartamento)references Departamento(idDepartamento)
 );
-
-insert into usuario(idUsuario, tipoUsuario, password) values('ericka','supervisor','12345');
-insert into usuario(idUsuario, tipoUsuario, password) values('jona','supervisor','12345');
-insert into usuario(idUsuario, tipoUsuario, password) values('bryan','supervisor','12345');

@@ -101,7 +101,7 @@ namespace Datos
         {
             try
             {
-                string sql = "insert into Usuario(idEmpleado,idDepartamento,nombreEmpleado,apellido1,apellido2,numCedula,telefono,fechaNacimiento,salarioPorHora,creadoPor,fechaCreacion,modificadoPor,fechaModificacion,activo) " +
+                string sql = "insert into Empleado(idEmpleado,idDepartamento,nombreEmpleado,apellido1,apellido2,numCedula,telefono,fechaNacimiento,salarioPorHora,creadoPor,fechaCreacion,modificadoPor,fechaModificacion,activo) " +
                              "values(:idEmpleado, :idDepartamento, :nombreEmpleado, :apellido1, :apellido2, :numCedula, :telefono, :fechaNacimiento, :salarioPorHora, :creadoPor, :fechaCreacion, :modificadoPor, :fechaModificacion, :activo)";
 
                 OracleParameter[] parametros = new OracleParameter[14];// Parametros
@@ -191,7 +191,7 @@ namespace Datos
         {
             try
             {
-                string sql = "delete from Usuario where idEmpleado = :idEmpleado";
+                string sql = "delete from Empleado where idEmpleado = :idEmpleado";
 
                 OracleParameter[] parametros = new OracleParameter[1];//Parametro
 
