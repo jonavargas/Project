@@ -278,13 +278,8 @@ namespace Datos
                 parametros[6].ParameterName = ":telefono";
                 parametros[6].Value = pEmpleadoEditado.Telefono;
 
-<<<<<<< HEAD
-                parametros[7] = new OracleParameter();// Parámetro que va a la base de datos a editar la Fecha de Nacimiento 
-                parametros[7].OracleType = OracleType.DateTime;
-=======
                 parametros[7] = new OracleParameter();// Parametro que va a la base de datos a editar la Fecha de Nacimiento 
                 parametros[7].OracleType = OracleType.VarChar;
->>>>>>> 49abd4d460b77b18c80ecf833f3f5f95e8c6a5b8
                 parametros[7].ParameterName = ":fechaNacimiento";
                 parametros[7].Value = pEmpleadoEditado.FechaNacimiento;
 
