@@ -32,7 +32,7 @@ namespace GUI
         ///Método constructor el cual recibe por parámetro un parametro el cual inicializa los atributos existentes
         /// </summary>
         /// <param name="pParametroL"></param>
-        public frmEdicionParametro(ParametroL pParametroL)
+        public frmEdicionParametro(ParametroL pParametroL, string lunes, string martes, string miercoles, string jueves, string viernes, string sabado, string domingo)
         {
             InitializeComponent();
             this.aceptar = false;

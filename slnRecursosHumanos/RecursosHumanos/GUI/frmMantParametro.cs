@@ -93,7 +93,7 @@ namespace GUI
         /// <param name="e"></param>
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            frmEdicionParametro ofrmEdicion = new frmEdicionParametro();
+            frmEdicionParametro ofrmEdicion = new frmEdicionParametro(null,null,null,null,null,null,null,null);
             ofrmEdicion.ShowDialog();
             if (ofrmEdicion.Aceptar)
             {
@@ -119,10 +119,26 @@ namespace GUI
         {
             if (this.grdParametro.RowCount > 0)
             {
+                string lunes;
+                string martes;
+                string miercoles;
+                string jueves;
+                string viernes;
+                string sabado;
+                string domingo; 
+
 
                 ParametroL oParametroOriginal = (ParametroL)this.grdParametro.CurrentRow.DataBoundItem;
 
-                frmEdicionParametro ofrmEdicion = new frmEdicionParametro(oParametroOriginal);
+                
+                lunes = oParametroOriginal.Lunes;
+                martes = oParametroOriginal.Martes;
+                miercoles = oParametroOriginal.Miercoles;
+                jueves = oParametroOriginal.Jueves;
+                viernes = oParametroOriginal.Viernes;
+                sabado = oParametroOriginal.Sabado;
+                domingo = oParametroOriginal.Domingo;
+                frmEdicionParametro ofrmEdicion = new frmEdicionParametro(oParametroOriginal, lunes, martes, miercoles, jueves, viernes, sabado, domingo);
                 ofrmEdicion.ShowDialog();
                 if (ofrmEdicion.Aceptar)
                 {
