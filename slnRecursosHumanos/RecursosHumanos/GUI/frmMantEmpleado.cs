@@ -89,15 +89,15 @@ namespace GUI
 
                 EmpleadoL oEmpleadoOriginal = (EmpleadoL)this.grdEmpleado.CurrentRow.DataBoundItem;
 
-                frmEdicionEmpleado ofrmEdicion = new frmEdicionEmpleado(oEmpleadoOriginal);
-                ofrmEdicion.ShowDialog();
-                if (ofrmEdicion.Aceptar)
+                frmEdicionEmpleado ofrmEdicionEmpleado = new frmEdicionEmpleado(oEmpleadoOriginal);
+                ofrmEdicionEmpleado.ShowDialog();
+                if (ofrmEdicionEmpleado.Aceptar)
                 {
-                    EmpleadoD oParametroD = new EmpleadoD(this.cnx);
-                    oParametroD.editarEmpleado(oEmpleadoOriginal, ofrmEdicion.OEmpleadoL);
-                    if (oParametroD.Error)
+                    EmpleadoD oEmpleadoD = new EmpleadoD(this.cnx);
+                    oEmpleadoD.editarEmpleado(oEmpleadoOriginal, ofrmEdicionEmpleado.OEmpleadoL);
+                    if (oEmpleadoD.Error)
                     {
-                        MessageBox.Show("Error actualizando los datos del Empleado: " + oParametroD.ErrorDescription);
+                        MessageBox.Show("Error actualizando los datos del Empleado: " + oEmpleadoD.ErrorDescription);
                     }
                     else
                     {

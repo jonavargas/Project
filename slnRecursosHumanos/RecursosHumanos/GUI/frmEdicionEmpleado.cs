@@ -112,6 +112,5 @@ namespace GUI
         {
             this.Close();
         }
-      
     }
 }
