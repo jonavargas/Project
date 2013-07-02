@@ -43,13 +43,13 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtApellido1 = new System.Windows.Forms.TextBox();
             this.txtApellido2 = new System.Windows.Forms.TextBox();
-            this.txtCedula = new System.Windows.Forms.TextBox();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.lblSalarioHora = new System.Windows.Forms.Label();
             this.txtSalarioPorHora = new System.Windows.Forms.NumericUpDown();
             this.txtFechaNacimiento = new System.Windows.Forms.MaskedTextBox();
+            this.txtCedula = new System.Windows.Forms.MaskedTextBox();
+            this.txtTelefono = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtSalarioPorHora)).BeginInit();
             this.SuspendLayout();
             // 
@@ -181,20 +181,6 @@
             this.txtApellido2.Size = new System.Drawing.Size(190, 20);
             this.txtApellido2.TabIndex = 14;
             // 
-            // txtCedula
-            // 
-            this.txtCedula.Location = new System.Drawing.Point(160, 158);
-            this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(190, 20);
-            this.txtCedula.TabIndex = 15;
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Location = new System.Drawing.Point(160, 182);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(190, 20);
-            this.txtTelefono.TabIndex = 16;
-            // 
             // btnAceptar
             // 
             this.btnAceptar.Location = new System.Drawing.Point(101, 307);
@@ -213,6 +199,7 @@
             this.btnCancelar.TabIndex = 20;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click_1);
             // 
             // lblSalarioHora
             // 
@@ -243,24 +230,43 @@
             // 
             // txtFechaNacimiento
             // 
+            this.txtFechaNacimiento.HidePromptOnLeave = true;
             this.txtFechaNacimiento.Location = new System.Drawing.Point(160, 234);
             this.txtFechaNacimiento.Mask = "00/00/0000";
             this.txtFechaNacimiento.Name = "txtFechaNacimiento";
             this.txtFechaNacimiento.Size = new System.Drawing.Size(190, 20);
             this.txtFechaNacimiento.TabIndex = 23;
             // 
+            // txtCedula
+            // 
+            this.txtCedula.HidePromptOnLeave = true;
+            this.txtCedula.Location = new System.Drawing.Point(160, 158);
+            this.txtCedula.Mask = "#-####-####";
+            this.txtCedula.Name = "txtCedula";
+            this.txtCedula.Size = new System.Drawing.Size(190, 20);
+            this.txtCedula.TabIndex = 24;
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.HidePromptOnLeave = true;
+            this.txtTelefono.Location = new System.Drawing.Point(160, 184);
+            this.txtTelefono.Mask = "####-####";
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(190, 20);
+            this.txtTelefono.TabIndex = 25;
+            // 
             // frmEdicionEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(387, 352);
+            this.Controls.Add(this.txtTelefono);
+            this.Controls.Add(this.txtCedula);
             this.Controls.Add(this.txtFechaNacimiento);
             this.Controls.Add(this.txtSalarioPorHora);
             this.Controls.Add(this.lblSalarioHora);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
-            this.Controls.Add(this.txtTelefono);
-            this.Controls.Add(this.txtCedula);
             this.Controls.Add(this.txtApellido2);
             this.Controls.Add(this.txtApellido1);
             this.Controls.Add(this.txtNombre);
@@ -302,12 +308,12 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtApellido1;
         private System.Windows.Forms.TextBox txtApellido2;
-        private System.Windows.Forms.TextBox txtCedula;
-        private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label lblSalarioHora;
         private System.Windows.Forms.NumericUpDown txtSalarioPorHora;
         private System.Windows.Forms.MaskedTextBox txtFechaNacimiento;
+        private System.Windows.Forms.MaskedTextBox txtCedula;
+        private System.Windows.Forms.MaskedTextBox txtTelefono;
     }
 }

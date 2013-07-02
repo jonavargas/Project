@@ -96,7 +96,7 @@ namespace GUI
             }
 
             if ((this.txtEmpleado.Text == "") ||
-               (this.txtDepartamento.Text == "") || (this.txtNombre.Text == "") || (this.txtTelefono == null) )
+               (this.txtDepartamento.Text == "") || (this.txtNombre.Text == ""))
             {
                 MessageBox.Show("Faltan datos requeridos");
                 return;
@@ -107,6 +107,10 @@ namespace GUI
             this.aceptar = true;
             this.Close();
         }
-      
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
