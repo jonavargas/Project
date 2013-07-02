@@ -48,8 +48,8 @@
             this.lblSalarioHora = new System.Windows.Forms.Label();
             this.txtSalarioPorHora = new System.Windows.Forms.NumericUpDown();
             this.txtFechaNacimiento = new System.Windows.Forms.MaskedTextBox();
-            this.txtCedula = new System.Windows.Forms.MaskedTextBox();
-            this.txtTelefono = new System.Windows.Forms.MaskedTextBox();
+            this.txtCedula = new System.Windows.Forms.TextBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtSalarioPorHora)).BeginInit();
             this.SuspendLayout();
             // 
@@ -142,7 +142,7 @@
             this.chkActivo.Location = new System.Drawing.Point(160, 263);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(56, 17);
-            this.chkActivo.TabIndex = 9;
+            this.chkActivo.TabIndex = 10;
             this.chkActivo.Text = "Activo";
             this.chkActivo.UseVisualStyleBackColor = true;
             // 
@@ -151,42 +151,42 @@
             this.txtEmpleado.Location = new System.Drawing.Point(160, 28);
             this.txtEmpleado.Name = "txtEmpleado";
             this.txtEmpleado.Size = new System.Drawing.Size(190, 20);
-            this.txtEmpleado.TabIndex = 10;
+            this.txtEmpleado.TabIndex = 1;
             // 
             // txtDepartamento
             // 
             this.txtDepartamento.Location = new System.Drawing.Point(160, 54);
             this.txtDepartamento.Name = "txtDepartamento";
             this.txtDepartamento.Size = new System.Drawing.Size(190, 20);
-            this.txtDepartamento.TabIndex = 11;
+            this.txtDepartamento.TabIndex = 2;
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(160, 80);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(190, 20);
-            this.txtNombre.TabIndex = 12;
+            this.txtNombre.TabIndex = 3;
             // 
             // txtApellido1
             // 
             this.txtApellido1.Location = new System.Drawing.Point(160, 106);
             this.txtApellido1.Name = "txtApellido1";
             this.txtApellido1.Size = new System.Drawing.Size(190, 20);
-            this.txtApellido1.TabIndex = 13;
+            this.txtApellido1.TabIndex = 4;
             // 
             // txtApellido2
             // 
             this.txtApellido2.Location = new System.Drawing.Point(160, 132);
             this.txtApellido2.Name = "txtApellido2";
             this.txtApellido2.Size = new System.Drawing.Size(190, 20);
-            this.txtApellido2.TabIndex = 14;
+            this.txtApellido2.TabIndex = 5;
             // 
             // btnAceptar
             // 
             this.btnAceptar.Location = new System.Drawing.Point(101, 307);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
-            this.btnAceptar.TabIndex = 19;
+            this.btnAceptar.TabIndex = 11;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
@@ -196,10 +196,10 @@
             this.btnCancelar.Location = new System.Drawing.Point(221, 307);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 20;
+            this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
-     
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click_1);
             // 
             // lblSalarioHora
             // 
@@ -226,7 +226,7 @@
             this.txtSalarioPorHora.Name = "txtSalarioPorHora";
             this.txtSalarioPorHora.ReadOnly = true;
             this.txtSalarioPorHora.Size = new System.Drawing.Size(190, 20);
-            this.txtSalarioPorHora.TabIndex = 22;
+            this.txtSalarioPorHora.TabIndex = 8;
             // 
             // txtFechaNacimiento
             // 
@@ -235,25 +235,21 @@
             this.txtFechaNacimiento.Mask = "00/00/0000";
             this.txtFechaNacimiento.Name = "txtFechaNacimiento";
             this.txtFechaNacimiento.Size = new System.Drawing.Size(190, 20);
-            this.txtFechaNacimiento.TabIndex = 23;
+            this.txtFechaNacimiento.TabIndex = 9;
             // 
             // txtCedula
             // 
-            this.txtCedula.HidePromptOnLeave = true;
             this.txtCedula.Location = new System.Drawing.Point(160, 158);
-            this.txtCedula.Mask = "#-####-####";
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(190, 20);
-            this.txtCedula.TabIndex = 24;
+            this.txtCedula.TabIndex = 6;
             // 
             // txtTelefono
             // 
-            this.txtTelefono.HidePromptOnLeave = true;
             this.txtTelefono.Location = new System.Drawing.Point(160, 184);
-            this.txtTelefono.Mask = "####-####";
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(190, 20);
-            this.txtTelefono.TabIndex = 25;
+            this.txtTelefono.TabIndex = 7;
             // 
             // frmEdicionEmpleado
             // 
@@ -313,7 +309,7 @@
         private System.Windows.Forms.Label lblSalarioHora;
         private System.Windows.Forms.NumericUpDown txtSalarioPorHora;
         private System.Windows.Forms.MaskedTextBox txtFechaNacimiento;
-        private System.Windows.Forms.MaskedTextBox txtCedula;
-        private System.Windows.Forms.MaskedTextBox txtTelefono;
+        private System.Windows.Forms.TextBox txtCedula;
+        private System.Windows.Forms.TextBox txtTelefono;
     }
 }

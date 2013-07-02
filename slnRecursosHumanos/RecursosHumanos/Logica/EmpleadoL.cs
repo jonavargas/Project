@@ -19,7 +19,7 @@ namespace Logica
         private int numCedula;
         private int telefono;
         private string fechaNacimiento;
-        private double salarioPorHora;
+        private Double salarioPorHora;
         private string creadoPor;
         private DateTime fechaCreacion;
         private string modificadoPor;

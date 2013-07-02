@@ -41,9 +41,9 @@ namespace GUI
             this.txtNombre.Text = (pEmpleadoL.NombreEmpleado);
             this.txtApellido1.Text = (pEmpleadoL.Apellido1);
             this.txtApellido2.Text = (pEmpleadoL.Apellido2);
-            this.txtCedula.Text = (pEmpleadoL.NumCedula.ToString());
-            this.txtTelefono.Text = (pEmpleadoL.Telefono.ToString());
-            this.txtFechaNacimiento.Text = (pEmpleadoL.FechaNacimiento.ToString());
+            this.txtCedula.Text = Convert.ToString(pEmpleadoL.NumCedula);
+            this.txtTelefono.Text = Convert.ToString(pEmpleadoL.Telefono);
+            this.txtFechaNacimiento.Text = Convert.ToString(pEmpleadoL.FechaNacimiento);
             this.txtSalarioPorHora.Value = (Decimal)(pEmpleadoL.SalarioPorHora); 
            
             this.oEmpleadoL = pEmpleadoL;
@@ -108,6 +108,9 @@ namespace GUI
             this.Close();
         }
 
-       
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
