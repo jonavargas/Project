@@ -14,13 +14,14 @@ namespace GUI
     public partial class frmEdicionDepartamento : Form
     {
         /// <summary>
-        /// Atributos de la clase
+        /// Atributos de la clase Empleado  el cual verifica el botón aceptar y un objeto tipo Departamento en la parte lógica
         /// </summary>
         private Boolean aceptar;
         private DepartamentoL oDepartamentoL;
 
         /// <summary>
-        /// Metodo constructor que no recibe parametro
+        /// Método constructor sin parametros y que además inializa el atributo aceptar que corresponde al botón aceptar
+        /// en false
         /// </summary>
         public frmEdicionDepartamento()
         {
@@ -28,7 +29,7 @@ namespace GUI
             this.aceptar = false;
         }
         /// <summary>
-        /// Metodo costructor con parametros
+        /// Método constructor el cual recibe por parámetro un EDepartamento el cual inicializa los atributos existentes
         /// </summary>
         /// <param name="pDepartamentoL"></param>
         public frmEdicionDepartamento(DepartamentoL pDepartamentoL)
@@ -40,7 +41,7 @@ namespace GUI
             this.oDepartamentoL = pDepartamentoL;
         }
         /// <summary>
-        /// Propiedades de los atributos
+        /// Propiedades de los atributos de la clase Departamento,el cual permite consultar los valores de los atributos
         /// </summary>
         public DepartamentoL ODepartamentoL
         {
@@ -54,7 +55,8 @@ namespace GUI
             set { aceptar = value; }
         }
         /// <summary>
-        /// Metodo del botón Aceptar
+        /// Método del botón aceptar,el cual verifica si el usuario preciono el botón aceptar o no,si lo hizo procede a revisar si no dejo
+        /// algún espacio en blanco sino lo hizo creando un departamento con los datos suministrados
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

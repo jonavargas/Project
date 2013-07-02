@@ -14,13 +14,14 @@ namespace GUI
     public partial class frmEdicionParametro : Form
     {
         /// <summary>
-        /// Atributos de la clase.
+        ///  Atributos de la clase Parámetro el cual verifica el botón aceptar y un objeto tipo parámetro en la parte lógica
         /// </summary>
         private Boolean aceptar;
         private ParametroL oParametroL;
 
         /// <summary>
-        /// Metodo constructor sin parametros
+        /// Método constructor sin parámetros y que además inializa el atributo aceptar que corresponde al botón aceptar
+        /// en false
         /// </summary>
         public frmEdicionParametro()
         {
@@ -28,7 +29,7 @@ namespace GUI
             this.aceptar = false;
         }
         /// <summary>
-        /// Metodo constructor con parametros
+        ///Método constructor el cual recibe por parámetro un parametro el cual inicializa los atributos existentes
         /// </summary>
         /// <param name="pParametroL"></param>
         public frmEdicionParametro(ParametroL pParametroL)
@@ -41,7 +42,7 @@ namespace GUI
             this.oParametroL = pParametroL;
         }
         /// <summary>
-        /// Propiedades de los atributos
+        /// Properties de la Clase parámetro,el cual permite consultar los valores de los atributos
         /// </summary>
         public ParametroL OParametroL
         {
@@ -53,7 +54,7 @@ namespace GUI
             get { return aceptar; }
         }
         /// <summary>
-        /// Metodo del botón Cancelar
+        /// Evento del botón Cancelar el cual cierra la ventada si dan click en el 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -184,10 +185,11 @@ namespace GUI
             return respuesta;
         }
         /// <summary>
-        /// Metodo del botón aceptar
+        /// Método del botón aceptar,el cual verifica si el usuario preciono el botón aceptar o no,si lo hizo procede a revisar si no dejo
+        /// algún espacio en blanco sino lo hizo creado un parámetro con los datos suministrados
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="e"></param>
+      
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
