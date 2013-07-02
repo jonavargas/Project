@@ -294,7 +294,6 @@
             // txtHoraEntrada
             // 
             this.txtHoraEntrada.Location = new System.Drawing.Point(144, 35);
-            this.txtHoraEntrada.Mask = "00:00";
             this.txtHoraEntrada.Name = "txtHoraEntrada";
             this.txtHoraEntrada.Size = new System.Drawing.Size(176, 20);
             this.txtHoraEntrada.TabIndex = 40;
@@ -302,7 +301,6 @@
             // txtHoraSalida
             // 
             this.txtHoraSalida.Location = new System.Drawing.Point(144, 61);
-            this.txtHoraSalida.Mask = "00:00";
             this.txtHoraSalida.Name = "txtHoraSalida";
             this.txtHoraSalida.Size = new System.Drawing.Size(176, 20);
             this.txtHoraSalida.TabIndex = 41;

@@ -30,21 +30,7 @@ namespace Logica
         /// <summary>
         /// Metodo constructor con parametros
         /// </summary>
-        /// <param name="pIdParametro"></param>
-        /// <param name="pHoraEntrada"></param>
-        /// <param name="pHoraSalida"></param>
-        /// <param name="pLunes"></param>
-        /// <param name="pMartes"></param>
-        /// <param name="pMiercoles"></param>
-        /// <param name="pJueves"></param>
-        /// <param name="pViernes"></param>
-        /// <param name="pSabado"></param>
-        /// <param name="pDomingo"></param>
-        /// <param name="pFechaModificacion"></param>
-        /// <param name="pFechaCreacion"></param>
-        /// <param name="pCreadoPor"></param>
-        /// <param name="pModificadoPor"></param>
-        /// <param name="pActivo"></param>
+      
         public ParametroL(string pIdParametro, DateTime pHoraEntrada, DateTime pHoraSalida, string pLunes, string pMartes,
                            string pMiercoles, string pJueves, string pViernes, string pSabado, string pDomingo, DateTime pFechaModificacion, DateTime pFechaCreacion, string pCreadoPor, string pModificadoPor, string pActivo)
         {
