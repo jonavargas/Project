@@ -19,7 +19,7 @@ namespace GUI
         private Boolean aceptar;
         private EmpleadoL oEmpleadoL;
         /// <summary>
-        /// Método constructor sin parametros y que además inializa el atributo aceptar que corresponde al botón aceptar
+        /// Método constructor sin parámetros y que además inializa el atributo aceptar que corresponde al botón aceptar
         /// en false
         /// </summary>
 
@@ -62,14 +62,7 @@ namespace GUI
         {
             get { return aceptar; }
         }
-
-        /// <summary>
-        /// Evento del botón Cancelar el cual cierra la ventada si dan click en el
-        /// </summary>
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+               
         private string validarActivo()
         {
             string respuesta = "No";
@@ -80,7 +73,7 @@ namespace GUI
             return respuesta;
         }
         /// <summary>
-        /// Método del botón aceptar,el cual verifica si el usuario preciono el botón aceptar o no,si lo hizo procede a revisar si no dejo
+        /// Método del botón aceptar,el cual verifica si el empleado preciono el botón aceptar o no,si lo hizo procede a revisar si no dejo
         /// algún espacio en blanco sino lo hizo creado un empleado con los datos suministrados
         /// </summary>
         /// <param name="sender"></param>
@@ -107,10 +100,59 @@ namespace GUI
             this.aceptar = true;
             this.Close();
         }
+        /// <summary>
+        /// Evento del botón Cancelar el cual cierra la ventada si dan click en el
+        /// </summary>
 
         private void btnCancelar_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+        /// <summary>
+        /// Metodo que valida que solo entren números al txt de cedula
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
+        private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+                MessageBox.Show("Debe de digitar solo números!!!");
+            }
+
+        }
+        /// <summary>
+        /// Metodo que valida que solo entren números en el txt de teléfono
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+                MessageBox.Show("Debe de digitar solo números!!!");
+            }
+
         }
     }
 }
