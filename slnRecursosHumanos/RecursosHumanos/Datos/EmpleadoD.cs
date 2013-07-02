@@ -238,7 +238,7 @@ namespace Datos
             try
             {
                 string sql = "update Empleado " +
-                             "set idEmpleado = :idEmpleado, :idDepartamento, :nombreEmpleado, :apellido1, :apellido2, :numCedula, :telefono, :fechaNacimiento, :salarioPorHora, :creadoPor, :fechaCreacion, :modificadoPor, :fechaModificacion, :activo" +
+                             "set idEmpleado = :idEmpleado, idDepartamento = :idDepartamento, nombreEmpleado = :nombreEmpleado, apellido1 = :apellido1, apellido2 = :apellido2, numCedula = :numCedula, telefono = :telefono, fechaNacimiento = :fechaNacimiento, salarioPorHora = :salarioPorHora, creadoPor = :creadoPor, fechaCreacion = :fechaCreacion, modificadoPor = :modificadoPor, fechaModificacion = :fechaModificacion, activo = :activo" +
                              "where idEmpleado = :idEmpleadoOriginal";
 
                 OracleParameter[] parametros = new OracleParameter[15];//Parametros
