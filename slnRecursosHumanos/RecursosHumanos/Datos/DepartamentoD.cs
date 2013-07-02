@@ -172,10 +172,10 @@ namespace Datos
             try
             {
                 string sql = "update Departamento " +
-                             "set idDepartamento = :idDepartamento, nombreDepartamento = :nombreDepartamento, fechaModificacion= :fechaModificacion, fechaCreacion= :fechaCreacion, creadoPor= :creadoPor,  modificadoPor= :modificadoPor,activo= :activo " +
+                             "set idDepartamento = :idDepartamento, nombreDepartamento = :nombreDepartamento, fechaModificacion= :fechaModificacion, modificadoPor= :modificadoPor,activo= :activo " +
                              "where idDepartamento = :idDepartamentoOriginal";
 
-                OracleParameter[] parametros = new OracleParameter[8];//Parametro
+                OracleParameter[] parametros = new OracleParameter[6];//Parametro
 
                 parametros[0] = new OracleParameter();// Parametro que va a la base de datos a editar un nuevo id departamento
                 parametros[0].OracleType = OracleType.VarChar;
@@ -187,35 +187,25 @@ namespace Datos
                 parametros[1].ParameterName = ":nombreDepartamento";
                 parametros[1].Value = pDepartamentoEditado.NombreDepartamento;
 
-                parametros[2] = new OracleParameter();// Parametro que va a la base de datos a editar una nueva fecha de creación
+                parametros[2] = new OracleParameter();// Parametro que va a la base de datos a editar una nueva fecha de modificación
                 parametros[2].OracleType = OracleType.DateTime;
-                parametros[2].ParameterName = ":fechaCreacion";
-                parametros[2].Value = pDepartamentoEditado.FechaCreacion;
+                parametros[2].ParameterName = ":fechaModificacion";
+                parametros[2].Value = pDepartamentoEditado.FechaModificacion;
 
-                parametros[3] = new OracleParameter();// Parametro que va a la base de datos a editar una nueva fecha de modificación
-                parametros[3].OracleType = OracleType.DateTime;
-                parametros[3].ParameterName = ":fechaModificacion";
-                parametros[3].Value = pDepartamentoEditado.FechaModificacion;
+                parametros[3] = new OracleParameter();// Parametro que va a la base de datos a editar una nuevo modificado por
+                parametros[3].OracleType = OracleType.VarChar;
+                parametros[3].ParameterName = ":modificadoPor";
+                parametros[3].Value = pDepartamentoEditado.ModificadoPor;
 
-                parametros[4] = new OracleParameter();// Parametro que va a la base de datos a editar una nuevo creado por
+                parametros[4] = new OracleParameter();// Parametro que va a la base de datos a editar una nuevo estado del departamento
                 parametros[4].OracleType = OracleType.VarChar;
-                parametros[4].ParameterName = ":creadoPor";
-                parametros[4].Value = pDepartamentoEditado.CreadoPor;
+                parametros[4].ParameterName = ":activo";
+                parametros[4].Value = pDepartamentoEditado.Activo;
 
-                parametros[5] = new OracleParameter();// Parametro que va a la base de datos a editar una nuevo modificado por
+                parametros[5] = new OracleParameter();// Parametro que va a la base de a modificar la linea original por una editada
                 parametros[5].OracleType = OracleType.VarChar;
-                parametros[5].ParameterName = ":modificadoPor";
-                parametros[5].Value = pDepartamentoEditado.ModificadoPor;
-
-                parametros[6] = new OracleParameter();// Parametro que va a la base de datos a editar una nuevo estado del departamento
-                parametros[6].OracleType = OracleType.VarChar;
-                parametros[6].ParameterName = ":activo";
-                parametros[6].Value = pDepartamentoEditado.Activo;
-
-                parametros[7] = new OracleParameter();// Parametro que va a la base de a modificar la linea original por una editada
-                parametros[7].OracleType = OracleType.VarChar;
-                parametros[7].ParameterName = ":idDepartamentoOriginal";
-                parametros[7].Value = pDepartamentoOriginal.IdDepartamento;
+                parametros[5].ParameterName = ":idDepartamentoOriginal";
+                parametros[5].Value = pDepartamentoOriginal.IdDepartamento;
 
                 this.cnx.ejecutarSQL(sql, parametros);
                 this.error = this.cnx.IsError;

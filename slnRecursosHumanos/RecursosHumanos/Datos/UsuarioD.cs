@@ -181,10 +181,10 @@ namespace Datos
           try
           {
               string sql = "update Usuario " +
-                           "set idUsuario = :idUsuario, tipoUsuario  = :tipoUsuario, password= :password,fechaModificacion= :fechaModificacion, fechaCreacion= :fechaCreacion, creadoPor= :creadoPor,  modificadoPor= :modificadoPor,activo= :activo " +
+                           "set idUsuario = :idUsuario, tipoUsuario  = :tipoUsuario, password= :password,fechaModificacion= :fechaModificacion, modificadoPor= :modificadoPor,activo= :activo " +
                            "where idUsuario = :idUsuarioOriginal";
 
-              OracleParameter[] parametros = new OracleParameter[9];//Parametros
+              OracleParameter[] parametros = new OracleParameter[7];//Parametros
 
               parametros[0] = new OracleParameter();// Parametro que va a la base de datos a editar el id usuario
               parametros[0].OracleType = OracleType.VarChar;
@@ -206,30 +206,20 @@ namespace Datos
               parametros[3].ParameterName = ":fechaModificacion";
               parametros[3].Value = pUsuarioEditado.FechaModificacion;
 
-              parametros[4] = new OracleParameter();// Parametro que va a la base de datos a agregar la fecha de Creación
-              parametros[4].OracleType = OracleType.DateTime;
-              parametros[4].ParameterName = ":fechaCreacion";
-              parametros[4].Value = pUsuarioEditado.FechaCreacion;
+              parametros[4] = new OracleParameter();// Parametro que va a la base de datos a agregar el modificado por
+              parametros[4].OracleType = OracleType.VarChar;
+              parametros[4].ParameterName = ":modificadoPor";
+              parametros[4].Value = pUsuarioEditado.ModificadoPor;
 
-              parametros[5] = new OracleParameter();// Parametro que va a la base de datos a agregar el creado por
+              parametros[5] = new OracleParameter();// Parametro que va a la base de datos a editar el estado del usuario
               parametros[5].OracleType = OracleType.VarChar;
-              parametros[5].ParameterName = ":creadoPor";
-              parametros[5].Value = pUsuarioEditado.CreadoPor;
+              parametros[5].ParameterName = ":activo";
+              parametros[5].Value = pUsuarioEditado.Activo;
 
-              parametros[6] = new OracleParameter();// Parametro que va a la base de datos a agregar el modificado por
+              parametros[6] = new OracleParameter();// Parametro que va a la base de datos a agregar la linea editada por la original
               parametros[6].OracleType = OracleType.VarChar;
-              parametros[6].ParameterName = ":modificadoPor";
-              parametros[6].Value = pUsuarioEditado.ModificadoPor;
-
-              parametros[7] = new OracleParameter();// Parametro que va a la base de datos a editar el estado del usuario
-              parametros[7].OracleType = OracleType.VarChar;
-              parametros[7].ParameterName = ":activo";
-              parametros[7].Value = pUsuarioEditado.Activo;
-
-              parametros[8] = new OracleParameter();// Parametro que va a la base de datos a agregar la linea editada por la original
-              parametros[8].OracleType = OracleType.VarChar;
-              parametros[8].ParameterName = ":idUsuarioOriginal";
-              parametros[8].Value = pUsuarioOriginal.IdUsuario;
+              parametros[6].ParameterName = ":idUsuarioOriginal";
+              parametros[6].Value = pUsuarioOriginal.IdUsuario;
 
               this.cnx.ejecutarSQL(sql, parametros);
               this.error = this.cnx.IsError;

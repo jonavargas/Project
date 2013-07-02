@@ -53,6 +53,7 @@ namespace Datos
               {
                   foreach (DataRow fila in datos.Tables[0].Rows)
                   {
+                      
                       retorno.Add(
                                   new ParametroL(  fila["idParametro"].ToString(),
                                                    DateTime.Parse(fila["horaEntrada"].ToString()),
@@ -224,10 +225,10 @@ namespace Datos
           try
           {
               string sql = "update Parametro " +
-                           "set idParametro = :idParametro, horaEntrada = :horaEntrada, horaSalida = :horaSalida, lunes = :lunes, martes = :martes, miercoles = :miercoles, jueves = :jueves, viernes = :viernes, sabado = :sabado, domingo = :domingo, fechaModificacion = :fechaModificacion, fechaCreacion = :fechaCreacion, creadoPor = :creadoPor, modificadoPor = :modificadoPor, activo = :activo " +
+                           "set idParametro = :idParametro, horaEntrada = :horaEntrada, horaSalida = :horaSalida, lunes = :lunes, martes = :martes, miercoles = :miercoles, jueves = :jueves, viernes = :viernes, sabado = :sabado, domingo = :domingo, fechaModificacion = :fechaModificacion, modificadoPor = :modificadoPor, activo = :activo " +
                            "where idParametro = :idParametroOriginal";
 
-              OracleParameter[] parametros = new OracleParameter[16];// Parametro
+              OracleParameter[] parametros = new OracleParameter[14];// Parametro
 
               parametros[0] = new OracleParameter();// Parametro que va a la base de datos a editar  el id parametro
               parametros[0].OracleType = OracleType.VarChar;
@@ -284,30 +285,20 @@ namespace Datos
               parametros[10].ParameterName = ":fechaModificacion";
               parametros[10].Value = pParametroEditado.FechaModificacion;
 
-              parametros[11] = new OracleParameter();// Parametro que va a la base de datos a editar  la fecha de Creación
-              parametros[11].OracleType = OracleType.DateTime;
-              parametros[11].ParameterName = ":fechaCreacion";
-              parametros[11].Value = pParametroEditado.FechaCreacion;
+              parametros[11] = new OracleParameter();// Parametro que va a la base de datos a editar  el modificado por
+              parametros[11].OracleType = OracleType.VarChar;
+              parametros[11].ParameterName = ":modificadoPor";
+              parametros[11].Value = pParametroEditado.ModificadoPor;
 
-              parametros[12] = new OracleParameter();// Parametro que va a la base de datos a editar el creado por
+              parametros[12] = new OracleParameter();// Parametro que va a la base de datos a editar el estado del parametro
               parametros[12].OracleType = OracleType.VarChar;
-              parametros[12].ParameterName = ":creadoPor";
-              parametros[12].Value = pParametroEditado.CreadoPor;
+              parametros[12].ParameterName = ":activo";
+              parametros[12].Value = pParametroEditado.Activo;
 
-              parametros[13] = new OracleParameter();// Parametro que va a la base de datos a editar  el modificado por
+              parametros[13] = new OracleParameter();// Parametro que va a la base de datos a editar  la linéa original por la editada
               parametros[13].OracleType = OracleType.VarChar;
-              parametros[13].ParameterName = ":modificadoPor";
-              parametros[13].Value = pParametroEditado.ModificadoPor;
-
-              parametros[14] = new OracleParameter();// Parametro que va a la base de datos a editar el estado del parametro
-              parametros[14].OracleType = OracleType.VarChar;
-              parametros[14].ParameterName = ":activo";
-              parametros[14].Value = pParametroEditado.Activo;
-
-              parametros[15] = new OracleParameter();// Parametro que va a la base de datos a editar  la linéa original por la editada
-              parametros[15].OracleType = OracleType.VarChar;
-              parametros[15].ParameterName = ":idParametroOriginal";
-              parametros[15].Value = pParametroOriginal.IdParametro;
+              parametros[13].ParameterName = ":idParametroOriginal";
+              parametros[13].Value = pParametroOriginal.IdParametro;
 
               this.cnx.ejecutarSQL(sql, parametros);
               this.error = this.cnx.IsError;

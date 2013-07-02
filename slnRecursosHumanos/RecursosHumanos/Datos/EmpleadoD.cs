@@ -238,10 +238,10 @@ namespace Datos
             try
             {
                 string sql = "update Empleado " +
-                             "set idEmpleado = :idEmpleado, idDepartamento = :idDepartamento, nombreEmpleado = :nombreEmpleado, apellido1 = :apellido1, apellido2 = :apellido2, numCedula = :numCedula, telefono = :telefono, fechaNacimiento = :fechaNacimiento, salarioPorHora = :salarioPorHora, creadoPor = :creadoPor, fechaCreacion = :fechaCreacion, modificadoPor = :modificadoPor, fechaModificacion = :fechaModificacion, activo = :activo " +
+                             "set idEmpleado = :idEmpleado, idDepartamento = :idDepartamento, nombreEmpleado = :nombreEmpleado, apellido1 = :apellido1, apellido2 = :apellido2, numCedula = :numCedula, telefono = :telefono, fechaNacimiento = :fechaNacimiento, salarioPorHora = :salarioPorHora, modificadoPor = :modificadoPor, fechaModificacion = :fechaModificacion, activo = :activo " +
                              "where idEmpleado = :idEmpleadoOriginal";
 
-                OracleParameter[] parametros = new OracleParameter[15];//Parametros
+                OracleParameter[] parametros = new OracleParameter[13];//Parametros
 
                 parametros[0] = new OracleParameter();// Parámetro que va a la base de datos a editar el id Empleado
                 parametros[0].OracleType = OracleType.VarChar;
@@ -288,35 +288,25 @@ namespace Datos
                 parametros[8].ParameterName = ":salarioPorHora";
                 parametros[8].Value = pEmpleadoEditado.SalarioPorHora;
 
-                parametros[9] = new OracleParameter();// Parámetro que va a la base de datos a editar Creado Por 
+                parametros[9] = new OracleParameter();// Parámetro que va a la base de datos a editar Modificado Por 
                 parametros[9].OracleType = OracleType.VarChar;
-                parametros[9].ParameterName = ":creadoPor";
-                parametros[9].Value = pEmpleadoEditado.CreadoPor;
+                parametros[9].ParameterName = ":modificadoPor";
+                parametros[9].Value = pEmpleadoEditado.ModificadoPor;
 
                 parametros[10] = new OracleParameter();// Parámetro que va a la base de datos a editar la FechaCreacion
                 parametros[10].OracleType = OracleType.DateTime;
-                parametros[10].ParameterName = ":fechaCreacion";
-                parametros[10].Value = pEmpleadoEditado.FechaCreacion;
+                parametros[10].ParameterName = ":fechaModificacion";
+                parametros[10].Value = pEmpleadoEditado.FechaModificacion;                             
 
-                parametros[11] = new OracleParameter();// Parámetro que va a la base de datos a editar Modificado Por 
+                parametros[11] = new OracleParameter();// Parámetro que va a la base de datos a editar el Activo
                 parametros[11].OracleType = OracleType.VarChar;
-                parametros[11].ParameterName = ":modificadoPor";
-                parametros[11].Value = pEmpleadoEditado.ModificadoPor;
+                parametros[11].ParameterName = ":activo";
+                parametros[11].Value = pEmpleadoEditado.Activo;
 
-                parametros[12] = new OracleParameter();// Parámetro que va a la base de datos a editar la FechaCreacion
-                parametros[12].OracleType = OracleType.DateTime;
-                parametros[12].ParameterName = ":fechaModificacion";
-                parametros[12].Value = pEmpleadoEditado.FechaModificacion;                             
-
-                parametros[13] = new OracleParameter();// Parámetro que va a la base de datos a editar el Activo
-                parametros[13].OracleType = OracleType.VarChar;
-                parametros[13].ParameterName = ":activo";
-                parametros[13].Value = pEmpleadoEditado.Activo;
-
-                parametros[14] = new OracleParameter();// Parámetro que va a la base de datos a editar la linea editada por la original
-                parametros[14].OracleType = OracleType.VarChar;
-                parametros[14].ParameterName = ":idEmpleadoOriginal";
-                parametros[14].Value = pEmpleadoOriginal.IdEmpleado;
+                parametros[12] = new OracleParameter();// Parámetro que va a la base de datos a editar la linea editada por la original
+                parametros[12].OracleType = OracleType.VarChar;
+                parametros[12].ParameterName = ":idEmpleadoOriginal";
+                parametros[12].Value = pEmpleadoOriginal.IdEmpleado;
 
                 this.cnx.ejecutarSQL(sql, parametros);
                 this.error = this.cnx.IsError;

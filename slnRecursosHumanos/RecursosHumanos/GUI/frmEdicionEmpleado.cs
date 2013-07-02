@@ -96,7 +96,7 @@ namespace GUI
             }
             this.oEmpleadoL = new EmpleadoL(this.txtEmpleado.Text, this.txtDepartamento.Text, this.txtNombre.Text, this.txtApellido1.Text, this.txtApellido2.Text,
                                      int.Parse(this.txtCedula.Text), int.Parse(this.txtTelefono.Text),(this.txtFechaNacimiento.Text),
-                                     Double.Parse(this.txtSalarioPorHora.Text), Program.oUsuarioLogueado.IdUsuario, DateTime.Today, Program.oUsuarioLogueado.IdUsuario, DateTime.Now, activo);
+                                     Double.Parse(this.txtSalarioPorHora.Text), Program.oUsuarioLogueado.IdUsuario, DateTime.Now, Program.oUsuarioLogueado.IdUsuario, DateTime.Now, activo);
             this.aceptar = true;
             this.Close();
         }
