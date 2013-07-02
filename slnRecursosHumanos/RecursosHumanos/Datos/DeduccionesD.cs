@@ -184,10 +184,10 @@ namespace Datos
            try
            {
                string sql = "update Deducciones " +
-                            "set idDeducciones = :idDeducciones, porcentaje  = :porcentaje, descripcion = :descripcion, fechaModificacion = :fechaModificacion, fechaCreacion = :fechaCreacion, creadoPor = :creadoPor, modificadoPor = :modificadoPor, activo = :activo " +
+                            "set idDeducciones = :idDeducciones, porcentaje  = :porcentaje, descripcion = :descripcion, fechaModificacion = :fechaModificacion, modificadoPor = :modificadoPor, activo = :activo " +
                             "where idDeducciones = :idDeduccionesOriginal";
 
-               OracleParameter[] parametros = new OracleParameter[9];// parametros
+               OracleParameter[] parametros = new OracleParameter[7];// parametros
 
                parametros[0] = new OracleParameter();// Parametro que va a la base de datos a editar el idDeducciones
                parametros[0].OracleType = OracleType.VarChar;
@@ -209,30 +209,20 @@ namespace Datos
                parametros[3].ParameterName = ":fechaModificacion";
                parametros[3].Value = pDeduccionEditada.FechaModificacion;
 
-               parametros[4] = new OracleParameter();// Parametro que va a la base de datos a editar la fecha de creación
-               parametros[4].OracleType = OracleType.DateTime;
-               parametros[4].ParameterName = ":fechaCreacion";
-               parametros[4].Value = pDeduccionEditada.FechaCreacion;
+               parametros[4] = new OracleParameter();// Parametro que va a la base de datos a editar el modificado por
+               parametros[4].OracleType = OracleType.VarChar;
+               parametros[4].ParameterName = ":modificadoPor";
+               parametros[4].Value = pDeduccionEditada.ModificadoPor;
 
-               parametros[5] = new OracleParameter();// Parametro que va a la base de datos a editar el creado por
+               parametros[5] = new OracleParameter();// Parametro que va a la base de datos a editar el estado de las deducciones
                parametros[5].OracleType = OracleType.VarChar;
-               parametros[5].ParameterName = ":creadoPor";
-               parametros[5].Value = pDeduccionEditada.CreadoPor;
+               parametros[5].ParameterName = ":activo";
+               parametros[5].Value = pDeduccionEditada.Activo;
 
-               parametros[6] = new OracleParameter();// Parametro que va a la base de datos a editar el modificado por
+               parametros[6] = new OracleParameter();// Parametro que va a la base de datos a editar la original por la editada
                parametros[6].OracleType = OracleType.VarChar;
-               parametros[6].ParameterName = ":modificadoPor";
-               parametros[6].Value = pDeduccionEditada.ModificadoPor;
-
-               parametros[7] = new OracleParameter();// Parametro que va a la base de datos a editar el estado de las deducciones
-               parametros[7].OracleType = OracleType.VarChar;
-               parametros[7].ParameterName = ":activo";
-               parametros[7].Value = pDeduccionEditada.Activo;
-
-               parametros[8] = new OracleParameter();// Parametro que va a la base de datos a editar la original por la editada
-               parametros[8].OracleType = OracleType.VarChar;
-               parametros[8].ParameterName = ":idDeduccionesOriginal";
-               parametros[8].Value = pDeduccionOriginal.IdDeducciones;
+               parametros[6].ParameterName = ":idDeduccionesOriginal";
+               parametros[6].Value = pDeduccionOriginal.IdDeducciones;
 
                this.cnx.ejecutarSQL(sql, parametros);
                this.error = this.cnx.IsError;

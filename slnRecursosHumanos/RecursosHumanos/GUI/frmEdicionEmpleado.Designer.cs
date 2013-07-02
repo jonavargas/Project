@@ -255,7 +255,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(387, 352);
+            this.ClientSize = new System.Drawing.Size(387, 343);
             this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.txtCedula);
             this.Controls.Add(this.txtFechaNacimiento);
