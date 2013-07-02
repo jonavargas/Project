@@ -80,7 +80,7 @@ namespace GUI
             return respuesta;
         }
         /// <summary>
-        /// Método del botón aceptar,el cual verifica si el usuario preciono el botón aceptar o no,si lo hizo procede a revizar si no dejo
+        /// Método del botón aceptar,el cual verifica si el usuario preciono el botón aceptar o no,si lo hizo procede a revisar si no dejo
         /// algún espacio en blanco sino lo hizo creado un empleado con los datos suministrados
         /// </summary>
         /// <param name="sender"></param>

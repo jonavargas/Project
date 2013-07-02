@@ -14,10 +14,15 @@ namespace GUI
     public partial class frmEdicionCatalogoFechas : Form
     {
         /// <summary>
-        /// Atributos de la clase
+        /// Atributos de la clase Catalogo fechas  el cual verifica el botón aceptar y un objeto tipo Empleado en la parte lógica
         /// </summary>
         private Boolean aceptar;
         private CatalogoFechasL oCatalogoFechasL;
+
+        /// <summary>
+        /// Método constructor sin parametros y que además inializa el atributo aceptar que corresponde al botón aceptar
+        /// en false
+        /// </summary>
         
         public frmEdicionCatalogoFechas()
         {
@@ -25,7 +30,7 @@ namespace GUI
             this.aceptar = false;
         }
         /// <summary>
-        /// Metodo costructor que inicializa las variables
+        /// Método constructor el cual recibe por parámetro un catalogo fechas el cual inicializa los atributos existentes
         /// </summary>
         /// <param name="pCatalogoFechasL"></param>
         public frmEdicionCatalogoFechas(CatalogoFechasL pCatalogoFechasL)
@@ -45,7 +50,7 @@ namespace GUI
            
         }
         /// <summary>
-        /// Propiedades de la clase
+        /// Properties de la Clase Catalogo fechas,el cual permite consultar los valores de los atributos
         /// </summary>
         public CatalogoFechasL OCatalogoFechasL
         {
@@ -57,7 +62,7 @@ namespace GUI
             get { return aceptar; }
         }
         /// <summary>
-        /// Metodo del botón cancelar
+        /// Evento del botón Cancelar el cual cierra la ventada si dan click en el
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -66,7 +71,8 @@ namespace GUI
              this.Close();
          }
         /// <summary>
-        /// Metodo del botón Aceptar
+        /// Método del botón aceptar,el cual verifica si el usuario preciono el botón aceptar o no,si lo hizo procede a revizar si no dejo
+        /// algún espacio en blanco sino lo hizo creando un nuevo catalogo fechas con los datos suministrados
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
