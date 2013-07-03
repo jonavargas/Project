@@ -151,7 +151,7 @@
             this.fechaCreacion.HeaderText = "Fecha Creación";
             this.fechaCreacion.Name = "fechaCreacion";
             this.fechaCreacion.ReadOnly = true;
-            this.fechaCreacion.Width = 120;
+            this.fechaCreacion.Width = 125;
             // 
             // modificadoPor
             // 
@@ -166,7 +166,7 @@
             this.fechaModificacion.HeaderText = "Fecha Modificación";
             this.fechaModificacion.Name = "fechaModificacion";
             this.fechaModificacion.ReadOnly = true;
-            this.fechaModificacion.Width = 120;
+            this.fechaModificacion.Width = 125;
             // 
             // activo
             // 
@@ -174,6 +174,7 @@
             this.activo.HeaderText = "Activo";
             this.activo.Name = "activo";
             this.activo.ReadOnly = true;
+            this.activo.Width = 50;
             // 
             // frmMantDeducciones
             // 

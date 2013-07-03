@@ -158,6 +158,7 @@
             this.fechaCreacion.DataPropertyName = "fechaCreacion";
             this.fechaCreacion.HeaderText = "Fecha Creación";
             this.fechaCreacion.Name = "fechaCreacion";
+            this.fechaCreacion.Width = 125;
             // 
             // modificadoPor
             // 
@@ -170,12 +171,14 @@
             this.fechaModificacion.DataPropertyName = "fechaModificacion";
             this.fechaModificacion.HeaderText = "Fecha Modificación";
             this.fechaModificacion.Name = "fechaModificacion";
+            this.fechaModificacion.Width = 125;
             // 
             // activo
             // 
             this.activo.DataPropertyName = "activo";
             this.activo.HeaderText = "Activo";
             this.activo.Name = "activo";
+            this.activo.Width = 50;
             // 
             // frmMantCatalogoFechas
             // 

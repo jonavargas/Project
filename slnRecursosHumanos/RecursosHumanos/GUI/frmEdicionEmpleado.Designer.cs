@@ -47,9 +47,9 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.lblSalarioHora = new System.Windows.Forms.Label();
             this.txtSalarioPorHora = new System.Windows.Forms.NumericUpDown();
-            this.txtFechaNacimiento = new System.Windows.Forms.MaskedTextBox();
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.txtFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.txtSalarioPorHora)).BeginInit();
             this.SuspendLayout();
             // 
@@ -228,15 +228,6 @@
             this.txtSalarioPorHora.Size = new System.Drawing.Size(190, 20);
             this.txtSalarioPorHora.TabIndex = 8;
             // 
-            // txtFechaNacimiento
-            // 
-            this.txtFechaNacimiento.HidePromptOnLeave = true;
-            this.txtFechaNacimiento.Location = new System.Drawing.Point(160, 234);
-            this.txtFechaNacimiento.Mask = "00/00/0000";
-            this.txtFechaNacimiento.Name = "txtFechaNacimiento";
-            this.txtFechaNacimiento.Size = new System.Drawing.Size(190, 20);
-            this.txtFechaNacimiento.TabIndex = 9;
-            // 
             // txtCedula
             // 
             this.txtCedula.Location = new System.Drawing.Point(160, 158);
@@ -253,14 +244,21 @@
             this.txtTelefono.TabIndex = 7;
             this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
+            // txtFechaNacimiento
+            // 
+            this.txtFechaNacimiento.Location = new System.Drawing.Point(160, 235);
+            this.txtFechaNacimiento.Name = "txtFechaNacimiento";
+            this.txtFechaNacimiento.Size = new System.Drawing.Size(190, 20);
+            this.txtFechaNacimiento.TabIndex = 22;
+            // 
             // frmEdicionEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(387, 343);
+            this.Controls.Add(this.txtFechaNacimiento);
             this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.txtCedula);
-            this.Controls.Add(this.txtFechaNacimiento);
             this.Controls.Add(this.txtSalarioPorHora);
             this.Controls.Add(this.lblSalarioHora);
             this.Controls.Add(this.btnCancelar);
@@ -310,8 +308,8 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label lblSalarioHora;
         private System.Windows.Forms.NumericUpDown txtSalarioPorHora;
-        private System.Windows.Forms.MaskedTextBox txtFechaNacimiento;
         private System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.TextBox txtTelefono;
+        private System.Windows.Forms.DateTimePicker txtFechaNacimiento;
     }
 }

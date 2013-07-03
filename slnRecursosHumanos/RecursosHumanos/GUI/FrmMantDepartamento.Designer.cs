@@ -137,6 +137,7 @@
             this.fechaModificacion.HeaderText = "Fecha de modificación";
             this.fechaModificacion.Name = "fechaModificacion";
             this.fechaModificacion.ReadOnly = true;
+            this.fechaModificacion.Width = 125;
             // 
             // fechaCreacion
             // 
@@ -144,6 +145,7 @@
             this.fechaCreacion.HeaderText = "Fecha de creación";
             this.fechaCreacion.Name = "fechaCreacion";
             this.fechaCreacion.ReadOnly = true;
+            this.fechaCreacion.Width = 125;
             // 
             // Creado
             // 

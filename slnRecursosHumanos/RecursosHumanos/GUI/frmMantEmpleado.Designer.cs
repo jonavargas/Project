@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.grdEmpleado = new System.Windows.Forms.DataGridView();
+            this.tollEmpleado = new System.Windows.Forms.ToolStrip();
+            this.btnNuevo = new System.Windows.Forms.ToolStripButton();
+            this.btnEditar = new System.Windows.Forms.ToolStripButton();
+            this.btnBorrar = new System.Windows.Forms.ToolStripButton();
+            this.btnRefrescar = new System.Windows.Forms.ToolStripButton();
             this.idEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDepartamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,11 +48,6 @@
             this.modificadoPor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaModificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tollEmpleado = new System.Windows.Forms.ToolStrip();
-            this.btnNuevo = new System.Windows.Forms.ToolStripButton();
-            this.btnEditar = new System.Windows.Forms.ToolStripButton();
-            this.btnBorrar = new System.Windows.Forms.ToolStripButton();
-            this.btnRefrescar = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.grdEmpleado)).BeginInit();
             this.tollEmpleado.SuspendLayout();
             this.SuspendLayout();
@@ -75,100 +75,6 @@
             this.grdEmpleado.Name = "grdEmpleado";
             this.grdEmpleado.Size = new System.Drawing.Size(841, 213);
             this.grdEmpleado.TabIndex = 3;
-            // 
-            // idEmpleado
-            // 
-            this.idEmpleado.DataPropertyName = "idEmpleado";
-            this.idEmpleado.HeaderText = "Id Empleado";
-            this.idEmpleado.Name = "idEmpleado";
-            this.idEmpleado.ReadOnly = true;
-            // 
-            // idDepartamento
-            // 
-            this.idDepartamento.DataPropertyName = "idDepartamento";
-            this.idDepartamento.HeaderText = "Id Departamento";
-            this.idDepartamento.Name = "idDepartamento";
-            this.idDepartamento.ReadOnly = true;
-            this.idDepartamento.Width = 115;
-            // 
-            // nombreEmpleado
-            // 
-            this.nombreEmpleado.DataPropertyName = "nombreEmpleado";
-            this.nombreEmpleado.HeaderText = "Nombre Empleado";
-            this.nombreEmpleado.Name = "nombreEmpleado";
-            this.nombreEmpleado.ReadOnly = true;
-            // 
-            // apellido1
-            // 
-            this.apellido1.DataPropertyName = "apellido1";
-            this.apellido1.HeaderText = "Apellido1";
-            this.apellido1.Name = "apellido1";
-            this.apellido1.ReadOnly = true;
-            // 
-            // apellido2
-            // 
-            this.apellido2.DataPropertyName = "apellido2";
-            this.apellido2.HeaderText = "Apellido2";
-            this.apellido2.Name = "apellido2";
-            this.apellido2.ReadOnly = true;
-            // 
-            // numCedula
-            // 
-            this.numCedula.DataPropertyName = "numCedula";
-            this.numCedula.HeaderText = "Número de Cedula";
-            this.numCedula.Name = "numCedula";
-            this.numCedula.ReadOnly = true;
-            // 
-            // telefono
-            // 
-            this.telefono.DataPropertyName = "telefono";
-            this.telefono.HeaderText = "Teléfono";
-            this.telefono.Name = "telefono";
-            this.telefono.ReadOnly = true;
-            // 
-            // fechaNacimiento
-            // 
-            this.fechaNacimiento.DataPropertyName = "fechaNacimiento";
-            this.fechaNacimiento.HeaderText = "Fecha de Nacimiento";
-            this.fechaNacimiento.Name = "fechaNacimiento";
-            this.fechaNacimiento.ReadOnly = true;
-            // 
-            // salarioPorHora
-            // 
-            this.salarioPorHora.DataPropertyName = "salarioPorHora";
-            this.salarioPorHora.HeaderText = "Salario Por Hora";
-            this.salarioPorHora.Name = "salarioPorHora";
-            this.salarioPorHora.ReadOnly = true;
-            // 
-            // creadoPor
-            // 
-            this.creadoPor.DataPropertyName = "creadoPor";
-            this.creadoPor.HeaderText = "Creado Por";
-            this.creadoPor.Name = "creadoPor";
-            // 
-            // fechaCreacion
-            // 
-            this.fechaCreacion.DataPropertyName = "fechaCreacion";
-            this.fechaCreacion.HeaderText = "Fecha Creación";
-            this.fechaCreacion.Name = "fechaCreacion";
-            // 
-            // modificadoPor
-            // 
-            this.modificadoPor.DataPropertyName = "modificadoPor";
-            this.modificadoPor.HeaderText = "Modificado Por";
-            this.modificadoPor.Name = "modificadoPor";
-            // 
-            // fechaModificacion
-            // 
-            this.fechaModificacion.DataPropertyName = "fechaModificacion";
-            this.fechaModificacion.HeaderText = "Fecha Modificación";
-            this.fechaModificacion.Name = "fechaModificacion";
-            // 
-            // activo
-            // 
-            this.activo.DataPropertyName = "activo";
-            this.activo.HeaderText = "Activo";
-            this.activo.Name = "activo";
             // 
             // tollEmpleado
             // 
@@ -226,6 +132,104 @@
             this.btnRefrescar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnRefrescar.ToolTipText = "Actualiza los cambios en los empleados realizados";
             this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
+            // 
+            // idEmpleado
+            // 
+            this.idEmpleado.DataPropertyName = "idEmpleado";
+            this.idEmpleado.HeaderText = "Id Empleado";
+            this.idEmpleado.Name = "idEmpleado";
+            this.idEmpleado.ReadOnly = true;
+            // 
+            // idDepartamento
+            // 
+            this.idDepartamento.DataPropertyName = "idDepartamento";
+            this.idDepartamento.HeaderText = "Id Departamento";
+            this.idDepartamento.Name = "idDepartamento";
+            this.idDepartamento.ReadOnly = true;
+            this.idDepartamento.Width = 115;
+            // 
+            // nombreEmpleado
+            // 
+            this.nombreEmpleado.DataPropertyName = "nombreEmpleado";
+            this.nombreEmpleado.HeaderText = "Nombre Empleado";
+            this.nombreEmpleado.Name = "nombreEmpleado";
+            this.nombreEmpleado.ReadOnly = true;
+            // 
+            // apellido1
+            // 
+            this.apellido1.DataPropertyName = "apellido1";
+            this.apellido1.HeaderText = "Apellido1";
+            this.apellido1.Name = "apellido1";
+            this.apellido1.ReadOnly = true;
+            // 
+            // apellido2
+            // 
+            this.apellido2.DataPropertyName = "apellido2";
+            this.apellido2.HeaderText = "Apellido2";
+            this.apellido2.Name = "apellido2";
+            this.apellido2.ReadOnly = true;
+            // 
+            // numCedula
+            // 
+            this.numCedula.DataPropertyName = "numCedula";
+            this.numCedula.HeaderText = "Número de Cedula";
+            this.numCedula.Name = "numCedula";
+            this.numCedula.ReadOnly = true;
+            // 
+            // telefono
+            // 
+            this.telefono.DataPropertyName = "telefono";
+            this.telefono.HeaderText = "Teléfono";
+            this.telefono.Name = "telefono";
+            this.telefono.ReadOnly = true;
+            // 
+            // fechaNacimiento
+            // 
+            this.fechaNacimiento.DataPropertyName = "fechaNacimiento";
+            this.fechaNacimiento.HeaderText = "Fecha de Nacimiento";
+            this.fechaNacimiento.Name = "fechaNacimiento";
+            this.fechaNacimiento.ReadOnly = true;
+            this.fechaNacimiento.Width = 150;
+            // 
+            // salarioPorHora
+            // 
+            this.salarioPorHora.DataPropertyName = "salarioPorHora";
+            this.salarioPorHora.HeaderText = "Salario Por Hora";
+            this.salarioPorHora.Name = "salarioPorHora";
+            this.salarioPorHora.ReadOnly = true;
+            // 
+            // creadoPor
+            // 
+            this.creadoPor.DataPropertyName = "creadoPor";
+            this.creadoPor.HeaderText = "Creado Por";
+            this.creadoPor.Name = "creadoPor";
+            // 
+            // fechaCreacion
+            // 
+            this.fechaCreacion.DataPropertyName = "fechaCreacion";
+            this.fechaCreacion.HeaderText = "Fecha Creación";
+            this.fechaCreacion.Name = "fechaCreacion";
+            this.fechaCreacion.Width = 125;
+            // 
+            // modificadoPor
+            // 
+            this.modificadoPor.DataPropertyName = "modificadoPor";
+            this.modificadoPor.HeaderText = "Modificado Por";
+            this.modificadoPor.Name = "modificadoPor";
+            // 
+            // fechaModificacion
+            // 
+            this.fechaModificacion.DataPropertyName = "fechaModificacion";
+            this.fechaModificacion.HeaderText = "Fecha Modificación";
+            this.fechaModificacion.Name = "fechaModificacion";
+            this.fechaModificacion.Width = 125;
+            // 
+            // activo
+            // 
+            this.activo.DataPropertyName = "activo";
+            this.activo.HeaderText = "Activo";
+            this.activo.Name = "activo";
+            this.activo.Width = 50;
             // 
             // frmMantEmpleado
             // 

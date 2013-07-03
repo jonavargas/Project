@@ -235,6 +235,7 @@
             this.activo.DataPropertyName = "activo";
             this.activo.HeaderText = "Activo";
             this.activo.Name = "activo";
+            this.activo.Width = 50;
             // 
             // frmMantParametro
             // 

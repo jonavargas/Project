@@ -174,7 +174,7 @@
             this.colActivo.DataPropertyName = "activo";
             this.colActivo.HeaderText = "Activo";
             this.colActivo.Name = "colActivo";
-            this.colActivo.Width = 75;
+            this.colActivo.Width = 50;
             // 
             // frmMantUsuario
             // 
