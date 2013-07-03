@@ -58,7 +58,7 @@
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(83, 23);
             this.btnAceptar.TabIndex = 4;
-            this.btnAceptar.Text = "Inicio Seción";
+            this.btnAceptar.Text = "Iniciar Sesión";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
