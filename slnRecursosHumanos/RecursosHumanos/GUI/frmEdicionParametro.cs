@@ -38,7 +38,7 @@ namespace GUI
             this.aceptar = false;
             this.txtIdParametro.Text = Convert.ToString(pParametroL.IdParametro);
             this.txtHoraEntrada.Text = Convert.ToString(pParametroL.HoraEntrada);
-            this.txtHoraSalida.Text = Convert.ToString( pParametroL.HoraSalida);            
+            this.txtHoraSalida.Text = Convert.ToString(pParametroL.HoraSalida);
             this.oParametroL = pParametroL;
         }
         /// <summary>
@@ -62,25 +62,28 @@ namespace GUI
         {
             this.Close();
         }
-        private bool ValidarSeleccionDias() {
+        private bool ValidarSeleccionDias()
+        {
             bool respuesta = false;
             if ((ckdLunes.Checked == true) || (ckdMartes.Checked == true) || (ckdMiercoles.Checked == true) || (ckdJueves.Checked == true)
                 || (ckdViernes.Checked == true) || (ckdSabado.Checked == true) || (ckdDomingo.Checked == true))
             {
                 respuesta = true;
             }
-            return respuesta;       
+            return respuesta;
         }
         /// <summary>
         /// Metodo para validar si el check de activo se encuentra seleccionado
         /// </summary>
         /// <returns></returns>
-        private bool validarSeleccionActivo() {
+        private bool validarSeleccionActivo()
+        {
             bool respuesta = false;
-            if(ckdActivo.Checked){
+            if (ckdActivo.Checked)
+            {
                 respuesta = true;
             }
-            return respuesta;        
+            return respuesta;
         }
         /// <summary>
         /// Metodo para validar si activo esta activo
@@ -99,9 +102,11 @@ namespace GUI
         ///  Metodo para validar si lunes tiene el check
         /// </summary>
         /// <returns></returns>
-        private string validarLunes() {
-            string respuesta ="No";
-            if(ckdLunes.Checked){
+        private string validarLunes()
+        {
+            string respuesta = "No";
+            if (ckdLunes.Checked)
+            {
                 respuesta = "Sí";
             }
             return respuesta;
@@ -189,7 +194,7 @@ namespace GUI
         /// algún espacio en blanco sino lo hizo creado un parámetro con los datos suministrados
         /// </summary>
         /// <param name="sender"></param>
-      
+
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {

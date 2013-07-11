@@ -14,14 +14,7 @@ namespace GUI
 {
     public partial class frmMantParametro : Form
     {
-        /// <summary>
-        /// Atributos de la clase
-        /// </summary>
         AccesoDatosOracle cnx;
-        /// <summary>
-        ///     Metodo costructor con parametros
-        /// </summary>
-        /// <param name="pConexion"></param>
         public frmMantParametro(AccesoDatosOracle pConexion)
         {
             InitializeComponent();
@@ -29,9 +22,6 @@ namespace GUI
             this.cargarGrid();
 
         }
-        /// <summary>
-        /// Metodo que carga el datagridview
-        /// </summary>
         public void cargarGrid()
         {
             try
@@ -48,21 +38,11 @@ namespace GUI
                 MessageBox.Show("Error cargando los datos" + e.Message);
             }
         }
-        /// <summary>
-        /// Metodo que refresca los cambios realizados en una línea
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnRefrescar_Click(object sender, EventArgs e)
         {
             this.cargarGrid();
             MessageBox.Show("Datos actualizados!!!");
         }
-        /// <summary>
-        /// Metodo que borra la linea que se encuentra seleccionada
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             if (this.grdParametro.RowCount > 0)
@@ -86,14 +66,9 @@ namespace GUI
                 }
             }
         }
-        /// <summary>
-        /// Metodo que crea un nuevo registro
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            frmEdicionParametro ofrmEdicion = new frmEdicionParametro(null,null,null,null,null,null,null,null);
+            frmEdicionParametro ofrmEdicion = new frmEdicionParametro();
             ofrmEdicion.ShowDialog();
             if (ofrmEdicion.Aceptar)
             {
@@ -110,35 +85,14 @@ namespace GUI
                 }
             }
         }
-        /// <summary>
-        /// Metodo que edita la línea que se encuentra seleccionada
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (this.grdParametro.RowCount > 0)
             {
-                string lunes;
-                string martes;
-                string miercoles;
-                string jueves;
-                string viernes;
-                string sabado;
-                string domingo; 
-
 
                 ParametroL oParametroOriginal = (ParametroL)this.grdParametro.CurrentRow.DataBoundItem;
 
-                
-                lunes = oParametroOriginal.Lunes;
-                martes = oParametroOriginal.Martes;
-                miercoles = oParametroOriginal.Miercoles;
-                jueves = oParametroOriginal.Jueves;
-                viernes = oParametroOriginal.Viernes;
-                sabado = oParametroOriginal.Sabado;
-                domingo = oParametroOriginal.Domingo;
-                frmEdicionParametro ofrmEdicion = new frmEdicionParametro(oParametroOriginal, lunes, martes, miercoles, jueves, viernes, sabado, domingo);
+                frmEdicionParametro ofrmEdicion = new frmEdicionParametro(oParametroOriginal);
                 ofrmEdicion.ShowDialog();
                 if (ofrmEdicion.Aceptar)
                 {
@@ -156,6 +110,6 @@ namespace GUI
                 }
             }
         }
-        
+
     }
 }
