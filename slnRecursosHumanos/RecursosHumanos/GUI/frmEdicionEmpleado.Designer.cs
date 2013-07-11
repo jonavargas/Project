@@ -39,7 +39,6 @@
             this.lblEstado = new System.Windows.Forms.Label();
             this.chkActivo = new System.Windows.Forms.CheckBox();
             this.txtEmpleado = new System.Windows.Forms.TextBox();
-            this.txtDepartamento = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtApellido1 = new System.Windows.Forms.TextBox();
             this.txtApellido2 = new System.Windows.Forms.TextBox();
@@ -50,6 +49,7 @@
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtFechaNacimiento = new System.Windows.Forms.DateTimePicker();
+            this.cmbDepartamento = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtSalarioPorHora)).BeginInit();
             this.SuspendLayout();
             // 
@@ -150,40 +150,33 @@
             // 
             this.txtEmpleado.Location = new System.Drawing.Point(160, 28);
             this.txtEmpleado.Name = "txtEmpleado";
-            this.txtEmpleado.Size = new System.Drawing.Size(190, 20);
+            this.txtEmpleado.Size = new System.Drawing.Size(143, 20);
             this.txtEmpleado.TabIndex = 1;
-            // 
-            // txtDepartamento
-            // 
-            this.txtDepartamento.Location = new System.Drawing.Point(160, 54);
-            this.txtDepartamento.Name = "txtDepartamento";
-            this.txtDepartamento.Size = new System.Drawing.Size(190, 20);
-            this.txtDepartamento.TabIndex = 2;
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(160, 80);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(190, 20);
+            this.txtNombre.Size = new System.Drawing.Size(143, 20);
             this.txtNombre.TabIndex = 3;
             // 
             // txtApellido1
             // 
             this.txtApellido1.Location = new System.Drawing.Point(160, 106);
             this.txtApellido1.Name = "txtApellido1";
-            this.txtApellido1.Size = new System.Drawing.Size(190, 20);
+            this.txtApellido1.Size = new System.Drawing.Size(143, 20);
             this.txtApellido1.TabIndex = 4;
             // 
             // txtApellido2
             // 
             this.txtApellido2.Location = new System.Drawing.Point(160, 132);
             this.txtApellido2.Name = "txtApellido2";
-            this.txtApellido2.Size = new System.Drawing.Size(190, 20);
+            this.txtApellido2.Size = new System.Drawing.Size(143, 20);
             this.txtApellido2.TabIndex = 5;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(101, 307);
+            this.btnAceptar.Location = new System.Drawing.Point(64, 298);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 11;
@@ -193,7 +186,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(221, 307);
+            this.btnCancelar.Location = new System.Drawing.Point(184, 298);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 12;
@@ -225,14 +218,14 @@
             0});
             this.txtSalarioPorHora.Name = "txtSalarioPorHora";
             this.txtSalarioPorHora.ReadOnly = true;
-            this.txtSalarioPorHora.Size = new System.Drawing.Size(190, 20);
+            this.txtSalarioPorHora.Size = new System.Drawing.Size(143, 20);
             this.txtSalarioPorHora.TabIndex = 8;
             // 
             // txtCedula
             // 
             this.txtCedula.Location = new System.Drawing.Point(160, 158);
             this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(190, 20);
+            this.txtCedula.Size = new System.Drawing.Size(143, 20);
             this.txtCedula.TabIndex = 6;
             this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
@@ -240,22 +233,33 @@
             // 
             this.txtTelefono.Location = new System.Drawing.Point(160, 184);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(190, 20);
+            this.txtTelefono.Size = new System.Drawing.Size(143, 20);
             this.txtTelefono.TabIndex = 7;
             this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // txtFechaNacimiento
             // 
+            this.txtFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtFechaNacimiento.Location = new System.Drawing.Point(160, 235);
             this.txtFechaNacimiento.Name = "txtFechaNacimiento";
-            this.txtFechaNacimiento.Size = new System.Drawing.Size(190, 20);
-            this.txtFechaNacimiento.TabIndex = 22;
+            this.txtFechaNacimiento.Size = new System.Drawing.Size(143, 20);
+            this.txtFechaNacimiento.TabIndex = 9;
+            // 
+            // cmbDepartamento
+            // 
+            this.cmbDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDepartamento.FormattingEnabled = true;
+            this.cmbDepartamento.Location = new System.Drawing.Point(160, 53);
+            this.cmbDepartamento.Name = "cmbDepartamento";
+            this.cmbDepartamento.Size = new System.Drawing.Size(143, 21);
+            this.cmbDepartamento.TabIndex = 2;
             // 
             // frmEdicionEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(387, 343);
+            this.ClientSize = new System.Drawing.Size(343, 343);
+            this.Controls.Add(this.cmbDepartamento);
             this.Controls.Add(this.txtFechaNacimiento);
             this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.txtCedula);
@@ -266,7 +270,6 @@
             this.Controls.Add(this.txtApellido2);
             this.Controls.Add(this.txtApellido1);
             this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.txtDepartamento);
             this.Controls.Add(this.txtEmpleado);
             this.Controls.Add(this.chkActivo);
             this.Controls.Add(this.lblEstado);
@@ -300,7 +303,6 @@
         private System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.CheckBox chkActivo;
         private System.Windows.Forms.TextBox txtEmpleado;
-        private System.Windows.Forms.TextBox txtDepartamento;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtApellido1;
         private System.Windows.Forms.TextBox txtApellido2;
@@ -311,5 +313,6 @@
         private System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.DateTimePicker txtFechaNacimiento;
+        private System.Windows.Forms.ComboBox cmbDepartamento;
     }
 }

@@ -83,6 +83,7 @@ namespace GUI
         private void btnRefrescar_Click(object sender, EventArgs e)
         {
             this.cargarGrid();
+            MessageBox.Show("Datos actualizados!!!");
         }
         /// <summary>
         /// Metodo que edita los cambios que se realizan en esa línea

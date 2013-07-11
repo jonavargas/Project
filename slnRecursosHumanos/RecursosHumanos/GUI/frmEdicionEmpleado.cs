@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logica;
+using Datos;
 
 
 namespace GUI
@@ -23,10 +24,11 @@ namespace GUI
         /// en false
         /// </summary>
 
-        public frmEdicionEmpleado()
+        public frmEdicionEmpleado(AccesoDatosOracle pcnx)
         {
             InitializeComponent();
             this.aceptar = false;
+            this.cargarCombobox(pcnx);
         }
          /// <summary>
         /// Método constructor el cual recibe por parámetro un Emoleado el cual inicializa los atributos existentes
@@ -37,7 +39,7 @@ namespace GUI
             InitializeComponent();
             this.aceptar = false;
             this.txtEmpleado.Text = (pEmpleadoL.IdEmpleado);
-            this.txtDepartamento.Text = (pEmpleadoL.IdDepartamento);
+            this.cmbDepartamento.Text = (pEmpleadoL.IdDepartamento);
             this.txtNombre.Text = (pEmpleadoL.NombreEmpleado);
             this.txtApellido1.Text = (pEmpleadoL.Apellido1);
             this.txtApellido2.Text = (pEmpleadoL.Apellido2);
@@ -89,12 +91,12 @@ namespace GUI
             }
 
             if ((this.txtEmpleado.Text == "") ||
-               (this.txtDepartamento.Text == "") || (this.txtNombre.Text == ""))
+               (this.cmbDepartamento.Text == "") || (this.txtNombre.Text == ""))
             {
                 MessageBox.Show("Faltan datos requeridos");
                 return;
             }
-            this.oEmpleadoL = new EmpleadoL(this.txtEmpleado.Text, this.txtDepartamento.Text, this.txtNombre.Text, this.txtApellido1.Text, this.txtApellido2.Text,
+            this.oEmpleadoL = new EmpleadoL(this.txtEmpleado.Text, this.cmbDepartamento.Text, this.txtNombre.Text, this.txtApellido1.Text, this.txtApellido2.Text,
                                      int.Parse(this.txtCedula.Text), int.Parse(this.txtTelefono.Text),(this.txtFechaNacimiento.Text),
                                      Double.Parse(this.txtSalarioPorHora.Text), Program.oUsuarioLogueado.IdUsuario, DateTime.Now, Program.oUsuarioLogueado.IdUsuario, DateTime.Now, activo);
             this.aceptar = true;
@@ -153,6 +155,14 @@ namespace GUI
                 MessageBox.Show("Debe de digitar solo números!!!");
             }
 
+        }
+
+        public void cargarCombobox(AccesoDatosOracle pcnx)
+        {
+            DepartamentoD oDepartamentoD = new DepartamentoD(pcnx);
+            cmbDepartamento.DataSource = oDepartamentoD.obtenerIdDepartamento().Tables[0].Copy();
+            cmbDepartamento.DisplayMember = "idDepartamento";
+            cmbDepartamento.ValueMember = "idDepartamento";
         }
     }
 }

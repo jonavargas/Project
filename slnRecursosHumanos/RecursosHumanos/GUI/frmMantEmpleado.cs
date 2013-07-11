@@ -28,6 +28,9 @@ namespace GUI
             InitializeComponent();
             this.cnx = pConexion;
             this.cargarGrid();
+            frmEdicionEmpleado ofrmEdicionEmpleado = new frmEdicionEmpleado(pConexion);
+            ofrmEdicionEmpleado.cargarCombobox(pConexion);
+            
         }
         /// <summary>
         /// Método que se encarga de establecer la conexión con la base de datos adémas muestra los datos de esta en el grid
@@ -56,14 +59,12 @@ namespace GUI
         private void btnNuevo_Click_1(object sender, EventArgs e)
         {
 
-            frmEdicionEmpleado ofrmEdicionEmpleado = new frmEdicionEmpleado();
+            frmEdicionEmpleado ofrmEdicionEmpleado = new frmEdicionEmpleado(this.cnx);
             ofrmEdicionEmpleado.ShowDialog();
             if (ofrmEdicionEmpleado.Aceptar)
             {
                 EmpleadoD oEmpleadoD = new EmpleadoD(this.cnx);
                 oEmpleadoD.agregarEmpleado(ofrmEdicionEmpleado.OEmpleadoL);
-
-
                 if (oEmpleadoD.Error)
                 {
                     MessageBox.Show("Error agregando los datos:" + oEmpleadoD.ErrorDescription);
@@ -75,7 +76,7 @@ namespace GUI
                 }
 
             }
-                       
+            
         }
         /// <summary>
         /// Método que se encarga de editar un Empleado ya existente y procede de la siguiente manera toma el empleado existente y lo modifica por el suministrado 
@@ -83,28 +84,32 @@ namespace GUI
         /// /// </summary> 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-
-            if (this.grdEmpleado.RowCount > 0)
-            {
-
-                EmpleadoL oEmpleadoOriginal = (EmpleadoL)this.grdEmpleado.CurrentRow.DataBoundItem;
-
-                frmEdicionEmpleado ofrmEdicionEmpleado = new frmEdicionEmpleado(oEmpleadoOriginal);
-                ofrmEdicionEmpleado.ShowDialog();
-                if (ofrmEdicionEmpleado.Aceptar)
+            try{
+                if (this.grdEmpleado.RowCount > 0)
                 {
-                    EmpleadoD oEmpleadoD = new EmpleadoD(this.cnx);
-                    oEmpleadoD.editarEmpleado(oEmpleadoOriginal, ofrmEdicionEmpleado.OEmpleadoL);
-                    if (oEmpleadoD.Error)
+                    EmpleadoL oEmpleadoOriginal = (EmpleadoL)this.grdEmpleado.CurrentRow.DataBoundItem;
+                    frmEdicionEmpleado ofrmEdicionEmpleado = new frmEdicionEmpleado(oEmpleadoOriginal);
+                    ofrmEdicionEmpleado.cargarCombobox(this.cnx);
+                    ofrmEdicionEmpleado.ShowDialog();
+                    if (ofrmEdicionEmpleado.Aceptar)
                     {
+                        EmpleadoD oEmpleadoD = new EmpleadoD(this.cnx);
+                        oEmpleadoD.editarEmpleado(oEmpleadoOriginal, ofrmEdicionEmpleado.OEmpleadoL);
+
+                        if (oEmpleadoD.Error)
+                        {
                         MessageBox.Show("Error actualizando los datos del Empleado: " + oEmpleadoD.ErrorDescription);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Empleado actualizado!!!");
-                        this.cargarGrid();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Empleado actualizado!!!");
+                            this.cargarGrid();
+                        }
                     }
                 }
+            } catch(Exception E)
+            {
+                MessageBox.Show("No hay datos para editar");
             }
 
         }
@@ -143,5 +148,6 @@ namespace GUI
             this.cargarGrid();
             MessageBox.Show("Datos actualizados!!!");
         }
+
     }
 }

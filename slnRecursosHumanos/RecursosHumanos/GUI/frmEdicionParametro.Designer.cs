@@ -71,9 +71,9 @@
             this.lblhora_Entrada.AutoSize = true;
             this.lblhora_Entrada.Location = new System.Drawing.Point(20, 38);
             this.lblhora_Entrada.Name = "lblhora_Entrada";
-            this.lblhora_Entrada.Size = new System.Drawing.Size(75, 13);
+            this.lblhora_Entrada.Size = new System.Drawing.Size(91, 13);
             this.lblhora_Entrada.TabIndex = 1;
-            this.lblhora_Entrada.Text = "Hora entrada :";
+            this.lblhora_Entrada.Text = "Hora de Entrada :";
             // 
             // lblhora_Salida
             // 
