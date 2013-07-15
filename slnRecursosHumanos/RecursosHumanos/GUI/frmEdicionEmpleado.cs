@@ -157,6 +157,10 @@ namespace GUI
 
         }
 
+        /// <summary>
+        /// Metodo que se encarga de llenar el combo box departamento con los departamentos existentes.
+        /// </summary>
+        /// <param name="pcnx"></param>
         public void cargarCombobox(AccesoDatosOracle pcnx)
         {
             DepartamentoD oDepartamentoD = new DepartamentoD(pcnx);
