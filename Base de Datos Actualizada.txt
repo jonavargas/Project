@@ -95,11 +95,11 @@ usuario: admin
 password: admin
 
 ************************************************
-
 create table marca
 (
-       idMarca numeric(20),
-       idEmpleado varchar(50),
+       idMarca numeric(20) not null,
+       idDepartamento varchar (50) not null,
+       idEmpleado varchar(50) not null,       
        registroMarcas varchar(50),
        estadoMarca varchar(50),
        fechaMarca date,
@@ -110,7 +110,8 @@ create table marca
        fechaModificacion date,
        activo varchar(3),
        constraint PK_Marca primary key (idMarca),
-       constraint Marca_FK foreign key (idEmpleado)references Empleado(idEmpleado)
+       constraint Marca_FK foreign key (idDepartameto)references Departamento(idDepartamento),
+       constraint Marca_FK foreign key (idEmpleado)references Empleado(idEmpleado),      
 );
 
 CREATE SEQUENCE seq_marca MINVALUE 1 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 1 
