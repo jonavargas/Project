@@ -51,9 +51,7 @@ namespace Logica
         {
             get { return estadoMarca; }
             set { estadoMarca = value; }
-        }
-
-       
+        }       
 
         public string TipoMarca
         {
