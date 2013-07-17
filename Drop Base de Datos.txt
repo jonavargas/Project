@@ -1,0 +1,7 @@
+drop table marca;
+drop table empleado;
+drop table usuario;
+drop table departamento;
+drop table deducciones;
+drop table catalogoFechas;
+drop table parametro;
