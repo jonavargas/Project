@@ -98,12 +98,12 @@ password: admin
 
 create table marca
 (
-       idMarca varchar(50),
+       idMarca numeric(20),
        idEmpleado varchar(50),
+       registroMarcas varchar(50),
        estadoMarca varchar(50),
        fechaMarca date,
        tipoMarca varchar(50),
-       salarioPorHora numeric(9,2),
        creadoPor varchar(100),
        fechaCreacion date,
        modificadoPor varchar(100),
@@ -112,3 +112,14 @@ create table marca
        constraint PK_Marca primary key (idMarca),
        constraint Marca_FK foreign key (idEmpleado)references Empleado(idEmpleado)
 );
+
+CREATE SEQUENCE seq_marca MINVALUE 1 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 1 
+CACHE 20 NOORDER  NOCYCLE;
+
+create or replace trigger trg_marca_bef_i
+BEFORE INSERT ON marca FOR EACH ROW
+BEGIN
+   SELECT seq_marca.NEXTVAL
+   INTO :NEW.idMarca
+   FROM DUAL;
+END;
