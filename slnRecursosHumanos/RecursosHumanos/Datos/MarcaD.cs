@@ -41,8 +41,8 @@ namespace Datos
             get { return errorDescription; }
             set { errorDescription = value; }
         }
-      // *****************************************************************************************************************************************************************
-        public List<MarcaL> obtenerMarcas()
+     
+       public List<MarcaL> obtenerMarcas()
         {
             List<MarcaL> retorno = new List<MarcaL>();
             try
@@ -55,8 +55,7 @@ namespace Datos
                         retorno.Add(
                                     new MarcaL(fila["idMarca"].ToString(),
                                                      fila["idEmpleado"].ToString(),
-                                                     fila["estadoMarca"].ToString(),
-                                                     DateTime.Parse(fila["fechaMarca"].ToString()),
+                                                     fila["estadoMarca"].ToString(),                                                     
                                                      fila["tipoMarca"].ToString(),
                                                      fila["creadoPor"].ToString(),
                                                      DateTime.Parse(fila["fechaCreacion"].ToString()),
@@ -70,17 +69,85 @@ namespace Datos
                 else
                 {
                     this.error = true;
-                    this.errorDescription = "Error obteniendo Marca: " +
+                    this.errorDescription = "Error obteniendo Marca " +
                                             this.cnx.ErrorDescripcion;
                 }
             }
             catch (Exception e)
             {
                 this.error = true;
-                this.errorDescription = "Error obteniendo Marca: " + e.Message;
+                this.errorDescription = "Error obteniendo Marca" + e.Message;
             }
             return retorno;
         }
+
+        public void agregarMarca(MarcaL pMarca)
+        {
+            try
+            {
+                string sql = "insert into Marca(idMarca,idEmpleado,estadoMarca,tipoMarca,creadoPor,fechaCreacion,modificadoPor,fechaModificacion,activo) " +
+                             "values(:idMarca, :idEmpleado, :estadoMarca, :tipoMarca,:creadoPor,:fechaCreacion,:modificadoPor,:fechaModificacion,:activo)";
+
+                OracleParameter[] parametros = new OracleParameter[9];// Parametros
+
+                parametros[0] = new OracleParameter();
+                parametros[0].OracleType = OracleType.VarChar;
+                parametros[0].ParameterName = ":idMarca";
+                parametros[0].Value = pMarca.IdMarca;
+
+                parametros[1] = new OracleParameter();
+                parametros[1].OracleType = OracleType.VarChar;
+                parametros[1].ParameterName = ":idEmpleado";
+                parametros[1].Value = pMarca.IdEmpleado;
+
+                parametros[2] = new OracleParameter();
+                parametros[2].OracleType = OracleType.VarChar;
+                parametros[2].ParameterName = ":estadoMarca";
+                parametros[2].Value = pMarca.EstadoMarca;
+
+                parametros[3] = new OracleParameter();
+                parametros[3].OracleType = OracleType.VarChar;
+                parametros[3].ParameterName = ":tipoMarca";
+                parametros[3].Value = pMarca.TipoMarca;
+
+                parametros[4] = new OracleParameter();
+                parametros[4].OracleType = OracleType.VarChar;
+                parametros[4].ParameterName = ":creadoPor";
+                parametros[4].Value = pMarca.CreadoPor;
+
+                parametros[5] = new OracleParameter();
+                parametros[5].OracleType = OracleType.DateTime;
+                parametros[5].ParameterName = ":fechaCreacion";
+                parametros[5].Value = pMarca.FechaCreacion;
+
+                parametros[6] = new OracleParameter();
+                parametros[6].OracleType = OracleType.VarChar;
+                parametros[6].ParameterName = ":modificadoPor";
+                parametros[6].Value = pMarca.ModificadoPor;
+
+                parametros[7] = new OracleParameter();
+                parametros[7].OracleType = OracleType.DateTime;
+                parametros[7].ParameterName = ":fechaModificacion";
+                parametros[7].Value = pMarca.FechaModificacion;
+
+                parametros[8] = new OracleParameter();  
+                parametros[8].OracleType = OracleType.VarChar;
+                parametros[8].ParameterName = ":activo";
+                parametros[8].Value = pMarca.Activo;
+
+               
+
+                this.cnx.ejecutarSQL(sql, parametros);
+                this.error = this.cnx.IsError;
+                this.errorDescription = this.cnx.ErrorDescripcion;
+            }
+            catch (Exception e)
+            {
+                this.error = true;
+                this.errorDescription = "Error agregando la Marca: " + e.Message;
+            }
+        }
+
 
     }
 }

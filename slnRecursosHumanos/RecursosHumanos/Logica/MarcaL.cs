@@ -11,10 +11,9 @@ namespace Logica
         /// <summary>
         /// Atributos de la clase MarcaL
         /// </summary>
-        private string idMarca;       
-        private string idEmpleado; 
-        private string estadoMarca;
-        private DateTime fechaMarca;
+        private string idMarca;
+        private string idEmpleado;       
+        private string estadoMarca;        
         private string tipoMarca;
         private string creadoPor;
         private DateTime fechaCreacion;
@@ -23,25 +22,14 @@ namespace Logica
         private string activo;
         
 
-         /// <summary>
-        /// Metodo constructor con parametros
-        /// </summary>
-        /// <param name="pIdMarca"></param>
-        /// <param name="pIdEmpleado"></param>
-        /// <param name="pEstadoMarca"></param>
-        /// <param name="pFechaMarca"></param>
-        /// <param name="pTipoMarca"></param>
-        /// <param name="pFechaModificacion"></param>
-        /// <param name="pFechaCreacion"></param>
-        /// <param name="pCreadoPor"></param>
-        /// <param name="pModificadoPor"></param>
-        /// <param name="pActivo"></param>
-        public MarcaL(string pIdMarca, string pIdEmpleado, string pEstadoMarca, DateTime pFechaMarca, string pTipoMarca, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, DateTime pFechaModificacion, string pActivo)
+         
+        /// Metodo constructor con parámetros
+       
+        public MarcaL(string pIdMarca, string pIdEmpleado, string pEstadoMarca,string pTipoMarca, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, DateTime pFechaModificacion, string pActivo)
         {
             this.idMarca = pIdMarca;
             this.idEmpleado = pIdEmpleado;
-            this.estadoMarca = pEstadoMarca;
-            this.fechaMarca = pFechaMarca;
+            this.estadoMarca = pEstadoMarca;           
             this.tipoMarca = pTipoMarca;
             this.creadoPor = pCreadoPor;
             this.fechaCreacion = pFechaCreacion;
@@ -51,7 +39,7 @@ namespace Logica
         }
 
         /// <summary>
-        /// Propiedades de la clase
+        /// Properties de la clase
         /// </summary>
         public string IdMarca
         {
@@ -65,11 +53,7 @@ namespace Logica
             set { estadoMarca = value; }
         }
 
-        public DateTime FechaMarca
-        {
-            get { return fechaMarca; }
-            set { fechaMarca = value; }
-        }
+       
 
         public string TipoMarca
         {
@@ -106,21 +90,28 @@ namespace Logica
             get { return activo; }
             set { activo = value; }
         }
+        public string IdEmpleado
+        {
+            get { return idEmpleado; }
+            set { idEmpleado = value; }
+        } 
 
         /// <summary>
         /// Metodo toString 
         /// </summary>
         /// <returns></returns>
-        /// MODIFICARLO
+        
         public override string ToString()
         {
-            return "Id Marca" + this.idMarca +
-                   "Id Empleado" + this.idEmpleado +
-                   "Creado por: " + this.creadoPor +
-                   "Fecha de Creación: " + this.fechaCreacion +
-                   "Modificado por: " + this.modificadoPor +
-                   "Fecha de Modificación: " + this.fechaModificacion +
-                   "Activo: " + this.activo;
+            return  "ID Marca:" + this.IdMarca + "\n" +
+                    "ID Empleado:" + this.IdEmpleado + "\n" +
+                    "Estado Marca:" + this.EstadoMarca + "\n" +
+                    "Tipo de Marca:" + this.TipoMarca + "\n" +
+                    "Creada por:" + this.CreadoPor + "\n" +
+                    "Fecha de Creación:" + this.FechaCreacion + "\n" +
+                    "Modificado Por:" + this.ModificadoPor + "\n" +
+                    "Fecha de Modificación:" + this.FechaModificacion + "\n" +
+                    "Activo:" + this.Activo;
         }
     }
 }
