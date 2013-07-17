@@ -51,8 +51,15 @@
     <Compile Include="Datos\DeduccionesD.cs" />
     <Compile Include="Datos\DepartamentoD.cs" />
     <Compile Include="Datos\EmpleadoD.cs" />
+    <Compile Include="Datos\MarcaD.cs" />
     <Compile Include="Datos\ParametroD.cs" />
     <Compile Include="Datos\UsuarioD.cs" />
+    <Compile Include="GUI\frmConsultaMarcas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmConsultaMarcas.Designer.cs">
+      <DependentUpon>frmConsultaMarcas.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmEdicionCatalogoFechas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,10 +148,14 @@
     <Compile Include="Logica\DeduccionesL.cs" />
     <Compile Include="Logica\DepartamentoL.cs" />
     <Compile Include="Logica\EmpleadoL.cs" />
+    <Compile Include="Logica\MarcaL.cs" />
     <Compile Include="Logica\ParametroL.cs" />
     <Compile Include="Logica\UsuarioL.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\frmConsultaMarcas.resx">
+      <DependentUpon>frmConsultaMarcas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmEdicionCatalogoFechas.resx">
       <DependentUpon>frmEdicionCatalogoFechas.cs</DependentUpon>
     </EmbeddedResource>
