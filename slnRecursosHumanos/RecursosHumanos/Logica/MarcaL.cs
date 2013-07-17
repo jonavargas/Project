@@ -12,15 +12,14 @@ namespace Logica
         /// Atributos de la clase MarcaL
         /// </summary>
         private string idMarca;       
-        private string idEmpleado;
-        private string idDepartamento;  
+        private string idEmpleado; 
         private string estadoMarca;
         private DateTime fechaMarca;
         private string tipoMarca;
-        private DateTime fechaCreacion;
-        private DateTime fechaModificacion;
-        private string modificadoPor;
         private string creadoPor;
+        private DateTime fechaCreacion;
+        private string modificadoPor;
+        private DateTime fechaModificacion;
         private string activo;
         
 
@@ -29,7 +28,6 @@ namespace Logica
         /// </summary>
         /// <param name="pIdMarca"></param>
         /// <param name="pIdEmpleado"></param>
-        /// <param name="pIdDepartamento"></param>
         /// <param name="pEstadoMarca"></param>
         /// <param name="pFechaMarca"></param>
         /// <param name="pTipoMarca"></param>
@@ -38,18 +36,17 @@ namespace Logica
         /// <param name="pCreadoPor"></param>
         /// <param name="pModificadoPor"></param>
         /// <param name="pActivo"></param>
-        public MarcaL(string pIdMarca, string pIdEmpleado, string pIdDepartamento, string pEstadoMarca, DateTime pFechaMarca, string pTipoMarca, DateTime pFechaModificacion, DateTime pFechaCreacion, string pCreadoPor, string pModificadoPor, string pActivo)
+        public MarcaL(string pIdMarca, string pIdEmpleado, string pEstadoMarca, DateTime pFechaMarca, string pTipoMarca, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, DateTime pFechaModificacion, string pActivo)
         {
             this.idMarca = pIdMarca;
             this.idEmpleado = pIdEmpleado;
-            this.idDepartamento = pIdDepartamento;
             this.estadoMarca = pEstadoMarca;
             this.fechaMarca = pFechaMarca;
             this.tipoMarca = pTipoMarca;
-            this.fechaModificacion = pFechaModificacion;
-            this.fechaCreacion = pFechaCreacion;
             this.creadoPor = pCreadoPor;
+            this.fechaCreacion = pFechaCreacion;
             this.modificadoPor = pModificadoPor;
+            this.fechaModificacion = pFechaModificacion;
             this.activo = pActivo;
         }
 
@@ -60,12 +57,6 @@ namespace Logica
         {
             get { return idMarca; }
             set { idMarca = value; }
-        }
-
-        public string IdDepartamento
-        {
-            get { return idDepartamento; }
-            set { idDepartamento = value; }
         }
 
         public string EstadoMarca
@@ -86,16 +77,16 @@ namespace Logica
             set { tipoMarca = value; }
         }
 
+        public string CreadoPor
+        {
+            get { return creadoPor; }
+            set { creadoPor = value; }
+        }
+
         public DateTime FechaCreacion
         {
             get { return fechaCreacion; }
             set { fechaCreacion = value; }
-        }
-
-        public DateTime FechaModificacion
-        {
-            get { return fechaModificacion; }
-            set { fechaModificacion = value; }
         }
 
         public string ModificadoPor
@@ -104,10 +95,10 @@ namespace Logica
             set { modificadoPor = value; }
         }
 
-        public string CreadoPor
+        public DateTime FechaModificacion
         {
-            get { return creadoPor; }
-            set { creadoPor = value; }
+            get { return fechaModificacion; }
+            set { fechaModificacion = value; }
         }
 
         public string Activo
@@ -123,17 +114,13 @@ namespace Logica
         /// MODIFICARLO
         public override string ToString()
         {
-            return "Id Departamento: " + this.idDepartamento +                   
-                   "Fecha de Modificación: " + this.fechaModificacion +
-                   "Fecha de Creación: " + this.fechaCreacion +
+            return "Id Marca" + this.idMarca +
+                   "Id Empleado" + this.idEmpleado +
                    "Creado por: " + this.creadoPor +
+                   "Fecha de Creación: " + this.fechaCreacion +
                    "Modificado por: " + this.modificadoPor +
+                   "Fecha de Modificación: " + this.fechaModificacion +
                    "Activo: " + this.activo;
         }
-
-
-
     }
-
-
 }
