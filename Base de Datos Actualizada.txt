@@ -90,6 +90,8 @@ create table Empleado
        constraint Empleado_FK foreign key (idDepartamento)references Departamento(idDepartamento)
 );
 
+************************************************
+
 Acceso como Adminisrador.
 usuario: admin
 password: admin
