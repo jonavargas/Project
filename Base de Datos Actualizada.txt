@@ -113,7 +113,7 @@ create table marca
        constraint Marca_FK foreign key (idEmpleado)references Empleado(idEmpleado)
 );
 
-CREATE SEQUENCE seq_marca MINVALUE 1 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 1 
+CREATE SEQUENCE seq_marca MINVALUE 1 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 2 
 CACHE 20 NOORDER  NOCYCLE;
 
 create or replace trigger trg_marca_bef_i

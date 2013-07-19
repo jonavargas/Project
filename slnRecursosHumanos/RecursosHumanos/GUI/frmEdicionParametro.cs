@@ -40,8 +40,8 @@ namespace GUI
             InitializeComponent();
             this.aceptar = false;
             this.txtIdParametro.Text = Convert.ToString(pParametroL.IdParametro);
-            this.txtHoraEntrada.Text = Convert.ToString(pParametroL.HoraEntrada);
-            this.txtHoraSalida.Text = Convert.ToString(pParametroL.HoraSalida);
+            this.dtpHoraEntrada.Text = Convert.ToString(pParametroL.HoraEntrada);
+            this.dtpHoraSalida.Text = Convert.ToString(pParametroL.HoraSalida);
             this.oParametroL = pParametroL;
         }
         /// <summary>
@@ -202,14 +202,14 @@ namespace GUI
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             if ((this.txtIdParametro.Text == "") ||
-               (this.txtHoraEntrada.Text == "") || (this.txtHoraSalida.Text == "") || (this.ValidarSeleccionDias() == false))
+               (this.dtpHoraEntrada.Text == "") || (this.dtpHoraSalida.Text == "") || (this.ValidarSeleccionDias() == false))
             {
                 MessageBox.Show("Faltan datos requeridos");
                 return;
             }
             this.oParametroL = new ParametroL(this.txtIdParametro.Text,
-                                        DateTime.Parse(this.txtHoraEntrada.Text.ToString()),
-                                        DateTime.Parse(this.txtHoraSalida.Text.ToString()),
+                                        DateTime.Parse(this.dtpHoraEntrada.Text.ToString()),
+                                        DateTime.Parse(this.dtpHoraSalida.Text.ToString()),
                                         this.validarLunes(),
                                         this.validarMartes(),
                                         this.validarMiercoles(),

@@ -53,8 +53,8 @@
             this.ckdDomingo = new System.Windows.Forms.CheckBox();
             this.lblDiasLaborales = new System.Windows.Forms.Label();
             this.ckdActivo = new System.Windows.Forms.CheckBox();
-            this.txtHoraEntrada = new System.Windows.Forms.MaskedTextBox();
-            this.txtHoraSalida = new System.Windows.Forms.MaskedTextBox();
+            this.dtpHoraEntrada = new System.Windows.Forms.DateTimePicker();
+            this.dtpHoraSalida = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // lblIdParametro
@@ -275,9 +275,9 @@
             this.lblDiasLaborales.AutoSize = true;
             this.lblDiasLaborales.Location = new System.Drawing.Point(20, 95);
             this.lblDiasLaborales.Name = "lblDiasLaborales";
-            this.lblDiasLaborales.Size = new System.Drawing.Size(125, 13);
+            this.lblDiasLaborales.Size = new System.Drawing.Size(127, 13);
             this.lblDiasLaborales.TabIndex = 39;
-            this.lblDiasLaborales.Text = "Dias de Jornada Laboral:";
+            this.lblDiasLaborales.Text = "Días de Jornada Laboral:";
             // 
             // ckdActivo
             // 
@@ -291,27 +291,34 @@
             this.ckdActivo.Text = "Activo";
             this.ckdActivo.UseVisualStyleBackColor = true;
             // 
-            // txtHoraEntrada
+            // dtpHoraEntrada
             // 
-            this.txtHoraEntrada.Location = new System.Drawing.Point(144, 35);
-            this.txtHoraEntrada.Name = "txtHoraEntrada";
-            this.txtHoraEntrada.Size = new System.Drawing.Size(176, 20);
-            this.txtHoraEntrada.TabIndex = 40;
+            this.dtpHoraEntrada.CustomFormat = "hh:mm  tt";
+            this.dtpHoraEntrada.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpHoraEntrada.Location = new System.Drawing.Point(144, 35);
+            this.dtpHoraEntrada.Name = "dtpHoraEntrada";
+            this.dtpHoraEntrada.ShowUpDown = true;
+            this.dtpHoraEntrada.Size = new System.Drawing.Size(176, 20);
+            this.dtpHoraEntrada.TabIndex = 42;
             // 
-            // txtHoraSalida
+            // dtpHoraSalida
             // 
-            this.txtHoraSalida.Location = new System.Drawing.Point(144, 61);
-            this.txtHoraSalida.Name = "txtHoraSalida";
-            this.txtHoraSalida.Size = new System.Drawing.Size(176, 20);
-            this.txtHoraSalida.TabIndex = 41;
+            this.dtpHoraSalida.CustomFormat = "hh:mm  tt";
+            this.dtpHoraSalida.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpHoraSalida.Location = new System.Drawing.Point(144, 61);
+            this.dtpHoraSalida.Name = "dtpHoraSalida";
+            this.dtpHoraSalida.ShowUpDown = true;
+            this.dtpHoraSalida.Size = new System.Drawing.Size(176, 20);
+            this.dtpHoraSalida.TabIndex = 43;
+            this.dtpHoraSalida.Value = new System.DateTime(2013, 7, 18, 16, 50, 0, 0);
             // 
             // frmEdicionParametro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(350, 324);
-            this.Controls.Add(this.txtHoraSalida);
-            this.Controls.Add(this.txtHoraEntrada);
+            this.Controls.Add(this.dtpHoraSalida);
+            this.Controls.Add(this.dtpHoraEntrada);
             this.Controls.Add(this.ckdActivo);
             this.Controls.Add(this.lblDiasLaborales);
             this.Controls.Add(this.ckdDomingo);
@@ -372,7 +379,7 @@
         private System.Windows.Forms.CheckBox ckdDomingo;
         private System.Windows.Forms.Label lblDiasLaborales;
         private System.Windows.Forms.CheckBox ckdActivo;
-        private System.Windows.Forms.MaskedTextBox txtHoraEntrada;
-        private System.Windows.Forms.MaskedTextBox txtHoraSalida;
+        private System.Windows.Forms.DateTimePicker dtpHoraEntrada;
+        private System.Windows.Forms.DateTimePicker dtpHoraSalida;
     }
 }
