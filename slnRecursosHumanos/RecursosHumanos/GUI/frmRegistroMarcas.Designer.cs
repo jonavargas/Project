@@ -35,17 +35,18 @@
             // 
             // btnMarcar
             // 
-            this.btnMarcar.Location = new System.Drawing.Point(123, 84);
+            this.btnMarcar.Location = new System.Drawing.Point(181, 93);
             this.btnMarcar.Name = "btnMarcar";
             this.btnMarcar.Size = new System.Drawing.Size(75, 23);
             this.btnMarcar.TabIndex = 5;
             this.btnMarcar.Text = "Marcar";
             this.btnMarcar.UseVisualStyleBackColor = true;
+            this.btnMarcar.Click += new System.EventHandler(this.btnMarcar_Click);
             // 
             // lblCodigoEmpleado
             // 
             this.lblCodigoEmpleado.AutoSize = true;
-            this.lblCodigoEmpleado.Location = new System.Drawing.Point(39, 45);
+            this.lblCodigoEmpleado.Location = new System.Drawing.Point(22, 42);
             this.lblCodigoEmpleado.Name = "lblCodigoEmpleado";
             this.lblCodigoEmpleado.Size = new System.Drawing.Size(93, 13);
             this.lblCodigoEmpleado.TabIndex = 4;
@@ -53,21 +54,21 @@
             // 
             // txtCodigoEmpleado
             // 
-            this.txtCodigoEmpleado.Location = new System.Drawing.Point(149, 42);
+            this.txtCodigoEmpleado.Location = new System.Drawing.Point(123, 39);
             this.txtCodigoEmpleado.Name = "txtCodigoEmpleado";
-            this.txtCodigoEmpleado.Size = new System.Drawing.Size(147, 20);
+            this.txtCodigoEmpleado.Size = new System.Drawing.Size(208, 20);
             this.txtCodigoEmpleado.TabIndex = 3;
             // 
             // frmRegistroMarcas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(343, 141);
+            this.ClientSize = new System.Drawing.Size(343, 137);
             this.Controls.Add(this.btnMarcar);
             this.Controls.Add(this.lblCodigoEmpleado);
             this.Controls.Add(this.txtCodigoEmpleado);
             this.Name = "frmRegistroMarcas";
-            this.Text = "Registro de Marcas";
+            this.Text = "Registro de Ingreso ";
             this.ResumeLayout(false);
             this.PerformLayout();
 

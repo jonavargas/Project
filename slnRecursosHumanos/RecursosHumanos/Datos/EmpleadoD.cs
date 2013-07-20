@@ -232,6 +232,21 @@ namespace Datos
         /// </summary>
         /// <param name="pEmpleadoOriginal"></param>
         /// <param name="pEmpleadoEditado"></param>
+        /// 
+
+        public DataSet buscarEmpleado(string pEmpleado)
+        {
+
+            this.ErrorDescription = "";
+            string datos = ("select * from Empleado " +
+                                 "where idEmpleado = " + pEmpleado + " and Activo = 'Si'");
+            DataSet retorno = this.cnx.ejecutarConsultaSQL(datos);
+            if(this.cnx.IsError){
+                this.ErrorDescription = this.cnx.ErrorDescripcion;
+            }
+            return retorno;
+        
+        }
 
         public void editarEmpleado(EmpleadoL pEmpleadoOriginal, EmpleadoL pEmpleadoEditado)
         {

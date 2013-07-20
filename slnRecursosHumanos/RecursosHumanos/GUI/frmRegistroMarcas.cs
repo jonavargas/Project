@@ -21,26 +21,35 @@ namespace GUI
             this.cnx = pConexion;
         }
 
-        private void txtCodigoEmpleado_TextChanged(object sender, EventArgs e)
+       
+
+
+
+
+
+        private void btnMarcar_Click(object sender, EventArgs e)
         {
-            bool entrada = true;
-            string marca = "Entrada";
-            string estado = "Generado";
-            try
-            {
-                if (this.txtCodigoEmpleado.Text != "")
+            MarcaD oMarcaD=new MarcaD(this.cnx);
+           EmpleadoD oEmpleadoD=new EmpleadoD(this.cnx);
+           MarcaL oMarcaL = new MarcaL();
+           
+            
+
+            if(txtCodigoEmpleado.Text!=""){
+
+                if (!oEmpleadoD.buscarEmpleado(txtCodigoEmpleado.Text).Equals(""))
                 {
-                    if (entrada == true)
-                    {
-                        marca = "Entrada";
-                        estado = "Generado";
-                    }
+                    oMarcaD.agregarMarca();
+
+
+
                 }
-                MessageBox.Show("Error el código de empleado esta en blanco!!!");
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Error al ingresar el código de empleado!!!");
+                else {
+                    MessageBox.Show("El empleado no existe ó se encuentra inactivo en la empresa");
+                
+                }
+
+            
             }
         }
 

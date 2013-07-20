@@ -14,15 +14,15 @@ namespace Datos
         /// <summary>
         /// Atributos de la clase 
         /// </summary>
-        private AccesoDatosOracle cnx;
-        private bool error = false;
-        private string errorDescription = "";
+       private AccesoDatosOracle cnx;
+       private bool error = false;
+       private string errorDescription = "";
 
          /// <summary>
         /// Metodo costructor que recibe por parametro la conexión
         /// </summary>
         /// <param name="pCnx"></param>
-        public MarcaD(AccesoDatosOracle pCnx)
+       public MarcaD(AccesoDatosOracle pCnx)
         {
             this.cnx = pCnx;
         }
@@ -36,12 +36,13 @@ namespace Datos
             set { error = value; }
         } 
 
-        public string ErrorDescription
+       public string ErrorDescription
         {
             get { return errorDescription; }
             set { errorDescription = value; }
         }
      
+
        public List<MarcaL> obtenerMarcas()
         {
             List<MarcaL> retorno = new List<MarcaL>();
@@ -81,7 +82,7 @@ namespace Datos
             return retorno;
         }
 
-        public void agregarMarca(MarcaL pMarca)
+       public void agregarMarca(MarcaL pMarca)
         {
             try
             {
@@ -146,6 +147,42 @@ namespace Datos
                 this.error = true;
                 this.errorDescription = "Error agregando la Marca: " + e.Message;
             }
+        }
+       public bool obtenerEstado(string pEmpleado) {
+            bool tipomarca = false;
+
+            this.ErrorDescription = "";
+            string datos = ("select * from Marca " +
+                                 "where idEmpleado = '"+ pEmpleado +  "' and tipoMarca = 'Entrada'");
+            DataSet retorno = this.cnx.ejecutarConsultaSQL(datos);
+            if (this.cnx.IsError)
+            {
+                this.ErrorDescription = this.cnx.ErrorDescripcion;
+            }
+            if (retorno.Equals(""))
+            {
+                tipomarca = true;
+
+
+            }
+            else {
+                datos = ("select * from Marca " +
+                                 "where idEmpleado = '"+ pEmpleado +  "' and tipoMarca = 'Salida'");
+                retorno = this.cnx.ejecutarConsultaSQL(datos);
+               if (this.cnx.IsError)
+            {
+                this.ErrorDescription = this.cnx.ErrorDescripcion;
+            }
+               if (retorno.Equals("")) {
+                   tipomarca = true;
+               }
+                
+            
+            }            
+            
+            
+            return tipomarca;
+        
         }
 
 

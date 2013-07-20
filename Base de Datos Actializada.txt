@@ -1,0 +1,112 @@
+create table Usuario
+( 
+  idUsuario varchar(50) not null,
+  tipoUsuario varchar(10) not null,
+  password varchar(50) not null,
+  fechaModificacion date,
+  fechaCreacion date,
+  creadoPor varchar(100),
+  modificadoPor varchar(100),
+  activo varchar(3),
+  constraint PK_Usuario primary key (idUsuario)
+);
+
+create table Deducciones
+(
+  idDeducciones varchar(50) not null, 
+  porcentaje numeric(38,2) not null,
+  descripcion varchar(500) not null,
+  fechaModificacion date,
+  fechaCreacion date,
+  creadoPor varchar(100),
+  modificadoPor varchar(100),
+  activo varchar(3),
+  constraint PK_Deducciones primary key (idDeducciones)
+);
+
+create table CatalogoFechas
+(
+  idCatalogoFechas varchar(50) not null,
+  dia numeric not null,
+  mes varchar(50) not null,
+  descripcion varchar(500),
+  fechaModificacion date,
+  fechaCreacion date,
+  creadoPor varchar(100),
+  modificadoPor varchar(100),
+  activo varchar(3),
+  constraint PK_CatalogoFechas primary key (idCatalogoFechas)
+);
+
+create table Parametro
+( 
+  idParametro varchar(50) not null,
+  horaEntrada date not null,
+  horaSalida date not null,
+  lunes varchar(3),
+  martes varchar(3),
+  miercoles varchar(3),
+  jueves varchar(3),
+  viernes varchar(3),
+  sabado varchar(3),
+  domingo varchar(3),
+  fechaModificacion date,
+  fechaCreacion date,
+  creadoPor varchar(100),
+  modificadoPor varchar(100),
+  activo varchar(3),
+  constraint PK_Parametro primary key (idParametro)
+);
+
+create table Departamento
+(
+  idDepartamento varchar(50) not null,
+  nombreDepartamento varchar(50) not null,
+  fechaModificacion date,
+  fechaCreacion date,
+  creadoPor varchar(100),
+  modificadoPor varchar(100),
+  activo varchar(3),
+  constraint PK_Departamento primary key (idDepartamento)
+);
+
+create table Empleado
+(
+       idEmpleado varchar(50),
+       idDepartamento varchar(50),
+       nombreEmpleado varchar(50),
+       apellido1 varchar(50),
+       apellido2 varchar(50),
+       numCedula number,
+       telefono number,
+       fechaNacimiento varchar(50),
+       salarioPorHora numeric(9,2),
+       creadoPor varchar(100),
+       fechaCreacion date,
+       modificadoPor varchar(100),
+       fechaModificacion date,
+       activo varchar(3),
+       constraint PK_Empleado primary key (idEmpleado),
+       constraint Empleado_FK foreign key (idDepartamento)references Departamento(idDepartamento)
+);
+
+Acceso como Adminisrador.
+usuario: admin
+password: admin
+
+************************************************
+
+create table marca
+(
+       idMarca varchar(50),
+       idEmpleado varchar(50),
+       estadoMarca varchar(50),       
+       tipoMarca varchar(50),|	       
+       creadoPor varchar(100),
+       fechaCreacion date,
+       modificadoPor varchar(100),
+       fechaModificacion date,
+       activo varchar(3),
+       constraint PK_Marca primary key (idMarca),
+       constraint Marca_FK foreign key (idEmpleado)references Empleado(idEmpleado)
+);
