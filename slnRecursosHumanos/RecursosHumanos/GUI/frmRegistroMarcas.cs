@@ -29,9 +29,10 @@ namespace GUI
 
         private void btnMarcar_Click(object sender, EventArgs e)
         {
+            /*
             MarcaD oMarcaD=new MarcaD(this.cnx);
-           EmpleadoD oEmpleadoD=new EmpleadoD(this.cnx);
-           MarcaL oMarcaL = new MarcaL();
+            EmpleadoD oEmpleadoD=new EmpleadoD(this.cnx);
+            MarcaL oMarcaL = new MarcaL();
            
             
 
@@ -50,6 +51,19 @@ namespace GUI
                 }
 
             
+            }*/
+        }
+
+        private void frmRegistroMarcas_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.btnMarcar_Click(sender, e);
             }
         }
 
