@@ -72,7 +72,7 @@ create table Departamento
 
 create table Empleado
 (
-       idEmpleado varchar(50),
+       idEmpleado varchar(50) not null,
        idDepartamento varchar(50),
        nombreEmpleado varchar(50),
        apellido1 varchar(50),
@@ -90,33 +90,34 @@ create table Empleado
        constraint Empleado_FK foreign key (idDepartamento)references Departamento(idDepartamento)
 );
 
-Acceso como Adminisrador.
-usuario: admin
-password: admin
-
+************************************************
+					       *	
+Acceso como Adminisrador.                      *
+Usuario: admin                                 *
+Password: admin                                *     
+                                               *
 ************************************************
 
 create table marca
 (
-       idMarca numeric(20),
+       idMarca numeric(20) not null,
        idEmpleado varchar(50),
-       registroMarcas varchar(50),
+       idUnificacion varchar(50),
        estadoMarca varchar(50),
-       fechaMarca date,
        tipoMarca varchar(50),
        creadoPor varchar(100),
        fechaCreacion date,
        modificadoPor varchar(100),
        fechaModificacion date,
-       activo varchar(3),
        constraint PK_Marca primary key (idMarca),
        constraint Marca_FK foreign key (idEmpleado)references Empleado(idEmpleado)
+
 );
 
 CREATE SEQUENCE seq_marca MINVALUE 1 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 2 
 CACHE 20 NOORDER  NOCYCLE;
 
-create or replace trigger trg_marca_bef_i
+create or replace trigger trg_marca
 BEFORE INSERT ON marca FOR EACH ROW
 BEGIN
    SELECT seq_marca.NEXTVAL

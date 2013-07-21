@@ -14,15 +14,15 @@ namespace Datos
         /// <summary>
         /// Atributos de la clase 
         /// </summary>
-       private AccesoDatosOracle cnx;
-       private bool error = false;
-       private string errorDescription = "";
+        private AccesoDatosOracle cnx;
+        private bool error = false;
+        private string errorDescription = "";
 
-         /// <summary>
+        /// <summary>
         /// Metodo costructor que recibe por parametro la conexión
         /// </summary>
         /// <param name="pCnx"></param>
-       public MarcaD(AccesoDatosOracle pCnx)
+        public MarcaD(AccesoDatosOracle pCnx)
         {
             this.cnx = pCnx;
         }
@@ -43,7 +43,7 @@ namespace Datos
         }
      
 
-       public List<MarcaL> obtenerMarcas()
+        public List<MarcaL> obtenerMarcas()
         {
             List<MarcaL> retorno = new List<MarcaL>();
             try
@@ -54,7 +54,7 @@ namespace Datos
                     foreach (DataRow fila in datos.Tables[0].Rows)
                     {
                         retorno.Add(
-                                    new MarcaL(fila["idMarca"].ToString(),
+                                    new MarcaL(      int.Parse(fila["idMarca"].ToString()),
                                                      fila["idEmpleado"].ToString(),
                                                      fila["estadoMarca"].ToString(),                                                     
                                                      fila["tipoMarca"].ToString(),
@@ -82,7 +82,7 @@ namespace Datos
             return retorno;
         }
 
-       public void agregarMarca(MarcaL pMarca)
+        public void agregarMarca(MarcaL pMarca)
         {
             try
             {
@@ -148,7 +148,7 @@ namespace Datos
                 this.errorDescription = "Error agregando la Marca: " + e.Message;
             }
         }
-       public bool obtenerEstado(string pEmpleado) {
+        public bool obtenerEstado(string pEmpleado) {
             bool tipomarca = false;
 
             this.ErrorDescription = "";
@@ -176,15 +176,11 @@ namespace Datos
                if (retorno.Equals("")) {
                    tipomarca = true;
                }
-                
-            
             }            
             
             
             return tipomarca;
         
         }
-
-
     }
 }

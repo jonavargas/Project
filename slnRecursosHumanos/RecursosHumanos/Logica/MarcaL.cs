@@ -11,7 +11,7 @@ namespace Logica
         /// <summary>
         /// Atributos de la clase MarcaL
         /// </summary>
-        private string idMarca;
+        private int idMarca;
         private string idEmpleado;       
         private string estadoMarca;        
         private string tipoMarca;
@@ -21,11 +21,8 @@ namespace Logica
         private DateTime fechaModificacion;
         private string activo;
         
-
-         
         /// Metodo constructor con parámetros
-       
-        public MarcaL(string pIdMarca, string pIdEmpleado, string pEstadoMarca,string pTipoMarca, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, DateTime pFechaModificacion, string pActivo)
+        public MarcaL(int pIdMarca, string pIdEmpleado, string pEstadoMarca,string pTipoMarca, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, DateTime pFechaModificacion, string pActivo)
         {
             this.idMarca = pIdMarca;
             this.idEmpleado = pIdEmpleado;
@@ -41,7 +38,7 @@ namespace Logica
         /// <summary>
         /// Properties de la clase
         /// </summary>
-        public string IdMarca
+        public int IdMarca
         {
             get { return idMarca; }
             set { idMarca = value; }
