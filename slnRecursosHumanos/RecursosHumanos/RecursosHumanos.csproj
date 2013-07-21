@@ -85,6 +85,12 @@
     <Compile Include="GUI\frmEdicionEmpleado.Designer.cs">
       <DependentUpon>frmEdicionEmpleado.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frmEdicionMarcas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmEdicionMarcas.Designer.cs">
+      <DependentUpon>frmEdicionMarcas.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmEdicionParametro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmEdicionEmpleado.resx">
       <DependentUpon>frmEdicionEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmEdicionMarcas.resx">
+      <DependentUpon>frmEdicionMarcas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmEdicionParametro.resx">
       <DependentUpon>frmEdicionParametro.cs</DependentUpon>
