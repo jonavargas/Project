@@ -27,18 +27,8 @@ namespace GUI
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            /*MarcaD oMarcaD = new MarcaD(this.conexion);
             
-            List<MarcaL> listaMarcas = oMarcaD.obtenerMarcas(this.txtFactura.Text, this.dteFecha1.Value, this.dteFecha2.Value, this.txtCliente.Text, anulada);
-            if (!ofacturaD.Error)
-            {
-                this.grdFacturas.DataSource = listaFacturas;
-            }
-            else
-            {
-                MessageBox.Show("Error cargando datos, detalle:" + ofacturaD.ErrorDescription);
-            }
-             * */
+
 
         }
     }

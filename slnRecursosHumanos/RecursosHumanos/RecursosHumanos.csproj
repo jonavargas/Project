@@ -48,6 +48,7 @@
     <Compile Include="Datos\AccesoDatos.cs" />
     <Compile Include="Datos\AccesoDatosOracle.cs" />
     <Compile Include="Datos\CatalogoFechasD.cs" />
+    <Compile Include="Datos\ConsultaD.cs" />
     <Compile Include="Datos\DeduccionesD.cs" />
     <Compile Include="Datos\DepartamentoD.cs" />
     <Compile Include="Datos\EmpleadoD.cs" />
@@ -151,6 +152,7 @@
       <DependentUpon>frmRegistroMarcas.cs</DependentUpon>
     </Compile>
     <Compile Include="Logica\CatalogoFechasL.cs" />
+    <Compile Include="Logica\ConsultaL.cs" />
     <Compile Include="Logica\DeduccionesL.cs" />
     <Compile Include="Logica\DepartamentoL.cs" />
     <Compile Include="Logica\EmpleadoL.cs" />
