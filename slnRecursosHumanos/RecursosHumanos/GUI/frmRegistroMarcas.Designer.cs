@@ -29,55 +29,82 @@
         private void InitializeComponent()
         {
             this.btnMarcar = new System.Windows.Forms.Button();
-            this.lblCodigoEmpleado = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtCodigoEmpleado = new System.Windows.Forms.TextBox();
+            this.lblCodigoEmpleado = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnMarcar
             // 
-            this.btnMarcar.Location = new System.Drawing.Point(181, 93);
+            this.btnMarcar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnMarcar.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMarcar.Location = new System.Drawing.Point(0, 510);
             this.btnMarcar.Name = "btnMarcar";
-            this.btnMarcar.Size = new System.Drawing.Size(75, 23);
-            this.btnMarcar.TabIndex = 5;
-            this.btnMarcar.Text = "Marcar";
+            this.btnMarcar.Size = new System.Drawing.Size(966, 43);
+            this.btnMarcar.TabIndex = 2;
+            this.btnMarcar.Text = "Realizar Marca";
             this.btnMarcar.UseVisualStyleBackColor = true;
             this.btnMarcar.Click += new System.EventHandler(this.btnMarcar_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtCodigoEmpleado);
+            this.groupBox1.Controls.Add(this.lblCodigoEmpleado);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(966, 492);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            // 
+            // txtCodigoEmpleado
+            // 
+            this.txtCodigoEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoEmpleado.ForeColor = System.Drawing.Color.SteelBlue;
+            this.txtCodigoEmpleado.Location = new System.Drawing.Point(414, 295);
+            this.txtCodigoEmpleado.Name = "txtCodigoEmpleado";
+            this.txtCodigoEmpleado.Size = new System.Drawing.Size(494, 116);
+            this.txtCodigoEmpleado.TabIndex = 7;
+            this.txtCodigoEmpleado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblCodigoEmpleado
             // 
             this.lblCodigoEmpleado.AutoSize = true;
-            this.lblCodigoEmpleado.Location = new System.Drawing.Point(22, 42);
+            this.lblCodigoEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigoEmpleado.Location = new System.Drawing.Point(462, 242);
             this.lblCodigoEmpleado.Name = "lblCodigoEmpleado";
-            this.lblCodigoEmpleado.Size = new System.Drawing.Size(93, 13);
-            this.lblCodigoEmpleado.TabIndex = 4;
-            this.lblCodigoEmpleado.Text = "Código Empleado:";
-            // 
-            // txtCodigoEmpleado
-            // 
-            this.txtCodigoEmpleado.Location = new System.Drawing.Point(123, 39);
-            this.txtCodigoEmpleado.Name = "txtCodigoEmpleado";
-            this.txtCodigoEmpleado.Size = new System.Drawing.Size(208, 20);
-            this.txtCodigoEmpleado.TabIndex = 3;
+            this.lblCodigoEmpleado.Size = new System.Drawing.Size(429, 33);
+            this.lblCodigoEmpleado.TabIndex = 6;
+            this.lblCodigoEmpleado.Text = "Ingrese su código de empleado:";
+            this.lblCodigoEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmRegistroMarcas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(343, 137);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(966, 553);
+            this.ControlBox = false;
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnMarcar);
-            this.Controls.Add(this.lblCodigoEmpleado);
-            this.Controls.Add(this.txtCodigoEmpleado);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.KeyPreview = true;
             this.Name = "frmRegistroMarcas";
             this.Text = "Registro de Ingreso ";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmRegistroMarcas_KeyDown);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Button btnMarcar;
-        private System.Windows.Forms.Label lblCodigoEmpleado;
+        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtCodigoEmpleado;
+        private System.Windows.Forms.Label lblCodigoEmpleado;
     }
 }

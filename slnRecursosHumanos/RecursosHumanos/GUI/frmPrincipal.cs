@@ -100,5 +100,11 @@ namespace GUI
             oFrmMantEmpleado.ShowDialog();
 
         }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            frmRegistroMarcas ofrmRegistroMarcas = new frmRegistroMarcas(this.cnx);
+            ofrmRegistroMarcas.ShowDialog();
+        }
     }
 }

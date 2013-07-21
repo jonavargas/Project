@@ -53,6 +53,8 @@ namespace GUI
                     List<UsuarioL> respuesta = oUsuarioD.usuarioAdministrador(new UsuarioL(this.txtLogin.Text, "Administrador", this.txtClave.Text));
                     if (oUsuarioD.Error)
                     {
+                        this.txtLogin.Text = "";
+                        this.txtClave.Text = "";
                         MessageBox.Show("Error validando login:" + oUsuarioD.ErrorDescription);
                         return;
                     }
@@ -64,6 +66,8 @@ namespace GUI
                     }
                     else
                     {
+                        this.txtLogin.Text = "";
+                        this.txtClave.Text = "";
                         MessageBox.Show("Login o password inválidos");
                     }
                 }
@@ -73,6 +77,8 @@ namespace GUI
                     List<UsuarioL> respuesta = oUsuarioD.validarLogin(new UsuarioL(this.txtLogin.Text, "", this.txtClave.Text));
                     if (oUsuarioD.Error)
                     {
+                        this.txtLogin.Text = "";
+                        this.txtClave.Text = "";
                         MessageBox.Show("Error validando login:" + oUsuarioD.ErrorDescription);
                         return;
                     }
@@ -84,12 +90,16 @@ namespace GUI
                     }
                     else
                     {
+                        this.txtLogin.Text = "";
+                        this.txtClave.Text = "";
                         MessageBox.Show("Login o password inválidos");
                     }
                 }
             }
             else
             {
+                this.txtLogin.Text = "";
+                this.txtClave.Text = "";
                 MessageBox.Show("Faltan datos requeridos");
             }
         }
