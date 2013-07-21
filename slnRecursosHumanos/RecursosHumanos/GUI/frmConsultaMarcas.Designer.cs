@@ -49,8 +49,6 @@
             this.btnAnular = new System.Windows.Forms.ToolStripButton();
             this.btnRefrescar = new System.Windows.Forms.ToolStripButton();
             this.grdConsultas = new System.Windows.Forms.DataGridView();
-            this.grpFiltro = new System.Windows.Forms.GroupBox();
-            this.lblRango = new System.Windows.Forms.Label();
             this.idMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idUnificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,6 +60,8 @@
             this.fechaCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modificadoPor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaModificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grpFiltro = new System.Windows.Forms.GroupBox();
+            this.lblRango = new System.Windows.Forms.Label();
             this.grpConsulta.SuspendLayout();
             this.tollConsulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdConsultas)).BeginInit();
@@ -289,29 +289,6 @@
             this.grdConsultas.Size = new System.Drawing.Size(977, 202);
             this.grdConsultas.TabIndex = 27;
             // 
-            // grpFiltro
-            // 
-            this.grpFiltro.Controls.Add(this.lblRango);
-            this.grpFiltro.Controls.Add(this.dteFecha2);
-            this.grpFiltro.Controls.Add(this.dteFecha1);
-            this.grpFiltro.Controls.Add(this.lblFecha);
-            this.grpFiltro.Controls.Add(this.label1);
-            this.grpFiltro.Location = new System.Drawing.Point(0, 55);
-            this.grpFiltro.Name = "grpFiltro";
-            this.grpFiltro.Size = new System.Drawing.Size(977, 88);
-            this.grpFiltro.TabIndex = 28;
-            this.grpFiltro.TabStop = false;
-            // 
-            // lblRango
-            // 
-            this.lblRango.AutoSize = true;
-            this.lblRango.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRango.Location = new System.Drawing.Point(19, 15);
-            this.lblRango.Name = "lblRango";
-            this.lblRango.Size = new System.Drawing.Size(132, 15);
-            this.lblRango.TabIndex = 20;
-            this.lblRango.Text = "Fechas a consultar:";
-            // 
             // idMarca
             // 
             this.idMarca.DataPropertyName = "idmarca";
@@ -397,6 +374,29 @@
             this.fechaModificacion.Name = "fechaModificacion";
             this.fechaModificacion.ReadOnly = true;
             this.fechaModificacion.Width = 105;
+            // 
+            // grpFiltro
+            // 
+            this.grpFiltro.Controls.Add(this.lblRango);
+            this.grpFiltro.Controls.Add(this.dteFecha2);
+            this.grpFiltro.Controls.Add(this.dteFecha1);
+            this.grpFiltro.Controls.Add(this.lblFecha);
+            this.grpFiltro.Controls.Add(this.label1);
+            this.grpFiltro.Location = new System.Drawing.Point(0, 55);
+            this.grpFiltro.Name = "grpFiltro";
+            this.grpFiltro.Size = new System.Drawing.Size(977, 88);
+            this.grpFiltro.TabIndex = 28;
+            this.grpFiltro.TabStop = false;
+            // 
+            // lblRango
+            // 
+            this.lblRango.AutoSize = true;
+            this.lblRango.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRango.Location = new System.Drawing.Point(19, 15);
+            this.lblRango.Name = "lblRango";
+            this.lblRango.Size = new System.Drawing.Size(143, 16);
+            this.lblRango.TabIndex = 20;
+            this.lblRango.Text = "Fechas a consultar:";
             // 
             // frmConsultaMarcas
             // 
