@@ -39,9 +39,9 @@
             // 
             this.btnMarcar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnMarcar.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMarcar.Location = new System.Drawing.Point(0, 498);
+            this.btnMarcar.Location = new System.Drawing.Point(0, 510);
             this.btnMarcar.Name = "btnMarcar";
-            this.btnMarcar.Size = new System.Drawing.Size(966, 55);
+            this.btnMarcar.Size = new System.Drawing.Size(966, 43);
             this.btnMarcar.TabIndex = 2;
             this.btnMarcar.Text = "Realizar Marca";
             this.btnMarcar.UseVisualStyleBackColor = true;

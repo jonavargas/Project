@@ -1,4 +1,4 @@
-﻿namespace RecursosHumanos.GUI
+﻿namespace GUI
 {
     partial class frmEdicionMarcas
     {
@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.grpEdicionMarcas = new System.Windows.Forms.GroupBox();
+            this.txtEmpleado = new System.Windows.Forms.TextBox();
             this.lblEstado = new System.Windows.Forms.Label();
             this.lblDepartamento = new System.Windows.Forms.Label();
             this.cmbEstado = new System.Windows.Forms.ComboBox();
-            this.cmbEmpleado = new System.Windows.Forms.ComboBox();
             this.cmbDepartamento = new System.Windows.Forms.ComboBox();
             this.lblEmpleado = new System.Windows.Forms.Label();
             this.grpTipo = new System.Windows.Forms.GroupBox();
@@ -40,30 +39,33 @@
             this.rdoEntrada = new System.Windows.Forms.RadioButton();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
-            this.grpEdicionMarcas.SuspendLayout();
+            this.grpInfoEmpleado = new System.Windows.Forms.GroupBox();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.txtIdUnificacion = new System.Windows.Forms.TextBox();
+            this.txtIdMarca = new System.Windows.Forms.TextBox();
+            this.lblUnificacion = new System.Windows.Forms.Label();
+            this.lblMarca = new System.Windows.Forms.Label();
+            this.grpNumeros = new System.Windows.Forms.GroupBox();
             this.grpTipo.SuspendLayout();
+            this.grpInfoEmpleado.SuspendLayout();
+            this.grpNumeros.SuspendLayout();
             this.SuspendLayout();
             // 
-            // grpEdicionMarcas
+            // txtEmpleado
             // 
-            this.grpEdicionMarcas.BackColor = System.Drawing.Color.Transparent;
-            this.grpEdicionMarcas.Controls.Add(this.lblEstado);
-            this.grpEdicionMarcas.Controls.Add(this.lblDepartamento);
-            this.grpEdicionMarcas.Controls.Add(this.cmbEstado);
-            this.grpEdicionMarcas.Controls.Add(this.cmbEmpleado);
-            this.grpEdicionMarcas.Controls.Add(this.cmbDepartamento);
-            this.grpEdicionMarcas.Controls.Add(this.lblEmpleado);
-            this.grpEdicionMarcas.Location = new System.Drawing.Point(2, 2);
-            this.grpEdicionMarcas.Name = "grpEdicionMarcas";
-            this.grpEdicionMarcas.Size = new System.Drawing.Size(432, 142);
-            this.grpEdicionMarcas.TabIndex = 14;
-            this.grpEdicionMarcas.TabStop = false;
+            this.txtEmpleado.Location = new System.Drawing.Point(136, 74);
+            this.txtEmpleado.Name = "txtEmpleado";
+            this.txtEmpleado.Size = new System.Drawing.Size(277, 22);
+            this.txtEmpleado.TabIndex = 30;
             // 
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
             this.lblEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstado.Location = new System.Drawing.Point(21, 107);
+            this.lblEstado.Location = new System.Drawing.Point(34, 152);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(54, 16);
             this.lblEstado.TabIndex = 25;
@@ -73,7 +75,7 @@
             // 
             this.lblDepartamento.AutoSize = true;
             this.lblDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartamento.Location = new System.Drawing.Point(20, 29);
+            this.lblDepartamento.Location = new System.Drawing.Point(34, 115);
             this.lblDepartamento.Name = "lblDepartamento";
             this.lblDepartamento.Size = new System.Drawing.Size(97, 16);
             this.lblDepartamento.TabIndex = 24;
@@ -82,32 +84,24 @@
             // cmbEstado
             // 
             this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Location = new System.Drawing.Point(123, 102);
+            this.cmbEstado.Location = new System.Drawing.Point(136, 147);
             this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(277, 21);
+            this.cmbEstado.Size = new System.Drawing.Size(277, 24);
             this.cmbEstado.TabIndex = 29;
-            // 
-            // cmbEmpleado
-            // 
-            this.cmbEmpleado.FormattingEnabled = true;
-            this.cmbEmpleado.Location = new System.Drawing.Point(123, 66);
-            this.cmbEmpleado.Name = "cmbEmpleado";
-            this.cmbEmpleado.Size = new System.Drawing.Size(277, 21);
-            this.cmbEmpleado.TabIndex = 28;
             // 
             // cmbDepartamento
             // 
             this.cmbDepartamento.FormattingEnabled = true;
-            this.cmbDepartamento.Location = new System.Drawing.Point(123, 32);
+            this.cmbDepartamento.Location = new System.Drawing.Point(137, 112);
             this.cmbDepartamento.Name = "cmbDepartamento";
-            this.cmbDepartamento.Size = new System.Drawing.Size(277, 21);
+            this.cmbDepartamento.Size = new System.Drawing.Size(277, 24);
             this.cmbDepartamento.TabIndex = 26;
             // 
             // lblEmpleado
             // 
             this.lblEmpleado.AutoSize = true;
             this.lblEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmpleado.Location = new System.Drawing.Point(21, 66);
+            this.lblEmpleado.Location = new System.Drawing.Point(34, 80);
             this.lblEmpleado.Name = "lblEmpleado";
             this.lblEmpleado.Size = new System.Drawing.Size(77, 16);
             this.lblEmpleado.TabIndex = 27;
@@ -120,9 +114,9 @@
             this.grpTipo.Controls.Add(this.rdoEntrada);
             this.grpTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpTipo.ForeColor = System.Drawing.Color.Black;
-            this.grpTipo.Location = new System.Drawing.Point(2, 163);
+            this.grpTipo.Location = new System.Drawing.Point(23, 379);
             this.grpTipo.Name = "grpTipo";
-            this.grpTipo.Size = new System.Drawing.Size(432, 68);
+            this.grpTipo.Size = new System.Drawing.Size(472, 68);
             this.grpTipo.TabIndex = 15;
             this.grpTipo.TabStop = false;
             this.grpTipo.Text = "Tipo de la marca";
@@ -156,17 +150,18 @@
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(225, 255);
+            this.btnCancelar.Location = new System.Drawing.Point(228, 469);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(93, 34);
             this.btnCancelar.TabIndex = 17;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAceptar
             // 
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptar.Location = new System.Drawing.Point(125, 255);
+            this.btnAceptar.Location = new System.Drawing.Point(128, 469);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(87, 34);
             this.btnAceptar.TabIndex = 16;
@@ -174,33 +169,145 @@
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
+            // grpInfoEmpleado
+            // 
+            this.grpInfoEmpleado.Controls.Add(this.dtpFecha);
+            this.grpInfoEmpleado.Controls.Add(this.label5);
+            this.grpInfoEmpleado.Controls.Add(this.label3);
+            this.grpInfoEmpleado.Controls.Add(this.txtCodigo);
+            this.grpInfoEmpleado.Controls.Add(this.txtEmpleado);
+            this.grpInfoEmpleado.Controls.Add(this.lblDepartamento);
+            this.grpInfoEmpleado.Controls.Add(this.lblEstado);
+            this.grpInfoEmpleado.Controls.Add(this.lblEmpleado);
+            this.grpInfoEmpleado.Controls.Add(this.cmbDepartamento);
+            this.grpInfoEmpleado.Controls.Add(this.cmbEstado);
+            this.grpInfoEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpInfoEmpleado.Location = new System.Drawing.Point(8, 128);
+            this.grpInfoEmpleado.Name = "grpInfoEmpleado";
+            this.grpInfoEmpleado.Size = new System.Drawing.Size(472, 227);
+            this.grpInfoEmpleado.TabIndex = 18;
+            this.grpInfoEmpleado.TabStop = false;
+            this.grpInfoEmpleado.Text = "Información empleado";
+            // 
+            // dtpFecha
+            // 
+            this.dtpFecha.CustomFormat = "dd/MM/yyyy   hh:mm:ss  tt";
+            this.dtpFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFecha.Location = new System.Drawing.Point(138, 184);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(276, 22);
+            this.dtpFecha.TabIndex = 34;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(34, 190);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 16);
+            this.label5.TabIndex = 33;
+            this.label5.Text = "Fecha:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(34, 40);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 16);
+            this.label3.TabIndex = 31;
+            this.label3.Text = "Código:";
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigo.Location = new System.Drawing.Point(137, 34);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(276, 22);
+            this.txtCodigo.TabIndex = 32;
+            // 
+            // txtIdUnificacion
+            // 
+            this.txtIdUnificacion.Enabled = false;
+            this.txtIdUnificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdUnificacion.Location = new System.Drawing.Point(119, 61);
+            this.txtIdUnificacion.Name = "txtIdUnificacion";
+            this.txtIdUnificacion.Size = new System.Drawing.Size(65, 21);
+            this.txtIdUnificacion.TabIndex = 14;
+            // 
+            // txtIdMarca
+            // 
+            this.txtIdMarca.Enabled = false;
+            this.txtIdMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdMarca.Location = new System.Drawing.Point(119, 29);
+            this.txtIdMarca.Name = "txtIdMarca";
+            this.txtIdMarca.Size = new System.Drawing.Size(65, 21);
+            this.txtIdMarca.TabIndex = 13;
+            // 
+            // lblUnificacion
+            // 
+            this.lblUnificacion.AutoSize = true;
+            this.lblUnificacion.BackColor = System.Drawing.Color.Transparent;
+            this.lblUnificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUnificacion.Location = new System.Drawing.Point(8, 64);
+            this.lblUnificacion.Name = "lblUnificacion";
+            this.lblUnificacion.Size = new System.Drawing.Size(107, 15);
+            this.lblUnificacion.TabIndex = 12;
+            this.lblUnificacion.Text = "No. unificación:";
+            // 
+            // lblMarca
+            // 
+            this.lblMarca.AutoSize = true;
+            this.lblMarca.BackColor = System.Drawing.Color.Transparent;
+            this.lblMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMarca.Location = new System.Drawing.Point(8, 32);
+            this.lblMarca.Name = "lblMarca";
+            this.lblMarca.Size = new System.Drawing.Size(77, 15);
+            this.lblMarca.TabIndex = 11;
+            this.lblMarca.Text = "No. marca:";
+            // 
+            // grpNumeros
+            // 
+            this.grpNumeros.Controls.Add(this.txtIdMarca);
+            this.grpNumeros.Controls.Add(this.txtIdUnificacion);
+            this.grpNumeros.Controls.Add(this.lblMarca);
+            this.grpNumeros.Controls.Add(this.lblUnificacion);
+            this.grpNumeros.Location = new System.Drawing.Point(12, 12);
+            this.grpNumeros.Name = "grpNumeros";
+            this.grpNumeros.Size = new System.Drawing.Size(468, 100);
+            this.grpNumeros.TabIndex = 19;
+            this.grpNumeros.TabStop = false;
+            // 
             // frmEdicionMarcas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(460, 321);
+            this.ClientSize = new System.Drawing.Size(500, 515);
+            this.Controls.Add(this.grpNumeros);
+            this.Controls.Add(this.grpInfoEmpleado);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.grpTipo);
-            this.Controls.Add(this.grpEdicionMarcas);
             this.Name = "frmEdicionMarcas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edición Marcas";
-            this.grpEdicionMarcas.ResumeLayout(false);
-            this.grpEdicionMarcas.PerformLayout();
             this.grpTipo.ResumeLayout(false);
             this.grpTipo.PerformLayout();
+            this.grpInfoEmpleado.ResumeLayout(false);
+            this.grpInfoEmpleado.PerformLayout();
+            this.grpNumeros.ResumeLayout(false);
+            this.grpNumeros.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox grpEdicionMarcas;
         private System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.Label lblDepartamento;
         private System.Windows.Forms.ComboBox cmbEstado;
-        private System.Windows.Forms.ComboBox cmbEmpleado;
         private System.Windows.Forms.ComboBox cmbDepartamento;
         private System.Windows.Forms.Label lblEmpleado;
         private System.Windows.Forms.GroupBox grpTipo;
@@ -208,5 +315,16 @@
         private System.Windows.Forms.RadioButton rdoEntrada;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.TextBox txtEmpleado;
+        private System.Windows.Forms.GroupBox grpInfoEmpleado;
+        private System.Windows.Forms.TextBox txtIdUnificacion;
+        private System.Windows.Forms.TextBox txtIdMarca;
+        private System.Windows.Forms.Label lblUnificacion;
+        private System.Windows.Forms.Label lblMarca;
+        private System.Windows.Forms.GroupBox grpNumeros;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtCodigo;
     }
 }

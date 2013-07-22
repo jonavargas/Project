@@ -6,5 +6,4 @@ drop table deducciones;
 drop table catalogoFechas;
 drop table parametro;
 
-drop sequence seq_marca;
-drop trigger trg_marca;
+DROP sequence seq_marca;

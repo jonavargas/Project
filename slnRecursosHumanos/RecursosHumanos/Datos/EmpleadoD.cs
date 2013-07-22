@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.OracleClient;
 using Logica;
+using GUI;
+
 
 namespace Datos
 {
@@ -332,6 +334,85 @@ namespace Datos
                 this.error = true;
                 this.errorDescription = "Error editando Empleado: " + e.Message;
             }
+        }
+        public DataSet obtenerIdEmpleado()
+        {
+            DataSet datos = this.cnx.ejecutarConsultaSQL("select * from Empleado");
+            try
+            {
+
+                if (this.cnx.IsError == true)
+                {
+                    this.error = true;
+                    this.errorDescription = "Error obteniendo Empleados: " +
+                                            this.cnx.ErrorDescripcion;
+                }
+            }
+            catch (Exception e)
+            {
+                this.error = true;
+                this.errorDescription = "Error obteniendo Empleados: " + e.Message;
+            }
+            return datos;
+        }
+        public List<EmpleadoL> obtenerEmpleadoPorID(string pID)
+        {
+            
+            List<EmpleadoL> retorno = new List<EmpleadoL>();
+            try
+            {
+               
+                string sql = ("select * from empleado where idEmpleado = :idEmpleado");
+
+                OracleParameter[] parametros = new OracleParameter[1];
+
+                parametros[0] = new OracleParameter();
+                parametros[0].OracleType = OracleType.VarChar;
+                parametros[0].ParameterName = ":idEmpleado";
+                parametros[0].Value = pID;
+
+                DataSet datos = this.cnx.ejecutarConsultaSQL(sql, "empleado", parametros);
+
+                if (this.cnx.IsError == false)
+                {
+                    
+                    foreach (DataRow fila in datos.Tables[0].Rows)
+                    {
+                        
+                        retorno.Add(
+                                    new EmpleadoL(fila["idEmpleado"].ToString(),
+                                                     fila["idDepartamento"].ToString(),
+                                                     fila["nombreEmpleado"].ToString(),
+                                                     fila["apellido1"].ToString(),
+                                                     fila["apellido2"].ToString(),
+                                                     int.Parse(fila["numCedula"].ToString()),
+                                                     int.Parse(fila["telefono"].ToString()),
+                                                     (fila["fechaNacimiento"].ToString()),
+                                                     double.Parse(fila["salarioPorHora"].ToString()),
+                                                     fila["creadoPor"].ToString(),
+                                                     DateTime.Parse(fila["fechaCreacion"].ToString()),
+                                                     fila["modificadoPor"].ToString(),
+                                                     DateTime.Parse(fila["fechaModificacion"].ToString()),
+                                                     fila["activo"].ToString()
+                                                    )
+                                   );
+                    }
+                }
+                //se validan los errores 
+                else
+                {
+                    this.error = true;
+                    this.errorDescription = "Error obteniendo empleado:" +
+                                            this.cnx.ErrorDescripcion;
+                }
+            }
+            catch (Exception e)
+            {
+                this.error = true;
+                this.errorDescription = "Error obteniendo empleado:" + e.Message;
+            }
+
+            return retorno;
         }
     }
 }

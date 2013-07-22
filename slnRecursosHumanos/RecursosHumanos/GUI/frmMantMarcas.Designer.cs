@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class frmConsultaMarcas
+    partial class frmMantMarcas
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnLimpiar = new System.Windows.Forms.Button();
-            this.cmbEstado = new System.Windows.Forms.ComboBox();
-            this.cmbEmpleado = new System.Windows.Forms.ComboBox();
             this.lblEmpleado = new System.Windows.Forms.Label();
-            this.cmbDepartamento = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.lblEstado = new System.Windows.Forms.Label();
@@ -43,6 +40,11 @@
             this.dteFecha1 = new System.Windows.Forms.DateTimePicker();
             this.lblFecha = new System.Windows.Forms.Label();
             this.grpConsulta = new System.Windows.Forms.GroupBox();
+            this.txtIdEmpleado = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtNombreEmp = new System.Windows.Forms.TextBox();
+            this.cmbEstado = new System.Windows.Forms.ComboBox();
+            this.cmbDepartamentoCst = new System.Windows.Forms.ComboBox();
             this.tollConsulta = new System.Windows.Forms.ToolStrip();
             this.btnNuevo = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
@@ -79,39 +81,15 @@
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             // 
-            // cmbEstado
-            // 
-            this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Location = new System.Drawing.Point(122, 89);
-            this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(277, 21);
-            this.cmbEstado.TabIndex = 23;
-            // 
-            // cmbEmpleado
-            // 
-            this.cmbEmpleado.FormattingEnabled = true;
-            this.cmbEmpleado.Location = new System.Drawing.Point(122, 53);
-            this.cmbEmpleado.Name = "cmbEmpleado";
-            this.cmbEmpleado.Size = new System.Drawing.Size(277, 21);
-            this.cmbEmpleado.TabIndex = 22;
-            // 
             // lblEmpleado
             // 
             this.lblEmpleado.AutoSize = true;
             this.lblEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmpleado.Location = new System.Drawing.Point(20, 53);
+            this.lblEmpleado.Location = new System.Drawing.Point(21, 52);
             this.lblEmpleado.Name = "lblEmpleado";
             this.lblEmpleado.Size = new System.Drawing.Size(77, 16);
             this.lblEmpleado.TabIndex = 21;
             this.lblEmpleado.Text = "Empleado: ";
-            // 
-            // cmbDepartamento
-            // 
-            this.cmbDepartamento.FormattingEnabled = true;
-            this.cmbDepartamento.Location = new System.Drawing.Point(122, 19);
-            this.cmbDepartamento.Name = "cmbDepartamento";
-            this.cmbDepartamento.Size = new System.Drawing.Size(277, 21);
-            this.cmbDepartamento.TabIndex = 20;
             // 
             // label1
             // 
@@ -135,7 +113,7 @@
             // 
             this.lblEstado.AutoSize = true;
             this.lblEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstado.Location = new System.Drawing.Point(20, 94);
+            this.lblEstado.Location = new System.Drawing.Point(21, 112);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(54, 16);
             this.lblEstado.TabIndex = 14;
@@ -145,7 +123,7 @@
             // 
             this.lblDepartamento.AutoSize = true;
             this.lblDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartamento.Location = new System.Drawing.Point(19, 16);
+            this.lblDepartamento.Location = new System.Drawing.Point(19, 81);
             this.lblDepartamento.Name = "lblDepartamento";
             this.lblDepartamento.Size = new System.Drawing.Size(97, 16);
             this.lblDepartamento.TabIndex = 13;
@@ -155,7 +133,7 @@
             // 
             this.btnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFiltrar.ForeColor = System.Drawing.Color.Black;
-            this.btnFiltrar.Location = new System.Drawing.Point(443, 19);
+            this.btnFiltrar.Location = new System.Drawing.Point(443, 39);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(80, 29);
             this.btnFiltrar.TabIndex = 12;
@@ -193,19 +171,64 @@
             // 
             // grpConsulta
             // 
+            this.grpConsulta.Controls.Add(this.txtIdEmpleado);
+            this.grpConsulta.Controls.Add(this.label3);
+            this.grpConsulta.Controls.Add(this.txtNombreEmp);
+            this.grpConsulta.Controls.Add(this.cmbEstado);
+            this.grpConsulta.Controls.Add(this.cmbDepartamentoCst);
             this.grpConsulta.Controls.Add(this.lblEstado);
             this.grpConsulta.Controls.Add(this.btnLimpiar);
             this.grpConsulta.Controls.Add(this.lblDepartamento);
-            this.grpConsulta.Controls.Add(this.cmbEstado);
             this.grpConsulta.Controls.Add(this.btnFiltrar);
-            this.grpConsulta.Controls.Add(this.cmbEmpleado);
-            this.grpConsulta.Controls.Add(this.cmbDepartamento);
             this.grpConsulta.Controls.Add(this.lblEmpleado);
-            this.grpConsulta.Location = new System.Drawing.Point(0, 149);
+            this.grpConsulta.Location = new System.Drawing.Point(9, 138);
             this.grpConsulta.Name = "grpConsulta";
-            this.grpConsulta.Size = new System.Drawing.Size(977, 122);
+            this.grpConsulta.Size = new System.Drawing.Size(968, 148);
             this.grpConsulta.TabIndex = 25;
             this.grpConsulta.TabStop = false;
+            // 
+            // txtIdEmpleado
+            // 
+            this.txtIdEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdEmpleado.Location = new System.Drawing.Point(121, 23);
+            this.txtIdEmpleado.Name = "txtIdEmpleado";
+            this.txtIdEmpleado.Size = new System.Drawing.Size(280, 22);
+            this.txtIdEmpleado.TabIndex = 31;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(21, 26);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 16);
+            this.label3.TabIndex = 29;
+            this.label3.Text = "Código:";
+            // 
+            // txtNombreEmp
+            // 
+            this.txtNombreEmp.Location = new System.Drawing.Point(123, 52);
+            this.txtNombreEmp.Name = "txtNombreEmp";
+            this.txtNombreEmp.Size = new System.Drawing.Size(278, 20);
+            this.txtNombreEmp.TabIndex = 28;
+            // 
+            // cmbEstado
+            // 
+            this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Location = new System.Drawing.Point(121, 112);
+            this.cmbEstado.Name = "cmbEstado";
+            this.cmbEstado.Size = new System.Drawing.Size(280, 21);
+            this.cmbEstado.TabIndex = 27;
+            // 
+            // cmbDepartamentoCst
+            // 
+            this.cmbDepartamentoCst.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDepartamentoCst.FormattingEnabled = true;
+            this.cmbDepartamentoCst.Location = new System.Drawing.Point(122, 80);
+            this.cmbDepartamentoCst.Name = "cmbDepartamentoCst";
+            this.cmbDepartamentoCst.Size = new System.Drawing.Size(278, 21);
+            this.cmbDepartamentoCst.TabIndex = 25;
             // 
             // tollConsulta
             // 
@@ -238,6 +261,7 @@
             this.btnEditar.Size = new System.Drawing.Size(54, 55);
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnAnular
             // 
@@ -247,6 +271,7 @@
             this.btnAnular.Size = new System.Drawing.Size(60, 55);
             this.btnAnular.Text = "Anular";
             this.btnAnular.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
             // 
             // btnRefrescar
             // 
@@ -256,6 +281,7 @@
             this.btnRefrescar.Size = new System.Drawing.Size(79, 55);
             this.btnRefrescar.Text = "Refrescar";
             this.btnRefrescar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
             // 
             // grdConsultas
             // 
@@ -274,16 +300,16 @@
             this.fechaCreacion,
             this.modificadoPor,
             this.fechaModificacion});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdConsultas.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdConsultas.DefaultCellStyle = dataGridViewCellStyle2;
             this.grdConsultas.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.grdConsultas.Location = new System.Drawing.Point(0, 277);
+            this.grdConsultas.Location = new System.Drawing.Point(0, 292);
             this.grdConsultas.Name = "grdConsultas";
             this.grdConsultas.ReadOnly = true;
             this.grdConsultas.Size = new System.Drawing.Size(977, 202);
@@ -384,7 +410,7 @@
             this.grpFiltro.Controls.Add(this.label1);
             this.grpFiltro.Location = new System.Drawing.Point(0, 55);
             this.grpFiltro.Name = "grpFiltro";
-            this.grpFiltro.Size = new System.Drawing.Size(977, 88);
+            this.grpFiltro.Size = new System.Drawing.Size(977, 77);
             this.grpFiltro.TabIndex = 28;
             this.grpFiltro.TabStop = false;
             // 
@@ -398,19 +424,19 @@
             this.lblRango.TabIndex = 20;
             this.lblRango.Text = "Fechas a consultar:";
             // 
-            // frmConsultaMarcas
+            // frmMantMarcas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(986, 475);
+            this.ClientSize = new System.Drawing.Size(986, 496);
             this.Controls.Add(this.grpFiltro);
             this.Controls.Add(this.grdConsultas);
             this.Controls.Add(this.tollConsulta);
             this.Controls.Add(this.grpConsulta);
             this.Controls.Add(this.lblCodigo);
-            this.Name = "frmConsultaMarcas";
+            this.Name = "frmMantMarcas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Consulta de Marcas";
+            this.Text = "Mantenimiento de Marcas";
             this.grpConsulta.ResumeLayout(false);
             this.grpConsulta.PerformLayout();
             this.tollConsulta.ResumeLayout(false);
@@ -433,10 +459,7 @@
         private System.Windows.Forms.Label lblDepartamento;
         private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.ComboBox cmbEstado;
-        private System.Windows.Forms.ComboBox cmbEmpleado;
         private System.Windows.Forms.Label lblEmpleado;
-        private System.Windows.Forms.ComboBox cmbDepartamento;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox grpConsulta;
         private System.Windows.Forms.ToolStrip tollConsulta;
@@ -458,5 +481,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaCreacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn modificadoPor;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaModificacion;
+        private System.Windows.Forms.ComboBox cmbEstado;
+        private System.Windows.Forms.ComboBox cmbDepartamentoCst;
+        private System.Windows.Forms.TextBox txtIdEmpleado;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtNombreEmp;
     }
 }

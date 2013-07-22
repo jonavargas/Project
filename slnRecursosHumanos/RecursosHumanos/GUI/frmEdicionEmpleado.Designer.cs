@@ -260,7 +260,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(343, 343);
+            this.ClientSize = new System.Drawing.Size(340, 353);
             this.Controls.Add(this.cmbDepartamento);
             this.Controls.Add(this.txtFechaNacimiento);
             this.Controls.Add(this.txtTelefono);
