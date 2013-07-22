@@ -14,17 +14,16 @@ namespace GUI
 {
     public partial class frmMantMarcas : Form
     {
-        private AccesoDatosOracle cnx;
        
         MarcaD oMarcaD;
         MarcaL oMarcaEditarEstado;
-       
-       
-        public frmMantMarcas(AccesoDatosOracle pConexion)
+        private AccesoDatosOracle cnx;
+
+
+        public frmMantMarcas(AccesoDatosOracle pcnx)
         {
             InitializeComponent(); 
-            InitializeComponent();
-            this.cnx = pConexion;
+            this.cnx = pcnx;
             this.cargarGrid();
             this.dteFecha1.Value = DateTime.Today;
             this.dteFecha2.Value = DateTime.Today.AddHours(23).AddMinutes(59).AddSeconds(59);            
@@ -32,6 +31,7 @@ namespace GUI
             this.cmbEstado.Items.Add("En trámite");
             this.cmbEstado.Items.Add("Pagada");
             this.cmbEstado.Items.Add("Anulada");
+            this.cargarCmbDepartamento(pcnx);
             
         }
         /// <summary>
@@ -54,6 +54,14 @@ namespace GUI
             }
         }
 
+        public void cargarCmbDepartamento(AccesoDatosOracle pcnx)
+        {
+            DepartamentoD oDepartamentoD = new DepartamentoD(pcnx);
+            cmbDepartamento.DataSource = oDepartamentoD.obtenerIdDepartamento().Tables[0].Copy();
+            cmbDepartamento.DisplayMember = "idDepartamento";
+            cmbDepartamento.ValueMember = "idDepartamento";
+        }
+
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
             string departamento;
@@ -67,13 +75,13 @@ namespace GUI
 
              MarcaD oMarcaD = new MarcaD(this.cnx);
 
-                if (this.cmbDepartamentoCst.SelectedValue == null)
+                if (this.cmbDepartamento.SelectedValue == null)
                 {
                     departamento = "";
                 }
                 else
                 {
-                    departamento = this.cmbDepartamentoCst.SelectedValue.ToString();
+                    departamento = this.cmbDepartamento.SelectedValue.ToString();
                 }
 
                 if (this.cmbEstado.SelectedIndex.ToString() != "-1")
@@ -97,31 +105,11 @@ namespace GUI
                 }
             }
         
-       
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            
-            frmEdicionMarcas ofrmEdicionMarcas = new frmEdicionMarcas(this.cnx);
-            ofrmEdicionMarcas.ShowDialog();
-            if (ofrmEdicionMarcas.Aceptar)
-            {
-               MarcaD oMarcaD = new MarcaD(this.cnx);
-                oMarcaD.agregarMarca(ofrmEdicionMarcas.OMarcaL);
-                if (oMarcaD.Error)
-                {
-                    MessageBox.Show("Error agregando los datos:" + oMarcaD.ErrorDescription);
-                }
-                else
-                {
-                    MessageBox.Show("Marca agregada!!!");
-                    this.cargarGrid();
-                }
-            }
-        }
 
         private void btnRefrescar_Click(object sender, EventArgs e)
         {
             this.cargarGrid();
+            MessageBox.Show("Datos actualizados!!!");
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -131,7 +119,7 @@ namespace GUI
                 MarcaL oMarcaL = (MarcaL)this.grdConsultas.CurrentRow.DataBoundItem;
                 //List <EmpleadoL> oAuxEmpleadoL = this.oDbEmpleado.obtenerEmpleadoPorID(oEmpleadoL.IdEmpleado);
 
-                if (oMarcaL.Estado == "Generada")
+                if (oMarcaL.EstadoMarca == "Generada")
                 {
                     frmEdicionMarcas ofrmEdicion = new frmEdicionMarcas(this.cnx);
                     ofrmEdicion.ShowDialog();
@@ -164,14 +152,14 @@ namespace GUI
             {
                 MarcaL oMarcaL = (MarcaL)this.grdConsultas.CurrentRow.DataBoundItem;
 
-                if (oMarcaL.Estado == "Generada")
+                if (oMarcaL.EstadoMarca == "Generada")
                 {
                     
                     DialogResult confirmacion = MessageBox.Show("¿Está seguro de Anular este registro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (confirmacion == DialogResult.No) return;
 
                     this.oMarcaEditarEstado = (MarcaL)this.grdConsultas.CurrentRow.DataBoundItem;
-                    oMarcaEditarEstado.Estado = "Anulada";
+                    oMarcaEditarEstado.EstadoMarca = "Anulada";
                     oMarcaEditarEstado.FechaModificacion = DateTime.Now;
 
                     this.oMarcaD = new MarcaD(this.cnx);
@@ -194,5 +182,27 @@ namespace GUI
                 }
             }
         }
+
+        private void btnNuevo_Click_1(object sender, EventArgs e)
+        {
+            frmEdicionMarcas ofrmEdicionMarcas = new frmEdicionMarcas(this.cnx);
+            ofrmEdicionMarcas.ShowDialog();
+            if (ofrmEdicionMarcas.Aceptar)
+            {
+                MarcaD oMarcaD = new MarcaD(this.cnx);
+                oMarcaD.agregarMarca(ofrmEdicionMarcas.OMarcaL);
+                if (oMarcaD.Error)
+                {
+                    MessageBox.Show("Error agregando los datos:" + oMarcaD.ErrorDescription);
+                }
+                else
+                {
+                    MessageBox.Show("Marca agregada!!!");
+                    this.cargarGrid();
+                }
+            }
+        }
+
+        
     }
 }

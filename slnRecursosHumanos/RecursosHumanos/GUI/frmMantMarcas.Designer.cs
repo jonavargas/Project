@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.lblEmpleado = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,7 +44,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtNombreEmp = new System.Windows.Forms.TextBox();
             this.cmbEstado = new System.Windows.Forms.ComboBox();
-            this.cmbDepartamentoCst = new System.Windows.Forms.ComboBox();
+            this.cmbDepartamento = new System.Windows.Forms.ComboBox();
             this.tollConsulta = new System.Windows.Forms.ToolStrip();
             this.btnNuevo = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
@@ -123,7 +123,7 @@
             // 
             this.lblDepartamento.AutoSize = true;
             this.lblDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartamento.Location = new System.Drawing.Point(19, 81);
+            this.lblDepartamento.Location = new System.Drawing.Point(21, 81);
             this.lblDepartamento.Name = "lblDepartamento";
             this.lblDepartamento.Size = new System.Drawing.Size(97, 16);
             this.lblDepartamento.TabIndex = 13;
@@ -175,7 +175,7 @@
             this.grpConsulta.Controls.Add(this.label3);
             this.grpConsulta.Controls.Add(this.txtNombreEmp);
             this.grpConsulta.Controls.Add(this.cmbEstado);
-            this.grpConsulta.Controls.Add(this.cmbDepartamentoCst);
+            this.grpConsulta.Controls.Add(this.cmbDepartamento);
             this.grpConsulta.Controls.Add(this.lblEstado);
             this.grpConsulta.Controls.Add(this.btnLimpiar);
             this.grpConsulta.Controls.Add(this.lblDepartamento);
@@ -190,9 +190,9 @@
             // txtIdEmpleado
             // 
             this.txtIdEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdEmpleado.Location = new System.Drawing.Point(121, 23);
+            this.txtIdEmpleado.Location = new System.Drawing.Point(124, 23);
             this.txtIdEmpleado.Name = "txtIdEmpleado";
-            this.txtIdEmpleado.Size = new System.Drawing.Size(280, 22);
+            this.txtIdEmpleado.Size = new System.Drawing.Size(277, 22);
             this.txtIdEmpleado.TabIndex = 31;
             // 
             // label3
@@ -216,19 +216,19 @@
             // 
             this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Location = new System.Drawing.Point(121, 112);
+            this.cmbEstado.Location = new System.Drawing.Point(124, 112);
             this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(280, 21);
+            this.cmbEstado.Size = new System.Drawing.Size(277, 21);
             this.cmbEstado.TabIndex = 27;
             // 
-            // cmbDepartamentoCst
+            // cmbDepartamento
             // 
-            this.cmbDepartamentoCst.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbDepartamentoCst.FormattingEnabled = true;
-            this.cmbDepartamentoCst.Location = new System.Drawing.Point(122, 80);
-            this.cmbDepartamentoCst.Name = "cmbDepartamentoCst";
-            this.cmbDepartamentoCst.Size = new System.Drawing.Size(278, 21);
-            this.cmbDepartamentoCst.TabIndex = 25;
+            this.cmbDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDepartamento.FormattingEnabled = true;
+            this.cmbDepartamento.Location = new System.Drawing.Point(124, 80);
+            this.cmbDepartamento.Name = "cmbDepartamento";
+            this.cmbDepartamento.Size = new System.Drawing.Size(278, 21);
+            this.cmbDepartamento.TabIndex = 25;
             // 
             // tollConsulta
             // 
@@ -252,6 +252,7 @@
             this.btnNuevo.Size = new System.Drawing.Size(60, 55);
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click_1);
             // 
             // btnEditar
             // 
@@ -300,14 +301,14 @@
             this.fechaCreacion,
             this.modificadoPor,
             this.fechaModificacion});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdConsultas.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdConsultas.DefaultCellStyle = dataGridViewCellStyle1;
             this.grdConsultas.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.grdConsultas.Location = new System.Drawing.Point(0, 292);
             this.grdConsultas.Name = "grdConsultas";
@@ -482,7 +483,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn modificadoPor;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaModificacion;
         private System.Windows.Forms.ComboBox cmbEstado;
-        private System.Windows.Forms.ComboBox cmbDepartamentoCst;
+        private System.Windows.Forms.ComboBox cmbDepartamento;
         private System.Windows.Forms.TextBox txtIdEmpleado;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNombreEmp;

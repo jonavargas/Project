@@ -335,6 +335,8 @@ namespace Datos
                 this.errorDescription = "Error editando Empleado: " + e.Message;
             }
         }
+
+      /*
         public DataSet obtenerIdEmpleado()
         {
             DataSet datos = this.cnx.ejecutarConsultaSQL("select * from Empleado");
@@ -355,7 +357,9 @@ namespace Datos
             }
             return datos;
         }
-        public List<EmpleadoL> obtenerEmpleadoPorID(string pID)
+      */
+
+        public List<EmpleadoL> obtenerIdEmpleado(string pidEmpleado)
         {
             
             List<EmpleadoL> retorno = new List<EmpleadoL>();
@@ -369,7 +373,7 @@ namespace Datos
                 parametros[0] = new OracleParameter();
                 parametros[0].OracleType = OracleType.VarChar;
                 parametros[0].ParameterName = ":idEmpleado";
-                parametros[0].Value = pID;
+                parametros[0].Value = pidEmpleado;
 
                 DataSet datos = this.cnx.ejecutarConsultaSQL(sql, "empleado", parametros);
 
@@ -380,7 +384,7 @@ namespace Datos
                     {
                         
                         retorno.Add(
-                                    new EmpleadoL(fila["idEmpleado"].ToString(),
+                                    new EmpleadoL(   fila["idEmpleado"].ToString(),
                                                      fila["idDepartamento"].ToString(),
                                                      fila["nombreEmpleado"].ToString(),
                                                      fila["apellido1"].ToString(),

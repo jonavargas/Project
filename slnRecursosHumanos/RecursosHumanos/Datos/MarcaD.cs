@@ -54,8 +54,8 @@ namespace Datos
         {
             try
             {
-                string sql = "insert into marca(iUnificacion, idEmpleado, fecha, tipo, estado, creadoPor, fechaCreacion, modificadoPor, fechaModificacion) " +
-                             "values(:idUnificacion, :idEmpleado, :fecha, :tipo, :estado, :creadoPor, :fechaCreacion, :modificadoPor, :fechaModificacion)";
+                string sql = "insert into marca(iUnificacion, idEmpleado, fechaMarca, tipoMarca, estadoMarca, creadoPor, fechaCreacion, modificadoPor, fechaModificacion) " +
+                             "values(:idUnificacion, :idEmpleado, :fechaMarca, :tipoMarca, :estadoMarca, :creadoPor, :fechaCreacion, :modificadoPor, :fechaModificacion)";
 
                 OracleParameter[] parametros = new OracleParameter[9];
 
@@ -71,18 +71,18 @@ namespace Datos
 
                 parametros[2] = new OracleParameter();
                 parametros[2].OracleType = OracleType.DateTime;
-                parametros[2].ParameterName = ":fecha";
-                parametros[2].Value = pMarcaL.Fecha;
+                parametros[2].ParameterName = ":fechaMarca";
+                parametros[2].Value = pMarcaL.FechaMarca;
 
                 parametros[3] = new OracleParameter();
                 parametros[3].OracleType = OracleType.VarChar;
-                parametros[3].ParameterName = ":tipo";
-                parametros[3].Value = pMarcaL.Tipo;
+                parametros[3].ParameterName = ":tipoMarca";
+                parametros[3].Value = pMarcaL.TipoMarca;
 
                 parametros[4] = new OracleParameter();
                 parametros[4].OracleType = OracleType.VarChar;
-                parametros[4].ParameterName = ":estado";
-                parametros[4].Value = pMarcaL.Estado;
+                parametros[4].ParameterName = ":estadoMarca";
+                parametros[4].Value = pMarcaL.EstadoMarca;
 
                 parametros[5] = new OracleParameter();
                 parametros[5].OracleType = OracleType.VarChar;
@@ -149,7 +149,7 @@ namespace Datos
             try
             {
                 //Select para obtener los datos que necesitamos de la base de datos
-                DataSet datos = this.cnx.ejecutarConsultaSQL("select m.*, e.nombre || ' ' || e.apellido1 || ' ' || e.apellido2 as nombreCompleto from marca m, empleado e where m.idEmpleado = e.idEmpleado");
+                DataSet datos = this.cnx.ejecutarConsultaSQL("select m.*, e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 as nombreCompleto from marca m, empleado e where m.idEmpleado = e.idEmpleado");
                 if (this.cnx.IsError == false)
                 {
                    
@@ -157,12 +157,12 @@ namespace Datos
                     {
                         
                         retorno.Add(
-                                    new MarcaL(int.Parse(fila["idMarca"].ToString()),
+                                    new MarcaL(    int.Parse(fila["idMarca"].ToString()),
                                                    int.Parse(fila["idUnificacion"].ToString()),
                                                    fila["idEmpleado"].ToString(),
-                                                   Convert.ToDateTime(fila["fecha"].ToString()),
-                                                   fila["tipo"].ToString(),
-                                                   fila["estado"].ToString(),
+                                                   Convert.ToDateTime(fila["fechaMarca"].ToString()),
+                                                   fila["tipoMarca"].ToString(),
+                                                   fila["estadoMarca"].ToString(),
                                                    fila["creadoPor"].ToString(),
                                                    Convert.ToDateTime(fila["fechaCreacion"].ToString()),
                                                    fila["modificadoPor"].ToString(),
@@ -200,8 +200,8 @@ namespace Datos
             try
             {
                 string sql = "update marca " +
-                             "set idMarca = :idMarca, idUnificacion = :idUnificacion, idEmpleado = :idEmpleado, fecha = :fecha, tipo = :tipo, " +
-                             "estado = :estado, creadoPor = :creadoPor, fechaCreacion = :fechaCreacion,m odificadoPor = :modificadoPor, fechaModificacion = :fechaModificacion " +
+                             "set idMarca = :idMarca, idUnificacion = :idUnificacion, idEmpleado = :idEmpleado, fechaMarca = :fechaMarca, tipoMarca = :tipoMarca, " +
+                             "estadoMarca = :estadoMarca, creadoPor = :creadoPor, fechaCreacion = :fechaCreacion,m odificadoPor = :modificadoPor, fechaModificacion = :fechaModificacion " +
                              "where idMarca = :idMarcaOriginal";
 
                 
@@ -224,18 +224,18 @@ namespace Datos
 
                 parametros[3] = new OracleParameter();
                 parametros[3].OracleType = OracleType.DateTime;
-                parametros[3].ParameterName = ":fecha";
-                parametros[3].Value = pMarcaEditada.Fecha;
+                parametros[3].ParameterName = ":fechaMarca";
+                parametros[3].Value = pMarcaEditada.FechaMarca;
 
                 parametros[4] = new OracleParameter();
                 parametros[4].OracleType = OracleType.VarChar;
-                parametros[4].ParameterName = ":tipo";
-                parametros[4].Value = pMarcaEditada.Tipo;
+                parametros[4].ParameterName = ":tipoMarca";
+                parametros[4].Value = pMarcaEditada.TipoMarca;
 
                 parametros[5] = new OracleParameter();
                 parametros[5].OracleType = OracleType.VarChar;
-                parametros[5].ParameterName = ":estado";
-                parametros[5].Value = pMarcaEditada.Estado;
+                parametros[5].ParameterName = ":estadoMarca";
+                parametros[5].Value = pMarcaEditada.EstadoMarca;
 
                 parametros[6] = new OracleParameter();
                 parametros[6].OracleType = OracleType.VarChar;
@@ -283,8 +283,8 @@ namespace Datos
             List<MarcaL> retorno = new List<MarcaL>();
             try
             {
-                
-                string sql = "select m.*, e.nombre || ' ' || e.apellido1 || ' ' || e.apellido2 as nombreCompleto from marca m, empleado e where m.idEpleado = e.idEmpleado and  m.fecha >= :fecha1 and m.fecha <= :fecha2";
+
+                string sql = "select m.*, e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 as nombreCompleto from marca m, empleado e where m.idEmpleado = e.idEmpleado and  m.fecha >= :fecha1 and m.fecha <= :fecha2";
                 int indices = 2;
 
                 if (pDepartamento != "")
@@ -295,19 +295,19 @@ namespace Datos
 
                 if (pEstado != "")
                 {
-                    sql += " and m.estado = :estado";
+                    sql += " and m.estadoMarca = :estadoMarca";
                     indices++;
                 }
 
                 if (pIdEmpleado != "")
                 {
-                    sql += " and m.id_empleado = :idEmpleado";
+                    sql += " and m.idEmpleado = :idEmpleado";
                     indices++;
                 }
 
                 if (pNombreEmpleado != "")
                 {
-                    sql += " and e.nombre || ' ' || e.apellido1 || ' ' || e.apellido2 like :nombre";
+                    sql += " and e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 like :nombreEmpleado";
                     indices++;
                 }
 
@@ -337,7 +337,7 @@ namespace Datos
                 {
                     parametros[indices] = new OracleParameter();
                     parametros[indices].OracleType = OracleType.VarChar;
-                    parametros[indices].ParameterName = ":estado";
+                    parametros[indices].ParameterName = ":estadoMarca";
                     parametros[indices].Value = pEstado;
                     indices++;
                 }
@@ -367,12 +367,12 @@ namespace Datos
                     {
                         
                         retorno.Add(
-                                    new MarcaL(int.Parse(fila["id_marca"].ToString()),
-                                                   int.Parse(fila["id_unificacion"].ToString()),
-                                                   fila["id_empleado"].ToString(),
-                                                   Convert.ToDateTime(fila["fecha"].ToString()),
-                                                   fila["tipo"].ToString(),
-                                                   fila["estado"].ToString(),
+                                    new MarcaL(    int.Parse(fila["idMarca"].ToString()),
+                                                   int.Parse(fila["idUnificacion"].ToString()),
+                                                   fila["idEmpleado"].ToString(),
+                                                   Convert.ToDateTime(fila["fechaMarca"].ToString()),
+                                                   fila["tipoMarca"].ToString(),
+                                                   fila["estadoMarca"].ToString(),
                                                    fila["creadoPor"].ToString(),
                                                    Convert.ToDateTime(fila["fechaCreacion"].ToString()),
                                                    fila["modificadoPor"].ToString(),

@@ -18,9 +18,9 @@ namespace Logica
         private int idUnificacion;
         private string idEmpleado;
         private string nombreEmpleado;
-        private DateTime fecha;
-        private string tipo;
-        private string estado;
+        private DateTime fechaMarca;
+        private string tipoMarca;
+        private string estadoMarca;
         private bool buscarEmpleado = false;
         private bool buscarTipo = false;
         private AccesoDatosOracle cnx;
@@ -31,35 +31,35 @@ namespace Logica
 
          
         /// Metodo constructor con parámetros
-       
-         public MarcaL(int pIdMarca, int pIdUnificacion, string pIdEmpleado, DateTime pFecha, 
-                       string pTipo, string pEstado, string pCreadoPor, DateTime pFechaCreacion, 
+
+        public MarcaL(int pIdMarca, int pIdUnificacion, string pIdEmpleado, DateTime pFechaMarca,
+                       string pTipoMarca, string pEstadoMarca, string pCreadoPor, DateTime pFechaCreacion, 
                        string pModificadoPor, DateTime pFechaModificacion, string pNombreEmpleado)
         {
             this.idMarca = pIdMarca;
             this.idUnificacion = pIdUnificacion;
             this.idEmpleado = pIdEmpleado;
             this.nombreEmpleado = pNombreEmpleado;
-            this.fecha = pFecha;
-            this.tipo = pTipo;
-            this.estado = pEstado;
+            this.fechaMarca = pFechaMarca;
+            this.tipoMarca = pTipoMarca;
+            this.estadoMarca = pEstadoMarca;
             this.creadoPor = pCreadoPor;
             this.fechaCreacion = pFechaCreacion;
             this.modificadoPor = pModificadoPor;
             this.fechaModificacion = pFechaModificacion;
         }
 
-     
-       public MarcaL(int pIdUnificacion, string pIdEmpleado, DateTime pFecha,
-                string pTipo, string pEstado, string pCreadoPor, DateTime pFechaCreacion,
+
+        public MarcaL(int pIdUnificacion, string pIdEmpleado, DateTime pFechaMarca,
+                string pTipoMarca, string pEstadoMarca, string pCreadoPor, DateTime pFechaCreacion,
                 string pModificadoPor, DateTime pFechaModificacion)
         {
             
             this.idUnificacion = pIdUnificacion;
             this.idEmpleado = pIdEmpleado;
-            this.fecha = pFecha;
-            this.tipo = pTipo;
-            this.estado = pEstado;
+            this.fechaMarca = pFechaMarca;
+            this.tipoMarca = pTipoMarca;
+            this.estadoMarca = pEstadoMarca;
             this.creadoPor = pCreadoPor;
             this.fechaCreacion = pFechaCreacion;
             this.modificadoPor = pModificadoPor;
@@ -100,22 +100,22 @@ namespace Logica
             set { nombreEmpleado = value; }
         }
 
-        public DateTime Fecha
+        public DateTime FechaMarca
         {
-            get { return fecha; }
-            set { fecha = value; }
+            get { return fechaMarca; }
+            set { fechaMarca = value; }
         }
 
-        public string Tipo
+        public string TipoMarca
         {
-            get { return tipo; }
-            set { tipo = value; }
+            get { return tipoMarca; }
+            set { tipoMarca = value; }
         }
 
-        public string Estado
+        public string EstadoMarca
         {
-            get { return estado; }
-            set { estado = value; }
+            get { return estadoMarca; }
+            set { estadoMarca = value; }
         }
 
         public string CreadoPor
@@ -142,7 +142,7 @@ namespace Logica
             set { fechaModificacion = value; }
         }
 
-        public void validarTipo(string pIdEmpleado)
+        public void validarTipoMarca(string pIdEmpleado)
         {
             this.idEmpleado = pIdEmpleado;
 
@@ -152,23 +152,23 @@ namespace Logica
             
             if (ObtenerTipoMarca.Tables[0].Rows.Count > 0)
             {
-                
-                this.tipo = ObtenerTipoMarca.Tables[0].Rows[0]["tipo"].ToString();
 
-                if (this.tipo == "Entrada")
+                this.tipoMarca = ObtenerTipoMarca.Tables[0].Rows[0]["tipoMarca"].ToString();
+
+                if (this.tipoMarca == "Entrada")
                 {
-                    this.tipo = "Salida";
+                    this.tipoMarca = "Salida";
                     return;
                 }
-                if (this.tipo == "Salida")
+                if (this.tipoMarca == "Salida")
                 {
-                    this.tipo = "Entrada";
+                    this.tipoMarca = "Entrada";
                     return;
                 }
             }
             else
             {
-                this.tipo = "Entrada";
+                this.tipoMarca = "Entrada";
             }
         }
 
@@ -181,8 +181,8 @@ namespace Logica
         {
             return "ID Marca:" + this.IdMarca + "\n" +
                     "ID Empleado:" + this.IdEmpleado + "\n" +
-                    "Estado Marca:" + this.estado + "\n" +
-                    "Tipo de Marca:" + this.Tipo + "\n" +
+                    "Estado Marca:" + this.estadoMarca + "\n" +
+                    "Tipo de Marca:" + this.tipoMarca + "\n" +
                     "Creada por:" + this.CreadoPor + "\n" +
                     "Fecha de Creación:" + this.FechaCreacion + "\n" +
                     "Modificado Por:" + this.ModificadoPor + "\n" +

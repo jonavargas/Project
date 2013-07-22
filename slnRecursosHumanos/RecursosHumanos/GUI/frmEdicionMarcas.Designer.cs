@@ -31,8 +31,6 @@
             this.txtEmpleado = new System.Windows.Forms.TextBox();
             this.lblEstado = new System.Windows.Forms.Label();
             this.lblDepartamento = new System.Windows.Forms.Label();
-            this.cmbEstado = new System.Windows.Forms.ComboBox();
-            this.cmbDepartamento = new System.Windows.Forms.ComboBox();
             this.lblEmpleado = new System.Windows.Forms.Label();
             this.grpTipo = new System.Windows.Forms.GroupBox();
             this.rdoSalida = new System.Windows.Forms.RadioButton();
@@ -49,6 +47,8 @@
             this.lblUnificacion = new System.Windows.Forms.Label();
             this.lblMarca = new System.Windows.Forms.Label();
             this.grpNumeros = new System.Windows.Forms.GroupBox();
+            this.cmbDepartamento = new System.Windows.Forms.ComboBox();
+            this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.grpTipo.SuspendLayout();
             this.grpInfoEmpleado.SuspendLayout();
             this.grpNumeros.SuspendLayout();
@@ -59,7 +59,7 @@
             this.txtEmpleado.Location = new System.Drawing.Point(136, 74);
             this.txtEmpleado.Name = "txtEmpleado";
             this.txtEmpleado.Size = new System.Drawing.Size(277, 22);
-            this.txtEmpleado.TabIndex = 30;
+            this.txtEmpleado.TabIndex = 4;
             // 
             // lblEstado
             // 
@@ -80,22 +80,6 @@
             this.lblDepartamento.Size = new System.Drawing.Size(97, 16);
             this.lblDepartamento.TabIndex = 24;
             this.lblDepartamento.Text = "Departamento:";
-            // 
-            // cmbEstado
-            // 
-            this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Location = new System.Drawing.Point(136, 147);
-            this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(277, 24);
-            this.cmbEstado.TabIndex = 29;
-            // 
-            // cmbDepartamento
-            // 
-            this.cmbDepartamento.FormattingEnabled = true;
-            this.cmbDepartamento.Location = new System.Drawing.Point(137, 112);
-            this.cmbDepartamento.Name = "cmbDepartamento";
-            this.cmbDepartamento.Size = new System.Drawing.Size(277, 24);
-            this.cmbDepartamento.TabIndex = 26;
             // 
             // lblEmpleado
             // 
@@ -129,7 +113,7 @@
             this.rdoSalida.Location = new System.Drawing.Point(240, 31);
             this.rdoSalida.Name = "rdoSalida";
             this.rdoSalida.Size = new System.Drawing.Size(65, 20);
-            this.rdoSalida.TabIndex = 1;
+            this.rdoSalida.TabIndex = 9;
             this.rdoSalida.TabStop = true;
             this.rdoSalida.Text = "Salida";
             this.rdoSalida.UseVisualStyleBackColor = true;
@@ -142,7 +126,7 @@
             this.rdoEntrada.Location = new System.Drawing.Point(123, 31);
             this.rdoEntrada.Name = "rdoEntrada";
             this.rdoEntrada.Size = new System.Drawing.Size(73, 20);
-            this.rdoEntrada.TabIndex = 0;
+            this.rdoEntrada.TabIndex = 8;
             this.rdoEntrada.TabStop = true;
             this.rdoEntrada.Text = "Entrada";
             this.rdoEntrada.UseVisualStyleBackColor = true;
@@ -153,7 +137,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(228, 469);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(93, 34);
-            this.btnCancelar.TabIndex = 17;
+            this.btnCancelar.TabIndex = 11;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -164,13 +148,15 @@
             this.btnAceptar.Location = new System.Drawing.Point(128, 469);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(87, 34);
-            this.btnAceptar.TabIndex = 16;
+            this.btnAceptar.TabIndex = 10;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // grpInfoEmpleado
             // 
+            this.grpInfoEmpleado.Controls.Add(this.cmbEstado);
+            this.grpInfoEmpleado.Controls.Add(this.cmbDepartamento);
             this.grpInfoEmpleado.Controls.Add(this.dtpFecha);
             this.grpInfoEmpleado.Controls.Add(this.label5);
             this.grpInfoEmpleado.Controls.Add(this.label3);
@@ -179,8 +165,6 @@
             this.grpInfoEmpleado.Controls.Add(this.lblDepartamento);
             this.grpInfoEmpleado.Controls.Add(this.lblEstado);
             this.grpInfoEmpleado.Controls.Add(this.lblEmpleado);
-            this.grpInfoEmpleado.Controls.Add(this.cmbDepartamento);
-            this.grpInfoEmpleado.Controls.Add(this.cmbEstado);
             this.grpInfoEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpInfoEmpleado.Location = new System.Drawing.Point(8, 128);
             this.grpInfoEmpleado.Name = "grpInfoEmpleado";
@@ -197,7 +181,7 @@
             this.dtpFecha.Location = new System.Drawing.Point(138, 184);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(276, 22);
-            this.dtpFecha.TabIndex = 34;
+            this.dtpFecha.TabIndex = 7;
             // 
             // label5
             // 
@@ -226,7 +210,7 @@
             this.txtCodigo.Location = new System.Drawing.Point(137, 34);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(276, 22);
-            this.txtCodigo.TabIndex = 32;
+            this.txtCodigo.TabIndex = 3;
             // 
             // txtIdUnificacion
             // 
@@ -235,7 +219,7 @@
             this.txtIdUnificacion.Location = new System.Drawing.Point(119, 61);
             this.txtIdUnificacion.Name = "txtIdUnificacion";
             this.txtIdUnificacion.Size = new System.Drawing.Size(65, 21);
-            this.txtIdUnificacion.TabIndex = 14;
+            this.txtIdUnificacion.TabIndex = 2;
             // 
             // txtIdMarca
             // 
@@ -244,7 +228,7 @@
             this.txtIdMarca.Location = new System.Drawing.Point(119, 29);
             this.txtIdMarca.Name = "txtIdMarca";
             this.txtIdMarca.Size = new System.Drawing.Size(65, 21);
-            this.txtIdMarca.TabIndex = 13;
+            this.txtIdMarca.TabIndex = 1;
             // 
             // lblUnificacion
             // 
@@ -280,6 +264,24 @@
             this.grpNumeros.TabIndex = 19;
             this.grpNumeros.TabStop = false;
             // 
+            // cmbDepartamento
+            // 
+            this.cmbDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDepartamento.FormattingEnabled = true;
+            this.cmbDepartamento.Location = new System.Drawing.Point(137, 107);
+            this.cmbDepartamento.Name = "cmbDepartamento";
+            this.cmbDepartamento.Size = new System.Drawing.Size(275, 24);
+            this.cmbDepartamento.TabIndex = 5;
+            // 
+            // cmbEstado
+            // 
+            this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Location = new System.Drawing.Point(136, 144);
+            this.cmbEstado.Name = "cmbEstado";
+            this.cmbEstado.Size = new System.Drawing.Size(277, 24);
+            this.cmbEstado.TabIndex = 6;
+            // 
             // frmEdicionMarcas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -307,8 +309,6 @@
 
         private System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.Label lblDepartamento;
-        private System.Windows.Forms.ComboBox cmbEstado;
-        private System.Windows.Forms.ComboBox cmbDepartamento;
         private System.Windows.Forms.Label lblEmpleado;
         private System.Windows.Forms.GroupBox grpTipo;
         private System.Windows.Forms.RadioButton rdoSalida;
@@ -326,5 +326,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCodigo;
+        private System.Windows.Forms.ComboBox cmbDepartamento;
+        private System.Windows.Forms.ComboBox cmbEstado;
     }
 }
