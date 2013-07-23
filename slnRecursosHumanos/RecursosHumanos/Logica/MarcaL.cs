@@ -179,7 +179,7 @@ namespace Logica
         
         public override string ToString()
         {
-            return "ID Marca:" + this.IdMarca + "\n" +
+            return  "ID Marca:" + this.IdMarca + "\n" +
                     "ID Empleado:" + this.IdEmpleado + "\n" +
                     "Estado Marca:" + this.estadoMarca + "\n" +
                     "Tipo de Marca:" + this.tipoMarca + "\n" +

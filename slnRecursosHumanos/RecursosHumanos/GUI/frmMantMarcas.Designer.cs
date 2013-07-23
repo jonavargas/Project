@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.lblEmpleado = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,9 +40,9 @@
             this.dteFecha1 = new System.Windows.Forms.DateTimePicker();
             this.lblFecha = new System.Windows.Forms.Label();
             this.grpConsulta = new System.Windows.Forms.GroupBox();
-            this.txtIdEmpleado = new System.Windows.Forms.TextBox();
+            this.cmbCodigo = new System.Windows.Forms.ComboBox();
+            this.cmbEmpleado = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtNombreEmp = new System.Windows.Forms.TextBox();
             this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.cmbDepartamento = new System.Windows.Forms.ComboBox();
             this.tollConsulta = new System.Windows.Forms.ToolStrip();
@@ -64,6 +64,9 @@
             this.fechaModificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpFiltro = new System.Windows.Forms.GroupBox();
             this.lblRango = new System.Windows.Forms.Label();
+            this.estadoEmpleado = new System.Windows.Forms.Label();
+            this.rbtActivo = new System.Windows.Forms.RadioButton();
+            this.rbtInactivo = new System.Windows.Forms.RadioButton();
             this.grpConsulta.SuspendLayout();
             this.tollConsulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdConsultas)).BeginInit();
@@ -74,10 +77,10 @@
             // 
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.Black;
-            this.btnLimpiar.Location = new System.Drawing.Point(443, 81);
+            this.btnLimpiar.Location = new System.Drawing.Point(654, 99);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(80, 29);
-            this.btnLimpiar.TabIndex = 24;
+            this.btnLimpiar.TabIndex = 8;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             // 
@@ -85,11 +88,11 @@
             // 
             this.lblEmpleado.AutoSize = true;
             this.lblEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmpleado.Location = new System.Drawing.Point(21, 52);
+            this.lblEmpleado.Location = new System.Drawing.Point(32, 55);
             this.lblEmpleado.Name = "lblEmpleado";
-            this.lblEmpleado.Size = new System.Drawing.Size(77, 16);
+            this.lblEmpleado.Size = new System.Drawing.Size(151, 16);
             this.lblEmpleado.TabIndex = 21;
-            this.lblEmpleado.Text = "Empleado: ";
+            this.lblEmpleado.Text = "Nombre del Empleado: ";
             // 
             // label1
             // 
@@ -113,17 +116,17 @@
             // 
             this.lblEstado.AutoSize = true;
             this.lblEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstado.Location = new System.Drawing.Point(21, 112);
+            this.lblEstado.Location = new System.Drawing.Point(519, 55);
             this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(54, 16);
+            this.lblEstado.Size = new System.Drawing.Size(128, 16);
             this.lblEstado.TabIndex = 14;
-            this.lblEstado.Text = "Estado:";
+            this.lblEstado.Text = "Estado de la Marca:";
             // 
             // lblDepartamento
             // 
             this.lblDepartamento.AutoSize = true;
             this.lblDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartamento.Location = new System.Drawing.Point(21, 81);
+            this.lblDepartamento.Location = new System.Drawing.Point(519, 16);
             this.lblDepartamento.Name = "lblDepartamento";
             this.lblDepartamento.Size = new System.Drawing.Size(97, 16);
             this.lblDepartamento.TabIndex = 13;
@@ -133,10 +136,10 @@
             // 
             this.btnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFiltrar.ForeColor = System.Drawing.Color.Black;
-            this.btnFiltrar.Location = new System.Drawing.Point(443, 39);
+            this.btnFiltrar.Location = new System.Drawing.Point(852, 99);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(80, 29);
-            this.btnFiltrar.TabIndex = 12;
+            this.btnFiltrar.TabIndex = 7;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = true;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
@@ -145,10 +148,10 @@
             // 
             this.dteFecha2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dteFecha2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dteFecha2.Location = new System.Drawing.Point(275, 44);
+            this.dteFecha2.Location = new System.Drawing.Point(269, 45);
             this.dteFecha2.Name = "dteFecha2";
             this.dteFecha2.Size = new System.Drawing.Size(125, 22);
-            this.dteFecha2.TabIndex = 11;
+            this.dteFecha2.TabIndex = 2;
             // 
             // dteFecha1
             // 
@@ -157,7 +160,7 @@
             this.dteFecha1.Location = new System.Drawing.Point(113, 45);
             this.dteFecha1.Name = "dteFecha1";
             this.dteFecha1.Size = new System.Drawing.Size(125, 22);
-            this.dteFecha1.TabIndex = 10;
+            this.dteFecha1.TabIndex = 1;
             // 
             // lblFecha
             // 
@@ -171,9 +174,12 @@
             // 
             // grpConsulta
             // 
-            this.grpConsulta.Controls.Add(this.txtIdEmpleado);
+            this.grpConsulta.Controls.Add(this.rbtInactivo);
+            this.grpConsulta.Controls.Add(this.rbtActivo);
+            this.grpConsulta.Controls.Add(this.estadoEmpleado);
+            this.grpConsulta.Controls.Add(this.cmbCodigo);
+            this.grpConsulta.Controls.Add(this.cmbEmpleado);
             this.grpConsulta.Controls.Add(this.label3);
-            this.grpConsulta.Controls.Add(this.txtNombreEmp);
             this.grpConsulta.Controls.Add(this.cmbEstado);
             this.grpConsulta.Controls.Add(this.cmbDepartamento);
             this.grpConsulta.Controls.Add(this.lblEstado);
@@ -187,48 +193,52 @@
             this.grpConsulta.TabIndex = 25;
             this.grpConsulta.TabStop = false;
             // 
-            // txtIdEmpleado
+            // cmbCodigo
             // 
-            this.txtIdEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdEmpleado.Location = new System.Drawing.Point(124, 23);
-            this.txtIdEmpleado.Name = "txtIdEmpleado";
-            this.txtIdEmpleado.Size = new System.Drawing.Size(277, 22);
-            this.txtIdEmpleado.TabIndex = 31;
+            this.cmbCodigo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCodigo.FormattingEnabled = true;
+            this.cmbCodigo.Location = new System.Drawing.Point(191, 16);
+            this.cmbCodigo.Name = "cmbCodigo";
+            this.cmbCodigo.Size = new System.Drawing.Size(278, 21);
+            this.cmbCodigo.TabIndex = 3;
+            // 
+            // cmbEmpleado
+            // 
+            this.cmbEmpleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEmpleado.FormattingEnabled = true;
+            this.cmbEmpleado.ItemHeight = 13;
+            this.cmbEmpleado.Location = new System.Drawing.Point(191, 55);
+            this.cmbEmpleado.Name = "cmbEmpleado";
+            this.cmbEmpleado.Size = new System.Drawing.Size(278, 21);
+            this.cmbEmpleado.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(21, 26);
+            this.label3.Location = new System.Drawing.Point(32, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 16);
+            this.label3.Size = new System.Drawing.Size(121, 16);
             this.label3.TabIndex = 29;
-            this.label3.Text = "Código:";
-            // 
-            // txtNombreEmp
-            // 
-            this.txtNombreEmp.Location = new System.Drawing.Point(123, 52);
-            this.txtNombreEmp.Name = "txtNombreEmp";
-            this.txtNombreEmp.Size = new System.Drawing.Size(278, 20);
-            this.txtNombreEmp.TabIndex = 28;
+            this.label3.Text = "Código Empleado:";
             // 
             // cmbEstado
             // 
             this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Location = new System.Drawing.Point(124, 112);
+            this.cmbEstado.Location = new System.Drawing.Point(654, 55);
             this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(277, 21);
-            this.cmbEstado.TabIndex = 27;
+            this.cmbEstado.Size = new System.Drawing.Size(278, 21);
+            this.cmbEstado.TabIndex = 6;
             // 
             // cmbDepartamento
             // 
             this.cmbDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDepartamento.FormattingEnabled = true;
-            this.cmbDepartamento.Location = new System.Drawing.Point(124, 80);
+            this.cmbDepartamento.Location = new System.Drawing.Point(654, 16);
             this.cmbDepartamento.Name = "cmbDepartamento";
             this.cmbDepartamento.Size = new System.Drawing.Size(278, 21);
-            this.cmbDepartamento.TabIndex = 25;
+            this.cmbDepartamento.TabIndex = 5;
             // 
             // tollConsulta
             // 
@@ -301,20 +311,20 @@
             this.fechaCreacion,
             this.modificadoPor,
             this.fechaModificacion});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdConsultas.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdConsultas.DefaultCellStyle = dataGridViewCellStyle2;
             this.grdConsultas.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.grdConsultas.Location = new System.Drawing.Point(0, 292);
             this.grdConsultas.Name = "grdConsultas";
             this.grdConsultas.ReadOnly = true;
             this.grdConsultas.Size = new System.Drawing.Size(977, 202);
-            this.grdConsultas.TabIndex = 27;
+            this.grdConsultas.TabIndex = 9;
             // 
             // idMarca
             // 
@@ -425,6 +435,38 @@
             this.lblRango.TabIndex = 20;
             this.lblRango.Text = "Fechas a consultar:";
             // 
+            // estadoEmpleado
+            // 
+            this.estadoEmpleado.AutoSize = true;
+            this.estadoEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.estadoEmpleado.Location = new System.Drawing.Point(32, 99);
+            this.estadoEmpleado.Name = "estadoEmpleado";
+            this.estadoEmpleado.Size = new System.Drawing.Size(142, 16);
+            this.estadoEmpleado.TabIndex = 31;
+            this.estadoEmpleado.Text = "Estado del Empleado:";
+            // 
+            // rbtActivo
+            // 
+            this.rbtActivo.AutoSize = true;
+            this.rbtActivo.Location = new System.Drawing.Point(260, 99);
+            this.rbtActivo.Name = "rbtActivo";
+            this.rbtActivo.Size = new System.Drawing.Size(55, 17);
+            this.rbtActivo.TabIndex = 32;
+            this.rbtActivo.TabStop = true;
+            this.rbtActivo.Text = "Activo";
+            this.rbtActivo.UseVisualStyleBackColor = true;
+            // 
+            // rbtInactivo
+            // 
+            this.rbtInactivo.AutoSize = true;
+            this.rbtInactivo.Location = new System.Drawing.Point(368, 100);
+            this.rbtInactivo.Name = "rbtInactivo";
+            this.rbtInactivo.Size = new System.Drawing.Size(63, 17);
+            this.rbtInactivo.TabIndex = 33;
+            this.rbtInactivo.TabStop = true;
+            this.rbtInactivo.Text = "Inactivo";
+            this.rbtInactivo.UseVisualStyleBackColor = true;
+            // 
             // frmMantMarcas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -484,8 +526,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaModificacion;
         private System.Windows.Forms.ComboBox cmbEstado;
         private System.Windows.Forms.ComboBox cmbDepartamento;
-        private System.Windows.Forms.TextBox txtIdEmpleado;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtNombreEmp;
+        private System.Windows.Forms.ComboBox cmbEmpleado;
+        private System.Windows.Forms.ComboBox cmbCodigo;
+        private System.Windows.Forms.Label estadoEmpleado;
+        private System.Windows.Forms.RadioButton rbtInactivo;
+        private System.Windows.Forms.RadioButton rbtActivo;
     }
 }

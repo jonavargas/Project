@@ -336,13 +336,11 @@ namespace Datos
             }
         }
 
-      /*
-        public DataSet obtenerIdEmpleado()
+        public DataSet obtenerNombreEmpleado()
         {
-            DataSet datos = this.cnx.ejecutarConsultaSQL("select * from Empleado");
+            DataSet datos = this.cnx.ejecutarConsultaSQL("select nombreEmpleado || ' ' || apellido1 || ' ' || apellido2 as nombreCompleto from Empleado");
             try
             {
-
                 if (this.cnx.IsError == true)
                 {
                     this.error = true;
@@ -357,7 +355,26 @@ namespace Datos
             }
             return datos;
         }
-      */
+
+        public DataSet obtenerCodigoEmpleado()
+        {
+            DataSet datos = this.cnx.ejecutarConsultaSQL("select * from Empleado");
+            try
+            {
+                if (this.cnx.IsError == true)
+                {
+                    this.error = true;
+                    this.errorDescription = "Error obteniendo Empleados: " +
+                                            this.cnx.ErrorDescripcion;
+                }
+            }
+            catch (Exception e)
+            {
+                this.error = true;
+                this.errorDescription = "Error obteniendo Empleados: " + e.Message;
+            }
+            return datos;
+        }
 
         public List<EmpleadoL> obtenerIdEmpleado(string pidEmpleado)
         {

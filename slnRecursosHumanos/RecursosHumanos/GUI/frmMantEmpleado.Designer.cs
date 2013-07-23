@@ -136,7 +136,7 @@
             // idEmpleado
             // 
             this.idEmpleado.DataPropertyName = "idEmpleado";
-            this.idEmpleado.HeaderText = "Id Empleado";
+            this.idEmpleado.HeaderText = "Código Empleado";
             this.idEmpleado.Name = "idEmpleado";
             this.idEmpleado.ReadOnly = true;
             // 

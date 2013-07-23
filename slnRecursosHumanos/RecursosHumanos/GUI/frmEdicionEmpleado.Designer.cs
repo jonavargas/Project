@@ -58,9 +58,9 @@
             this.lblEmpleado.AutoSize = true;
             this.lblEmpleado.Location = new System.Drawing.Point(41, 31);
             this.lblEmpleado.Name = "lblEmpleado";
-            this.lblEmpleado.Size = new System.Drawing.Size(69, 13);
+            this.lblEmpleado.Size = new System.Drawing.Size(93, 13);
             this.lblEmpleado.TabIndex = 0;
-            this.lblEmpleado.Text = "Id Empleado:";
+            this.lblEmpleado.Text = "Código Empleado:";
             // 
             // lblDepartamento
             // 
@@ -130,9 +130,9 @@
             this.lblEstado.AutoSize = true;
             this.lblEstado.Location = new System.Drawing.Point(41, 263);
             this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(95, 13);
+            this.lblEstado.Size = new System.Drawing.Size(110, 13);
             this.lblEstado.TabIndex = 8;
-            this.lblEstado.Text = "Estado del Cliente:";
+            this.lblEstado.Text = "Estado del Empleado:";
             // 
             // chkActivo
             // 

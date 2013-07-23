@@ -1,3 +1,9 @@
+Acceso como Adminisrador.
+usuario: admin
+password: admin
+
+************************************************
+
 create table Usuario
 ( 
   idUsuario varchar(50) not null,
@@ -90,23 +96,21 @@ create table Empleado
        constraint Empleado_FK foreign key (idDepartamento)references Departamento(idDepartamento)
 );
 
-Acceso como Adminisrador.
-usuario: admin
-password: admin
-
-************************************************
-
 create table marca
 (
-       idMarca numeric(20),
+       idMarca numeric(50),
+       idUnificacion numeric(50),
        idEmpleado varchar(50),
+       nombreEmpleado varchar(50),
+       idDepartamento varchar(50),
        estadoMarca varchar(50),
+       fechaMarca date,
        tipoMarca varchar(50),
+       
        creadoPor varchar(100),
        fechaCreacion date,
        modificadoPor varchar(100),
        fechaModificacion date,
-       activo varchar(3),
        constraint PK_Marca primary key (idMarca),
        constraint Marca_FK foreign key (idEmpleado)references Empleado(idEmpleado)
 );

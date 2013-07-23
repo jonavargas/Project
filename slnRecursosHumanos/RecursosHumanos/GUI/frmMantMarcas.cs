@@ -32,6 +32,8 @@ namespace GUI
             this.cmbEstado.Items.Add("Pagada");
             this.cmbEstado.Items.Add("Anulada");
             this.cargarCmbDepartamento(pcnx);
+            this.cargarComboEmpleado(pcnx);
+            this.cargarComboCodigoEmpleado(pcnx);
             
         }
         /// <summary>
@@ -62,6 +64,22 @@ namespace GUI
             cmbDepartamento.ValueMember = "idDepartamento";
         }
 
+       public void cargarComboEmpleado(AccesoDatosOracle pcnx)
+        {
+            EmpleadoD oEmpleadoD = new EmpleadoD(pcnx);
+            cmbEmpleado.DataSource = oEmpleadoD.obtenerNombreEmpleado().Tables[0].Copy();
+            cmbEmpleado.DisplayMember = "nombreCompleto";
+            cmbEmpleado.ValueMember = "nombreCompleto";
+        }
+
+       public void cargarComboCodigoEmpleado(AccesoDatosOracle pcnx)
+       {
+           EmpleadoD oEmpleadoD = new EmpleadoD(pcnx);
+           cmbCodigo.DataSource = oEmpleadoD.obtenerCodigoEmpleado().Tables[0].Copy();
+           cmbCodigo.DisplayMember = "idEmpleado";
+           cmbCodigo.ValueMember = "idEmpleado";
+       }
+        
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
             string departamento;
@@ -93,8 +111,8 @@ namespace GUI
                     estado = "";
                 }
 
-                List<MarcaL> listaMarcas = oMarcaD.MarcaFiltro(this.dteFecha1.Value, this.dteFecha2.Value, departamento, 
-                                                                         estado, this.txtIdEmpleado.Text, this.txtNombreEmp.Text);
+                List<MarcaL> listaMarcas = oMarcaD.MarcaFiltro(this.dteFecha1.Value, this.dteFecha2.Value, departamento,
+                                                                         estado, this.cmbCodigo.Text, this.cmbEmpleado.Text);
                 if (!oMarcaD.Error)
                 {
                     this.grdConsultas.DataSource = listaMarcas;

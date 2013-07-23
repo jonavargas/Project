@@ -35,7 +35,9 @@ namespace GUI
             this.cmbEstado.Items.Add("En trámite");
             this.cmbEstado.Items.Add("Pagada");
             this.cmbEstado.Items.Add("Anulada");
-            this.cargarCmbDepartamento(pcnx);
+            this.cargarComboDepartamento(pcnx);
+            this.cargarComboEmpleado(pcnx);
+            this.cargarComboCodigoEmpleado(pcnx);
         }
 
         /// <summary>
@@ -52,7 +54,7 @@ namespace GUI
             set { oMarcaL = value; }
         }
                   
-        public void cargarCmbDepartamento(AccesoDatosOracle pcnx)
+        public void cargarComboDepartamento(AccesoDatosOracle pcnx)
         {
             DepartamentoD oDepartamentoD = new DepartamentoD(pcnx);
             cmbDepartamento.DataSource = oDepartamentoD.obtenerIdDepartamento().Tables[0].Copy();
@@ -60,23 +62,39 @@ namespace GUI
             cmbDepartamento.ValueMember = "idDepartamento";
         }
 
+        public void cargarComboEmpleado(AccesoDatosOracle pcnx)
+        {
+            EmpleadoD oEmpleadoD = new EmpleadoD(pcnx);
+            cmbEmpleado.DataSource = oEmpleadoD.obtenerNombreEmpleado().Tables[0].Copy();
+            cmbEmpleado.DisplayMember = "nombreCompleto";
+            cmbEmpleado.ValueMember = "nombreCompleto";
+        }
+
+        public void cargarComboCodigoEmpleado(AccesoDatosOracle pcnx)
+        {
+            EmpleadoD oEmpleadoD = new EmpleadoD(pcnx);
+            cmbCodigo.DataSource = oEmpleadoD.obtenerCodigoEmpleado().Tables[0].Copy();
+            cmbCodigo.DisplayMember = "idEmpleado";
+            cmbCodigo.ValueMember = "idEmpleado";
+        }
+
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (this.txtCodigo.Text == "")
+            if (this.cmbCodigo.Text == "")
             {
                 MessageBox.Show("Debe digitar un código!!!");
-                this.txtCodigo.Focus();
+                this.cmbCodigo.Focus();
                 return;
             }
 
             EmpleadoD oEmpleadoD = new EmpleadoD(this.cnx);
-            List<EmpleadoL> empleado = oEmpleadoD.obtenerIdEmpleado(this.txtCodigo.Text);
+            List<EmpleadoL> empleado = oEmpleadoD.(this.cmbCodigo.Text);
            
             if (empleado.Count == 0)
             {
                 MessageBox.Show("No se encontro el código del empleado!!!");
-                this.txtCodigo.Text = "";
-                this.txtCodigo.Focus();
+                this.cmbCodigo.Text = "";
+                this.cmbCodigo.Focus();
                 return;
             }          
         }
