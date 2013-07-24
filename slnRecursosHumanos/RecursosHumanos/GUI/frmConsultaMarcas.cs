@@ -75,10 +75,45 @@ namespace GUI
 
         }
 
+        public void cargarGrid()
+        {
+            try
+            {
+                MarcaD oMarcaD = new MarcaD(this.conexion);
+                this.grdConsultas.DataSource = oMarcaD.obtenerMarca();
+                if (oMarcaD.Error)
+                {
+                    MessageBox.Show("Error cargando los datos" + oMarcaD.ErrorDescription);
+                
+                }
+            }catch(Exception e){
+
+                MessageBox.Show("Error cargando los datos" + e.Message);
+            }  
+        }
+
+
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             frmEdicionMarcas ofrmEdicionMarcas = new frmEdicionMarcas(conexion);
             ofrmEdicionMarcas.ShowDialog();
+
+            if (ofrmEdicionMarcas.Aceptar)
+            {
+                MarcaD oMarcaD = new MarcaD(this.conexion);
+                oMarcaD.agregarMarca2(ofrmEdicionMarcas.MarcaL);
+                if (!oMarcaD.Error)
+                {
+
+                    MessageBox.Show("Registro agregado!!!");
+                    this.cargarGrid();
+
+                }else {
+                    MessageBox.Show("Error agregando los datos:" + oMarcaD.ErrorDescription);                
+                
+                }
+            
+            }
         }
     }
 }

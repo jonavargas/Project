@@ -249,7 +249,7 @@ namespace Datos
 
                 parametros[10] = new OracleParameter();
                 parametros[10].OracleType = OracleType.Double;
-                parametros[10].ParameterName = ":id_marcaOriginal";
+                parametros[10].ParameterName = ":idMarcaOriginal";
                 parametros[10].Value = pMarcaOriginal.IdMarca;
 
                 this.cnx.ejecutarSQL(sql, parametros);
