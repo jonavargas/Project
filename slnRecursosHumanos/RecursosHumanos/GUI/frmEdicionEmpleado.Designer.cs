@@ -58,9 +58,9 @@
             this.lblEmpleado.AutoSize = true;
             this.lblEmpleado.Location = new System.Drawing.Point(41, 31);
             this.lblEmpleado.Name = "lblEmpleado";
-            this.lblEmpleado.Size = new System.Drawing.Size(93, 13);
+            this.lblEmpleado.Size = new System.Drawing.Size(69, 13);
             this.lblEmpleado.TabIndex = 0;
-            this.lblEmpleado.Text = "Código Empleado:";
+            this.lblEmpleado.Text = "Id Empleado:";
             // 
             // lblDepartamento
             // 
@@ -130,9 +130,9 @@
             this.lblEstado.AutoSize = true;
             this.lblEstado.Location = new System.Drawing.Point(41, 263);
             this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(110, 13);
+            this.lblEstado.Size = new System.Drawing.Size(95, 13);
             this.lblEstado.TabIndex = 8;
-            this.lblEstado.Text = "Estado del Empleado:";
+            this.lblEstado.Text = "Estado del Cliente:";
             // 
             // chkActivo
             // 
@@ -260,7 +260,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(340, 353);
+            this.ClientSize = new System.Drawing.Size(343, 343);
             this.Controls.Add(this.cmbDepartamento);
             this.Controls.Add(this.txtFechaNacimiento);
             this.Controls.Add(this.txtTelefono);

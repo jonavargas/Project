@@ -17,7 +17,7 @@ namespace GUI
         /// <summary>
         /// Atributos de la clase Empleado  el cual recibe en su parte lógica un solo parámetro el cual es la conexión con Oracle
         /// </summary>
-      private  AccesoDatosOracle cnx;
+        AccesoDatosOracle cnx;
 
         /// <summary>
         /// Método Constructor de la parte grafica Empleado el cual recibe la conexión a la base de datos Oraclr 

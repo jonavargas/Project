@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.OracleClient;
 using Logica;
-using GUI;
-
 
 namespace Datos
 {
@@ -236,17 +234,66 @@ namespace Datos
         /// <param name="pEmpleadoEditado"></param>
         /// 
 
-        public DataSet buscarEmpleado(string pEmpleado)
+        public List<EmpleadoL> buscarEmpleado(string pEmpleado)
         {
+            List<EmpleadoL> retorno = new List<EmpleadoL>();
+            try
+            {
+                //select que carga el dataset con los datos de los usuarios
+                string sql = ("select * from Empleado where idEmpleado = :idEmpleado");
 
-            this.ErrorDescription = "";
-            string datos = ("select * from Empleado " +
-                                 "where idEmpleado = " + pEmpleado + " and Activo = 'Si'");
-            DataSet retorno = this.cnx.ejecutarConsultaSQL(datos);
-            if(this.cnx.IsError){
-                this.ErrorDescription = this.cnx.ErrorDescripcion;
+                OracleParameter[] parametros = new OracleParameter[1];
+
+                parametros[0] = new OracleParameter();
+                parametros[0].OracleType = OracleType.VarChar;
+                parametros[0].ParameterName = ":idEmpleado";
+                parametros[0].Value = pEmpleado;
+
+                DataSet datos = this.cnx.ejecutarConsultaSQL(sql, "Empleado", parametros);
+
+                if (this.cnx.IsError == false)
+                {
+                    //se recorre el dataset por cada fila
+                    foreach (DataRow fila in datos.Tables[0].Rows)
+                    {
+                        //se carca la lista de la lógica de usuario con sus siete atributos
+                        retorno.Add(
+                                    new EmpleadoL(fila["idEmpleado"].ToString(),
+                                                  fila["idDepartamento"].ToString(),           
+                                                   fila["nombreEmpleado"].ToString(),
+                                                   fila["apellido1"].ToString(),
+                                                   fila["apellido2"].ToString(),
+                                                   int.Parse(fila["numCedula"].ToString()),                                                   
+                                                   int.Parse(fila["telefono"].ToString()),
+                                                   fila["fechaNacimiento"].ToString(),
+                                                   double.Parse(fila["salarioPorHora"].ToString()),                                                   
+                                                   fila["creadoPor"].ToString(),
+                                                   DateTime.Parse(fila["fechaCreacion"].ToString()),
+                                                   fila["modificadoPor"].ToString(),
+                                                   DateTime.Parse(fila["fechaModificacion"].ToString()),
+                                                   fila["activo"].ToString())
+                                                 
+                                   );
+                    }
+                }
+                //se validan los errores 
+                else
+                {
+                    this.error = true;
+                    this.errorDescription = "Error obteniendo empleado:" +
+                                            this.cnx.ErrorDescripcion;
+                }
             }
+            catch (Exception e)
+            {
+                this.error = true;
+                this.errorDescription = "Error obteniendo empleado:" + e.Message;
+            }
+
             return retorno;
+            
+   
+             
         
         }
 
@@ -334,106 +381,6 @@ namespace Datos
                 this.error = true;
                 this.errorDescription = "Error editando Empleado: " + e.Message;
             }
-        }
-
-        public DataSet obtenerNombreEmpleado()
-        {
-            DataSet datos = this.cnx.ejecutarConsultaSQL("select nombreEmpleado || ' ' || apellido1 || ' ' || apellido2 as nombreCompleto from Empleado");
-            try
-            {
-                if (this.cnx.IsError == true)
-                {
-                    this.error = true;
-                    this.errorDescription = "Error obteniendo Empleados: " +
-                                            this.cnx.ErrorDescripcion;
-                }
-            }
-            catch (Exception e)
-            {
-                this.error = true;
-                this.errorDescription = "Error obteniendo Empleados: " + e.Message;
-            }
-            return datos;
-        }
-
-        public DataSet obtenerCodigoEmpleado()
-        {
-            DataSet datos = this.cnx.ejecutarConsultaSQL("select * from Empleado");
-            try
-            {
-                if (this.cnx.IsError == true)
-                {
-                    this.error = true;
-                    this.errorDescription = "Error obteniendo Empleados: " +
-                                            this.cnx.ErrorDescripcion;
-                }
-            }
-            catch (Exception e)
-            {
-                this.error = true;
-                this.errorDescription = "Error obteniendo Empleados: " + e.Message;
-            }
-            return datos;
-        }
-
-        public List<EmpleadoL> obtenerIdEmpleado(string pidEmpleado)
-        {
-            
-            List<EmpleadoL> retorno = new List<EmpleadoL>();
-            try
-            {
-               
-                string sql = ("select * from empleado where idEmpleado = :idEmpleado");
-
-                OracleParameter[] parametros = new OracleParameter[1];
-
-                parametros[0] = new OracleParameter();
-                parametros[0].OracleType = OracleType.VarChar;
-                parametros[0].ParameterName = ":idEmpleado";
-                parametros[0].Value = pidEmpleado;
-
-                DataSet datos = this.cnx.ejecutarConsultaSQL(sql, "empleado", parametros);
-
-                if (this.cnx.IsError == false)
-                {
-                    
-                    foreach (DataRow fila in datos.Tables[0].Rows)
-                    {
-                        
-                        retorno.Add(
-                                    new EmpleadoL(   fila["idEmpleado"].ToString(),
-                                                     fila["idDepartamento"].ToString(),
-                                                     fila["nombreEmpleado"].ToString(),
-                                                     fila["apellido1"].ToString(),
-                                                     fila["apellido2"].ToString(),
-                                                     int.Parse(fila["numCedula"].ToString()),
-                                                     int.Parse(fila["telefono"].ToString()),
-                                                     (fila["fechaNacimiento"].ToString()),
-                                                     double.Parse(fila["salarioPorHora"].ToString()),
-                                                     fila["creadoPor"].ToString(),
-                                                     DateTime.Parse(fila["fechaCreacion"].ToString()),
-                                                     fila["modificadoPor"].ToString(),
-                                                     DateTime.Parse(fila["fechaModificacion"].ToString()),
-                                                     fila["activo"].ToString()
-                                                    )
-                                   );
-                    }
-                }
-                //se validan los errores 
-                else
-                {
-                    this.error = true;
-                    this.errorDescription = "Error obteniendo empleado:" +
-                                            this.cnx.ErrorDescripcion;
-                }
-            }
-            catch (Exception e)
-            {
-                this.error = true;
-                this.errorDescription = "Error obteniendo empleado:" + e.Message;
-            }
-
-            return retorno;
         }
     }
 }

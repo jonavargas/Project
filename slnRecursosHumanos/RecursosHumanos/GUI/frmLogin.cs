@@ -47,7 +47,7 @@ namespace GUI
         {
             if ((this.txtLogin.Text != "") && (this.txtClave.Text != ""))
             {
-                if ((this.txtLogin.Text.Equals("admin")) && (txtClave.Text.Equals("admin")))
+                if ((this.txtLogin.Text.Equals("proyecto")) && (txtClave.Text.Equals("oracle")))
                 {
                     UsuarioD oUsuarioD = new UsuarioD(this.conexion);
                     List<UsuarioL> respuesta = oUsuarioD.usuarioAdministrador(new UsuarioL(this.txtLogin.Text, "Administrador", this.txtClave.Text));
