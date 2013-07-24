@@ -102,7 +102,7 @@ namespace Datos
             return retorno;
         }
         /// <summary>
-        /// Método que agrega un nuevo Usuario a la Base de Datos de Oracle,el cual recibe por parámetro un Empleado que viene cargado con 
+        /// Método que agrega unnuevo empleado a la Base de Datos de Oracle,el cual recibe por parámetro un Empleado que viene cargado con 
         /// los respectivos valores para ser pasados a la base de datos ya creada,ademas procede a realizar una consulta al sql para saber si
         /// los parámetros creados coinciden con los de la base de datos y si considen procede a insertarlos
         /// </summary>
