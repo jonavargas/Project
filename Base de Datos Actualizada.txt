@@ -1,9 +1,3 @@
-Acceso como Adminisrador.
-usuario: admin
-password: admin
-
-************************************************
-
 create table Usuario
 ( 
   idUsuario varchar(50) not null,
@@ -96,16 +90,23 @@ create table Empleado
        constraint Empleado_FK foreign key (idDepartamento)references Departamento(idDepartamento)
 );
 
+Acceso como Adminisrador.
+usuario: admin
+password: admin
+
+************************************************
+
 create table marca
 (
-       idMarca numeric(50),
-       idEmpleado varchar(50),
-       estadoMarca varchar(50),
+       idMarca numeric(20),
+       idEmpleado varchar(50),       
+       estadoMarca varchar(50),     
        tipoMarca varchar(50),
        creadoPor varchar(100),
        fechaCreacion date,
        modificadoPor varchar(100),
        fechaModificacion date,
+       activo varchar(3),
        constraint PK_Marca primary key (idMarca),
        constraint Marca_FK foreign key (idEmpleado)references Empleado(idEmpleado)
 );
@@ -113,7 +114,7 @@ create table marca
 CREATE SEQUENCE seq_marca MINVALUE 1 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 2 
 CACHE 20 NOORDER  NOCYCLE;
 
-create or replace trigger trg_marca
+create or replace trigger trg_marca_bef_i
 BEFORE INSERT ON marca FOR EACH ROW
 BEGIN
    SELECT seq_marca.NEXTVAL

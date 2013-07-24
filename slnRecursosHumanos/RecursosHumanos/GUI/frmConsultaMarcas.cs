@@ -31,5 +31,14 @@ namespace GUI
 
 
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            cmbDepartamento.SelectedIndex = 0;
+            cmbEmpleado.SelectedIndex = 0;
+            cmbEstado.SelectedIndex = 0;
+
+
+        }
     }
 }

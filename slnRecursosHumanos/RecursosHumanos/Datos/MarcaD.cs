@@ -353,7 +353,129 @@ namespace Datos
             }
         }
 
-   
+            public List<MarcaL> obtenerMarcaFiltro(DateTime pFecha1, DateTime pFecha2, string pDepartamento,
+                                            string pEstado, string pIdEmpleado, string pNombreEmpleado)
+            {
+                List<MarcaL> retorno = new List<MarcaL>();
+                try
+                {
+                    
+                    string sql = "select m.*, e.nombre || ' ' || e.apellido1 || ' ' || e.apellido2 as nombreCompleto from marca m, Empleado e where m.idEmpleado = e.idEmpleado and  m.fechaCreacion >= :fecha1 and m.fechCreacion <= :fecha2";
+                    int indices = 2;
+
+                    if (pDepartamento != "")
+                    {
+                        sql += " and e.idDepartamento = :idDepartamento";
+                        indices++;
+                    }
+
+                    if (pEstado != "")
+                    {
+                        sql += " and m.estado = :estado";
+                        indices++;
+                    }
+
+                    if (pIdEmpleado != "")
+                    {
+                        sql += " and m.idEmpleado = :idEmpleado";
+                        indices++;
+                    }
+
+                    if (pNombreEmpleado != "")
+                    {
+                        sql += " and e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 like :nombreEmpleado";
+                        indices++;
+                    }
+
+                    OracleParameter[] parametros = new OracleParameter[indices];
+
+                    parametros[0] = new OracleParameter();
+                    parametros[0].OracleType = OracleType.DateTime;
+                    parametros[0].ParameterName = ":fecha1";
+                    parametros[0].Value = pFecha1;
+
+                    parametros[1] = new OracleParameter();
+                    parametros[1].OracleType = OracleType.DateTime;
+                    parametros[1].ParameterName = ":fecha2";
+                    parametros[1].Value = pFecha2;
+
+                    indices = 2;
+                    if (pDepartamento != "")
+                    {
+                        parametros[indices] = new OracleParameter();
+                        parametros[indices].OracleType = OracleType.VarChar;
+                        parametros[indices].ParameterName = ":idDepartamento";
+                        parametros[indices].Value = pDepartamento;
+                        indices++;
+                    }
+
+                    if (pEstado != "")
+                    {
+                        parametros[indices] = new OracleParameter();
+                        parametros[indices].OracleType = OracleType.VarChar;
+                        parametros[indices].ParameterName = ":estado";
+                        parametros[indices].Value = pEstado;
+                        indices++;
+                    }
+
+                    if (pIdEmpleado != "")
+                    {
+                        parametros[indices] = new OracleParameter();
+                        parametros[indices].OracleType = OracleType.VarChar;
+                        parametros[indices].ParameterName = ":idEmpleado";
+                        parametros[indices].Value = pIdEmpleado;
+                        indices++;
+                    }
+
+                    if (pNombreEmpleado != "")
+                    {
+                        parametros[indices] = new OracleParameter();
+                        parametros[indices].OracleType = OracleType.VarChar;
+                        parametros[indices].ParameterName = ":nombreEmpleado";
+                        parametros[indices].Value = "%" + pNombreEmpleado + "%";
+
+                    }
+
+                    DataSet datos = this.cnx.ejecutarConsultaSQL(sql, "marca", parametros);
+                    if (this.cnx.IsError == false)
+                    {
+                        foreach (DataRow fila in datos.Tables[0].Rows)
+                        {
+                            //se carga la lista de la lógica de empleado con sus siete atributos
+                            retorno.Add(
+                                        new MarcaL(int.Parse(fila["id_marca"].ToString()),
+                                                       int.Parse(fila["id_unificacion"].ToString()),
+                                                       fila["id_empleado"].ToString(),
+                                                       Convert.ToDateTime(fila["fecha"].ToString()),
+                                                       fila["tipo"].ToString(),
+                                                       fila["estado"].ToString(),
+                                                       fila["creadoPor"].ToString(),
+                                                       Convert.ToDateTime(fila["fechaCreacion"].ToString()),
+                                                       fila["modificadoPor"].ToString(),
+                                                       Convert.ToDateTime(fila["fechaModificacion"].ToString()),
+                                                       fila["nombreCompleto"].ToString()
+                                                     )
+                                       );
+                        }
+                    }
+
+                    else
+                    {
+                        this.error = true;
+                        this.errorDescription = "Error obteniendo marcas:" +
+                                                this.cnx.ErrorDescripcion;
+
+                    }
+                }
+
+                catch (Exception e)
+                {
+                    this.error = true;
+                    this.errorDescription = "Error obteniendo marcas:" + e.Message;
+                }
+                return retorno;
+
+            }
 
 
     }

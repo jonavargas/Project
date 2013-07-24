@@ -106,5 +106,14 @@ namespace GUI
             frmRegistroMarcas ofrmRegistroMarcas = new frmRegistroMarcas(this.cnx);
             ofrmRegistroMarcas.ShowDialog();
         }
+
+        private void maToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConsultaMarcas ofrmConsultaMarcas = new frmConsultaMarcas(this.cnx);
+            ofrmConsultaMarcas.ShowDialog();
+
+
+
+        }
     }
 }
