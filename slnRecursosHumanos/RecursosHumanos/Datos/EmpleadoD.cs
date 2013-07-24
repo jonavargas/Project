@@ -292,9 +292,6 @@ namespace Datos
 
             return retorno;
             
-   
-             
-        
         }
 
         public void editarEmpleado(EmpleadoL pEmpleadoOriginal, EmpleadoL pEmpleadoEditado)
@@ -381,6 +378,46 @@ namespace Datos
                 this.error = true;
                 this.errorDescription = "Error editando Empleado: " + e.Message;
             }
+        }
+
+        public DataSet obtenerNombreEmpleado()
+        {
+            DataSet datos = this.cnx.ejecutarConsultaSQL("select nombreEmpleado || ' ' || apellido1 || ' ' || apellido2 as nombreCompleto from Empleado");
+            try
+            {
+                if (this.cnx.IsError == true)
+                {
+                    this.error = true;
+                    this.errorDescription = "Error obteniendo Empleados: " +
+                                            this.cnx.ErrorDescripcion;
+                }
+            }
+            catch (Exception e)
+            {
+                this.error = true;
+                this.errorDescription = "Error obteniendo Empleados: " + e.Message;
+            }
+            return datos;
+        }
+
+        public DataSet obtenerCodigoEmpleado()
+        {
+            DataSet datos = this.cnx.ejecutarConsultaSQL("select * from Empleado");
+            try
+            {
+                if (this.cnx.IsError == true)
+                {
+                    this.error = true;
+                    this.errorDescription = "Error obteniendo Empleados: " +
+                                            this.cnx.ErrorDescripcion;
+                }
+            }
+            catch (Exception e)
+            {
+                this.error = true;
+                this.errorDescription = "Error obteniendo Empleados: " + e.Message;
+            }
+            return datos;
         }
     }
 }
