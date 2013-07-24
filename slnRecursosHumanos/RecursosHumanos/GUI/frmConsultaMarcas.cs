@@ -14,6 +14,9 @@ namespace GUI
 {
     public partial class frmConsultaMarcas : Form
     {
+        /// <summary>
+        /// Variable para hacer la conexión a la base de datos
+        /// </summary>
         private AccesoDatosOracle conexion;
        
         public frmConsultaMarcas(AccesoDatosOracle pConexion)
