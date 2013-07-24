@@ -142,7 +142,6 @@ namespace Datos
             return datos;
         }
 
-
         public List<MarcaL> obtenerMarcas()
         {
            List<MarcaL> retorno = new List<MarcaL>();
@@ -401,7 +400,4 @@ namespace Datos
         }
 
     }
-
-
-    
 }
