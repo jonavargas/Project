@@ -15,7 +15,7 @@ namespace GUI
     public partial class frmEdicionMarcas : Form
     {
         /// <summary>
-        ///  Atributos de la clase el cual verifica el botón aceptar y un objeto tipo Empleado en la parte lógica
+        ///  Atributos de la clase el cual verifica el botón aceptar.
         /// </summary>
         private AccesoDatosOracle cnx;
         private Boolean aceptar;
@@ -34,6 +34,10 @@ namespace GUI
             set { aceptar = value; }
         }
 
+        /// <summary>
+        /// Metodo constructor que recibe por parámetro la conexión a la base de datos
+        /// </summary>
+        /// <param name="pcnx"></param>
         public frmEdicionMarcas(AccesoDatosOracle pcnx)
         {
             InitializeComponent();
@@ -43,7 +47,10 @@ namespace GUI
             this.txtEstado.ReadOnly = true;
             
         }
-
+        /// <summary>
+        /// Método para cargar el combobox CodigoEmpleado con los codigos existentes en la base de datos.
+        /// </summary>
+        /// <param name="pcnx"></param>
         public void cargarComboCodigoEmpleado(AccesoDatosOracle pcnx)
         {
             EmpleadoD oEmpleadoD = new EmpleadoD(pcnx);
@@ -68,6 +75,11 @@ namespace GUI
             }
             this.Aceptar = true;
             this.Close();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

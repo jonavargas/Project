@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.grpInfoEmpleado = new System.Windows.Forms.GroupBox();
+            this.txtEstado = new System.Windows.Forms.TextBox();
             this.cmbCodigo = new System.Windows.Forms.ComboBox();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
@@ -39,7 +40,6 @@
             this.grpTipo = new System.Windows.Forms.GroupBox();
             this.rdoSalida = new System.Windows.Forms.RadioButton();
             this.rdoEntrada = new System.Windows.Forms.RadioButton();
-            this.txtEstado = new System.Windows.Forms.TextBox();
             this.grpInfoEmpleado.SuspendLayout();
             this.grpTipo.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +59,13 @@
             this.grpInfoEmpleado.TabIndex = 22;
             this.grpInfoEmpleado.TabStop = false;
             this.grpInfoEmpleado.Text = "Información empleado";
+            // 
+            // txtEstado
+            // 
+            this.txtEstado.Location = new System.Drawing.Point(168, 80);
+            this.txtEstado.Name = "txtEstado";
+            this.txtEstado.Size = new System.Drawing.Size(275, 22);
+            this.txtEstado.TabIndex = 2;
             // 
             // cmbCodigo
             // 
@@ -119,6 +126,7 @@
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAceptar
             // 
@@ -169,13 +177,6 @@
             this.rdoEntrada.TabStop = true;
             this.rdoEntrada.Text = "Entrada";
             this.rdoEntrada.UseVisualStyleBackColor = true;
-            // 
-            // txtEstado
-            // 
-            this.txtEstado.Location = new System.Drawing.Point(168, 80);
-            this.txtEstado.Name = "txtEstado";
-            this.txtEstado.Size = new System.Drawing.Size(275, 22);
-            this.txtEstado.TabIndex = 2;
             // 
             // frmEdicionMarcas
             // 

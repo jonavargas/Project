@@ -19,6 +19,10 @@ namespace GUI
         /// </summary>
         private AccesoDatosOracle conexion;
        
+        /// <summary>
+        /// Metodo constructor que recibe por parámetro la conexión a la base de datos.
+        /// </summary>
+        /// <param name="pConexion"></param>
         public frmConsultaMarcas(AccesoDatosOracle pConexion)
         {
             InitializeComponent(); 
@@ -34,6 +38,10 @@ namespace GUI
             this.cmbEstado.Items.Add("Anulada");
 
         }
+        /// <summary>
+        /// Método para cargar el combobox Departamento con los departamentos existentes en la base de datos.
+        /// </summary>
+        /// <param name="pcnx"></param>
 
         public void cargarCmbDepartamento(AccesoDatosOracle pcnx)
         {
@@ -43,6 +51,11 @@ namespace GUI
             cmbDepartamento.ValueMember = "idDepartamento";
         }
 
+        /// <summary>
+        /// Método para cargar el combobox Empleado con los enpleados existentes en la base de datos.
+        /// </summary>
+        /// <param name="pcnx"></param>
+
         public void cargarComboEmpleado(AccesoDatosOracle pcnx)
         {
             EmpleadoD oEmpleadoD = new EmpleadoD(pcnx);
@@ -50,6 +63,12 @@ namespace GUI
             cmbEmpleado.DisplayMember = "nombreCompleto";
             cmbEmpleado.ValueMember = "nombreCompleto";
         }
+
+        /// <summary>
+        /// Método para cargar el combobox CodigoEmpleadoo con los codigos existentes en la base de datos.
+        /// </summary>
+        /// <param name="pcnx"></param>
+
 
         public void cargarComboCodigoEmpleado(AccesoDatosOracle pcnx)
         {
@@ -59,21 +78,34 @@ namespace GUI
             cmbCodigo.ValueMember = "idEmpleado";
         }
 
+        /// <summary>
+        /// Evento del botón filtrar que nos filtra la información para emcontrarla más rapido.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
             
 
 
         }
+        /// <summary>
+        /// Método para limpiar los datos que se encuentran seleccionados.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             cmbDepartamento.SelectedIndex = 0;
             cmbEmpleado.SelectedIndex = 0;
             cmbEstado.SelectedIndex = 0;
-
-
         }
+        /// <summary>
+        /// Boton nuevo que llama al frmedición marcas
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         public void cargarGrid()
         {
