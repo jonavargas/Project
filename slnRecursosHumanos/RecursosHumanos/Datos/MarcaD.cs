@@ -352,7 +352,7 @@ namespace Datos
                 this.errorDescription = "Error editando marca:" + e.Message;
             }
         }
-
+       
             public List<MarcaL> obtenerMarcaFiltro(DateTime pFecha1, DateTime pFecha2, string pDepartamento,
                                             string pEstado, string pIdEmpleado, string pNombreEmpleado)
             {
@@ -443,18 +443,21 @@ namespace Datos
                         {
                             //se carga la lista de la lógica de empleado con sus siete atributos
                             retorno.Add(
-                                        new MarcaL(int.Parse(fila["id_marca"].ToString()),
-                                                       int.Parse(fila["id_unificacion"].ToString()),
-                                                       fila["id_empleado"].ToString(),
-                                                       Convert.ToDateTime(fila["fecha"].ToString()),
-                                                       fila["tipo"].ToString(),
-                                                       fila["estado"].ToString(),
+                                        new MarcaL(int.Parse(fila["idMarca"].ToString()),                                                       
+                                                       fila["idEmpleado"].ToString(),
+                                                       fila["estadoMarca"].ToString(),
+                                                       fila["tipoMarca"].ToString(),
                                                        fila["creadoPor"].ToString(),
-                                                       Convert.ToDateTime(fila["fechaCreacion"].ToString()),
+                                                       DateTime.Parse(fila["fechaCreacion"].ToString()),
                                                        fila["modificadoPor"].ToString(),
-                                                       Convert.ToDateTime(fila["fechaModificacion"].ToString()),
-                                                       fila["nombreCompleto"].ToString()
-                                                     )
+                                                       DateTime.Parse(fila["fechaModificacion"].ToString()),
+                                                       fila["activo"].ToString())                                  
+                                                       
+                                                       
+                                                       
+                                                       
+                                                       
+                                                     
                                        );
                         }
                     }
@@ -462,7 +465,7 @@ namespace Datos
                     else
                     {
                         this.error = true;
-                        this.errorDescription = "Error obteniendo marcas:" +
+                        this.errorDescription = "Error obteniendo Marca:" +
                                                 this.cnx.ErrorDescripcion;
 
                     }
@@ -471,12 +474,12 @@ namespace Datos
                 catch (Exception e)
                 {
                     this.error = true;
-                    this.errorDescription = "Error obteniendo marcas:" + e.Message;
+                    this.errorDescription = "Error obteniendo Marca:" + e.Message;
                 }
                 return retorno;
 
             }
 
-
+       
     }
 } 
