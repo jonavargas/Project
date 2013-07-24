@@ -40,17 +40,6 @@
             this.btnAnular = new System.Windows.Forms.ToolStripButton();
             this.btnRefrescar = new System.Windows.Forms.ToolStripButton();
             this.grdConsultas = new System.Windows.Forms.DataGridView();
-            this.idMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idUnificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.creadoPor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modificadoPor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaModificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpFiltro = new System.Windows.Forms.GroupBox();
             this.lblRango = new System.Windows.Forms.Label();
             this.grpConsulta = new System.Windows.Forms.GroupBox();
@@ -67,6 +56,16 @@
             this.lblDepartamento = new System.Windows.Forms.Label();
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.lblEmpleado = new System.Windows.Forms.Label();
+            this.idMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.creadoPor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modificadoPor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaModificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tollConsulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdConsultas)).BeginInit();
             this.grpFiltro.SuspendLayout();
@@ -176,7 +175,6 @@
             this.grdConsultas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdConsultas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idMarca,
-            this.idUnificacion,
             this.idEmpleado,
             this.NombreEmpleado,
             this.fecha,
@@ -200,92 +198,6 @@
             this.grdConsultas.ReadOnly = true;
             this.grdConsultas.Size = new System.Drawing.Size(977, 185);
             this.grdConsultas.TabIndex = 27;
-            // 
-            // idMarca
-            // 
-            this.idMarca.DataPropertyName = "idmarca";
-            this.idMarca.HeaderText = "Cod. Marca";
-            this.idMarca.Name = "idMarca";
-            this.idMarca.ReadOnly = true;
-            this.idMarca.Width = 50;
-            // 
-            // idUnificacion
-            // 
-            this.idUnificacion.DataPropertyName = "idunificacion";
-            this.idUnificacion.HeaderText = "Cod. Unificación";
-            this.idUnificacion.Name = "idUnificacion";
-            this.idUnificacion.ReadOnly = true;
-            this.idUnificacion.Width = 70;
-            // 
-            // idEmpleado
-            // 
-            this.idEmpleado.DataPropertyName = "idempleado";
-            this.idEmpleado.HeaderText = "Cod. Empleado";
-            this.idEmpleado.Name = "idEmpleado";
-            this.idEmpleado.ReadOnly = true;
-            // 
-            // NombreEmpleado
-            // 
-            this.NombreEmpleado.DataPropertyName = "nombreEmpleado";
-            this.NombreEmpleado.HeaderText = "Nombre";
-            this.NombreEmpleado.Name = "NombreEmpleado";
-            this.NombreEmpleado.ReadOnly = true;
-            this.NombreEmpleado.Width = 120;
-            // 
-            // fecha
-            // 
-            this.fecha.DataPropertyName = "fecha";
-            this.fecha.HeaderText = "Fecha";
-            this.fecha.Name = "fecha";
-            this.fecha.ReadOnly = true;
-            this.fecha.Width = 130;
-            // 
-            // tipo
-            // 
-            this.tipo.DataPropertyName = "tipo";
-            this.tipo.HeaderText = "Tipo";
-            this.tipo.Name = "tipo";
-            this.tipo.ReadOnly = true;
-            this.tipo.Width = 40;
-            // 
-            // estado
-            // 
-            this.estado.DataPropertyName = "estado";
-            this.estado.HeaderText = "Estado";
-            this.estado.Name = "estado";
-            this.estado.ReadOnly = true;
-            this.estado.Width = 80;
-            // 
-            // creadoPor
-            // 
-            this.creadoPor.DataPropertyName = "creadoPor";
-            this.creadoPor.HeaderText = "Creado por:";
-            this.creadoPor.Name = "creadoPor";
-            this.creadoPor.ReadOnly = true;
-            this.creadoPor.Width = 85;
-            // 
-            // fechaCreacion
-            // 
-            this.fechaCreacion.DataPropertyName = "fechaCreacion";
-            this.fechaCreacion.HeaderText = "Fecha creación";
-            this.fechaCreacion.Name = "fechaCreacion";
-            this.fechaCreacion.ReadOnly = true;
-            // 
-            // modificadoPor
-            // 
-            this.modificadoPor.DataPropertyName = "modificadoPor";
-            this.modificadoPor.HeaderText = "Modificado por:";
-            this.modificadoPor.Name = "modificadoPor";
-            this.modificadoPor.ReadOnly = true;
-            this.modificadoPor.Width = 85;
-            // 
-            // fechaModificacion
-            // 
-            this.fechaModificacion.DataPropertyName = "fechaModificacion";
-            this.fechaModificacion.HeaderText = "Fecha modificación";
-            this.fechaModificacion.Name = "fechaModificacion";
-            this.fechaModificacion.ReadOnly = true;
-            this.fechaModificacion.Width = 105;
             // 
             // grpFiltro
             // 
@@ -462,6 +374,84 @@
             this.lblEmpleado.TabIndex = 21;
             this.lblEmpleado.Text = "Nombre del Empleado: ";
             // 
+            // idMarca
+            // 
+            this.idMarca.DataPropertyName = "idmarca";
+            this.idMarca.HeaderText = "Cod. Marca";
+            this.idMarca.Name = "idMarca";
+            this.idMarca.ReadOnly = true;
+            this.idMarca.Width = 50;
+            // 
+            // idEmpleado
+            // 
+            this.idEmpleado.DataPropertyName = "idempleado";
+            this.idEmpleado.HeaderText = "Cod. Empleado";
+            this.idEmpleado.Name = "idEmpleado";
+            this.idEmpleado.ReadOnly = true;
+            // 
+            // NombreEmpleado
+            // 
+            this.NombreEmpleado.DataPropertyName = "nombreEmpleado";
+            this.NombreEmpleado.HeaderText = "Nombre";
+            this.NombreEmpleado.Name = "NombreEmpleado";
+            this.NombreEmpleado.ReadOnly = true;
+            this.NombreEmpleado.Width = 120;
+            // 
+            // fecha
+            // 
+            this.fecha.DataPropertyName = "fecha";
+            this.fecha.HeaderText = "Fecha";
+            this.fecha.Name = "fecha";
+            this.fecha.ReadOnly = true;
+            this.fecha.Width = 130;
+            // 
+            // tipo
+            // 
+            this.tipo.DataPropertyName = "tipo";
+            this.tipo.HeaderText = "Tipo";
+            this.tipo.Name = "tipo";
+            this.tipo.ReadOnly = true;
+            this.tipo.Width = 40;
+            // 
+            // estado
+            // 
+            this.estado.DataPropertyName = "estado";
+            this.estado.HeaderText = "Estado";
+            this.estado.Name = "estado";
+            this.estado.ReadOnly = true;
+            this.estado.Width = 80;
+            // 
+            // creadoPor
+            // 
+            this.creadoPor.DataPropertyName = "creadoPor";
+            this.creadoPor.HeaderText = "Creado por:";
+            this.creadoPor.Name = "creadoPor";
+            this.creadoPor.ReadOnly = true;
+            this.creadoPor.Width = 85;
+            // 
+            // fechaCreacion
+            // 
+            this.fechaCreacion.DataPropertyName = "fechaCreacion";
+            this.fechaCreacion.HeaderText = "Fecha creación";
+            this.fechaCreacion.Name = "fechaCreacion";
+            this.fechaCreacion.ReadOnly = true;
+            // 
+            // modificadoPor
+            // 
+            this.modificadoPor.DataPropertyName = "modificadoPor";
+            this.modificadoPor.HeaderText = "Modificado por:";
+            this.modificadoPor.Name = "modificadoPor";
+            this.modificadoPor.ReadOnly = true;
+            this.modificadoPor.Width = 85;
+            // 
+            // fechaModificacion
+            // 
+            this.fechaModificacion.DataPropertyName = "fechaModificacion";
+            this.fechaModificacion.HeaderText = "Fecha modificación";
+            this.fechaModificacion.Name = "fechaModificacion";
+            this.fechaModificacion.ReadOnly = true;
+            this.fechaModificacion.Width = 105;
+            // 
             // frmConsultaMarcas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -502,17 +492,6 @@
         private System.Windows.Forms.DataGridView grdConsultas;
         private System.Windows.Forms.GroupBox grpFiltro;
         private System.Windows.Forms.Label lblRango;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idMarca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idUnificacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idEmpleado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreEmpleado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn creadoPor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaCreacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn modificadoPor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaModificacion;
         private System.Windows.Forms.GroupBox grpConsulta;
         private System.Windows.Forms.RadioButton rbtInactivo;
         private System.Windows.Forms.RadioButton rbtActivo;
@@ -527,5 +506,15 @@
         private System.Windows.Forms.Label lblDepartamento;
         private System.Windows.Forms.Button btnFiltrar;
         private System.Windows.Forms.Label lblEmpleado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idMarca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idEmpleado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreEmpleado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn creadoPor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaCreacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn modificadoPor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaModificacion;
     }
 }

@@ -291,11 +291,13 @@ namespace Datos
             }
 
             return retorno;
-            
-   
-             
-        
+         
         }
+        /// <summary>
+        /// Metodo para editar el empleado y guardar los cambios realizados
+        /// </summary>
+        /// <param name="pEmpleadoOriginal"></param>
+        /// <param name="pEmpleadoEditado"></param>
 
         public void editarEmpleado(EmpleadoL pEmpleadoOriginal, EmpleadoL pEmpleadoEditado)
         {

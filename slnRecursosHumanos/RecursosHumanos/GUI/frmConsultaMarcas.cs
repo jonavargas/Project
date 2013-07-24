@@ -19,6 +19,10 @@ namespace GUI
         /// </summary>
         private AccesoDatosOracle conexion;
        
+        /// <summary>
+        /// Constructor que recibe un
+        /// </summary>
+        /// <param name="pConexion"></param>
         public frmConsultaMarcas(AccesoDatosOracle pConexion)
         {
             InitializeComponent(); 
