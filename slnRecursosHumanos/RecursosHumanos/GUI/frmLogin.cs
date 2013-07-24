@@ -16,7 +16,6 @@ namespace GUI
     {
         private bool aceptar;
         private UsuarioL oLogin;
-        
         private AccesoDatosOracle conexion;
 
         public bool Aceptar
@@ -36,6 +35,7 @@ namespace GUI
             InitializeComponent();
             this.aceptar = false;
             this.conexion = pConexion;
+            string nombreUsuario = this.txtLogin.Text;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

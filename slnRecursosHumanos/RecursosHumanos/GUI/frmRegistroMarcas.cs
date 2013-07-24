@@ -32,7 +32,6 @@ namespace GUI
         private void btnMarcar_Click(object sender, EventArgs e)
         {
             int contMarcas=1;
-            
             MarcaD oMarcaD=new MarcaD(this.cnx);
             EmpleadoD oEmpleadoD=new EmpleadoD(this.cnx);
             List<EmpleadoL> empleado = oEmpleadoD.buscarEmpleado(this.txtCodigoEmpleado.Text);
@@ -41,7 +40,7 @@ namespace GUI
 
                 if (empleado.Count>0)
                 {
-                    MarcaL oMarcaL = new MarcaL(contMarcas, txtCodigoEmpleado.Text, "Generado", oMarcaD.tipoMarca(txtCodigoEmpleado.Text), "Proyecto", DateTime.Now, "Proyecto", DateTime.Now, "Sí");
+                    MarcaL oMarcaL = new MarcaL(contMarcas, txtCodigoEmpleado.Text, "Generado", oMarcaD.tipoMarca(txtCodigoEmpleado.Text), Program.oUsuarioLogueado.IdUsuario, DateTime.Now, Program.oUsuarioLogueado.IdUsuario, DateTime.Now, "Sí");
                     oMarcaD.agregarMarca2(oMarcaL);
                     txtCodigoEmpleado.Text = "";
                 }
