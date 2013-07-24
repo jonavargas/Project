@@ -379,6 +379,10 @@ namespace Datos
                 this.errorDescription = "Error editando Empleado: " + e.Message;
             }
         }
+        /// <summary>
+        /// Metodo que obtiene el nombre del empleado, realizando una consulta en la base de datos
+        /// </summary>
+        /// <returns></returns>
 
         public DataSet obtenerNombreEmpleado()
         {
@@ -399,6 +403,10 @@ namespace Datos
             }
             return datos;
         }
+        /// <summary>
+        /// Metodo que obtiene el codig del empleado, y realiza una consulta en la base de datos.
+        /// </summary>
+        /// <returns></returns>
 
         public DataSet obtenerCodigoEmpleado()
         {

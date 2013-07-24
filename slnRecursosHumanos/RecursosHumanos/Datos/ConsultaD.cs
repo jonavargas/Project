@@ -181,7 +181,7 @@ namespace Datos
             return retorno;
         }
        /// <summary>
-       /// Metodo que nos facilita editar una marca realizada por el empleado
+        /// Método que nos facilita editar una marca realizada por el empleado
        /// </summary>
        /// <param name="pMarcaEditada"></param>
        /// <param name="pMarcaOriginal"></param>
