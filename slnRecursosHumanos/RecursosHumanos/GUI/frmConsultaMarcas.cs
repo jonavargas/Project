@@ -43,5 +43,11 @@ namespace GUI
 
 
         }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            frmEdicionMarcas ofrmEdicionMarcas = new frmEdicionMarcas();
+            ofrmEdicionMarcas.ShowDialog();
+        }
     }
 }
