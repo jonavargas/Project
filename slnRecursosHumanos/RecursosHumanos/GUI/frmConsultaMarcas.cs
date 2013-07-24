@@ -32,6 +32,7 @@ namespace GUI
             this.cmbEstado.Items.Add("En trámite");
             this.cmbEstado.Items.Add("Pagada");
             this.cmbEstado.Items.Add("Anulada");
+
         }
 
         public void cargarCmbDepartamento(AccesoDatosOracle pcnx)
@@ -76,7 +77,7 @@ namespace GUI
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            frmEdicionMarcas ofrmEdicionMarcas = new frmEdicionMarcas();
+            frmEdicionMarcas ofrmEdicionMarcas = new frmEdicionMarcas(conexion);
             ofrmEdicionMarcas.ShowDialog();
         }
     }
