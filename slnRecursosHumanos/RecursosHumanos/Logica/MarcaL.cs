@@ -37,6 +37,18 @@ namespace Logica
             this.fechaModificacion = pFechaModificacion;
             this.activo = pActivo;
         }
+        public MarcaL(string pIdEmpleado, string pEstadoMarca, string pTipoMarca, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, DateTime pFechaModificacion, string pActivo)
+        {
+            
+            this.idEmpleado = pIdEmpleado;
+            this.estadoMarca = pEstadoMarca;
+            this.tipoMarca = pTipoMarca;
+            this.creadoPor = pCreadoPor;
+            this.fechaCreacion = pFechaCreacion;
+            this.modificadoPor = pModificadoPor;
+            this.fechaModificacion = pFechaModificacion;
+            this.activo = pActivo;
+        }
 
         public MarcaL()
         {

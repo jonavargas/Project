@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.grpInfoEmpleado = new System.Windows.Forms.GroupBox();
+            this.txtEstado = new System.Windows.Forms.TextBox();
             this.cmbCodigo = new System.Windows.Forms.ComboBox();
-            this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,8 +46,8 @@
             // 
             // grpInfoEmpleado
             // 
+            this.grpInfoEmpleado.Controls.Add(this.txtEstado);
             this.grpInfoEmpleado.Controls.Add(this.cmbCodigo);
-            this.grpInfoEmpleado.Controls.Add(this.cmbEstado);
             this.grpInfoEmpleado.Controls.Add(this.dtpFecha);
             this.grpInfoEmpleado.Controls.Add(this.label5);
             this.grpInfoEmpleado.Controls.Add(this.label3);
@@ -60,6 +60,13 @@
             this.grpInfoEmpleado.TabStop = false;
             this.grpInfoEmpleado.Text = "Información empleado";
             // 
+            // txtEstado
+            // 
+            this.txtEstado.Location = new System.Drawing.Point(168, 80);
+            this.txtEstado.Name = "txtEstado";
+            this.txtEstado.Size = new System.Drawing.Size(275, 22);
+            this.txtEstado.TabIndex = 2;
+            // 
             // cmbCodigo
             // 
             this.cmbCodigo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -67,16 +74,7 @@
             this.cmbCodigo.Location = new System.Drawing.Point(168, 37);
             this.cmbCodigo.Name = "cmbCodigo";
             this.cmbCodigo.Size = new System.Drawing.Size(275, 24);
-            this.cmbCodigo.TabIndex = 35;
-            // 
-            // cmbEstado
-            // 
-            this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Location = new System.Drawing.Point(168, 77);
-            this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(277, 24);
-            this.cmbEstado.TabIndex = 6;
+            this.cmbCodigo.TabIndex = 1;
             // 
             // dtpFecha
             // 
@@ -86,7 +84,7 @@
             this.dtpFecha.Location = new System.Drawing.Point(169, 127);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(276, 22);
-            this.dtpFecha.TabIndex = 7;
+            this.dtpFecha.TabIndex = 3;
             // 
             // label5
             // 
@@ -122,22 +120,24 @@
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(232, 304);
+            this.btnCancelar.Location = new System.Drawing.Point(248, 300);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(93, 34);
-            this.btnCancelar.TabIndex = 20;
+            this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAceptar
             // 
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptar.Location = new System.Drawing.Point(132, 304);
+            this.btnAceptar.Location = new System.Drawing.Point(120, 300);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(87, 34);
-            this.btnAceptar.TabIndex = 19;
+            this.btnAceptar.TabIndex = 6;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // grpTipo
             // 
@@ -158,10 +158,10 @@
             this.rdoSalida.AutoSize = true;
             this.rdoSalida.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdoSalida.ForeColor = System.Drawing.Color.Black;
-            this.rdoSalida.Location = new System.Drawing.Point(251, 31);
+            this.rdoSalida.Location = new System.Drawing.Point(267, 31);
             this.rdoSalida.Name = "rdoSalida";
             this.rdoSalida.Size = new System.Drawing.Size(65, 20);
-            this.rdoSalida.TabIndex = 9;
+            this.rdoSalida.TabIndex = 5;
             this.rdoSalida.TabStop = true;
             this.rdoSalida.Text = "Salida";
             this.rdoSalida.UseVisualStyleBackColor = true;
@@ -171,10 +171,10 @@
             this.rdoEntrada.AutoSize = true;
             this.rdoEntrada.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdoEntrada.ForeColor = System.Drawing.Color.Black;
-            this.rdoEntrada.Location = new System.Drawing.Point(97, 31);
+            this.rdoEntrada.Location = new System.Drawing.Point(113, 31);
             this.rdoEntrada.Name = "rdoEntrada";
             this.rdoEntrada.Size = new System.Drawing.Size(73, 20);
-            this.rdoEntrada.TabIndex = 8;
+            this.rdoEntrada.TabIndex = 4;
             this.rdoEntrada.TabStop = true;
             this.rdoEntrada.Text = "Entrada";
             this.rdoEntrada.UseVisualStyleBackColor = true;
@@ -203,7 +203,6 @@
 
         private System.Windows.Forms.GroupBox grpInfoEmpleado;
         private System.Windows.Forms.ComboBox cmbCodigo;
-        private System.Windows.Forms.ComboBox cmbEstado;
         private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
@@ -213,6 +212,7 @@
         private System.Windows.Forms.GroupBox grpTipo;
         private System.Windows.Forms.RadioButton rdoSalida;
         private System.Windows.Forms.RadioButton rdoEntrada;
+        private System.Windows.Forms.TextBox txtEstado;
 
     }
 }

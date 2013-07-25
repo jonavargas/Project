@@ -14,17 +14,24 @@ namespace GUI
 {
     public partial class frmRegistroMarcas : Form
     {
+        /// <summary>
+        /// Atributos de la clase frmRegistroMarcas 
+        /// </summary>
         AccesoDatosOracle cnx;
         public frmRegistroMarcas(AccesoDatosOracle pConexion)
         {
             InitializeComponent();
             this.cnx = pConexion;
         }
+        /// <summary>
+        /// Evento del botón Marcar que realiza la marca en la base de datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void btnMarcar_Click(object sender, EventArgs e)
         {
             int contMarcas=1;
-            
             MarcaD oMarcaD=new MarcaD(this.cnx);
             EmpleadoD oEmpleadoD=new EmpleadoD(this.cnx);
             List<EmpleadoL> empleado = oEmpleadoD.buscarEmpleado(this.txtCodigoEmpleado.Text);
@@ -43,6 +50,11 @@ namespace GUI
                 }
             }
         }
+        /// <summary>
+        /// Evento de teclado que nos permite salir de la pantalla presionando la tecla Esc
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void frmRegistroMarcas_KeyDown(object sender, KeyEventArgs e)
        {

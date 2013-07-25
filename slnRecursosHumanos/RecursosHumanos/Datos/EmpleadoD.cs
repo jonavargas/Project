@@ -102,7 +102,7 @@ namespace Datos
             return retorno;
         }
         /// <summary>
-        /// Método que agrega un nuevo Usuario a la Base de Datos de Oracle,el cual recibe por parámetro un Empleado que viene cargado con 
+        /// Método que agrega unnuevo empleado a la Base de Datos de Oracle,el cual recibe por parámetro un Empleado que viene cargado con 
         /// los respectivos valores para ser pasados a la base de datos ya creada,ademas procede a realizar una consulta al sql para saber si
         /// los parámetros creados coinciden con los de la base de datos y si considen procede a insertarlos
         /// </summary>
@@ -290,11 +290,11 @@ namespace Datos
                 this.errorDescription = "Error obteniendo empleado:" + e.Message;
             }
 
-            return retorno;
-         
+            return retorno;            
         }
+
         /// <summary>
-        /// Metodo para editar el empleado y guardar los cambios realizados
+        /// Metodo que nos facilita editar una linea del empleado que se encuentre seleccionada
         /// </summary>
         /// <param name="pEmpleadoOriginal"></param>
         /// <param name="pEmpleadoEditado"></param>
@@ -383,6 +383,54 @@ namespace Datos
                 this.error = true;
                 this.errorDescription = "Error editando Empleado: " + e.Message;
             }
+        }
+        /// <summary>
+        /// Metodo que obtiene el nombre del empleado, realizando una consulta en la base de datos
+        /// </summary>
+        /// <returns></returns>
+
+        public DataSet obtenerNombreEmpleado()
+        {
+            DataSet datos = this.cnx.ejecutarConsultaSQL("select nombreEmpleado || ' ' || apellido1 || ' ' || apellido2 as nombreCompleto from Empleado");
+            try
+            {
+                if (this.cnx.IsError == true)
+                {
+                    this.error = true;
+                    this.errorDescription = "Error obteniendo Empleados: " +
+                                            this.cnx.ErrorDescripcion;
+                }
+            }
+            catch (Exception e)
+            {
+                this.error = true;
+                this.errorDescription = "Error obteniendo Empleados: " + e.Message;
+            }
+            return datos;
+        }
+        /// <summary>
+        /// Metodo que obtiene el codig del empleado, y realiza una consulta en la base de datos.
+        /// </summary>
+        /// <returns></returns>
+
+        public DataSet obtenerCodigoEmpleado()
+        {
+            DataSet datos = this.cnx.ejecutarConsultaSQL("select * from Empleado");
+            try
+            {
+                if (this.cnx.IsError == true)
+                {
+                    this.error = true;
+                    this.errorDescription = "Error obteniendo Empleados: " +
+                                            this.cnx.ErrorDescripcion;
+                }
+            }
+            catch (Exception e)
+            {
+                this.error = true;
+                this.errorDescription = "Error obteniendo Empleados: " + e.Message;
+            }
+            return datos;
         }
     }
 }

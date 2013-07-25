@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.dteFecha2 = new System.Windows.Forms.DateTimePicker();
@@ -41,6 +41,7 @@
             this.btnRefrescar = new System.Windows.Forms.ToolStripButton();
             this.grdConsultas = new System.Windows.Forms.DataGridView();
             this.idMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idUnificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -140,6 +141,7 @@
             this.btnNuevo.Size = new System.Drawing.Size(60, 55);
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnEditar
             // 
@@ -176,6 +178,7 @@
             this.grdConsultas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdConsultas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idMarca,
+            this.idUnificacion,
             this.idEmpleado,
             this.NombreEmpleado,
             this.fecha,
@@ -185,14 +188,14 @@
             this.fechaCreacion,
             this.modificadoPor,
             this.fechaModificacion});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdConsultas.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdConsultas.DefaultCellStyle = dataGridViewCellStyle2;
             this.grdConsultas.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.grdConsultas.Location = new System.Drawing.Point(0, 294);
             this.grdConsultas.Name = "grdConsultas";
@@ -207,6 +210,14 @@
             this.idMarca.Name = "idMarca";
             this.idMarca.ReadOnly = true;
             this.idMarca.Width = 50;
+            // 
+            // idUnificacion
+            // 
+            this.idUnificacion.DataPropertyName = "idunificacion";
+            this.idUnificacion.HeaderText = "Cod. Unificación";
+            this.idUnificacion.Name = "idUnificacion";
+            this.idUnificacion.ReadOnly = true;
+            this.idUnificacion.Width = 70;
             // 
             // idEmpleado
             // 
@@ -442,6 +453,7 @@
             this.btnFiltrar.TabIndex = 7;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click_1);
             // 
             // lblEmpleado
             // 
@@ -493,6 +505,17 @@
         private System.Windows.Forms.DataGridView grdConsultas;
         private System.Windows.Forms.GroupBox grpFiltro;
         private System.Windows.Forms.Label lblRango;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idMarca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idUnificacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idEmpleado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreEmpleado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn creadoPor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaCreacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn modificadoPor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaModificacion;
         private System.Windows.Forms.GroupBox grpConsulta;
         private System.Windows.Forms.RadioButton rbtInactivo;
         private System.Windows.Forms.RadioButton rbtActivo;
@@ -507,15 +530,5 @@
         private System.Windows.Forms.Label lblDepartamento;
         private System.Windows.Forms.Button btnFiltrar;
         private System.Windows.Forms.Label lblEmpleado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idMarca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idEmpleado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreEmpleado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn creadoPor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaCreacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn modificadoPor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaModificacion;
     }
 }

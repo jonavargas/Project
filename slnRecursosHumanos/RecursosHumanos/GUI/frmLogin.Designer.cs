@@ -159,10 +159,10 @@
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.GroupBox grpLogin;
         private System.Windows.Forms.TextBox txtClave;
-        private System.Windows.Forms.TextBox txtLogin;
         private System.Windows.Forms.Label lblClave;
         private System.Windows.Forms.Label lblLogin;
         private System.Windows.Forms.PictureBox pctPassword;
         private System.Windows.Forms.PictureBox pctUsuario;
+        public System.Windows.Forms.TextBox txtLogin;
     }
 }

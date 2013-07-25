@@ -9,7 +9,7 @@ namespace Logica
      public class ConsultaL
     {
          /// <summary>
-        ///  Atributos de la clase  consultaL
+        ///  Atributos de la clase ConsultaL
          /// </summary>
         private int idMarca;
         private string idEmpleado;
@@ -26,7 +26,7 @@ namespace Logica
          
          
          /// <summary>
-         /// Metodo constructor con parámetros
+        /// Método constructor que recibe parámetros y se inicializan los atributos
          
 
          public ConsultaL(int pIdMarca, string pIdEmpleado,string pIdDepartamento, string pIdUnificacion, string pNombreEmpleado,
