@@ -154,7 +154,9 @@ namespace GUI
             this.cmbCodigo.SelectedItem = null;
             this.cmbDepartamento.SelectedItem = null;
             this.cmbEmpleado.SelectedItem = null;
-            this.cmbEstado.SelectedItem = null;          
+            this.cmbEstado.SelectedItem = null;
+            this.rbtActivo.Checked = false;
+            this.rbtInactivo.Checked = false;
 
         }
     }

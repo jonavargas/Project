@@ -336,7 +336,7 @@
             // rbtInactivo
             // 
             this.rbtInactivo.AutoSize = true;
-            this.rbtInactivo.Location = new System.Drawing.Point(368, 100);
+            this.rbtInactivo.Location = new System.Drawing.Point(366, 99);
             this.rbtInactivo.Name = "rbtInactivo";
             this.rbtInactivo.Size = new System.Drawing.Size(63, 17);
             this.rbtInactivo.TabIndex = 33;
@@ -347,7 +347,7 @@
             // rbtActivo
             // 
             this.rbtActivo.AutoSize = true;
-            this.rbtActivo.Location = new System.Drawing.Point(260, 99);
+            this.rbtActivo.Location = new System.Drawing.Point(258, 98);
             this.rbtActivo.Name = "rbtActivo";
             this.rbtActivo.Size = new System.Drawing.Size(55, 17);
             this.rbtActivo.TabIndex = 32;
@@ -454,7 +454,6 @@
             this.btnFiltrar.TabIndex = 7;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = true;
-            
             // 
             // lblEmpleado
             // 
