@@ -47,5 +47,31 @@ namespace GUI
 
 
         }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (this.grdConsultas.RowCount > 0)
+            {
+
+                ConsultaL oConsultaL = (ConsultaL)this.grdConsultas.CurrentRow.DataBoundItem;
+
+                frmEdicionMarcas ofrmEdicionMarcas = new frmEdicionMarcas();
+                ofrmEdicionDepartamento.ShowDialog();
+                if (ofrmEdicionDepartamento.Aceptar)
+                {
+                    DepartamentoD oDepartamentoD = new DepartamentoD(this.cnx);
+                    oDepartamentoD.editarDepartamento(oDepartamentoOriginal, ofrmEdicionDepartamento.ODepartamentoL);
+                    if (oDepartamentoD.Error)
+                    {
+                        MessageBox.Show("Error actualizando los datos:" + oDepartamentoD.ErrorDescription);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Departamento actualizada!!!");
+                        this.cargarGrid();
+                    }
+                }
+            }
+        }
     }
 }

@@ -21,12 +21,6 @@ namespace GUI
             this.cnx = pConexion;
         }
 
-       
-
-
-
-
-
         private void btnMarcar_Click(object sender, EventArgs e)
         {
             int contMarcas=1;
@@ -35,26 +29,18 @@ namespace GUI
             EmpleadoD oEmpleadoD=new EmpleadoD(this.cnx);
             List<EmpleadoL> empleado = oEmpleadoD.buscarEmpleado(this.txtCodigoEmpleado.Text);
             
-           
-            
-
             if(txtCodigoEmpleado.Text!=""){
 
                 if (empleado.Count>0)
                 {
-                    MarcaL oMarcaL = new MarcaL(contMarcas, txtCodigoEmpleado.Text, "Generado", oMarcaD.tipoMarca(txtCodigoEmpleado.Text), "Proyecto", DateTime.Now, "Proyecto", DateTime.Now, "Sí");
+                    MarcaL oMarcaL = new MarcaL(contMarcas, txtCodigoEmpleado.Text, "Generado", oMarcaD.tipoMarca(txtCodigoEmpleado.Text), "Empleado", DateTime.Now, "Empleado", DateTime.Now, "Sí");
                     oMarcaD.agregarMarca2(oMarcaL);
                     txtCodigoEmpleado.Text = "";
-
-
                 }
                 else {
                     MessageBox.Show("El empleado no existe ó se encuentra inactivo en la empresa");
                     txtCodigoEmpleado.Text = "";
-                
                 }
-
-            
             }
         }
 
@@ -70,6 +56,5 @@ namespace GUI
                 this.btnMarcar_Click(sender, e);
             }
         }
-
     }
 }
