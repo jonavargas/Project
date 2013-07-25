@@ -290,9 +290,14 @@ namespace Datos
                 this.errorDescription = "Error obteniendo empleado:" + e.Message;
             }
 
-            return retorno;
-            
+            return retorno;            
         }
+
+        /// <summary>
+        /// Metodo que nos facilita editar una linea del empleado que se encuentre seleccionada
+        /// </summary>
+        /// <param name="pEmpleadoOriginal"></param>
+        /// <param name="pEmpleadoEditado"></param>
 
         public void editarEmpleado(EmpleadoL pEmpleadoOriginal, EmpleadoL pEmpleadoEditado)
         {
