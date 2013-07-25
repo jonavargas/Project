@@ -1,3 +1,10 @@
+
+Acceso como Adminisrador.
+usuario: proyecto
+password: oracle
+
+************************************************
+
 create table Usuario
 ( 
   idUsuario varchar(50) not null,
@@ -90,11 +97,6 @@ create table Empleado
        constraint Empleado_FK foreign key (idDepartamento)references Departamento(idDepartamento)
 );
 
-Acceso como Adminisrador.
-usuario: proyecto
-password: oracle
-
-************************************************
 
 create table marca
 (
