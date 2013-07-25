@@ -42,9 +42,11 @@ namespace GUI
         {
             InitializeComponent();
             rdoEntrada.Checked = true;
+            
             this.cargarComboCodigoEmpleado(pcnx);
             this.txtEstado.Text = "Generada";
             this.txtEstado.ReadOnly = true;
+           
             
         }
         /// <summary>
@@ -61,7 +63,7 @@ namespace GUI
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            string codigo = cmbCodigo.SelectedItem.ToString();
+            string codigo =Convert.ToString(cmbCodigo.SelectedValue);
 
             
             if(rdoSalida.Checked==true){               
@@ -79,7 +81,7 @@ namespace GUI
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

@@ -227,6 +227,72 @@ namespace Datos
            }
           
        }
+       public void agregarMarca3(MarcaL pMarca)
+       {
+
+           try
+           {
+               string sql = "insert into marca(idEmpleado, estadoMarca, tipoMarca, creadoPor, fechaCreacion, modificadoPor, fechaModificacion, activo) " +
+                            "values(:idEmpleado, :estadoMarca, :tipoMarca, :creadoPor, :fechaCreacion, :modificadoPor, :fechaModificacion, :activo) ";
+
+               OracleParameter[] parametros = new OracleParameter[8];// Parametros
+
+               
+
+               parametros[0] = new OracleParameter();
+               parametros[0].OracleType = OracleType.VarChar;
+               parametros[0].ParameterName = ":idEmpleado";
+               parametros[0].Value = pMarca.IdEmpleado;
+
+               parametros[1] = new OracleParameter();
+               parametros[1].OracleType = OracleType.VarChar;
+               parametros[1].ParameterName = ":estadoMarca";
+               parametros[1].Value = pMarca.EstadoMarca;
+
+               parametros[2] = new OracleParameter();
+               parametros[2].OracleType = OracleType.VarChar;
+               parametros[2].ParameterName = ":tipoMarca";
+               parametros[2].Value = pMarca.TipoMarca;
+
+               parametros[3] = new OracleParameter();
+               parametros[3].OracleType = OracleType.VarChar;
+               parametros[3].ParameterName = ":creadoPor";
+               parametros[3].Value = pMarca.CreadoPor;
+
+               parametros[4] = new OracleParameter();
+               parametros[4].OracleType = OracleType.DateTime;
+               parametros[4].ParameterName = ":fechaCreacion";
+               parametros[4].Value = pMarca.FechaCreacion;
+
+               parametros[5] = new OracleParameter();
+               parametros[5].OracleType = OracleType.VarChar;
+               parametros[5].ParameterName = ":modificadoPor";
+               parametros[5].Value = pMarca.ModificadoPor;
+
+               parametros[6] = new OracleParameter();
+               parametros[6].OracleType = OracleType.DateTime;
+               parametros[6].ParameterName = ":fechaModificacion";
+               parametros[6].Value = pMarca.FechaModificacion;
+
+               parametros[7] = new OracleParameter();
+               parametros[7].OracleType = OracleType.VarChar;
+               parametros[7].ParameterName = ":activo";
+               parametros[7].Value = pMarca.Activo;
+
+
+
+
+               this.cnx.ejecutarSQL(sql, parametros);
+               this.error = this.cnx.IsError;
+               this.errorDescription = this.cnx.ErrorDescripcion;
+           }
+           catch (Exception e)
+           {
+               this.error = true;
+               this.errorDescription = "Error agregando la Marca: " + e.Message;
+           }
+
+       }
        private DataSet tipoMarca1(string pEmpleado)
        {
           

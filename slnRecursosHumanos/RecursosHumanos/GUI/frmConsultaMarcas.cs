@@ -133,12 +133,12 @@ namespace GUI
             if (ofrmEdicionMarcas.Aceptar)
             {
                 MarcaD oMarcaD = new MarcaD(this.conexion);
-                oMarcaD.agregarMarca2(ofrmEdicionMarcas.MarcaL);
+                oMarcaD.agregarMarca3(ofrmEdicionMarcas.MarcaL);
                 if (!oMarcaD.Error)
                 {
 
                     MessageBox.Show("Registro agregado!!!");
-                    this.cargarGrid();
+                    
 
                 }else {
                     MessageBox.Show("Error agregando los datos:" + oMarcaD.ErrorDescription);                
@@ -146,6 +146,16 @@ namespace GUI
                 }
             
             }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFiltrar_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
