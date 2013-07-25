@@ -95,12 +95,7 @@ namespace GUI
         /// <param name="sender"></param>
         /// <param name="e"></param>
 
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            cmbDepartamento.SelectedIndex = 0;
-            cmbEmpleado.SelectedIndex = 0;
-            cmbEstado.SelectedIndex = 0;
-        }
+       
         /// <summary>
         /// Boton nuevo que llama al frmedición marcas
         /// </summary>
@@ -153,8 +148,13 @@ namespace GUI
 
         }
 
-        private void btnFiltrar_Click_1(object sender, EventArgs e)
+        
+        private void btnLimpiar_Click_1(object sender, EventArgs e)
         {
+            this.cmbCodigo.SelectedItem = null;
+            this.cmbDepartamento.SelectedItem = null;
+            this.cmbEmpleado.SelectedItem = null;
+            this.cmbEstado.SelectedItem = null;          
 
         }
     }
