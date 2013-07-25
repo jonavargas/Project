@@ -19,7 +19,7 @@ namespace Datos
        private string errorDescription = "";
 
          /// <summary>
-        /// Método costructor que recibe por parametro la conexión
+        /// Metodo costructor que recibe por parametro la conexión
         /// </summary>
         /// <param name="pCnx"></param>
        public MarcaD(AccesoDatosOracle pCnx)
