@@ -148,7 +148,6 @@ namespace GUI
 
         }
 
-        
         private void btnLimpiar_Click_1(object sender, EventArgs e)
         {
             this.cmbCodigo.SelectedItem = null;
@@ -157,7 +156,8 @@ namespace GUI
             this.cmbEstado.SelectedItem = null;
             this.rbtActivo.Checked = false;
             this.rbtInactivo.Checked = false;
-
+            this.dteFecha1.Value = DateTime.Today;
+            this.dteFecha2.Value = DateTime.Today;     
         }
     }
 }
