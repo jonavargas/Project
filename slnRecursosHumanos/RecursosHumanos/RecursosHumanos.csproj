@@ -257,6 +257,7 @@
     <None Include="Resources\mante.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Radioland.ttf" />
     <None Include="Resources\usuario.jpg" />
   </ItemGroup>
   <ItemGroup>

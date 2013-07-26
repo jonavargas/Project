@@ -100,8 +100,10 @@ create table Empleado
 
 create table marca
 (
-       idMarca varchar(50),
+       idMarca int,
        idEmpleado varchar(50),
+       idUnificacion int,
+       fechaMarca date,
        estadoMarca varchar(50),       
        tipoMarca varchar(50),	       
        creadoPor varchar(100),
