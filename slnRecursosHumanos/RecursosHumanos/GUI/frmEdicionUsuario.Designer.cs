@@ -44,8 +44,8 @@
             this.lblEstado = new System.Windows.Forms.Label();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.cmbTipoUsuario = new System.Windows.Forms.ComboBox();
             this.chkActivo = new System.Windows.Forms.CheckBox();
+            this.cmbTipoUsuario = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblidUsuario
@@ -192,20 +192,6 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // cmbTipoUsuario
-            // 
-            this.cmbTipoUsuario.AutoCompleteCustomSource.AddRange(new string[] {
-            "Supervisor",
-            "Regular"});
-            this.cmbTipoUsuario.FormattingEnabled = true;
-            this.cmbTipoUsuario.Items.AddRange(new object[] {
-            "Supervisor",
-            "Regular"});
-            this.cmbTipoUsuario.Location = new System.Drawing.Point(114, 51);
-            this.cmbTipoUsuario.Name = "cmbTipoUsuario";
-            this.cmbTipoUsuario.Size = new System.Drawing.Size(211, 21);
-            this.cmbTipoUsuario.TabIndex = 2;
-            // 
             // chkActivo
             // 
             this.chkActivo.AutoSize = true;
@@ -218,13 +204,25 @@
             this.chkActivo.Text = "Activo";
             this.chkActivo.UseVisualStyleBackColor = true;
             // 
+            // cmbTipoUsuario
+            // 
+            this.cmbTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipoUsuario.FormattingEnabled = true;
+            this.cmbTipoUsuario.Items.AddRange(new object[] {
+            "Supervisor",
+            "Regular"});
+            this.cmbTipoUsuario.Location = new System.Drawing.Point(114, 57);
+            this.cmbTipoUsuario.Name = "cmbTipoUsuario";
+            this.cmbTipoUsuario.Size = new System.Drawing.Size(211, 21);
+            this.cmbTipoUsuario.TabIndex = 17;
+            // 
             // frmEdicionUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(340, 202);
-            this.Controls.Add(this.chkActivo);
             this.Controls.Add(this.cmbTipoUsuario);
+            this.Controls.Add(this.chkActivo);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.lblEstado);
@@ -266,7 +264,7 @@
         private System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.ComboBox cmbTipoUsuario;
         private System.Windows.Forms.CheckBox chkActivo;
+        private System.Windows.Forms.ComboBox cmbTipoUsuario;
     }
 }

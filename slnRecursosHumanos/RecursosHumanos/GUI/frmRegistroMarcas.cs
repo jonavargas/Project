@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
+using System.Drawing.Text;
 using Datos;
 using Logica;
 
@@ -18,10 +20,26 @@ namespace GUI
         /// Atributos de la clase frmRegistroMarcas 
         /// </summary>
         AccesoDatosOracle cnx;
+        /// <summary>
+        /// Atributos necesarios para cargar el tipo de fuente personalizada
+        /// </summary>
+        /// <param name="pbFont"></param>
+        /// <param name="cbFont"></param>
+        /// <param name="pdv"></param>
+        /// <param name="pcFonts"></param>
+        /// <returns></returns>
+        [DllImport("gdi32.dll")]
+        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [In] ref uint pcFonts);
+        FontFamily ff;
+        Font font;
+
         public frmRegistroMarcas(AccesoDatosOracle pConexion)
         {
+            
             InitializeComponent();
+            timReloj.Start();
             this.cnx = pConexion;
+
         }
         /// <summary>
         /// Evento del botón Marcar que realiza la marca en la base de datos
@@ -67,6 +85,49 @@ namespace GUI
             {
                 this.btnMarcar_Click(sender, e);
             }
+        }
+
+        private void CargoPrivateFontCollection()
+        {
+            
+            byte[] fontArray = RecursosHumanos.Properties.Resources.Radioland;
+            int dataLength = RecursosHumanos.Properties.Resources.Radioland.Length;
+
+
+           
+            IntPtr ptrData = Marshal.AllocCoTaskMem(dataLength);
+            Marshal.Copy(fontArray, 0, ptrData, dataLength);
+
+
+            uint cFonts = 0;
+            AddFontMemResourceEx(ptrData, (uint)fontArray.Length, IntPtr.Zero, ref cFonts);
+
+            PrivateFontCollection pfc = new PrivateFontCollection();
+           
+            pfc.AddMemoryFont(ptrData, dataLength);
+
+      
+            Marshal.FreeCoTaskMem(ptrData);
+
+            ff = pfc.Families[0];
+            font = new Font(ff, 15f, FontStyle.Bold);
+        }
+
+        private void CargoEtiqueta(Font font)
+        {
+            float size = 48f;
+            FontStyle fontStyle = FontStyle.Regular;
+
+            this.lblReloj.Font = new Font(ff, size, fontStyle);
+
+        }
+
+        private void timReloj_Tick(object sender, EventArgs e)
+        {
+            this.lblReloj.Text = DateTime.Now.ToLongTimeString();
+            this.lblFecha.Text = DateTime.Now.ToLongDateString();
+            CargoPrivateFontCollection();
+            CargoEtiqueta(font);
         }
     }
 }
