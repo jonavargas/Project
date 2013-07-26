@@ -20,6 +20,7 @@ namespace GUI
         private AccesoDatosOracle cnx;
         private Boolean aceptar;
         public MarcaL MarcaL;
+
         
 
         public MarcaL MarcaL1
@@ -59,6 +60,7 @@ namespace GUI
             cmbCodigo.DataSource = oEmpleadoD.obtenerCodigoEmpleado().Tables[0].Copy();
             cmbCodigo.DisplayMember = "idEmpleado";
             cmbCodigo.ValueMember = "idEmpleado";
+            this.cmbCodigo.SelectedItem = null;
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)

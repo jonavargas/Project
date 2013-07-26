@@ -28,13 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.dteFecha2 = new System.Windows.Forms.DateTimePicker();
             this.dteFecha1 = new System.Windows.Forms.DateTimePicker();
             this.lblFecha = new System.Windows.Forms.Label();
             this.tollConsulta = new System.Windows.Forms.ToolStrip();
+            this.btnNuevo = new System.Windows.Forms.ToolStripButton();
+            this.btnEditar = new System.Windows.Forms.ToolStripButton();
+            this.btnAnular = new System.Windows.Forms.ToolStripButton();
+            this.btnRefrescar = new System.Windows.Forms.ToolStripButton();
             this.grdConsultas = new System.Windows.Forms.DataGridView();
             this.idMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idUnificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,10 +67,6 @@
             this.lblDepartamento = new System.Windows.Forms.Label();
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.lblEmpleado = new System.Windows.Forms.Label();
-            this.btnNuevo = new System.Windows.Forms.ToolStripButton();
-            this.btnEditar = new System.Windows.Forms.ToolStripButton();
-            this.btnAnular = new System.Windows.Forms.ToolStripButton();
-            this.btnRefrescar = new System.Windows.Forms.ToolStripButton();
             this.tollConsulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdConsultas)).BeginInit();
             this.grpFiltro.SuspendLayout();
@@ -133,6 +133,44 @@
             this.tollConsulta.Size = new System.Drawing.Size(986, 58);
             this.tollConsulta.TabIndex = 26;
             // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Image = global::RecursosHumanos.Properties.Resources.nuevo;
+            this.btnNuevo.ImageTransparentColor = System.Drawing.Color.Black;
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(60, 55);
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Image = global::RecursosHumanos.Properties.Resources.editar;
+            this.btnEditar.ImageTransparentColor = System.Drawing.Color.Black;
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(54, 55);
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnAnular
+            // 
+            this.btnAnular.Image = global::RecursosHumanos.Properties.Resources.borrar;
+            this.btnAnular.ImageTransparentColor = System.Drawing.Color.Black;
+            this.btnAnular.Name = "btnAnular";
+            this.btnAnular.Size = new System.Drawing.Size(60, 55);
+            this.btnAnular.Text = "Anular";
+            this.btnAnular.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // btnRefrescar
+            // 
+            this.btnRefrescar.Image = global::RecursosHumanos.Properties.Resources.actualizar;
+            this.btnRefrescar.ImageTransparentColor = System.Drawing.Color.Black;
+            this.btnRefrescar.Name = "btnRefrescar";
+            this.btnRefrescar.Size = new System.Drawing.Size(79, 55);
+            this.btnRefrescar.Text = "Refrescar";
+            this.btnRefrescar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
             // grdConsultas
             // 
             this.grdConsultas.AllowUserToDeleteRows = false;
@@ -150,14 +188,14 @@
             this.fechaCreacion,
             this.modificadoPor,
             this.fechaModificacion});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdConsultas.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdConsultas.DefaultCellStyle = dataGridViewCellStyle2;
             this.grdConsultas.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.grdConsultas.Location = new System.Drawing.Point(0, 294);
             this.grdConsultas.Name = "grdConsultas";
@@ -360,6 +398,11 @@
             // 
             this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Items.AddRange(new object[] {
+            "Generada",
+            "En trámite",
+            "Pagada",
+            "Anulada"});
             this.cmbEstado.Location = new System.Drawing.Point(654, 55);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(278, 21);
@@ -416,6 +459,7 @@
             this.btnFiltrar.TabIndex = 7;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click_1);
             // 
             // lblEmpleado
             // 
@@ -426,44 +470,6 @@
             this.lblEmpleado.Size = new System.Drawing.Size(151, 16);
             this.lblEmpleado.TabIndex = 21;
             this.lblEmpleado.Text = "Nombre del Empleado: ";
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.Image = global::RecursosHumanos.Properties.Resources.nuevo;
-            this.btnNuevo.ImageTransparentColor = System.Drawing.Color.Black;
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(60, 55);
-            this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Image = global::RecursosHumanos.Properties.Resources.editar;
-            this.btnEditar.ImageTransparentColor = System.Drawing.Color.Black;
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(54, 55);
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // btnAnular
-            // 
-            this.btnAnular.Image = global::RecursosHumanos.Properties.Resources.borrar;
-            this.btnAnular.ImageTransparentColor = System.Drawing.Color.Black;
-            this.btnAnular.Name = "btnAnular";
-            this.btnAnular.Size = new System.Drawing.Size(60, 55);
-            this.btnAnular.Text = "Anular";
-            this.btnAnular.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // btnRefrescar
-            // 
-            this.btnRefrescar.Image = global::RecursosHumanos.Properties.Resources.actualizar;
-            this.btnRefrescar.ImageTransparentColor = System.Drawing.Color.Black;
-            this.btnRefrescar.Name = "btnRefrescar";
-            this.btnRefrescar.Size = new System.Drawing.Size(79, 55);
-            this.btnRefrescar.Text = "Refrescar";
-            this.btnRefrescar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // frmConsultaMarcas
             // 

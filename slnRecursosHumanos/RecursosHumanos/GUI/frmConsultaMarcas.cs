@@ -18,7 +18,7 @@ namespace GUI
         /// Variable para hacer la conexión a la base de datos
         /// </summary>
         private AccesoDatosOracle conexion;
-       
+
         /// <summary>
         /// Metodo constructor que recibe por parámetro la conexión a la base de datos.
         /// </summary>
@@ -32,10 +32,10 @@ namespace GUI
             this.cargarCmbDepartamento(pConexion);
             this.cargarComboEmpleado(pConexion);
             this.cargarComboCodigoEmpleado(pConexion);
-            this.cmbEstado.Items.Add("Generada");
-            this.cmbEstado.Items.Add("En trámite");
-            this.cmbEstado.Items.Add("Pagada");
-            this.cmbEstado.Items.Add("Anulada");
+            this.cmbCodigo.SelectedItem = null;
+            this.cmbEmpleado.SelectedItem = null;
+            this.cmbEstado.SelectedItem = null;
+            this.cmbDepartamento.SelectedItem = null;
 
         }
         /// <summary>
@@ -79,46 +79,10 @@ namespace GUI
         }
 
         /// <summary>
-        /// Evento del botón filtrar que nos filtra la información para emcontrarla más rapido.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnFiltrar_Click(object sender, EventArgs e)
-        {
-            
-
-
-        }
-        /// <summary>
-        /// Método para limpiar los datos que se encuentran seleccionados.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-
-       
-        /// <summary>
         /// Boton nuevo que llama al frmedición marcas
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-
-        public void cargarGrid()
-        {
-            try
-            {
-                MarcaD oMarcaD = new MarcaD(this.conexion);
-                this.grdConsultas.DataSource = oMarcaD.obtenerMarca();
-                if (oMarcaD.Error)
-                {
-                    MessageBox.Show("Error cargando los datos" + oMarcaD.ErrorDescription);
-                
-                }
-            }catch(Exception e){
-
-                MessageBox.Show("Error cargando los datos" + e.Message);
-            }  
-        }
-
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
@@ -148,6 +112,12 @@ namespace GUI
 
         }
 
+        /// <summary>
+        /// Método para limpiar los datos que se encuentran seleccionados.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void btnLimpiar_Click_1(object sender, EventArgs e)
         {
             this.cmbCodigo.SelectedItem = null;
@@ -158,6 +128,17 @@ namespace GUI
             this.rbtInactivo.Checked = false;
             this.dteFecha1.Value = DateTime.Today;
             this.dteFecha2.Value = DateTime.Today;     
+        }
+
+        /// <summary>
+        /// Evento del botón filtrar que nos filtra la información para emcontrarla más rapido.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
+        private void btnFiltrar_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
