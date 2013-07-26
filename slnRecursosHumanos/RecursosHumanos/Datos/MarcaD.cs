@@ -87,6 +87,11 @@ namespace Datos
 
            return retorno;
        }
+       /// <summary>
+       ///Método para agregar marca
+       /// </summary>
+       /// <param name="pMarca"></param>
+       /// <returns></returns>
 
        public string agregarMarca(MarcaL pMarca)
         {
