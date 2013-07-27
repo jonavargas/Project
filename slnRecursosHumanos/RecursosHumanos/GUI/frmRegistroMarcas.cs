@@ -19,7 +19,9 @@ namespace GUI
         /// <summary>
         /// Atributos de la clase frmRegistroMarcas 
         /// </summary>
+        /// 
         AccesoDatosOracle cnx;
+
         /// <summary>
         /// Atributos necesarios para cargar el tipo de fuente personalizada
         /// </summary>
@@ -28,6 +30,7 @@ namespace GUI
         /// <param name="pdv"></param>
         /// <param name="pcFonts"></param>
         /// <returns></returns>
+
         [DllImport("gdi32.dll")]
         private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [In] ref uint pcFonts);
         FontFamily ff;
@@ -35,10 +38,10 @@ namespace GUI
 
         public frmRegistroMarcas(AccesoDatosOracle pConexion)
         {
-            
             InitializeComponent();
             timReloj.Start();
             this.cnx = pConexion;
+            this.txtCodigoEmpleado.Focus();
 
         }
         /// <summary>
@@ -49,20 +52,22 @@ namespace GUI
 
         private void btnMarcar_Click(object sender, EventArgs e)
         {
-            int contMarcas=1;
-            MarcaD oMarcaD=new MarcaD(this.cnx);
-            EmpleadoD oEmpleadoD=new EmpleadoD(this.cnx);
+            int contMarcas = 1;
+            MarcaD oMarcaD = new MarcaD(this.cnx);
+            EmpleadoD oEmpleadoD = new EmpleadoD(this.cnx);
             List<EmpleadoL> empleado = oEmpleadoD.buscarEmpleado(this.txtCodigoEmpleado.Text);
-            
-            if(txtCodigoEmpleado.Text!=""){
 
-                if (empleado.Count>0)
+            if (txtCodigoEmpleado.Text != "")
+            {
+
+                if (empleado.Count > 0)
                 {
-                    MarcaL oMarcaL = new MarcaL(contMarcas, txtCodigoEmpleado.Text, "Generado", oMarcaD.tipoMarca(txtCodigoEmpleado.Text), "Empleado", DateTime.Now, "Empleado", DateTime.Now, "Sí");
+                    MarcaL oMarcaL = new MarcaL(contMarcas, txtCodigoEmpleado.Text, "Generada", oMarcaD.tipoMarca(txtCodigoEmpleado.Text), "Empleado", DateTime.Now, "Empleado", DateTime.Now, "Sí");
                     oMarcaD.agregarMarca2(oMarcaL);
                     txtCodigoEmpleado.Text = "";
                 }
-                else {
+                else
+                {
                     MessageBox.Show("El empleado no existe ó se encuentra inactivo en la empresa");
                     txtCodigoEmpleado.Text = "";
                 }
@@ -87,6 +92,10 @@ namespace GUI
             }
         }
 
+        /// <summary>
+        /// Método encargado de cargar la funte personalizada
+        /// </summary>
+        /// 
         private void CargoPrivateFontCollection()
         {
             
@@ -113,6 +122,11 @@ namespace GUI
             font = new Font(ff, 15f, FontStyle.Bold);
         }
 
+        /// <summary>
+        /// Método encargado de elegir el tamaña y el tipo de fuente
+        /// </summary>
+        /// <param name="font"></param>
+        /// 
         private void CargoEtiqueta(Font font)
         {
             float size = 48f;
@@ -122,6 +136,12 @@ namespace GUI
 
         }
 
+        /// <summary>
+        /// Evento encargado de iniciar el reloj y la fuente personalizada de esté al iniciar la aplicación
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// 
         private void timReloj_Tick(object sender, EventArgs e)
         {
             this.lblReloj.Text = DateTime.Now.ToLongTimeString();

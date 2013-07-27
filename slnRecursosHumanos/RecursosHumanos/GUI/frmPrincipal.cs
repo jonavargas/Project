@@ -111,9 +111,6 @@ namespace GUI
         {
             frmConsultaMarcas ofrmConsultaMarcas = new frmConsultaMarcas(this.cnx);
             ofrmConsultaMarcas.ShowDialog();
-
-
-
         }
     }
 }

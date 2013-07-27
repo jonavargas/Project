@@ -31,11 +31,11 @@
             this.components = new System.ComponentModel.Container();
             this.btnMarcar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblFecha = new System.Windows.Forms.Label();
             this.lblReloj = new System.Windows.Forms.Label();
             this.txtCodigoEmpleado = new System.Windows.Forms.TextBox();
             this.lblCodigoEmpleado = new System.Windows.Forms.Label();
             this.timReloj = new System.Windows.Forms.Timer(this.components);
-            this.lblFecha = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,6 +65,17 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold);
+            this.lblFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.lblFecha.Location = new System.Drawing.Point(451, 38);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(387, 37);
+            this.lblFecha.TabIndex = 9;
+            this.lblFecha.Text = "                                     ";
+            // 
             // lblReloj
             // 
             this.lblReloj.AutoSize = true;
@@ -83,7 +94,7 @@
             this.txtCodigoEmpleado.Location = new System.Drawing.Point(414, 322);
             this.txtCodigoEmpleado.Name = "txtCodigoEmpleado";
             this.txtCodigoEmpleado.Size = new System.Drawing.Size(494, 116);
-            this.txtCodigoEmpleado.TabIndex = 7;
+            this.txtCodigoEmpleado.TabIndex = 1;
             this.txtCodigoEmpleado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblCodigoEmpleado
@@ -101,17 +112,6 @@
             // 
             this.timReloj.Enabled = true;
             this.timReloj.Tick += new System.EventHandler(this.timReloj_Tick);
-            // 
-            // lblFecha
-            // 
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold);
-            this.lblFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.lblFecha.Location = new System.Drawing.Point(451, 38);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(387, 37);
-            this.lblFecha.TabIndex = 9;
-            this.lblFecha.Text = "                                     ";
             // 
             // frmRegistroMarcas
             // 
@@ -138,10 +138,10 @@
 
         private System.Windows.Forms.Button btnMarcar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtCodigoEmpleado;
         private System.Windows.Forms.Label lblCodigoEmpleado;
         private System.Windows.Forms.Label lblReloj;
         private System.Windows.Forms.Timer timReloj;
         private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.TextBox txtCodigoEmpleado;
     }
 }

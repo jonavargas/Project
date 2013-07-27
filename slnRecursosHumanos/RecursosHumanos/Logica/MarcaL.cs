@@ -12,24 +12,24 @@ namespace Logica
         /// Atributos de la clase MarcaL
         /// </summary>
         private int idMarca;
-        private string idEmpleado;       
-        private string estadoMarca;        
+        private string idEmpleado;
+        private string estadoMarca;
         private string tipoMarca;
         private string creadoPor;
         private DateTime fechaCreacion;
         private string modificadoPor;
         private DateTime fechaModificacion;
         private string activo;
-        
 
-         
+
+
         /// Metodo constructor con parámetros
-       
-        public MarcaL(int pIdMarca, string pIdEmpleado, string pEstadoMarca,string pTipoMarca, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, DateTime pFechaModificacion, string pActivo)
+
+        public MarcaL(int pIdMarca, string pIdEmpleado, string pEstadoMarca, string pTipoMarca, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, DateTime pFechaModificacion, string pActivo)
         {
             this.idMarca = pIdMarca;
             this.idEmpleado = pIdEmpleado;
-            this.estadoMarca = pEstadoMarca;           
+            this.estadoMarca = pEstadoMarca;
             this.tipoMarca = pTipoMarca;
             this.creadoPor = pCreadoPor;
             this.fechaCreacion = pFechaCreacion;
@@ -39,7 +39,7 @@ namespace Logica
         }
         public MarcaL(string pIdEmpleado, string pEstadoMarca, string pTipoMarca, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, DateTime pFechaModificacion, string pActivo)
         {
-            
+
             this.idEmpleado = pIdEmpleado;
             this.estadoMarca = pEstadoMarca;
             this.tipoMarca = pTipoMarca;
@@ -52,7 +52,7 @@ namespace Logica
 
         public MarcaL()
         {
-            
+
         }
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace Logica
         {
             get { return estadoMarca; }
             set { estadoMarca = value; }
-        }       
+        }
 
         public string TipoMarca
         {
@@ -109,16 +109,16 @@ namespace Logica
         {
             get { return idEmpleado; }
             set { idEmpleado = value; }
-        } 
+        }
 
         /// <summary>
         /// Metodo toString 
         /// </summary>
         /// <returns></returns>
-        
+
         public override string ToString()
         {
-            return  "ID Marca:" + this.IdMarca + "\n" +
+            return "ID Marca:" + this.IdMarca + "\n" +
                     "ID Empleado:" + this.IdEmpleado + "\n" +
                     "Estado Marca:" + this.EstadoMarca + "\n" +
                     "Tipo de Marca:" + this.TipoMarca + "\n" +

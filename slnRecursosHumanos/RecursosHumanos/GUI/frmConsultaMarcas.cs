@@ -36,6 +36,7 @@ namespace GUI
             this.cmbEmpleado.SelectedItem = null;
             this.cmbEstado.SelectedItem = null;
             this.cmbDepartamento.SelectedItem = null;
+            
 
         }
         /// <summary>
@@ -138,7 +139,7 @@ namespace GUI
 
         private void btnFiltrar_Click_1(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

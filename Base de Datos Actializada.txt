@@ -97,13 +97,10 @@ create table Empleado
        constraint Empleado_FK foreign key (idDepartamento)references Departamento(idDepartamento)
 );
 
-
 create table marca
 (
        idMarca int,
        idEmpleado varchar(50),
-       idUnificacion int,
-       fechaMarca date,
        estadoMarca varchar(50),       
        tipoMarca varchar(50),	       
        creadoPor varchar(100),
@@ -114,6 +111,7 @@ create table marca
        constraint PK_Marca primary key (idMarca),
        constraint Marca_FK foreign key (idEmpleado)references Empleado(idEmpleado)
 );
+
 
 CREATE SEQUENCE seq_marca MINVALUE 1 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 2 
 CACHE 20 NOORDER  NOCYCLE;
