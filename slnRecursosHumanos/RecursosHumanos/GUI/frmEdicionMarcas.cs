@@ -20,7 +20,7 @@ namespace GUI
         private AccesoDatosOracle cnx;
         private Boolean aceptar;
         public MarcaL MarcaL;
-
+        int idUnificacion = 0;
         
 
         public MarcaL MarcaL1
@@ -43,12 +43,10 @@ namespace GUI
         {
             InitializeComponent();
             rdoEntrada.Checked = true;
-            
             this.cargarComboCodigoEmpleado(pcnx);
-            this.txtEstado.Text = "Generada";
-            this.txtEstado.ReadOnly = true;
+            this.txtEstadoMarca.Text = "Generada";
+            this.txtEstadoMarca.ReadOnly = true;
            
-            
         }
         /// <summary>
         /// Método para cargar el combobox CodigoEmpleado con los codigos existentes en la base de datos.
@@ -65,17 +63,22 @@ namespace GUI
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            string codigo =Convert.ToString(cmbCodigo.SelectedValue);
+            string codigo = Convert.ToString(cmbCodigo.SelectedValue);
+            this.idUnificacion = int.Parse(txtNumUnificacion.Text);
+            string estado = Convert.ToString(txtEstadoMarca.Text);
 
-            
-            if(rdoSalida.Checked==true){               
-                
-                MarcaL = new MarcaL(codigo,txtEstado.Text,"Salida","Proyecto",dtpFecha.Value.Date,"Proyecto",dtpFecha.Value.Date,"Sí");
 
-            
-            }else{
-                MarcaL = new MarcaL(codigo, txtEstado.Text, "Entrada", "Proyecto", dtpFecha.Value.Date, "Proyecto", dtpFecha.Value.Date, "Sí");
-            
+            if (rdoSalida.Checked == true)
+            {
+
+                MarcaL = new MarcaL(idUnificacion, codigo, estado, "Salida", dtpFecha.Value.Date, "Proyecto", DateTime.Now, "Proyecto", DateTime.Now, "Sí");
+
+
+            }
+            else
+            {
+                MarcaL = new MarcaL(idUnificacion, codigo, estado, "Entrada", dtpFecha.Value.Date, "Proyecto", DateTime.Now, "Proyecto", DateTime.Now, "Sí");
+
             }
             this.Aceptar = true;
             this.Close();
@@ -84,6 +87,12 @@ namespace GUI
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        public void cargarComboEmpleado(string idEmpleado)
+        {
+            this.cmbCodigo.Items.Add(idEmpleado);
+
         }
     }
 }

@@ -93,24 +93,44 @@ namespace GUI
             if (ofrmEdicionMarcas.Aceptar)
             {
                 MarcaD oMarcaD = new MarcaD(this.conexion);
-                oMarcaD.agregarMarca3(ofrmEdicionMarcas.MarcaL);
+                oMarcaD.agregarMarca2(ofrmEdicionMarcas.MarcaL);
                 if (!oMarcaD.Error)
                 {
 
                     MessageBox.Show("Registro agregado!!!");
-                    
+                    this.cargarGrid();
 
-                }else {
-                    MessageBox.Show("Error agregando los datos:" + oMarcaD.ErrorDescription);                
-                
+
                 }
-            
+                else
+                {
+                    MessageBox.Show("Error agregando los datos:" + oMarcaD.ErrorDescription);
+
+                }
+
             }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            if (this.grdConsultas.RowCount > 0)
+            {
+                MarcaL oMarcaL = (MarcaL)this.grdConsultas.CurrentRow.DataBoundItem;
 
+
+                if (oMarcaL.EstadoMarca == "Generada")
+                {
+                    string idEmpleado = oMarcaL.IdEmpleado;
+                    frmEdicionMarcas ofrmEdicion2 = new frmEdicionMarcas(this.conexion);
+                    ofrmEdicion2.cargarComboEmpleado(idEmpleado);
+                    ofrmEdicion2.cargarComboEmpleadoEditado();
+
+                    ofrmEdicion2.ShowDialog();
+
+
+                }
+
+            }
         }
 
         /// <summary>
@@ -129,6 +149,31 @@ namespace GUI
             this.rbtInactivo.Checked = false;
             this.dteFecha1.Value = DateTime.Today;
             this.dteFecha2.Value = DateTime.Today;     
+        }
+
+        /// <summary>
+        /// Boton nuevo que llama al frmedición marcas
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
+        public void cargarGrid()
+        {
+            try
+            {
+                MarcaD oMarcaD = new MarcaD(this.conexion);
+                this.grdConsultas.DataSource = oMarcaD.obtenerMarca();
+                if (oMarcaD.Error)
+                {
+                    MessageBox.Show("Error cargando los datos" + oMarcaD.ErrorDescription);
+
+                }
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show("Error cargando los datos" + e.Message);
+            }
         }
 
         /// <summary>

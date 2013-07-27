@@ -12,9 +12,11 @@ namespace Logica
         /// Atributos de la clase MarcaL
         /// </summary>
         private int idMarca;
+        private int idUnificacion;
         private string idEmpleado;
         private string estadoMarca;
         private string tipoMarca;
+        private DateTime fechaMarca;
         private string creadoPor;
         private DateTime fechaCreacion;
         private string modificadoPor;
@@ -25,24 +27,27 @@ namespace Logica
 
         /// Metodo constructor con parámetros
 
-        public MarcaL(int pIdMarca, string pIdEmpleado, string pEstadoMarca, string pTipoMarca, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, DateTime pFechaModificacion, string pActivo)
+        public MarcaL(int pIdMarca, int pidUnificacion, string pIdEmpleado, string pEstadoMarca, string pTipoMarca, DateTime pfechaMarca, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, DateTime pFechaModificacion, string pActivo)
         {
             this.idMarca = pIdMarca;
+            this.idUnificacion = pidUnificacion;
             this.idEmpleado = pIdEmpleado;
             this.estadoMarca = pEstadoMarca;
             this.tipoMarca = pTipoMarca;
+            this.fechaMarca = pfechaMarca;
             this.creadoPor = pCreadoPor;
             this.fechaCreacion = pFechaCreacion;
             this.modificadoPor = pModificadoPor;
             this.fechaModificacion = pFechaModificacion;
             this.activo = pActivo;
         }
-        public MarcaL(string pIdEmpleado, string pEstadoMarca, string pTipoMarca, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, DateTime pFechaModificacion, string pActivo)
+        public MarcaL(int pIdUnificacion, string pIdEmpleado, string pEstadoMarca, string pTipoMarca, DateTime pfechaMarca, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, DateTime pFechaModificacion, string pActivo)
         {
-
+            this.idUnificacion = pIdUnificacion;
             this.idEmpleado = pIdEmpleado;
             this.estadoMarca = pEstadoMarca;
             this.tipoMarca = pTipoMarca;
+            this.fechaMarca = pfechaMarca;
             this.creadoPor = pCreadoPor;
             this.fechaCreacion = pFechaCreacion;
             this.modificadoPor = pModificadoPor;
@@ -64,6 +69,18 @@ namespace Logica
             set { idMarca = value; }
         }
 
+        public string IdEmpleado
+        {
+            get { return idEmpleado; }
+            set { idEmpleado = value; }
+        }
+
+        public int IdUnificacion
+        {
+            get { return idUnificacion; }
+            set { idUnificacion = value; }
+        }
+
         public string EstadoMarca
         {
             get { return estadoMarca; }
@@ -74,6 +91,12 @@ namespace Logica
         {
             get { return tipoMarca; }
             set { tipoMarca = value; }
+        }
+
+        public DateTime FechaMarca
+        {
+            get { return fechaMarca; }
+            set { fechaMarca = value; }
         }
 
         public string CreadoPor
@@ -105,11 +128,7 @@ namespace Logica
             get { return activo; }
             set { activo = value; }
         }
-        public string IdEmpleado
-        {
-            get { return idEmpleado; }
-            set { idEmpleado = value; }
-        }
+
 
         /// <summary>
         /// Metodo toString 
@@ -118,10 +137,13 @@ namespace Logica
 
         public override string ToString()
         {
-            return "ID Marca:" + this.IdMarca + "\n" +
+            return
+                    "ID Marca:" + this.IdMarca + "\n" +
+                    "ID Unificación:" + this.IdUnificacion + "\n" +
                     "ID Empleado:" + this.IdEmpleado + "\n" +
                     "Estado Marca:" + this.EstadoMarca + "\n" +
                     "Tipo de Marca:" + this.TipoMarca + "\n" +
+                    "Fecha Marca:" + this.FechaMarca + "\n" +
                     "Creada por:" + this.CreadoPor + "\n" +
                     "Fecha de Creación:" + this.FechaCreacion + "\n" +
                     "Modificado Por:" + this.ModificadoPor + "\n" +

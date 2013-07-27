@@ -19,7 +19,7 @@ namespace Datos
         private string errorDescription = "";
 
         /// <summary>
-        /// Método costructor que recibe por parametro la conexión
+        /// Metodo costructor que recibe por parametro la conexión
         /// </summary>
         /// <param name="pCnx"></param>
         public MarcaD(AccesoDatosOracle pCnx)
@@ -59,9 +59,11 @@ namespace Datos
                         //se carga la lista de la lógica de empleado con sus siete atributos
                         retorno.Add(
                                     new MarcaL(int.Parse(fila["idMarca"].ToString()),
+                                               int.Parse(fila["idUnificacion"].ToString()),
                                                    fila["idEmpleado"].ToString(),
                                                    fila["estadoMarca"].ToString(),
                                                    fila["tipoMarca"].ToString(),
+                                                   DateTime.Parse(fila["fechaMarca"].ToString()),
                                                    fila["creadoPor"].ToString(),
                                                    DateTime.Parse(fila["fechaCreacion"].ToString()),
                                                    fila["modificadoPor"].ToString(),
@@ -87,69 +89,73 @@ namespace Datos
 
             return retorno;
         }
-        /// <summary>
-        ///Método para agregar marca
-        /// </summary>
-        /// <param name="pMarca"></param>
-        /// <returns></returns>
 
         public string agregarMarca(MarcaL pMarca)
         {
             string retorno = "";
             try
             {
-                string sql = "insert into marca(idEmpleado, estadoMarca, tipoMarca, creadoPor, fechaCreacion, modificadoPor, fechaModificacion, activo) " +
-                             "values(:idEmpleado, :estadoMarca, :tipoMarca, :creadoPor, :fechaCreacion, :modificadoPor, :fechaModificacion, :activo) " +
+                string sql = "insert into marca(idUnificacion, idEmpleado, estadoMarca, tipoMarca, fechaMarca, creadoPor, fechaCreacion, modificadoPor, fechaModificacion, activo) " +
+                             "values(:idUnificacion, :idEmpleado, :estadoMarca, :tipoMarca, :fechaMarca, :creadoPor, :fechaCreacion, :modificadoPor, :fechaModificacion, :activo) " +
                              "returning idMarca into :idMarca";
 
-                OracleParameter[] parametros = new OracleParameter[9];// Parametros
-
+                OracleParameter[] parametros = new OracleParameter[11];// Parametros
 
 
                 parametros[0] = new OracleParameter();
-                parametros[0].OracleType = OracleType.VarChar;
-                parametros[0].ParameterName = ":idEmpleado";
-                parametros[0].Value = pMarca.IdEmpleado;
+                parametros[0].OracleType = OracleType.Number;
+                parametros[0].ParameterName = ":idUnificacion";
+                parametros[0].Value = pMarca.IdUnificacion;
 
                 parametros[1] = new OracleParameter();
                 parametros[1].OracleType = OracleType.VarChar;
-                parametros[1].ParameterName = ":estadoMarca";
-                parametros[1].Value = pMarca.EstadoMarca;
+                parametros[1].ParameterName = ":idEmpleado";
+                parametros[1].Value = pMarca.IdEmpleado;
 
                 parametros[2] = new OracleParameter();
                 parametros[2].OracleType = OracleType.VarChar;
-                parametros[2].ParameterName = ":tipoMarca";
-                parametros[2].Value = pMarca.TipoMarca;
+                parametros[2].ParameterName = ":estadoMarca";
+                parametros[2].Value = pMarca.EstadoMarca;
 
                 parametros[3] = new OracleParameter();
                 parametros[3].OracleType = OracleType.VarChar;
-                parametros[3].ParameterName = ":creadoPor";
-                parametros[3].Value = pMarca.CreadoPor;
+                parametros[3].ParameterName = ":tipoMarca";
+                parametros[3].Value = pMarca.TipoMarca;
 
                 parametros[4] = new OracleParameter();
                 parametros[4].OracleType = OracleType.DateTime;
-                parametros[4].ParameterName = ":fechaCreacion";
-                parametros[4].Value = pMarca.FechaCreacion;
+                parametros[4].ParameterName = ":fechaMarca";
+                parametros[4].Value = pMarca.FechaMarca;
 
                 parametros[5] = new OracleParameter();
                 parametros[5].OracleType = OracleType.VarChar;
-                parametros[5].ParameterName = ":modificadoPor";
-                parametros[5].Value = pMarca.ModificadoPor;
+                parametros[5].ParameterName = ":creadoPor";
+                parametros[5].Value = pMarca.CreadoPor;
 
                 parametros[6] = new OracleParameter();
                 parametros[6].OracleType = OracleType.DateTime;
-                parametros[6].ParameterName = ":fechaModificacion";
-                parametros[6].Value = pMarca.FechaModificacion;
+                parametros[6].ParameterName = ":fechaCreacion";
+                parametros[6].Value = pMarca.FechaCreacion;
 
                 parametros[7] = new OracleParameter();
                 parametros[7].OracleType = OracleType.VarChar;
-                parametros[7].ParameterName = ":activo";
-                parametros[7].Value = pMarca.Activo;
+                parametros[7].ParameterName = ":modificadoPor";
+                parametros[7].Value = pMarca.ModificadoPor;
 
                 parametros[8] = new OracleParameter();
-                parametros[8].OracleType = OracleType.Number;
-                parametros[8].ParameterName = ":idMarca";
-                parametros[8].Direction = ParameterDirection.Output;
+                parametros[8].OracleType = OracleType.DateTime;
+                parametros[8].ParameterName = ":fechaModificacion";
+                parametros[8].Value = pMarca.FechaModificacion;
+
+                parametros[9] = new OracleParameter();
+                parametros[9].OracleType = OracleType.VarChar;
+                parametros[9].ParameterName = ":activo";
+                parametros[9].Value = pMarca.Activo;
+
+                parametros[10] = new OracleParameter();
+                parametros[10].OracleType = OracleType.Number;
+                parametros[10].ParameterName = ":idMarca";
+                parametros[10].Direction = ParameterDirection.Output;
 
 
                 retorno = this.cnx.ejecutarSQLReturning(sql, parametros, ":idMarca");
@@ -168,10 +174,10 @@ namespace Datos
 
             try
             {
-                string sql = "insert into marca(idMarca, idEmpleado, estadoMarca, tipoMarca, creadoPor, fechaCreacion, modificadoPor, fechaModificacion, activo) " +
-                             "values(:idMarca, :idEmpleado, :estadoMarca, :tipoMarca, :creadoPor, :fechaCreacion, :modificadoPor, :fechaModificacion, :activo) ";
+                string sql = "insert into marca(idMarca, idUnificacion, idEmpleado, estadoMarca, tipoMarca, fechaMarca, creadoPor, fechaCreacion, modificadoPor, fechaModificacion, activo) " +
+                             "values(:idMarca, :idUnificacion, :idEmpleado, :estadoMarca, :tipoMarca, :fechaMarca, :creadoPor, :fechaCreacion, :modificadoPor, :fechaModificacion, :activo) ";
 
-                OracleParameter[] parametros = new OracleParameter[9];// Parametros
+                OracleParameter[] parametros = new OracleParameter[11];// Parametros
 
                 parametros[0] = new OracleParameter();
                 parametros[0].OracleType = OracleType.Number;
@@ -179,113 +185,54 @@ namespace Datos
                 parametros[0].Value = pMarca.IdMarca;
 
                 parametros[1] = new OracleParameter();
-                parametros[1].OracleType = OracleType.VarChar;
-                parametros[1].ParameterName = ":idEmpleado";
-                parametros[1].Value = pMarca.IdEmpleado;
+                parametros[1].OracleType = OracleType.Number;
+                parametros[1].ParameterName = ":idUnificacion";
+                parametros[1].Value = pMarca.IdUnificacion;
 
                 parametros[2] = new OracleParameter();
                 parametros[2].OracleType = OracleType.VarChar;
-                parametros[2].ParameterName = ":estadoMarca";
-                parametros[2].Value = pMarca.EstadoMarca;
+                parametros[2].ParameterName = ":idEmpleado";
+                parametros[2].Value = pMarca.IdEmpleado;
 
                 parametros[3] = new OracleParameter();
                 parametros[3].OracleType = OracleType.VarChar;
-                parametros[3].ParameterName = ":tipoMarca";
-                parametros[3].Value = pMarca.TipoMarca;
+                parametros[3].ParameterName = ":estadoMarca";
+                parametros[3].Value = pMarca.EstadoMarca;
 
                 parametros[4] = new OracleParameter();
                 parametros[4].OracleType = OracleType.VarChar;
-                parametros[4].ParameterName = ":creadoPor";
-                parametros[4].Value = pMarca.CreadoPor;
+                parametros[4].ParameterName = ":tipoMarca";
+                parametros[4].Value = pMarca.TipoMarca;
 
                 parametros[5] = new OracleParameter();
                 parametros[5].OracleType = OracleType.DateTime;
-                parametros[5].ParameterName = ":fechaCreacion";
-                parametros[5].Value = pMarca.FechaCreacion;
+                parametros[5].ParameterName = ":fechaMarca";
+                parametros[5].Value = pMarca.FechaMarca;
 
                 parametros[6] = new OracleParameter();
                 parametros[6].OracleType = OracleType.VarChar;
-                parametros[6].ParameterName = ":modificadoPor";
-                parametros[6].Value = pMarca.ModificadoPor;
+                parametros[6].ParameterName = ":creadoPor";
+                parametros[6].Value = pMarca.CreadoPor;
 
                 parametros[7] = new OracleParameter();
                 parametros[7].OracleType = OracleType.DateTime;
-                parametros[7].ParameterName = ":fechaModificacion";
-                parametros[7].Value = pMarca.FechaModificacion;
+                parametros[7].ParameterName = ":fechaCreacion";
+                parametros[7].Value = pMarca.FechaCreacion;
 
                 parametros[8] = new OracleParameter();
                 parametros[8].OracleType = OracleType.VarChar;
-                parametros[8].ParameterName = ":activo";
-                parametros[8].Value = pMarca.Activo;
+                parametros[8].ParameterName = ":modificadoPor";
+                parametros[8].Value = pMarca.ModificadoPor;
 
+                parametros[9] = new OracleParameter();
+                parametros[9].OracleType = OracleType.DateTime;
+                parametros[9].ParameterName = ":fechaModificacion";
+                parametros[9].Value = pMarca.FechaModificacion;
 
-
-
-                this.cnx.ejecutarSQL(sql, parametros);
-                this.error = this.cnx.IsError;
-                this.errorDescription = this.cnx.ErrorDescripcion;
-            }
-            catch (Exception e)
-            {
-                this.error = true;
-                this.errorDescription = "Error agregando la Marca: " + e.Message;
-            }
-
-        }
-        public void agregarMarca3(MarcaL pMarca)
-        {
-
-            try
-            {
-                string sql = "insert into marca(idEmpleado, estadoMarca, tipoMarca, creadoPor, fechaCreacion, modificadoPor, fechaModificacion, activo) " +
-                             "values(:idEmpleado, :estadoMarca, :tipoMarca, :creadoPor, :fechaCreacion, :modificadoPor, :fechaModificacion, :activo) ";
-
-                OracleParameter[] parametros = new OracleParameter[8];// Parametros
-
-
-
-                parametros[0] = new OracleParameter();
-                parametros[0].OracleType = OracleType.VarChar;
-                parametros[0].ParameterName = ":idEmpleado";
-                parametros[0].Value = pMarca.IdEmpleado;
-
-                parametros[1] = new OracleParameter();
-                parametros[1].OracleType = OracleType.VarChar;
-                parametros[1].ParameterName = ":estadoMarca";
-                parametros[1].Value = pMarca.EstadoMarca;
-
-                parametros[2] = new OracleParameter();
-                parametros[2].OracleType = OracleType.VarChar;
-                parametros[2].ParameterName = ":tipoMarca";
-                parametros[2].Value = pMarca.TipoMarca;
-
-                parametros[3] = new OracleParameter();
-                parametros[3].OracleType = OracleType.VarChar;
-                parametros[3].ParameterName = ":creadoPor";
-                parametros[3].Value = pMarca.CreadoPor;
-
-                parametros[4] = new OracleParameter();
-                parametros[4].OracleType = OracleType.DateTime;
-                parametros[4].ParameterName = ":fechaCreacion";
-                parametros[4].Value = pMarca.FechaCreacion;
-
-                parametros[5] = new OracleParameter();
-                parametros[5].OracleType = OracleType.VarChar;
-                parametros[5].ParameterName = ":modificadoPor";
-                parametros[5].Value = pMarca.ModificadoPor;
-
-                parametros[6] = new OracleParameter();
-                parametros[6].OracleType = OracleType.DateTime;
-                parametros[6].ParameterName = ":fechaModificacion";
-                parametros[6].Value = pMarca.FechaModificacion;
-
-                parametros[7] = new OracleParameter();
-                parametros[7].OracleType = OracleType.VarChar;
-                parametros[7].ParameterName = ":activo";
-                parametros[7].Value = pMarca.Activo;
-
-
-
+                parametros[10] = new OracleParameter();
+                parametros[10].OracleType = OracleType.VarChar;
+                parametros[10].ParameterName = ":activo";
+                parametros[10].Value = pMarca.Activo;
 
                 this.cnx.ejecutarSQL(sql, parametros);
                 this.error = this.cnx.IsError;
@@ -298,6 +245,7 @@ namespace Datos
             }
 
         }
+
         private DataSet tipoMarca1(string pEmpleado)
         {
 
@@ -331,7 +279,7 @@ namespace Datos
             {
                 oMarcaL.TipoMarca = tipoMarca.Tables[0].Rows[0]["tipoMarca"].ToString();
 
-                if (oMarcaL.TipoMarca == "")
+                if (oMarcaL.TipoMarca.Equals(null))
                 {
                     tipo = "Entrada";
                 }
@@ -362,9 +310,11 @@ namespace Datos
             {
                 string sql = "update marca " +
                              "set idMarca = :idMarca, " +
+                             "idUnificacion = :idUnificacion, " +
                              "idEmpleado = :idEmpleado, " +
-                             "tipoMarca = :tipoMarca, " +
                              "estadoMarca = :estadoMarca, " +
+                             "tipoMarca = :tipoMarca, " +
+                             "fechaMarca = :fechaMarca, " +
                              "creadoPor = :creadoPor, " +
                              "fechaCreacion = :fechaCreacion, " +
                              "modificadoPor = :modificadoPor, " +
@@ -372,23 +322,22 @@ namespace Datos
                              "activo = :activo " +
                              "where idMarca = :idMarcaOriginal";
                 ;
-                OracleParameter[] parametros = new OracleParameter[9];
+                OracleParameter[] parametros = new OracleParameter[11];
 
                 parametros[0] = new OracleParameter();
-                parametros[0].OracleType = OracleType.Double;
+                parametros[0].OracleType = OracleType.Int32;
                 parametros[0].ParameterName = ":idMarca";
                 parametros[0].Value = pMarcaEditada.IdMarca;
 
                 parametros[1] = new OracleParameter();
-                parametros[1].OracleType = OracleType.VarChar;
-                parametros[1].ParameterName = ":idEmpleado";
-                parametros[1].Value = pMarcaEditada.IdEmpleado;
-
+                parametros[1].OracleType = OracleType.Int32;
+                parametros[1].ParameterName = ":idUnificacion";
+                parametros[1].Value = pMarcaEditada.IdUnificacion;
 
                 parametros[2] = new OracleParameter();
                 parametros[2].OracleType = OracleType.VarChar;
-                parametros[2].ParameterName = ":tipoMarca";
-                parametros[2].Value = pMarcaEditada.TipoMarca;
+                parametros[2].ParameterName = ":idEmpleado";
+                parametros[2].Value = pMarcaEditada.IdEmpleado;
 
                 parametros[3] = new OracleParameter();
                 parametros[3].OracleType = OracleType.VarChar;
@@ -397,28 +346,39 @@ namespace Datos
 
                 parametros[4] = new OracleParameter();
                 parametros[4].OracleType = OracleType.VarChar;
-                parametros[4].ParameterName = ":creadoPor";
-                parametros[4].Value = pMarcaEditada.CreadoPor;
+                parametros[4].ParameterName = ":tipoMarca";
+                parametros[4].Value = pMarcaEditada.TipoMarca;
 
                 parametros[5] = new OracleParameter();
                 parametros[5].OracleType = OracleType.DateTime;
-                parametros[5].ParameterName = ":fechaCreacion";
-                parametros[5].Value = pMarcaEditada.FechaCreacion;
+                parametros[5].ParameterName = ":fechaMarca";
+                parametros[5].Value = pMarcaEditada.CreadoPor;
+
 
                 parametros[6] = new OracleParameter();
                 parametros[6].OracleType = OracleType.VarChar;
-                parametros[6].ParameterName = ":modificadoPor";
-                parametros[6].Value = pMarcaEditada.ModificadoPor;
+                parametros[6].ParameterName = ":creadoPor";
+                parametros[6].Value = pMarcaEditada.CreadoPor;
 
                 parametros[7] = new OracleParameter();
                 parametros[7].OracleType = OracleType.DateTime;
-                parametros[7].ParameterName = ":fechaModificacion";
-                parametros[7].Value = pMarcaEditada.FechaModificacion;
+                parametros[7].ParameterName = ":fechaCreacion";
+                parametros[7].Value = pMarcaEditada.FechaCreacion;
 
                 parametros[8] = new OracleParameter();
-                parametros[8].OracleType = OracleType.Double;
-                parametros[8].ParameterName = ":idMarcaOriginal";
-                parametros[8].Value = pMarcaOriginal.IdMarca;
+                parametros[8].OracleType = OracleType.VarChar;
+                parametros[8].ParameterName = ":modificadoPor";
+                parametros[8].Value = pMarcaEditada.ModificadoPor;
+
+                parametros[9] = new OracleParameter();
+                parametros[9].OracleType = OracleType.DateTime;
+                parametros[9].ParameterName = ":fechaModificacion";
+                parametros[9].Value = pMarcaEditada.FechaModificacion;
+
+                parametros[10] = new OracleParameter();
+                parametros[10].OracleType = OracleType.Double;
+                parametros[10].ParameterName = ":idMarcaOriginal";
+                parametros[10].Value = pMarcaOriginal.IdMarca;
 
                 this.cnx.ejecutarSQL(sql, parametros);
                 this.error = this.cnx.IsError;
@@ -522,19 +482,16 @@ namespace Datos
                         //se carga la lista de la lógica de empleado con sus siete atributos
                         retorno.Add(
                                     new MarcaL(int.Parse(fila["idMarca"].ToString()),
+                                                 int.Parse(fila["idUnificacion"].ToString()),
                                                    fila["idEmpleado"].ToString(),
                                                    fila["estadoMarca"].ToString(),
                                                    fila["tipoMarca"].ToString(),
+                                                   DateTime.Parse(fila["fechaMarca"].ToString()),
                                                    fila["creadoPor"].ToString(),
                                                    DateTime.Parse(fila["fechaCreacion"].ToString()),
                                                    fila["modificadoPor"].ToString(),
                                                    DateTime.Parse(fila["fechaModificacion"].ToString()),
                                                    fila["activo"].ToString())
-
-
-
-
-
 
                                    );
                     }
@@ -557,7 +514,5 @@ namespace Datos
             return retorno;
 
         }
-
-
     }
 }

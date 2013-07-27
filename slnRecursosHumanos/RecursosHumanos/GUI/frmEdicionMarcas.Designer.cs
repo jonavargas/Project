@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.grpInfoEmpleado = new System.Windows.Forms.GroupBox();
-            this.txtEstado = new System.Windows.Forms.TextBox();
             this.cmbCodigo = new System.Windows.Forms.ComboBox();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
@@ -40,13 +39,18 @@
             this.grpTipo = new System.Windows.Forms.GroupBox();
             this.rdoSalida = new System.Windows.Forms.RadioButton();
             this.rdoEntrada = new System.Windows.Forms.RadioButton();
+            this.txtNumUnificacion = new System.Windows.Forms.TextBox();
+            this.txtNumMarca = new System.Windows.Forms.TextBox();
+            this.lblNumUnificacion = new System.Windows.Forms.Label();
+            this.lblNumMarca = new System.Windows.Forms.Label();
+            this.txtEstadoMarca = new System.Windows.Forms.TextBox();
             this.grpInfoEmpleado.SuspendLayout();
             this.grpTipo.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpInfoEmpleado
             // 
-            this.grpInfoEmpleado.Controls.Add(this.txtEstado);
+            this.grpInfoEmpleado.Controls.Add(this.txtEstadoMarca);
             this.grpInfoEmpleado.Controls.Add(this.cmbCodigo);
             this.grpInfoEmpleado.Controls.Add(this.dtpFecha);
             this.grpInfoEmpleado.Controls.Add(this.label5);
@@ -59,13 +63,6 @@
             this.grpInfoEmpleado.TabIndex = 22;
             this.grpInfoEmpleado.TabStop = false;
             this.grpInfoEmpleado.Text = "Información empleado";
-            // 
-            // txtEstado
-            // 
-            this.txtEstado.Location = new System.Drawing.Point(168, 80);
-            this.txtEstado.Name = "txtEstado";
-            this.txtEstado.Size = new System.Drawing.Size(275, 22);
-            this.txtEstado.TabIndex = 2;
             // 
             // cmbCodigo
             // 
@@ -179,11 +176,56 @@
             this.rdoEntrada.Text = "Entrada";
             this.rdoEntrada.UseVisualStyleBackColor = true;
             // 
+            // txtNumUnificacion
+            // 
+            this.txtNumUnificacion.Location = new System.Drawing.Point(501, 155);
+            this.txtNumUnificacion.Name = "txtNumUnificacion";
+            this.txtNumUnificacion.Size = new System.Drawing.Size(82, 20);
+            this.txtNumUnificacion.TabIndex = 30;
+            this.txtNumUnificacion.Visible = false;
+            // 
+            // txtNumMarca
+            // 
+            this.txtNumMarca.Location = new System.Drawing.Point(501, 91);
+            this.txtNumMarca.Name = "txtNumMarca";
+            this.txtNumMarca.Size = new System.Drawing.Size(82, 20);
+            this.txtNumMarca.TabIndex = 29;
+            this.txtNumMarca.Visible = false;
+            // 
+            // lblNumUnificacion
+            // 
+            this.lblNumUnificacion.AutoSize = true;
+            this.lblNumUnificacion.Location = new System.Drawing.Point(498, 126);
+            this.lblNumUnificacion.Name = "lblNumUnificacion";
+            this.lblNumUnificacion.Size = new System.Drawing.Size(88, 13);
+            this.lblNumUnificacion.TabIndex = 28;
+            this.lblNumUnificacion.Text = "Num Unificación:";
+            // 
+            // lblNumMarca
+            // 
+            this.lblNumMarca.AutoSize = true;
+            this.lblNumMarca.Location = new System.Drawing.Point(498, 65);
+            this.lblNumMarca.Name = "lblNumMarca";
+            this.lblNumMarca.Size = new System.Drawing.Size(65, 13);
+            this.lblNumMarca.TabIndex = 27;
+            this.lblNumMarca.Text = "Num Marca:";
+            // 
+            // txtEstadoMarca
+            // 
+            this.txtEstadoMarca.Location = new System.Drawing.Point(168, 80);
+            this.txtEstadoMarca.Name = "txtEstadoMarca";
+            this.txtEstadoMarca.Size = new System.Drawing.Size(275, 22);
+            this.txtEstadoMarca.TabIndex = 2;
+            // 
             // frmEdicionMarcas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(491, 355);
+            this.ClientSize = new System.Drawing.Size(610, 355);
+            this.Controls.Add(this.txtNumUnificacion);
+            this.Controls.Add(this.txtNumMarca);
+            this.Controls.Add(this.lblNumUnificacion);
+            this.Controls.Add(this.lblNumMarca);
             this.Controls.Add(this.grpInfoEmpleado);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
@@ -196,6 +238,7 @@
             this.grpTipo.ResumeLayout(false);
             this.grpTipo.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -212,7 +255,11 @@
         private System.Windows.Forms.GroupBox grpTipo;
         private System.Windows.Forms.RadioButton rdoSalida;
         private System.Windows.Forms.RadioButton rdoEntrada;
-        private System.Windows.Forms.TextBox txtEstado;
+        private System.Windows.Forms.TextBox txtNumUnificacion;
+        private System.Windows.Forms.TextBox txtNumMarca;
+        private System.Windows.Forms.Label lblNumUnificacion;
+        private System.Windows.Forms.Label lblNumMarca;
+        private System.Windows.Forms.TextBox txtEstadoMarca;
 
     }
 }
