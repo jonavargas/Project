@@ -50,7 +50,7 @@ namespace Datos
             try
             {
                 //select que carga el dataset con los datos de los usuarios
-                DataSet datos = this.cnx.ejecutarConsultaSQL("select m.*, e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 as nombreEmpleado from marca m, Empleado e where m.idEmpleado = e.idEmpleado");
+                DataSet datos = this.cnx.ejecutarConsultaSQL("select m.*, e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 as nombreEmpleado from Marca m, Empleado e where m.idEmpleado = e.idEmpleado");
                 if (this.cnx.IsError == false)
                 {
                     //se recorre el dataset por cada fila
@@ -398,7 +398,7 @@ namespace Datos
             try
             {
 
-                string sql = "select m.*, e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 as nombreCompleto from marca m, Empleado e where m.idEmpleado = e.idEmpleado and  m.fechaMarca >= :fecha1 and m.fechaMarca <= :fecha2";
+                string sql = "select m.*, e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 as nombreCompleto from Marca m, Empleado e where m.idEmpleado = e.idEmpleado and  m.fechaMarca >= :fecha1 and m.fechaMarca <= :fecha2";
                 int indices = 2;
 
                 if (pIdEmpleado != "")
@@ -487,7 +487,7 @@ namespace Datos
                     parametros[indices].OracleType = OracleType.VarChar;
                     parametros[indices].ParameterName = ":Activo";
                     parametros[indices].Value = pActivo;
-                    indices++;
+                    
                 }
 
                 DataSet datos = this.cnx.ejecutarConsultaSQL(sql, "marca", parametros);

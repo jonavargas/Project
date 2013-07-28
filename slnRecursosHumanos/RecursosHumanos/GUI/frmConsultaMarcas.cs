@@ -121,9 +121,9 @@ namespace GUI
                 if (oMarcaL.EstadoMarca == "Generada")
                 {
                     string idEmpleado = oMarcaL.IdEmpleado;
-                    frmEdicionMarcas ofrmEdicion2 = new frmEdicionMarcas(this.conexion);
-                    ofrmEdicion2.cargarComboEmpleado(idEmpleado);
-                    ofrmEdicion2.ShowDialog();
+                    frmEdicionMarcas frmEdicionMarcas = new frmEdicionMarcas(this.conexion);
+                    frmEdicionMarcas.cargarComboEmpleado(idEmpleado);
+                    frmEdicionMarcas.ShowDialog();
 
 
                 }
@@ -191,7 +191,7 @@ namespace GUI
             {
                 if (this.dtpFecha1.Value > this.dtpFecha2.Value)
                 {
-                    MessageBox.Show("Revisar el rango de fechas");
+                    MessageBox.Show("Rango de fechas no permitido");
                     return;
                 }
 
@@ -242,8 +242,8 @@ namespace GUI
                     activo = "No";
                 }
 
-                List<MarcaL> listaMarcas = oMarcaD.obtenerMarcaFiltro(this.dtpFecha1.Value, this.dtpFecha2.Value, idEmpleado, departamento,
-                                                                         nombreEmpleado, estadoMarca, activo);
+                List<MarcaL> listaMarcas = oMarcaD.obtenerMarcaFiltro(this.dtpFecha1.Value, this.dtpFecha2.Value, this.cmbCodigo.SelectedValue.ToString(), this.cmbDepartamento.SelectedValue.ToString(),
+                                                                         this.cmbEmpleado.SelectedValue.ToString(), this.cmbEstadoMarca.SelectedValue.ToString(), activo);
                 if (!oMarcaD.Error)
                 {
                     this.grdMarcas.DataSource = listaMarcas;
