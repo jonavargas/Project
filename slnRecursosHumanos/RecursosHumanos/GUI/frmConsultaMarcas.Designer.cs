@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
-            this.dteFecha2 = new System.Windows.Forms.DateTimePicker();
-            this.dteFecha1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFecha2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFecha1 = new System.Windows.Forms.DateTimePicker();
             this.lblFecha = new System.Windows.Forms.Label();
             this.tollConsulta = new System.Windows.Forms.ToolStrip();
             this.btnNuevo = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
             this.btnAnular = new System.Windows.Forms.ToolStripButton();
             this.btnRefrescar = new System.Windows.Forms.ToolStripButton();
-            this.grdConsultas = new System.Windows.Forms.DataGridView();
+            this.grdMarcas = new System.Windows.Forms.DataGridView();
             this.idMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idUnificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,7 +60,7 @@
             this.cmbCodigo = new System.Windows.Forms.ComboBox();
             this.cmbEmpleado = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.cmbEstado = new System.Windows.Forms.ComboBox();
+            this.cmbEstadoMarca = new System.Windows.Forms.ComboBox();
             this.cmbDepartamento = new System.Windows.Forms.ComboBox();
             this.lblEstado = new System.Windows.Forms.Label();
             this.btnLimpiar = new System.Windows.Forms.Button();
@@ -68,7 +68,7 @@
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.lblEmpleado = new System.Windows.Forms.Label();
             this.tollConsulta.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdConsultas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdMarcas)).BeginInit();
             this.grpFiltro.SuspendLayout();
             this.grpConsulta.SuspendLayout();
             this.SuspendLayout();
@@ -91,23 +91,23 @@
             this.lblCodigo.Size = new System.Drawing.Size(0, 13);
             this.lblCodigo.TabIndex = 17;
             // 
-            // dteFecha2
+            // dtpFecha2
             // 
-            this.dteFecha2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dteFecha2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dteFecha2.Location = new System.Drawing.Point(269, 45);
-            this.dteFecha2.Name = "dteFecha2";
-            this.dteFecha2.Size = new System.Drawing.Size(125, 22);
-            this.dteFecha2.TabIndex = 11;
+            this.dtpFecha2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFecha2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFecha2.Location = new System.Drawing.Point(269, 45);
+            this.dtpFecha2.Name = "dtpFecha2";
+            this.dtpFecha2.Size = new System.Drawing.Size(125, 22);
+            this.dtpFecha2.TabIndex = 11;
             // 
-            // dteFecha1
+            // dtpFecha1
             // 
-            this.dteFecha1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dteFecha1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dteFecha1.Location = new System.Drawing.Point(113, 45);
-            this.dteFecha1.Name = "dteFecha1";
-            this.dteFecha1.Size = new System.Drawing.Size(125, 22);
-            this.dteFecha1.TabIndex = 10;
+            this.dtpFecha1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFecha1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFecha1.Location = new System.Drawing.Point(113, 45);
+            this.dtpFecha1.Name = "dtpFecha1";
+            this.dtpFecha1.Size = new System.Drawing.Size(125, 22);
+            this.dtpFecha1.TabIndex = 10;
             // 
             // lblFecha
             // 
@@ -171,12 +171,12 @@
             this.btnRefrescar.Text = "Refrescar";
             this.btnRefrescar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // grdConsultas
+            // grdMarcas
             // 
-            this.grdConsultas.AllowUserToDeleteRows = false;
-            this.grdConsultas.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.grdConsultas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdConsultas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.grdMarcas.AllowUserToDeleteRows = false;
+            this.grdMarcas.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.grdMarcas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdMarcas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idMarca,
             this.idUnificacion,
             this.idEmpleado,
@@ -188,20 +188,20 @@
             this.fechaCreacion,
             this.modificadoPor,
             this.fechaModificacion});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdConsultas.DefaultCellStyle = dataGridViewCellStyle2;
-            this.grdConsultas.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.grdConsultas.Location = new System.Drawing.Point(0, 294);
-            this.grdConsultas.Name = "grdConsultas";
-            this.grdConsultas.ReadOnly = true;
-            this.grdConsultas.Size = new System.Drawing.Size(977, 185);
-            this.grdConsultas.TabIndex = 27;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdMarcas.DefaultCellStyle = dataGridViewCellStyle1;
+            this.grdMarcas.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.grdMarcas.Location = new System.Drawing.Point(0, 294);
+            this.grdMarcas.Name = "grdMarcas";
+            this.grdMarcas.ReadOnly = true;
+            this.grdMarcas.Size = new System.Drawing.Size(977, 185);
+            this.grdMarcas.TabIndex = 27;
             // 
             // idMarca
             // 
@@ -292,8 +292,8 @@
             // grpFiltro
             // 
             this.grpFiltro.Controls.Add(this.lblRango);
-            this.grpFiltro.Controls.Add(this.dteFecha2);
-            this.grpFiltro.Controls.Add(this.dteFecha1);
+            this.grpFiltro.Controls.Add(this.dtpFecha2);
+            this.grpFiltro.Controls.Add(this.dtpFecha1);
             this.grpFiltro.Controls.Add(this.lblFecha);
             this.grpFiltro.Controls.Add(this.label1);
             this.grpFiltro.Location = new System.Drawing.Point(0, 55);
@@ -320,7 +320,7 @@
             this.grpConsulta.Controls.Add(this.cmbCodigo);
             this.grpConsulta.Controls.Add(this.cmbEmpleado);
             this.grpConsulta.Controls.Add(this.label3);
-            this.grpConsulta.Controls.Add(this.cmbEstado);
+            this.grpConsulta.Controls.Add(this.cmbEstadoMarca);
             this.grpConsulta.Controls.Add(this.cmbDepartamento);
             this.grpConsulta.Controls.Add(this.lblEstado);
             this.grpConsulta.Controls.Add(this.btnLimpiar);
@@ -394,19 +394,19 @@
             this.label3.TabIndex = 29;
             this.label3.Text = "Código Empleado:";
             // 
-            // cmbEstado
+            // cmbEstadoMarca
             // 
-            this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Items.AddRange(new object[] {
+            this.cmbEstadoMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEstadoMarca.FormattingEnabled = true;
+            this.cmbEstadoMarca.Items.AddRange(new object[] {
             "Generada",
             "En trámite",
             "Pagada",
             "Anulada"});
-            this.cmbEstado.Location = new System.Drawing.Point(654, 55);
-            this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(278, 21);
-            this.cmbEstado.TabIndex = 6;
+            this.cmbEstadoMarca.Location = new System.Drawing.Point(654, 55);
+            this.cmbEstadoMarca.Name = "cmbEstadoMarca";
+            this.cmbEstadoMarca.Size = new System.Drawing.Size(278, 21);
+            this.cmbEstadoMarca.TabIndex = 6;
             // 
             // cmbDepartamento
             // 
@@ -478,7 +478,7 @@
             this.ClientSize = new System.Drawing.Size(986, 475);
             this.Controls.Add(this.grpConsulta);
             this.Controls.Add(this.grpFiltro);
-            this.Controls.Add(this.grdConsultas);
+            this.Controls.Add(this.grdMarcas);
             this.Controls.Add(this.tollConsulta);
             this.Controls.Add(this.lblCodigo);
             this.Name = "frmConsultaMarcas";
@@ -486,7 +486,7 @@
             this.Text = "Consulta de Marcas";
             this.tollConsulta.ResumeLayout(false);
             this.tollConsulta.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdConsultas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdMarcas)).EndInit();
             this.grpFiltro.ResumeLayout(false);
             this.grpFiltro.PerformLayout();
             this.grpConsulta.ResumeLayout(false);
@@ -498,8 +498,8 @@
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker dteFecha2;
-        private System.Windows.Forms.DateTimePicker dteFecha1;
+        private System.Windows.Forms.DateTimePicker dtpFecha2;
+        private System.Windows.Forms.DateTimePicker dtpFecha1;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.Label label1;
@@ -508,7 +508,7 @@
         private System.Windows.Forms.ToolStripButton btnEditar;
         private System.Windows.Forms.ToolStripButton btnAnular;
         private System.Windows.Forms.ToolStripButton btnRefrescar;
-        private System.Windows.Forms.DataGridView grdConsultas;
+        private System.Windows.Forms.DataGridView grdMarcas;
         private System.Windows.Forms.GroupBox grpFiltro;
         private System.Windows.Forms.Label lblRango;
         private System.Windows.Forms.DataGridViewTextBoxColumn idMarca;
@@ -529,7 +529,7 @@
         private System.Windows.Forms.ComboBox cmbCodigo;
         private System.Windows.Forms.ComboBox cmbEmpleado;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cmbEstado;
+        private System.Windows.Forms.ComboBox cmbEstadoMarca;
         private System.Windows.Forms.ComboBox cmbDepartamento;
         private System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.Button btnLimpiar;

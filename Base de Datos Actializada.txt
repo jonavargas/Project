@@ -99,10 +99,12 @@ create table Empleado
 
 create table marca
 (
-       idMarca int,
+       idMarca number,
        idEmpleado varchar(50),
+       idUnificacion number,
        estadoMarca varchar(50),       
-       tipoMarca varchar(50),	       
+       tipoMarca varchar(50),
+       fechaMarca date,	       
        creadoPor varchar(100),
        fechaCreacion date,
        modificadoPor varchar(100),
@@ -113,7 +115,7 @@ create table marca
 );
 
 
-CREATE SEQUENCE seq_marca MINVALUE 1 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 2 
+CREATE SEQUENCE seq_marca MINVALUE 0 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 2 
 CACHE 20 NOORDER  NOCYCLE;
 
 create or replace trigger trg_marca

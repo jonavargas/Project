@@ -48,7 +48,7 @@
             this.txtSalarioPorHora = new System.Windows.Forms.NumericUpDown();
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.txtFechaNacimiento = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.cmbDepartamento = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtSalarioPorHora)).BeginInit();
             this.SuspendLayout();
@@ -239,13 +239,14 @@
             this.txtTelefono.TabIndex = 7;
             this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
-            // txtFechaNacimiento
+            // dtpFechaNacimiento
             // 
-            this.txtFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtFechaNacimiento.Location = new System.Drawing.Point(160, 235);
-            this.txtFechaNacimiento.Name = "txtFechaNacimiento";
-            this.txtFechaNacimiento.Size = new System.Drawing.Size(143, 20);
-            this.txtFechaNacimiento.TabIndex = 9;
+            this.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaNacimiento.Location = new System.Drawing.Point(160, 235);
+            this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
+            this.dtpFechaNacimiento.Size = new System.Drawing.Size(143, 20);
+            this.dtpFechaNacimiento.TabIndex = 9;
+            this.dtpFechaNacimiento.Value = new System.DateTime(2013, 7, 27, 19, 6, 0, 0);
             // 
             // cmbDepartamento
             // 
@@ -262,7 +263,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(343, 343);
             this.Controls.Add(this.cmbDepartamento);
-            this.Controls.Add(this.txtFechaNacimiento);
+            this.Controls.Add(this.dtpFechaNacimiento);
             this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.txtCedula);
             this.Controls.Add(this.txtSalarioPorHora);
@@ -314,7 +315,7 @@
         private System.Windows.Forms.NumericUpDown txtSalarioPorHora;
         private System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.TextBox txtTelefono;
-        private System.Windows.Forms.DateTimePicker txtFechaNacimiento;
+        private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
         private System.Windows.Forms.ComboBox cmbDepartamento;
     }
 }

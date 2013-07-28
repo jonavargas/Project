@@ -58,8 +58,8 @@ namespace Datos
                     {
                         //se carga la lista de la lógica de empleado con sus siete atributos
                         retorno.Add(
-                                    new MarcaL(int.Parse(fila["idMarca"].ToString()),
-                                               int.Parse(fila["idUnificacion"].ToString()),
+                                    new MarcaL(    int.Parse(fila["idMarca"].ToString()),
+                                                   int.Parse(fila["idUnificacion"].ToString()),
                                                    fila["idEmpleado"].ToString(),
                                                    fila["estadoMarca"].ToString(),
                                                    fila["tipoMarca"].ToString(),
@@ -391,27 +391,15 @@ namespace Datos
             }
         }
 
-        public List<MarcaL> obtenerMarcaFiltro(DateTime pFecha1, DateTime pFecha2, string pDepartamento,
-                                        string pEstado, string pIdEmpleado, string pNombreEmpleado)
+        public List<MarcaL> obtenerMarcaFiltro(DateTime pFecha1, DateTime pFecha2, string pIdEmpleado, string pDepartamento,
+                                               string pNombreEmpleado, string  pEstadoMarca, string pActivo)
         {
             List<MarcaL> retorno = new List<MarcaL>();
             try
             {
 
-                string sql = "select m.*, e.nombre || ' ' || e.apellido1 || ' ' || e.apellido2 as nombreCompleto from marca m, Empleado e where m.idEmpleado = e.idEmpleado and  m.fechaCreacion >= :fecha1 and m.fechCreacion <= :fecha2";
+                string sql = "select m.*, e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 as nombreCompleto from marca m, Empleado e where m.idEmpleado = e.idEmpleado and  m.fechaMarca >= :fecha1 and m.fechaMarca <= :fecha2";
                 int indices = 2;
-
-                if (pDepartamento != "")
-                {
-                    sql += " and e.idDepartamento = :idDepartamento";
-                    indices++;
-                }
-
-                if (pEstado != "")
-                {
-                    sql += " and m.estado = :estado";
-                    indices++;
-                }
 
                 if (pIdEmpleado != "")
                 {
@@ -419,9 +407,27 @@ namespace Datos
                     indices++;
                 }
 
+                if (pDepartamento != "")
+                {
+                    sql += " and e.idDepartamento = :idDepartamento";
+                    indices++;
+                }
+
                 if (pNombreEmpleado != "")
                 {
                     sql += " and e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 like :nombreEmpleado";
+                    indices++;
+                }
+
+                if (pEstadoMarca != "")
+                {
+                    sql += " and m.estadoMarca = :estadoMarca";
+                    indices++;
+                }
+
+                if (pActivo != "")
+                {
+                    sql += " and m.Activo = :Activo";
                     indices++;
                 }
 
@@ -438,6 +444,7 @@ namespace Datos
                 parametros[1].Value = pFecha2;
 
                 indices = 2;
+
                 if (pDepartamento != "")
                 {
                     parametros[indices] = new OracleParameter();
@@ -447,12 +454,12 @@ namespace Datos
                     indices++;
                 }
 
-                if (pEstado != "")
+                if (pEstadoMarca != "")
                 {
                     parametros[indices] = new OracleParameter();
                     parametros[indices].OracleType = OracleType.VarChar;
-                    parametros[indices].ParameterName = ":estado";
-                    parametros[indices].Value = pEstado;
+                    parametros[indices].ParameterName = ":estadoMarca";
+                    parametros[indices].Value = pEstadoMarca;
                     indices++;
                 }
 
@@ -471,7 +478,16 @@ namespace Datos
                     parametros[indices].OracleType = OracleType.VarChar;
                     parametros[indices].ParameterName = ":nombreEmpleado";
                     parametros[indices].Value = "%" + pNombreEmpleado + "%";
+                    indices++;
+                }
 
+                if (pActivo != "")
+                {
+                    parametros[indices] = new OracleParameter();
+                    parametros[indices].OracleType = OracleType.VarChar;
+                    parametros[indices].ParameterName = ":Activo";
+                    parametros[indices].Value = pActivo;
+                    indices++;
                 }
 
                 DataSet datos = this.cnx.ejecutarConsultaSQL(sql, "marca", parametros);
@@ -479,10 +495,9 @@ namespace Datos
                 {
                     foreach (DataRow fila in datos.Tables[0].Rows)
                     {
-                        //se carga la lista de la lógica de empleado con sus siete atributos
                         retorno.Add(
-                                    new MarcaL(int.Parse(fila["idMarca"].ToString()),
-                                                 int.Parse(fila["idUnificacion"].ToString()),
+                                    new MarcaL(    int.Parse(fila["idMarca"].ToString()),
+                                                   int.Parse(fila["idUnificacion"].ToString()),
                                                    fila["idEmpleado"].ToString(),
                                                    fila["estadoMarca"].ToString(),
                                                    fila["tipoMarca"].ToString(),

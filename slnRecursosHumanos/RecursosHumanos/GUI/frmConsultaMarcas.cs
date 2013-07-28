@@ -27,14 +27,14 @@ namespace GUI
         {
             InitializeComponent(); 
             this.conexion = pConexion;
-            this.dteFecha1.Value = DateTime.Today;
-            this.dteFecha2.Value = DateTime.Today.AddHours(23).AddMinutes(59).AddSeconds(59);
+            this.dtpFecha1.Value = DateTime.Today;
+            this.dtpFecha2.Value = DateTime.Today.AddHours(23).AddMinutes(59).AddSeconds(59);
             this.cargarCmbDepartamento(pConexion);
             this.cargarComboEmpleado(pConexion);
             this.cargarComboCodigoEmpleado(pConexion);
             this.cmbCodigo.SelectedItem = null;
             this.cmbEmpleado.SelectedItem = null;
-            this.cmbEstado.SelectedItem = null;
+            this.cmbEstadoMarca.SelectedItem = null;
             this.cmbDepartamento.SelectedItem = null;
             
 
@@ -113,9 +113,9 @@ namespace GUI
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (this.grdConsultas.RowCount > 0)
+            if (this.grdMarcas.RowCount > 0)
             {
-                MarcaL oMarcaL = (MarcaL)this.grdConsultas.CurrentRow.DataBoundItem;
+                MarcaL oMarcaL = (MarcaL)this.grdMarcas.CurrentRow.DataBoundItem;
 
 
                 if (oMarcaL.EstadoMarca == "Generada")
@@ -123,8 +123,6 @@ namespace GUI
                     string idEmpleado = oMarcaL.IdEmpleado;
                     frmEdicionMarcas ofrmEdicion2 = new frmEdicionMarcas(this.conexion);
                     ofrmEdicion2.cargarComboEmpleado(idEmpleado);
-                    ofrmEdicion2.cargarComboEmpleadoEditado();
-
                     ofrmEdicion2.ShowDialog();
 
 
@@ -144,11 +142,11 @@ namespace GUI
             this.cmbCodigo.SelectedItem = null;
             this.cmbDepartamento.SelectedItem = null;
             this.cmbEmpleado.SelectedItem = null;
-            this.cmbEstado.SelectedItem = null;
+            this.cmbEstadoMarca.SelectedItem = null;
             this.rbtActivo.Checked = false;
             this.rbtInactivo.Checked = false;
-            this.dteFecha1.Value = DateTime.Today;
-            this.dteFecha2.Value = DateTime.Today;     
+            this.dtpFecha1.Value = DateTime.Today;
+            this.dtpFecha2.Value = DateTime.Today;     
         }
 
         /// <summary>
@@ -162,7 +160,7 @@ namespace GUI
             try
             {
                 MarcaD oMarcaD = new MarcaD(this.conexion);
-                this.grdConsultas.DataSource = oMarcaD.obtenerMarca();
+                this.grdMarcas.DataSource = oMarcaD.obtenerMarca();
                 if (oMarcaD.Error)
                 {
                     MessageBox.Show("Error cargando los datos" + oMarcaD.ErrorDescription);
@@ -184,7 +182,77 @@ namespace GUI
 
         private void btnFiltrar_Click_1(object sender, EventArgs e)
         {
-            
+            string idEmpleado = "";
+            string departamento = "";
+            string nombreEmpleado = "";
+            string estadoMarca = "";
+            string activo = "Activo";
+
+            {
+                if (this.dtpFecha1.Value > this.dtpFecha2.Value)
+                {
+                    MessageBox.Show("Revisar el rango de fechas");
+                    return;
+                }
+
+                MarcaD oMarcaD = new MarcaD(this.conexion);
+
+                if (this.cmbCodigo.SelectedValue == null)
+                {
+                    idEmpleado = "";
+                }
+                else
+                {
+                    idEmpleado = this.cmbCodigo.SelectedValue.ToString();
+                }
+
+                if (this.cmbDepartamento.SelectedValue == null)
+                {
+                    departamento = "";
+                }
+                else
+                {
+                    departamento = this.cmbDepartamento.SelectedValue.ToString();
+                }
+
+                if (this.cmbEmpleado.SelectedValue == null)
+                {
+                    nombreEmpleado = "";
+                }
+                else
+                {
+                    nombreEmpleado = this.cmbEmpleado.SelectedValue.ToString();
+                }
+
+                if (this.cmbEstadoMarca.SelectedIndex.ToString() != "-1")
+                {
+                    estadoMarca = this.cmbEstadoMarca.SelectedItem.ToString();
+                }
+                else
+                {
+                    estadoMarca = "";
+                }
+
+                if (this.rbtActivo.Checked == true)
+                {
+                    activo = "Sí";
+                }
+                else if (this.rbtInactivo.Checked == true)
+                {
+                    activo = "No";
+                }
+
+                List<MarcaL> listaMarcas = oMarcaD.obtenerMarcaFiltro(this.dtpFecha1.Value, this.dtpFecha2.Value, idEmpleado, departamento,
+                                                                         nombreEmpleado, estadoMarca, activo);
+                if (!oMarcaD.Error)
+                {
+                    this.grdMarcas.DataSource = listaMarcas;
+                }
+                else
+                {
+                    MessageBox.Show("Error cargando los datos!!!");
+                }
+            }
         }
     }
 }

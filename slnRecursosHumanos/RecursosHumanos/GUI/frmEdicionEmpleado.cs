@@ -45,9 +45,8 @@ namespace GUI
             this.txtApellido2.Text = (pEmpleadoL.Apellido2);
             this.txtCedula.Text = Convert.ToString(pEmpleadoL.NumCedula);
             this.txtTelefono.Text = Convert.ToString(pEmpleadoL.Telefono);
-            this.txtFechaNacimiento.Text = Convert.ToString(pEmpleadoL.FechaNacimiento);
+            this.dtpFechaNacimiento.Text = Convert.ToString(pEmpleadoL.FechaNacimiento);
             this.txtSalarioPorHora.Value = (Decimal)(pEmpleadoL.SalarioPorHora); 
-           
             this.oEmpleadoL = pEmpleadoL;
            
         }
@@ -96,8 +95,14 @@ namespace GUI
                 MessageBox.Show("Faltan datos requeridos");
                 return;
             }
-            this.oEmpleadoL = new EmpleadoL(this.txtEmpleado.Text, this.cmbDepartamento.Text, this.txtNombre.Text, this.txtApellido1.Text, this.txtApellido2.Text,
-                                     int.Parse(this.txtCedula.Text), int.Parse(this.txtTelefono.Text),(this.txtFechaNacimiento.Text),
+
+            {
+                MessageBox.Show("La fecha de nacimiento no es valida, el empleado debe de ser mayor de 18 años!!!");
+                return;
+            }
+
+            oEmpleadoL = new EmpleadoL(this.txtEmpleado.Text, this.cmbDepartamento.Text, this.txtNombre.Text, this.txtApellido1.Text, this.txtApellido2.Text,
+                                     int.Parse(this.txtCedula.Text), int.Parse(this.txtTelefono.Text),(this.dtpFechaNacimiento.Text),
                                      Double.Parse(this.txtSalarioPorHora.Text), Program.oUsuarioLogueado.IdUsuario, DateTime.Now, Program.oUsuarioLogueado.IdUsuario, DateTime.Now, activo);
             this.aceptar = true;
             this.Close();
