@@ -398,7 +398,7 @@ namespace Datos
             try
             {
 
-                string sql = "select m.*, e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 as nombreCompleto from Marca m, Empleado e where m.idEmpleado = e.idEmpleado and  m.fechaMarca >= :fecha1 and m.fechaMarca <= :fecha2";
+                string sql = "select m*, e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 as nombreCompleto from Marca m, Empleado e where m.idEmpleado = e.idEmpleado and  m.fechaMarca >= :fecha1 and m.fechaMarca <= :fecha2";
                 int indices = 2;
 
                 if (pIdEmpleado != "")
@@ -415,7 +415,7 @@ namespace Datos
 
                 if (pNombreEmpleado != "")
                 {
-                    sql += " and e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 like :nombreEmpleado";
+                    sql += " and e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 like :nombreCompleto";
                     indices++;
                 }
 
@@ -427,7 +427,7 @@ namespace Datos
 
                 if (pActivo != "")
                 {
-                    sql += " and m.Activo = :Activo";
+                    sql += " and m.Activo = :activo";
                     indices++;
                 }
 
@@ -476,7 +476,7 @@ namespace Datos
                 {
                     parametros[indices] = new OracleParameter();
                     parametros[indices].OracleType = OracleType.VarChar;
-                    parametros[indices].ParameterName = ":nombreEmpleado";
+                    parametros[indices].ParameterName = ":nombreCompleto";
                     parametros[indices].Value = "%" + pNombreEmpleado + "%";
                     indices++;
                 }
@@ -485,7 +485,7 @@ namespace Datos
                 {
                     parametros[indices] = new OracleParameter();
                     parametros[indices].OracleType = OracleType.VarChar;
-                    parametros[indices].ParameterName = ":Activo";
+                    parametros[indices].ParameterName = ":activo";
                     parametros[indices].Value = pActivo;
                     
                 }

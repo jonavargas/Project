@@ -242,8 +242,8 @@ namespace GUI
                     activo = "No";
                 }
 
-                List<MarcaL> listaMarcas = oMarcaD.obtenerMarcaFiltro(this.dtpFecha1.Value, this.dtpFecha2.Value, this.cmbCodigo.SelectedValue.ToString(), this.cmbDepartamento.SelectedValue.ToString(),
-                                                                         this.cmbEmpleado.SelectedValue.ToString(), this.cmbEstadoMarca.SelectedValue.ToString(), activo);
+                List<MarcaL> listaMarcas = oMarcaD.obtenerMarcaFiltro(this.dtpFecha1.Value, this.dtpFecha2.Value, idEmpleado, departamento,
+                                                                         nombreEmpleado, estadoMarca, activo);
                 if (!oMarcaD.Error)
                 {
                     this.grdMarcas.DataSource = listaMarcas;

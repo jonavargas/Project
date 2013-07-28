@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.dtpFecha2 = new System.Windows.Forms.DateTimePicker();
@@ -67,6 +67,7 @@
             this.fechaCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modificadoPor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaModificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tollConsulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdMarcas)).BeginInit();
             this.grpFiltro.SuspendLayout();
@@ -187,17 +188,18 @@
             this.creadoPor,
             this.fechaCreacion,
             this.modificadoPor,
-            this.fechaModificacion});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdMarcas.DefaultCellStyle = dataGridViewCellStyle2;
+            this.fechaModificacion,
+            this.Activo});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdMarcas.DefaultCellStyle = dataGridViewCellStyle1;
             this.grdMarcas.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.grdMarcas.Location = new System.Drawing.Point(0, 294);
+            this.grdMarcas.Location = new System.Drawing.Point(6, 294);
             this.grdMarcas.Name = "grdMarcas";
             this.grdMarcas.ReadOnly = true;
             this.grdMarcas.Size = new System.Drawing.Size(977, 185);
@@ -410,8 +412,8 @@
             // 
             // NombreEmpleado
             // 
-            this.NombreEmpleado.DataPropertyName = "nombreEmpleado";
-            this.NombreEmpleado.HeaderText = "Nombre";
+            this.NombreEmpleado.DataPropertyName = "nombreCompleto";
+            this.NombreEmpleado.HeaderText = "Nombre Empleado";
             this.NombreEmpleado.Name = "NombreEmpleado";
             this.NombreEmpleado.ReadOnly = true;
             this.NombreEmpleado.Width = 120;
@@ -470,6 +472,13 @@
             this.fechaModificacion.Name = "fechaModificacion";
             this.fechaModificacion.ReadOnly = true;
             this.fechaModificacion.Width = 105;
+            // 
+            // Activo
+            // 
+            this.Activo.DataPropertyName = "activo";
+            this.Activo.HeaderText = "Activo";
+            this.Activo.Name = "Activo";
+            this.Activo.ReadOnly = true;
             // 
             // frmConsultaMarcas
             // 
@@ -536,5 +545,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaCreacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn modificadoPor;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaModificacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Activo;
     }
 }
