@@ -158,5 +158,7 @@ create table fechasPagoDoble
        creadoPor varchar(100),
        fechaCreacion date,
        modificadoPor varchar(100),
-       fechaModificacion date
+       fechaModificacion date,
+       constraint PK_FechasPagoDoble primary key (detalleFechaDoble)
+       
 );
