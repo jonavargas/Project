@@ -152,9 +152,9 @@ create table Unificacion
 
 create table fechasPagoDoble
 (       
-       dia date,
-       mes date,
-       descripcionFechaDoble varchar(100),
+       dia date not null,
+       mes date not null,
+       descripcionFechaDoble varchar(100) not null,
        creadoPor varchar(100),
        fechaCreacion date,
        modificadoPor varchar(100),
