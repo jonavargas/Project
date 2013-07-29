@@ -68,10 +68,24 @@
             // cmbMes
             // 
             this.cmbMes.FormattingEnabled = true;
+            this.cmbMes.Items.AddRange(new object[] {
+            "Enero",
+            "Febrero",
+            "Marzo",
+            "Abril",
+            "Mayo",
+            "Junio",
+            "Julio",
+            "Agosto",
+            "Septiembre",
+            "Octubre",
+            "Noviembre",
+            "Diciembre"});
             this.cmbMes.Location = new System.Drawing.Point(157, 58);
             this.cmbMes.Name = "cmbMes";
             this.cmbMes.Size = new System.Drawing.Size(169, 21);
             this.cmbMes.TabIndex = 2;
+            this.cmbMes.SelectedIndexChanged += new System.EventHandler(this.cmbMes_SelectedIndexChanged);
             // 
             // lblDescripcion
             // 
@@ -118,7 +132,7 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "del";
             // 
-            // FrmFechasPagoDoble
+            // FrmEdicionFechasPagoDoble
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -132,7 +146,7 @@
             this.Controls.Add(this.cmbMes);
             this.Controls.Add(this.lblDia);
             this.Controls.Add(this.cmbDia);
-            this.Name = "FrmFechasPagoDoble";
+            this.Name = "FrmEdicionFechasPagoDoble";
             this.Text = "Fechas de Pago Doble";
             this.ResumeLayout(false);
             this.PerformLayout();

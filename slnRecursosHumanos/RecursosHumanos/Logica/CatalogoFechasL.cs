@@ -99,7 +99,7 @@ namespace Logica
       /// <returns></returns>
         public override string ToString()
         {
-            return "ID Catalogo de Fechas: " + this.idCatalogoFechas + "\n" +
+            return "Cod. Catalogo de Fechas: " + this.idCatalogoFechas + "\n" +
                    "Dia: " + this.dia + "\n" +
                    "Mes: " + this.mes + "\n" +
                    "Descripción: " + this.descripcion + "\n" +

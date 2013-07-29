@@ -88,7 +88,7 @@ namespace Logica
 
         public override string ToString()
         {
-            return "Id Departamento: " + this.idDepartamento + "\n" +
+            return "Cod. Departamento: " + this.idDepartamento + "\n" +
                    "Nombre Departamento: " + this.nombreDepartamento + "\n" +
                    "Fecha de Modificación: " + this.fechaModificacion + "\n" +
                    "Fecha de Creación: " + this.fechaCreacion + "\n" +

@@ -8,26 +8,32 @@ namespace Logica
 {
     public class FechasDoblesL
     {
-        private string dia;
+        private string detalleFechaDoble;
+        private int dia;
         private string mes;
-        private string descripcionFechaDoble;
         private string creadoPor;
         private DateTime fechaCreacion;
         private string modificadoPor;
         private DateTime fechaModificacion;
 
-        public FechasDoblesL(string pDia, string pMes, string pDescripcionFechaDoble, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, DateTime pFechaModificacion) 
+        public FechasDoblesL(string pDetalleFechaDoble, int pDia, string pMes, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, DateTime pFechaModificacion) 
         {
+            this.detalleFechaDoble = pDetalleFechaDoble;
             this.dia = pDia;
             this.mes = pMes;
-            this.descripcionFechaDoble = pDescripcionFechaDoble;
             this.creadoPor = pCreadoPor;
             this.fechaCreacion = pFechaCreacion;
             this.modificadoPor = pModificadoPor;
             this.fechaModificacion = pFechaModificacion;
         }
 
-        public string Dia
+        public string DetalleFechaDoble
+        {
+            get { return detalleFechaDoble; }
+            set { detalleFechaDoble = value; }
+        }
+
+        public int Dia
         {
             get { return dia; }
             set { dia = value; }
@@ -37,12 +43,6 @@ namespace Logica
         {
             get { return mes; }
             set { mes = value; }
-        }
-
-        public string DescripcionFechaDoble
-        {
-            get { return descripcionFechaDoble; }
-            set { descripcionFechaDoble = value; }
         }
 
         public string CreadoPor
@@ -71,9 +71,9 @@ namespace Logica
 
         public override string ToString()
         {
-            return "Dia: " + this.Dia + "\n" +
+            return "Detalle de Fechas Dobles: " + this.DetalleFechaDoble + "\n" +
+                   "Dia: " + this.Dia + "\n" +
                    "Mes: " + this.Mes + "\n" +
-                   "Descripcion de Fechas Dobles: " + this.DescripcionFechaDoble + "\n" +
                    "Creado por: " + this.CreadoPor + "\n" +
                    "Fecha de Creación: " + this.FechaCreacion + "\n" +
                    "Modificado por: " + this.ModificadoPor + "\n" +

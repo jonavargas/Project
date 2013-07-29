@@ -138,9 +138,9 @@ namespace Logica
         public override string ToString()
         {
             return
-                    "ID Marca:" + this.IdMarca + "\n" +
-                    "ID Unificación:" + this.IdUnificacion + "\n" +
-                    "ID Empleado:" + this.IdEmpleado + "\n" +
+                    "Cod. Marca:" + this.IdMarca + "\n" +
+                    "Cod. Unificación:" + this.IdUnificacion + "\n" +
+                    "Cod. Empleado:" + this.IdEmpleado + "\n" +
                     "Estado Marca:" + this.EstadoMarca + "\n" +
                     "Tipo de Marca:" + this.TipoMarca + "\n" +
                     "Fecha Marca:" + this.FechaMarca + "\n" +

@@ -139,6 +139,12 @@
     <Compile Include="GUI\frmMantEmpleado.Designer.cs">
       <DependentUpon>frmMantEmpleado.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frmMantFechaPagoDoble.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmMantFechaPagoDoble.Designer.cs">
+      <DependentUpon>frmMantFechaPagoDoble.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmMantParametro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmMantEmpleado.resx">
       <DependentUpon>frmMantEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmMantFechaPagoDoble.resx">
+      <DependentUpon>frmMantFechaPagoDoble.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmMantParametro.resx">
       <DependentUpon>frmMantParametro.cs</DependentUpon>

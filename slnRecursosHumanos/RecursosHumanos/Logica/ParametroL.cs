@@ -136,7 +136,7 @@ namespace Logica
          /// <returns></returns>
         public override string ToString()
         {
-            return "ID Parametro: " + this.IdParametro +
+            return "Cod. Parametro: " + this.IdParametro +
                    "Hora Entrada: " + this.HoraEntrada +
                    "Hora Salida: " + this.HoraSalida+
                    "Lunes: " + this.Lunes +
