@@ -490,13 +490,12 @@ namespace Datos
                     
                 }
 
-                DataSet datos = this.cnx.ejecutarConsultaSQL(sql, "marca", parametros);
+                DataSet datos = this.cnx.ejecutarConsultaSQL(sql, "marca");
                 if (this.cnx.IsError == false)
                 {
                     foreach (DataRow fila in datos.Tables[0].Rows)
                     {
-                        retorno.Add(
-                                    new MarcaL(    int.Parse(fila["idMarca"].ToString()),
+                        retorno.Add(new MarcaL(    int.Parse(fila["idMarca"].ToString()),
                                                    int.Parse(fila["idUnificacion"].ToString()),
                                                    fila["idEmpleado"].ToString(),
                                                    fila["estadoMarca"].ToString(),

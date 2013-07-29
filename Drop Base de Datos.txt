@@ -1,9 +1,10 @@
 drop table marca;
+drop sequence seq_marca;
 drop table empleado;
 drop table usuario;
 drop table departamento;
 drop table deducciones;
 drop table catalogoFechas;
 drop table parametro;
+drop table unificacion;
 
-DROP sequence seq_marca;

@@ -125,3 +125,26 @@ BEGIN
    INTO :NEW.idMarca
    FROM DUAL;
 END;
+
+create table Unificacion
+(
+      idUnificacion number,
+      idPago varchar(50),
+      estadoUnificacion varchar(50),
+      fechaUnificacion varchar(50),
+      horaRegular number(9,2),
+      horaExtra number(9,2),
+      horaDoble number(9,2),
+      montoUnificacion number(9,2),
+      notasAprobacion varchar(100),
+      aprobacionHExtra varchar(50),
+      totalHoras number(9,2),
+      totalMontos number(9,2),
+      deducciones number(9,2),
+      creadoPor varchar(100),
+      fechaCreacion date,
+      modificadoPor varchar(100),
+      fechaModificacion date,
+      activo varchar(3),
+      constraint PK_Unificacion primary key (idUnificacion)
+);
