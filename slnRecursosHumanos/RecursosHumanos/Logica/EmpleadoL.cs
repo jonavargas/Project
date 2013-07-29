@@ -141,19 +141,19 @@ namespace Logica
 
         public override string ToString()
         {
-            return "ID Empleado: " + this.idEmpleado +
-                   "ID Departamento: " + this.idDepartamento +
-                   "Nombre Empleado: " + this.nombreEmpleado +
-                   "Apellido 1: " + this.apellido1 +
-                   "Apellido 2: " + this.apellido2 +
-                   "Número deCedula: " + this.numCedula +
-                   "Teléfono: " + this.telefono +
-                   "Fecha Nacimiento: " + this.fechaNacimiento +
-                   "Salario por Hora: " + this.salarioPorHora +
-                   "Creado por: " + this.creadoPor +
-                   "Fecha de Creación: " + this.fechaCreacion +
-                   "Modificado por: " + this.modificadoPor +
-                   "Fecha de Modificación: " + this.fechaModificacion +
+            return "ID Empleado: " + this.idEmpleado + "\n" +
+                   "ID Departamento: " + this.idDepartamento + "\n" +
+                   "Nombre Empleado: " + this.nombreEmpleado + "\n" +
+                   "Apellido 1: " + this.apellido1 + "\n" +
+                   "Apellido 2: " + this.apellido2 + "\n" +
+                   "Número deCedula: " + this.numCedula + "\n" +
+                   "Teléfono: " + this.telefono + "\n" +
+                   "Fecha Nacimiento: " + this.fechaNacimiento + "\n" +
+                   "Salario por Hora: " + this.salarioPorHora + "\n" +
+                   "Creado por: " + this.creadoPor + "\n" +
+                   "Fecha de Creación: " + this.fechaCreacion + "\n" +
+                   "Modificado por: " + this.modificadoPor + "\n" +
+                   "Fecha de Modificación: " + this.fechaModificacion + "\n" +
                    "Activo: " + this.activo;
         }
     }

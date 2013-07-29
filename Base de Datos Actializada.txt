@@ -126,6 +126,7 @@ BEGIN
    FROM DUAL;
 END;
 
+
 create table Unificacion
 (
       idUnificacion number,
@@ -147,4 +148,15 @@ create table Unificacion
       fechaModificacion date,
       activo varchar(3),
       constraint PK_Unificacion primary key (idUnificacion)
+);
+
+create table fechasPagoDoble
+(       
+       dia date,
+       mes date,
+       descripcionFechaDoble varchar(100),
+       creadoPor varchar(100),
+       fechaCreacion date,
+       modificadoPor varchar(100),
+       fechaModificacion date
 );

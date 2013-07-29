@@ -48,18 +48,18 @@
     <Compile Include="Datos\AccesoDatos.cs" />
     <Compile Include="Datos\AccesoDatosOracle.cs" />
     <Compile Include="Datos\CatalogoFechasD.cs" />
-    <Compile Include="Datos\ConsultaD.cs" />
     <Compile Include="Datos\DeduccionesD.cs" />
     <Compile Include="Datos\DepartamentoD.cs" />
     <Compile Include="Datos\EmpleadoD.cs" />
+    <Compile Include="Datos\FechasDoblesD.cs" />
     <Compile Include="Datos\MarcaD.cs" />
     <Compile Include="Datos\ParametroD.cs" />
     <Compile Include="Datos\UsuarioD.cs" />
-    <Compile Include="GUI\frmConsultaMarcas.cs">
+    <Compile Include="GUI\frmMantConsultaMarcas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\frmConsultaMarcas.Designer.cs">
-      <DependentUpon>frmConsultaMarcas.cs</DependentUpon>
+    <Compile Include="GUI\frmMantConsultaMarcas.Designer.cs">
+      <DependentUpon>frmMantConsultaMarcas.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\frmEdicionCatalogoFechas.cs">
       <SubType>Form</SubType>
@@ -102,6 +102,12 @@
     </Compile>
     <Compile Include="GUI\frmEdicionUsuario.Designer.cs">
       <DependentUpon>frmEdicionUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmEdicionFechasPagoDoble.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmEdicionFechasPagoDoble.Designer.cs">
+      <DependentUpon>FrmEdicionFechasPagoDoble.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\frmLogin.cs">
       <SubType>Form</SubType>
@@ -158,17 +164,17 @@
       <DependentUpon>frmRegistroMarcas.cs</DependentUpon>
     </Compile>
     <Compile Include="Logica\CatalogoFechasL.cs" />
-    <Compile Include="Logica\ConsultaL.cs" />
     <Compile Include="Logica\DeduccionesL.cs" />
     <Compile Include="Logica\DepartamentoL.cs" />
     <Compile Include="Logica\EmpleadoL.cs" />
+    <Compile Include="Logica\FechasDoblesL.cs" />
     <Compile Include="Logica\MarcaL.cs" />
     <Compile Include="Logica\ParametroL.cs" />
     <Compile Include="Logica\UsuarioL.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GUI\frmConsultaMarcas.resx">
-      <DependentUpon>frmConsultaMarcas.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\frmMantConsultaMarcas.resx">
+      <DependentUpon>frmMantConsultaMarcas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmEdicionCatalogoFechas.resx">
       <DependentUpon>frmEdicionCatalogoFechas.cs</DependentUpon>
@@ -187,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmEdicionUsuario.resx">
       <DependentUpon>frmEdicionUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmEdicionFechasPagoDoble.resx">
+      <DependentUpon>FrmEdicionFechasPagoDoble.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
