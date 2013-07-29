@@ -7,4 +7,5 @@ drop table deducciones;
 drop table catalogoFechas;
 drop table parametro;
 drop table unificacion;
+drop table fechasPagoDoble
 
