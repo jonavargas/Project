@@ -56,9 +56,9 @@
             this.lblid_CatalogoFechas.AutoSize = true;
             this.lblid_CatalogoFechas.Location = new System.Drawing.Point(23, 21);
             this.lblid_CatalogoFechas.Name = "lblid_CatalogoFechas";
-            this.lblid_CatalogoFechas.Size = new System.Drawing.Size(105, 13);
+            this.lblid_CatalogoFechas.Size = new System.Drawing.Size(118, 13);
             this.lblid_CatalogoFechas.TabIndex = 0;
-            this.lblid_CatalogoFechas.Text = "Id Catalogo Fechas :";
+            this.lblid_CatalogoFechas.Text = "Cod. Catalogo Fechas :";
             // 
             // lbldia
             // 
