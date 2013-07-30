@@ -41,27 +41,28 @@
             // 
             // btnMarcar
             // 
-            this.btnMarcar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnMarcar.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMarcar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnMarcar.Location = new System.Drawing.Point(0, 452);
+            this.btnMarcar.Location = new System.Drawing.Point(0, 513);
             this.btnMarcar.Name = "btnMarcar";
-            this.btnMarcar.Size = new System.Drawing.Size(966, 101);
+            this.btnMarcar.Size = new System.Drawing.Size(966, 43);
             this.btnMarcar.TabIndex = 2;
             this.btnMarcar.Text = "Realizar Marca";
             this.btnMarcar.UseVisualStyleBackColor = true;
+            this.btnMarcar.Visible = false;
             this.btnMarcar.Click += new System.EventHandler(this.btnMarcar_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblFecha);
+            this.groupBox1.Controls.Add(this.btnMarcar);
             this.groupBox1.Controls.Add(this.lblReloj);
             this.groupBox1.Controls.Add(this.txtCodigoEmpleado);
             this.groupBox1.Controls.Add(this.lblCodigoEmpleado);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(966, 450);
+            this.groupBox1.Size = new System.Drawing.Size(966, 556);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
@@ -70,7 +71,7 @@
             this.lblFecha.AutoSize = true;
             this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold);
             this.lblFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.lblFecha.Location = new System.Drawing.Point(451, 38);
+            this.lblFecha.Location = new System.Drawing.Point(451, 59);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(387, 37);
             this.lblFecha.TabIndex = 9;
@@ -81,7 +82,7 @@
             this.lblReloj.AutoSize = true;
             this.lblReloj.Font = new System.Drawing.Font("Agency FB", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblReloj.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.lblReloj.Location = new System.Drawing.Point(394, 104);
+            this.lblReloj.Location = new System.Drawing.Point(394, 140);
             this.lblReloj.Name = "lblReloj";
             this.lblReloj.Size = new System.Drawing.Size(309, 115);
             this.lblReloj.TabIndex = 8;
@@ -91,7 +92,7 @@
             // 
             this.txtCodigoEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigoEmpleado.ForeColor = System.Drawing.Color.Black;
-            this.txtCodigoEmpleado.Location = new System.Drawing.Point(414, 322);
+            this.txtCodigoEmpleado.Location = new System.Drawing.Point(414, 391);
             this.txtCodigoEmpleado.Name = "txtCodigoEmpleado";
             this.txtCodigoEmpleado.Size = new System.Drawing.Size(494, 116);
             this.txtCodigoEmpleado.TabIndex = 1;
@@ -101,7 +102,7 @@
             // 
             this.lblCodigoEmpleado.AutoSize = true;
             this.lblCodigoEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigoEmpleado.Location = new System.Drawing.Point(407, 251);
+            this.lblCodigoEmpleado.Location = new System.Drawing.Point(407, 299);
             this.lblCodigoEmpleado.Name = "lblCodigoEmpleado";
             this.lblCodigoEmpleado.Size = new System.Drawing.Size(501, 37);
             this.lblCodigoEmpleado.TabIndex = 6;
@@ -121,7 +122,6 @@
             this.ClientSize = new System.Drawing.Size(966, 553);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnMarcar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.KeyPreview = true;
             this.Name = "frmRegistroMarcas";
