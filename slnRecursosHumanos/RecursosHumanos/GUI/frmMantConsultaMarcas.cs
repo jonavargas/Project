@@ -18,9 +18,6 @@ namespace GUI
         /// Variable para hacer la conexión a la base de datos
         /// </summary>
         private AccesoDatosOracle conexion;
-        List<UsuarioL> UsuarioActual;
-        MarcaL oMarcaL;
-        MarcaD oMarcaD;
 
         /// <summary>
         /// Metodo constructor que recibe por parámetro la conexión a la base de datos.
@@ -28,9 +25,8 @@ namespace GUI
         /// <param name="pConexion"></param>
         public frmConsultaMarcas(AccesoDatosOracle pConexion)
         {
-            InitializeComponent();            
+            InitializeComponent(); 
             this.conexion = pConexion;
-            this.cargarGrid();
             this.dtpFecha1.Value = DateTime.Today;
             this.dtpFecha2.Value = DateTime.Today.AddHours(23).AddMinutes(59).AddSeconds(59);
             this.cargarCmbDepartamento(pConexion);
@@ -124,22 +120,10 @@ namespace GUI
 
                 if (oMarcaL.EstadoMarca == "Generada")
                 {
-                    frmEdicionMarcas ofrmEdicion = new frmEdicionMarcas(oMarcaL, this.conexion);
-                    ofrmEdicion.ShowDialog();
-                    if (ofrmEdicion.Aceptar)
-                    {
-                        this.oMarcaD = new MarcaD(this.conexion);
-                        oMarcaD.editarMarca(ofrmEdicion.MarcaL, oMarcaL);
-                        if (oMarcaD.Error)
-                        {
-                            MessageBox.Show("Error actualizando los datos:" + oMarcaD.ErrorDescription);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Registro actualizada!!!");
-                            this.cargarGrid();
-                        }
-                    }
+                    string idEmpleado = oMarcaL.IdEmpleado;
+                    frmEdicionMarcas frmEdicionMarcas = new frmEdicionMarcas(this.conexion);
+                    frmEdicionMarcas.cargarComboEmpleado(idEmpleado);
+                    frmEdicionMarcas.ShowDialog();
 
 
                 }
@@ -207,7 +191,7 @@ namespace GUI
             {
                 if (this.dtpFecha1.Value > this.dtpFecha2.Value)
                 {
-                    MessageBox.Show("Revisar el rango de fechas");
+                    MessageBox.Show("Rango de fechas no permitido");
                     return;
                 }
 

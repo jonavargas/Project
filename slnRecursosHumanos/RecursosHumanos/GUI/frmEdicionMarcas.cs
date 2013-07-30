@@ -19,11 +19,9 @@ namespace GUI
         /// </summary>
         private AccesoDatosOracle cnx;
         private Boolean aceptar;
-        public MarcaL MarcaL;        
-        private bool edicion = false;
-        MarcaL oMarcaL;
-        string tipo;
-        DateTime fechaMarca;
+        public MarcaL MarcaL;
+        int idUnificacion = 0;
+        
 
         public MarcaL MarcaL1
         {
@@ -41,38 +39,14 @@ namespace GUI
         /// Metodo constructor que recibe por parámetro la conexión a la base de datos
         /// </summary>
         /// <param name="pcnx"></param>
-        /// 
-
-       
         public frmEdicionMarcas(AccesoDatosOracle pcnx)
         {
             InitializeComponent();
             rdoEntrada.Checked = true;
             this.cargarComboCodigoEmpleado(pcnx);
-
-            txtEstadoMarca.Text = "Generada";
-            
-            
+            this.txtEstadoMarca.Text = "Generada";
+            this.txtEstadoMarca.ReadOnly = true;
            
-        }
-        public frmEdicionMarcas(MarcaL pMarcaEditar, AccesoDatosOracle pcnx)
-        {
-            InitializeComponent();
-            this.oMarcaL = pMarcaEditar;
-            this.txtNumMarca.Text = this.oMarcaL.IdMarca.ToString();
-            this.txtNumUnificacion.Text = this.oMarcaL.IdUnificacion.ToString();
-            this.cmbCodigo.Items.Add(this.oMarcaL.IdEmpleado);
-            
-            this.dtpFecha.Value = this.oMarcaL.FechaMarca;
-            this.validarBotonEditar();
-            this.txtEstadoMarca.Text = this.oMarcaL.EstadoMarca;
-            txtNumMarca.Enabled = false;
-            txtNumUnificacion.Enabled = false;
-           
-            
-            this.edicion = true;
-            
-
         }
         /// <summary>
         /// Método para cargar el combobox CodigoEmpleado con los codigos existentes en la base de datos.
@@ -89,46 +63,22 @@ namespace GUI
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            int idUnificacion = 0;
-            
-            string codigo = (cmbCodigo.SelectedItem.ToString());
-            this.fechaMarca = dtpFecha.Value.Date;
-            int numMarca = int.Parse(txtNumMarca.Text);
-            //
-           
+            string codigo = Convert.ToString(cmbCodigo.SelectedValue);
+            this.idUnificacion = int.Parse(txtNumUnificacion.Text);
             string estado = Convert.ToString(txtEstadoMarca.Text);
-            if (edicion == false)
+
+
+            if (rdoSalida.Checked == true)
             {
-                idUnificacion = int.Parse(txtNumUnificacion.Text);
-               
-                if (rdoSalida.Checked == true)
-                {
-                    
-                    MarcaL = new MarcaL(idUnificacion, codigo, estado, "Salida", fechaMarca, "Proyecto", DateTime.Now, "Proyecto", DateTime.Now, "Sí");
+
+                MarcaL = new MarcaL(idUnificacion, codigo, estado, "Salida", dtpFecha.Value.Date, "Proyecto", DateTime.Now, "Proyecto", DateTime.Now, "Sí");
 
 
-                }
-                else
-                {
-                    MarcaL = new MarcaL(idUnificacion, codigo, estado, "Entrada", fechaMarca, "Proyecto", DateTime.Now, "Proyecto", DateTime.Now, "Sí");
-
-                }
             }
-            else {
-                if (rdoSalida.Checked == true)
-                {
-                    
-                    MarcaL = new MarcaL(numMarca, idUnificacion, codigo, estado, "Salida", fechaMarca, "Proyecto", DateTime.Now, "Proyecto", DateTime.Now, "Sí");
+            else
+            {
+                MarcaL = new MarcaL(idUnificacion, codigo, estado, "Entrada", dtpFecha.Value.Date, "Proyecto", DateTime.Now, "Proyecto", DateTime.Now, "Sí");
 
-
-                }
-                else
-                {
-                    MarcaL = new MarcaL(numMarca, idUnificacion, codigo, estado, "Salida", fechaMarca, "Proyecto", DateTime.Now, "Proyecto", DateTime.Now, "Sí"); 
-
-                }
-            
-            
             }
             this.Aceptar = true;
             this.Close();
@@ -139,23 +89,10 @@ namespace GUI
             this.Close();
         }
 
-        
-        public void validarBotonEditar()
+        public void cargarComboEmpleado(string idEmpleado)
         {
-            //se valida cual radio button se debe seleccionar cargando el dato a la variable tipo
-            this.tipo = this.oMarcaL.TipoMarca;
-            if (this.tipo == "Entrada")
-            {
-                this.rdoEntrada.Checked = true;
-            }
-            //si no es usuario regular
-            else
-            {
-                this.rdoSalida.Checked = true;
-            }
+            this.cmbCodigo.Items.Add(idEmpleado);
 
         }
-
-        
     }
 }
