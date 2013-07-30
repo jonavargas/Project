@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.grpInfoEmpleado = new System.Windows.Forms.GroupBox();
+            this.txtEstadoMarca = new System.Windows.Forms.TextBox();
             this.cmbCodigo = new System.Windows.Forms.ComboBox();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
@@ -43,7 +44,6 @@
             this.txtNumMarca = new System.Windows.Forms.TextBox();
             this.lblNumUnificacion = new System.Windows.Forms.Label();
             this.lblNumMarca = new System.Windows.Forms.Label();
-            this.txtEstadoMarca = new System.Windows.Forms.TextBox();
             this.grpInfoEmpleado.SuspendLayout();
             this.grpTipo.SuspendLayout();
             this.SuspendLayout();
@@ -63,6 +63,13 @@
             this.grpInfoEmpleado.TabIndex = 22;
             this.grpInfoEmpleado.TabStop = false;
             this.grpInfoEmpleado.Text = "Información empleado";
+            // 
+            // txtEstadoMarca
+            // 
+            this.txtEstadoMarca.Location = new System.Drawing.Point(168, 80);
+            this.txtEstadoMarca.Name = "txtEstadoMarca";
+            this.txtEstadoMarca.Size = new System.Drawing.Size(275, 22);
+            this.txtEstadoMarca.TabIndex = 2;
             // 
             // cmbCodigo
             // 
@@ -182,7 +189,6 @@
             this.txtNumUnificacion.Name = "txtNumUnificacion";
             this.txtNumUnificacion.Size = new System.Drawing.Size(82, 20);
             this.txtNumUnificacion.TabIndex = 30;
-            this.txtNumUnificacion.Visible = false;
             // 
             // txtNumMarca
             // 
@@ -190,7 +196,6 @@
             this.txtNumMarca.Name = "txtNumMarca";
             this.txtNumMarca.Size = new System.Drawing.Size(82, 20);
             this.txtNumMarca.TabIndex = 29;
-            this.txtNumMarca.Visible = false;
             // 
             // lblNumUnificacion
             // 
@@ -209,13 +214,6 @@
             this.lblNumMarca.Size = new System.Drawing.Size(65, 13);
             this.lblNumMarca.TabIndex = 27;
             this.lblNumMarca.Text = "Num Marca:";
-            // 
-            // txtEstadoMarca
-            // 
-            this.txtEstadoMarca.Location = new System.Drawing.Point(168, 80);
-            this.txtEstadoMarca.Name = "txtEstadoMarca";
-            this.txtEstadoMarca.Size = new System.Drawing.Size(275, 22);
-            this.txtEstadoMarca.TabIndex = 2;
             // 
             // frmEdicionMarcas
             // 

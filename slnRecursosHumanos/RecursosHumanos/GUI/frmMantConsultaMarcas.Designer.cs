@@ -40,18 +40,6 @@
             this.btnAnular = new System.Windows.Forms.ToolStripButton();
             this.btnRefrescar = new System.Windows.Forms.ToolStripButton();
             this.grdMarcas = new System.Windows.Forms.DataGridView();
-            this.idMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idUnificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.creadoPor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modificadoPor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaModificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpFiltro = new System.Windows.Forms.GroupBox();
             this.lblRango = new System.Windows.Forms.Label();
             this.grpConsulta = new System.Windows.Forms.GroupBox();
@@ -68,6 +56,18 @@
             this.lblDepartamento = new System.Windows.Forms.Label();
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.lblEmpleado = new System.Windows.Forms.Label();
+            this.idMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idUnificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.creadoPor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modificadoPor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaModificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colActivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tollConsulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdMarcas)).BeginInit();
             this.grpFiltro.SuspendLayout();
@@ -99,7 +99,7 @@
             this.dtpFecha2.Location = new System.Drawing.Point(269, 45);
             this.dtpFecha2.Name = "dtpFecha2";
             this.dtpFecha2.Size = new System.Drawing.Size(125, 22);
-            this.dtpFecha2.TabIndex = 2;
+            this.dtpFecha2.TabIndex = 11;
             // 
             // dtpFecha1
             // 
@@ -108,7 +108,7 @@
             this.dtpFecha1.Location = new System.Drawing.Point(113, 45);
             this.dtpFecha1.Name = "dtpFecha1";
             this.dtpFecha1.Size = new System.Drawing.Size(125, 22);
-            this.dtpFecha1.TabIndex = 1;
+            this.dtpFecha1.TabIndex = 10;
             // 
             // lblFecha
             // 
@@ -189,7 +189,7 @@
             this.fechaCreacion,
             this.modificadoPor,
             this.fechaModificacion,
-            this.Activo});
+            this.colActivo});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -199,104 +199,11 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdMarcas.DefaultCellStyle = dataGridViewCellStyle1;
             this.grdMarcas.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.grdMarcas.Location = new System.Drawing.Point(6, 294);
+            this.grdMarcas.Location = new System.Drawing.Point(0, 294);
             this.grdMarcas.Name = "grdMarcas";
             this.grdMarcas.ReadOnly = true;
             this.grdMarcas.Size = new System.Drawing.Size(977, 185);
-            this.grdMarcas.TabIndex = 11;
-            // 
-            // idMarca
-            // 
-            this.idMarca.DataPropertyName = "idMarca";
-            this.idMarca.HeaderText = "Cod. Marca";
-            this.idMarca.Name = "idMarca";
-            this.idMarca.ReadOnly = true;
-            this.idMarca.Width = 50;
-            // 
-            // idUnificacion
-            // 
-            this.idUnificacion.DataPropertyName = "idUnificacion";
-            this.idUnificacion.HeaderText = "Cod. Unificación";
-            this.idUnificacion.Name = "idUnificacion";
-            this.idUnificacion.ReadOnly = true;
-            this.idUnificacion.Width = 70;
-            // 
-            // idEmpleado
-            // 
-            this.idEmpleado.DataPropertyName = "idEmpleado";
-            this.idEmpleado.HeaderText = "Cod. Empleado";
-            this.idEmpleado.Name = "idEmpleado";
-            this.idEmpleado.ReadOnly = true;
-            // 
-            // NombreEmpleado
-            // 
-            this.NombreEmpleado.DataPropertyName = "nombreCompleto";
-            this.NombreEmpleado.HeaderText = "Nombre Empleado";
-            this.NombreEmpleado.Name = "NombreEmpleado";
-            this.NombreEmpleado.ReadOnly = true;
-            this.NombreEmpleado.Width = 120;
-            // 
-            // fecha
-            // 
-            this.fecha.DataPropertyName = "fechaMarca";
-            this.fecha.HeaderText = "Fecha de la Marca";
-            this.fecha.Name = "fecha";
-            this.fecha.ReadOnly = true;
-            this.fecha.Width = 130;
-            // 
-            // tipo
-            // 
-            this.tipo.DataPropertyName = "tipoMarca";
-            this.tipo.HeaderText = "Tipo";
-            this.tipo.Name = "tipo";
-            this.tipo.ReadOnly = true;
-            this.tipo.Width = 40;
-            // 
-            // estado
-            // 
-            this.estado.DataPropertyName = "estadoMarca";
-            this.estado.HeaderText = "Estado";
-            this.estado.Name = "estado";
-            this.estado.ReadOnly = true;
-            this.estado.Width = 80;
-            // 
-            // creadoPor
-            // 
-            this.creadoPor.DataPropertyName = "creadoPor";
-            this.creadoPor.HeaderText = "Creado por:";
-            this.creadoPor.Name = "creadoPor";
-            this.creadoPor.ReadOnly = true;
-            this.creadoPor.Width = 85;
-            // 
-            // fechaCreacion
-            // 
-            this.fechaCreacion.DataPropertyName = "fechaCreacion";
-            this.fechaCreacion.HeaderText = "Fecha creación";
-            this.fechaCreacion.Name = "fechaCreacion";
-            this.fechaCreacion.ReadOnly = true;
-            // 
-            // modificadoPor
-            // 
-            this.modificadoPor.DataPropertyName = "modificadoPor";
-            this.modificadoPor.HeaderText = "Modificado por:";
-            this.modificadoPor.Name = "modificadoPor";
-            this.modificadoPor.ReadOnly = true;
-            this.modificadoPor.Width = 85;
-            // 
-            // fechaModificacion
-            // 
-            this.fechaModificacion.DataPropertyName = "fechaModificacion";
-            this.fechaModificacion.HeaderText = "Fecha modificación";
-            this.fechaModificacion.Name = "fechaModificacion";
-            this.fechaModificacion.ReadOnly = true;
-            this.fechaModificacion.Width = 105;
-            // 
-            // Activo
-            // 
-            this.Activo.DataPropertyName = "activo";
-            this.Activo.HeaderText = "Activo";
-            this.Activo.Name = "Activo";
-            this.Activo.ReadOnly = true;
+            this.grdMarcas.TabIndex = 27;
             // 
             // grpFiltro
             // 
@@ -348,7 +255,7 @@
             this.rbtInactivo.Location = new System.Drawing.Point(366, 99);
             this.rbtInactivo.Name = "rbtInactivo";
             this.rbtInactivo.Size = new System.Drawing.Size(63, 17);
-            this.rbtInactivo.TabIndex = 8;
+            this.rbtInactivo.TabIndex = 33;
             this.rbtInactivo.TabStop = true;
             this.rbtInactivo.Text = "Inactivo";
             this.rbtInactivo.UseVisualStyleBackColor = true;
@@ -359,7 +266,7 @@
             this.rbtActivo.Location = new System.Drawing.Point(258, 98);
             this.rbtActivo.Name = "rbtActivo";
             this.rbtActivo.Size = new System.Drawing.Size(55, 17);
-            this.rbtActivo.TabIndex = 7;
+            this.rbtActivo.TabIndex = 32;
             this.rbtActivo.TabStop = true;
             this.rbtActivo.Text = "Activo";
             this.rbtActivo.UseVisualStyleBackColor = true;
@@ -391,7 +298,7 @@
             this.cmbEmpleado.Location = new System.Drawing.Point(191, 55);
             this.cmbEmpleado.Name = "cmbEmpleado";
             this.cmbEmpleado.Size = new System.Drawing.Size(278, 21);
-            this.cmbEmpleado.TabIndex = 5;
+            this.cmbEmpleado.TabIndex = 4;
             // 
             // label3
             // 
@@ -424,7 +331,7 @@
             this.cmbDepartamento.Location = new System.Drawing.Point(654, 16);
             this.cmbDepartamento.Name = "cmbDepartamento";
             this.cmbDepartamento.Size = new System.Drawing.Size(278, 21);
-            this.cmbDepartamento.TabIndex = 4;
+            this.cmbDepartamento.TabIndex = 5;
             // 
             // lblEstado
             // 
@@ -440,10 +347,10 @@
             // 
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.Black;
-            this.btnLimpiar.Location = new System.Drawing.Point(823, 98);
+            this.btnLimpiar.Location = new System.Drawing.Point(654, 99);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(80, 29);
-            this.btnLimpiar.TabIndex = 10;
+            this.btnLimpiar.TabIndex = 8;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click_1);
@@ -462,10 +369,10 @@
             // 
             this.btnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFiltrar.ForeColor = System.Drawing.Color.Black;
-            this.btnFiltrar.Location = new System.Drawing.Point(670, 98);
+            this.btnFiltrar.Location = new System.Drawing.Point(852, 99);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(80, 29);
-            this.btnFiltrar.TabIndex = 9;
+            this.btnFiltrar.TabIndex = 7;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = true;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click_1);
@@ -479,6 +386,99 @@
             this.lblEmpleado.Size = new System.Drawing.Size(151, 16);
             this.lblEmpleado.TabIndex = 21;
             this.lblEmpleado.Text = "Nombre del Empleado: ";
+            // 
+            // idMarca
+            // 
+            this.idMarca.DataPropertyName = "idMarca";
+            this.idMarca.HeaderText = "Cod. Marca";
+            this.idMarca.Name = "idMarca";
+            this.idMarca.ReadOnly = true;
+            this.idMarca.Width = 50;
+            // 
+            // idUnificacion
+            // 
+            this.idUnificacion.DataPropertyName = "idUnificacion";
+            this.idUnificacion.HeaderText = "Cod. Unificación";
+            this.idUnificacion.Name = "idUnificacion";
+            this.idUnificacion.ReadOnly = true;
+            this.idUnificacion.Width = 70;
+            // 
+            // idEmpleado
+            // 
+            this.idEmpleado.DataPropertyName = "idEmpleado";
+            this.idEmpleado.HeaderText = "Cod. Empleado";
+            this.idEmpleado.Name = "idEmpleado";
+            this.idEmpleado.ReadOnly = true;
+            // 
+            // NombreEmpleado
+            // 
+            this.NombreEmpleado.DataPropertyName = "nombreEmpleado";
+            this.NombreEmpleado.HeaderText = "Nombre";
+            this.NombreEmpleado.Name = "NombreEmpleado";
+            this.NombreEmpleado.ReadOnly = true;
+            this.NombreEmpleado.Width = 120;
+            // 
+            // fecha
+            // 
+            this.fecha.DataPropertyName = "fechaMarca";
+            this.fecha.HeaderText = "Fecha";
+            this.fecha.Name = "fecha";
+            this.fecha.ReadOnly = true;
+            this.fecha.Width = 130;
+            // 
+            // tipo
+            // 
+            this.tipo.DataPropertyName = "tipoMarca";
+            this.tipo.HeaderText = "Tipo";
+            this.tipo.Name = "tipo";
+            this.tipo.ReadOnly = true;
+            this.tipo.Width = 40;
+            // 
+            // estado
+            // 
+            this.estado.DataPropertyName = "estadoMarca";
+            this.estado.HeaderText = "Estado";
+            this.estado.Name = "estado";
+            this.estado.ReadOnly = true;
+            this.estado.Width = 80;
+            // 
+            // creadoPor
+            // 
+            this.creadoPor.DataPropertyName = "creadoPor";
+            this.creadoPor.HeaderText = "Creado por:";
+            this.creadoPor.Name = "creadoPor";
+            this.creadoPor.ReadOnly = true;
+            this.creadoPor.Width = 85;
+            // 
+            // fechaCreacion
+            // 
+            this.fechaCreacion.DataPropertyName = "fechaCreacion";
+            this.fechaCreacion.HeaderText = "Fecha creación";
+            this.fechaCreacion.Name = "fechaCreacion";
+            this.fechaCreacion.ReadOnly = true;
+            // 
+            // modificadoPor
+            // 
+            this.modificadoPor.DataPropertyName = "modificadoPor";
+            this.modificadoPor.HeaderText = "Modificado por:";
+            this.modificadoPor.Name = "modificadoPor";
+            this.modificadoPor.ReadOnly = true;
+            this.modificadoPor.Width = 85;
+            // 
+            // fechaModificacion
+            // 
+            this.fechaModificacion.DataPropertyName = "fechaModificacion";
+            this.fechaModificacion.HeaderText = "Fecha modificación";
+            this.fechaModificacion.Name = "fechaModificacion";
+            this.fechaModificacion.ReadOnly = true;
+            this.fechaModificacion.Width = 105;
+            // 
+            // colActivo
+            // 
+            this.colActivo.DataPropertyName = "activo";
+            this.colActivo.HeaderText = "Activo";
+            this.colActivo.Name = "colActivo";
+            this.colActivo.ReadOnly = true;
             // 
             // frmConsultaMarcas
             // 
@@ -545,6 +545,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaCreacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn modificadoPor;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaModificacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Activo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colActivo;
     }
 }
