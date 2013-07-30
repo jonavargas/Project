@@ -51,7 +51,6 @@
     <Compile Include="Datos\DeduccionesD.cs" />
     <Compile Include="Datos\DepartamentoD.cs" />
     <Compile Include="Datos\EmpleadoD.cs" />
-    <Compile Include="Datos\FechasDoblesD.cs" />
     <Compile Include="Datos\MarcaD.cs" />
     <Compile Include="Datos\ParametroD.cs" />
     <Compile Include="Datos\UsuarioD.cs" />
@@ -103,12 +102,6 @@
     <Compile Include="GUI\frmEdicionUsuario.Designer.cs">
       <DependentUpon>frmEdicionUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\FrmEdicionFechasPagoDoble.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\FrmEdicionFechasPagoDoble.Designer.cs">
-      <DependentUpon>FrmEdicionFechasPagoDoble.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,12 +132,6 @@
     <Compile Include="GUI\frmMantEmpleado.Designer.cs">
       <DependentUpon>frmMantEmpleado.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\frmMantFechaPagoDoble.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\frmMantFechaPagoDoble.Designer.cs">
-      <DependentUpon>frmMantFechaPagoDoble.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\frmMantParametro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,7 +160,6 @@
     <Compile Include="Logica\DeduccionesL.cs" />
     <Compile Include="Logica\DepartamentoL.cs" />
     <Compile Include="Logica\EmpleadoL.cs" />
-    <Compile Include="Logica\FechasDoblesL.cs" />
     <Compile Include="Logica\MarcaL.cs" />
     <Compile Include="Logica\ParametroL.cs" />
     <Compile Include="Logica\UsuarioL.cs" />
@@ -200,9 +186,6 @@
     <EmbeddedResource Include="GUI\frmEdicionUsuario.resx">
       <DependentUpon>frmEdicionUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\FrmEdicionFechasPagoDoble.resx">
-      <DependentUpon>FrmEdicionFechasPagoDoble.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -214,9 +197,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmMantEmpleado.resx">
       <DependentUpon>frmMantEmpleado.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\frmMantFechaPagoDoble.resx">
-      <DependentUpon>frmMantFechaPagoDoble.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmMantParametro.resx">
       <DependentUpon>frmMantParametro.cs</DependentUpon>
