@@ -41,13 +41,13 @@
             this.lblFecha = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tollConsulta = new System.Windows.Forms.ToolStrip();
+            this.grdUnificacion = new System.Windows.Forms.DataGridView();
             this.btnNuevo = new System.Windows.Forms.ToolStripButton();
             this.btnBloque = new System.Windows.Forms.ToolStripButton();
             this.btnAprobar = new System.Windows.Forms.ToolStripButton();
             this.btnReversar = new System.Windows.Forms.ToolStripButton();
             this.btnAnular = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
-            this.grdUnificacion = new System.Windows.Forms.DataGridView();
             this.grpUnificacion.SuspendLayout();
             this.tollConsulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdUnificacion)).BeginInit();
@@ -76,7 +76,7 @@
             // 
             this.btnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFiltrar.ForeColor = System.Drawing.Color.Black;
-            this.btnFiltrar.Location = new System.Drawing.Point(484, 88);
+            this.btnFiltrar.Location = new System.Drawing.Point(464, 88);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(80, 29);
             this.btnFiltrar.TabIndex = 30;
@@ -193,8 +193,16 @@
             this.btnEditar});
             this.tollConsulta.Location = new System.Drawing.Point(2, 170);
             this.tollConsulta.Name = "tollConsulta";
-            this.tollConsulta.Size = new System.Drawing.Size(394, 58);
+            this.tollConsulta.Size = new System.Drawing.Size(425, 58);
             this.tollConsulta.TabIndex = 27;
+            // 
+            // grdUnificacion
+            // 
+            this.grdUnificacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdUnificacion.Location = new System.Drawing.Point(2, 231);
+            this.grdUnificacion.Name = "grdUnificacion";
+            this.grdUnificacion.Size = new System.Drawing.Size(700, 250);
+            this.grdUnificacion.TabIndex = 28;
             // 
             // btnNuevo
             // 
@@ -249,14 +257,6 @@
             this.btnEditar.Size = new System.Drawing.Size(54, 55);
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // grdUnificacion
-            // 
-            this.grdUnificacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdUnificacion.Location = new System.Drawing.Point(2, 231);
-            this.grdUnificacion.Name = "grdUnificacion";
-            this.grdUnificacion.Size = new System.Drawing.Size(700, 250);
-            this.grdUnificacion.TabIndex = 28;
             // 
             // frmMantUnificación
             // 
