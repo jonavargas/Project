@@ -127,6 +127,7 @@
             this.Name = "frmRegistroMarcas";
             this.Text = "Registro de Ingreso ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmRegistroMarcas_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmRegistroMarcas_KeyDown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

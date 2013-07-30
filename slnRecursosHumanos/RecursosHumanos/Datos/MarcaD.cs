@@ -50,7 +50,7 @@ namespace Datos
             try
             {
                 //select que carga el dataset con los datos de los usuarios
-                DataSet datos = this.cnx.ejecutarConsultaSQL("select m.*, e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 as nombreEmpleado from marca m, Empleado e where m.idEmpleado = e.idEmpleado");
+                DataSet datos = this.cnx.ejecutarConsultaSQL("select m.*, e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 as nombreEmpleado from Marca m, Empleado e where m.idEmpleado = e.idEmpleado");
                 if (this.cnx.IsError == false)
                 {
                     //se recorre el dataset por cada fila
@@ -61,9 +61,8 @@ namespace Datos
                                     new MarcaL(    int.Parse(fila["idMarca"].ToString()),
                                                    int.Parse(fila["idUnificacion"].ToString()),
                                                    fila["idEmpleado"].ToString(),
-                                                   fila["nombreEmpleado"].ToString(),
+                                                   fila["estadoMarca"].ToString(),
                                                    fila["tipoMarca"].ToString(),
-                                                   fila["estadoMarca"].ToString(),                                                   
                                                    DateTime.Parse(fila["fechaMarca"].ToString()),
                                                    fila["creadoPor"].ToString(),
                                                    DateTime.Parse(fila["fechaCreacion"].ToString()),
@@ -353,7 +352,7 @@ namespace Datos
                 parametros[5] = new OracleParameter();
                 parametros[5].OracleType = OracleType.DateTime;
                 parametros[5].ParameterName = ":fechaMarca";
-                parametros[5].Value = pMarcaEditada.FechaMarca;
+                parametros[5].Value = pMarcaEditada.CreadoPor;
 
 
                 parametros[6] = new OracleParameter();
@@ -399,7 +398,7 @@ namespace Datos
             try
             {
 
-                string sql = "select m.*, e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 as nombreCompleto from marca m, Empleado e where m.idEmpleado = e.idEmpleado and  m.fechaMarca >= :fecha1 and m.fechaMarca <= :fecha2";
+                string sql = "select m*, e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 as nombreCompleto from Marca m, Empleado e where m.idEmpleado = e.idEmpleado and  m.fechaMarca >= :fecha1 and m.fechaMarca <= :fecha2";
                 int indices = 2;
 
                 if (pIdEmpleado != "")
@@ -416,7 +415,7 @@ namespace Datos
 
                 if (pNombreEmpleado != "")
                 {
-                    sql += " and e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 like :nombreEmpleado";
+                    sql += " and e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 like :nombreCompleto";
                     indices++;
                 }
 
@@ -428,7 +427,7 @@ namespace Datos
 
                 if (pActivo != "")
                 {
-                    sql += " and m.Activo = :Activo";
+                    sql += " and m.Activo = :activo";
                     indices++;
                 }
 
@@ -477,7 +476,7 @@ namespace Datos
                 {
                     parametros[indices] = new OracleParameter();
                     parametros[indices].OracleType = OracleType.VarChar;
-                    parametros[indices].ParameterName = ":nombreEmpleado";
+                    parametros[indices].ParameterName = ":nombreCompleto";
                     parametros[indices].Value = "%" + pNombreEmpleado + "%";
                     indices++;
                 }
@@ -486,23 +485,21 @@ namespace Datos
                 {
                     parametros[indices] = new OracleParameter();
                     parametros[indices].OracleType = OracleType.VarChar;
-                    parametros[indices].ParameterName = ":Activo";
+                    parametros[indices].ParameterName = ":activo";
                     parametros[indices].Value = pActivo;
-                    indices++;
+                    
                 }
 
-                DataSet datos = this.cnx.ejecutarConsultaSQL(sql, "marca", parametros);
+                DataSet datos = this.cnx.ejecutarConsultaSQL(sql, "marca");
                 if (this.cnx.IsError == false)
                 {
                     foreach (DataRow fila in datos.Tables[0].Rows)
                     {
-                        retorno.Add(
-                                    new MarcaL(    int.Parse(fila["idMarca"].ToString()),
+                        retorno.Add(new MarcaL(    int.Parse(fila["idMarca"].ToString()),
                                                    int.Parse(fila["idUnificacion"].ToString()),
                                                    fila["idEmpleado"].ToString(),
-                                                   fila["nombreEmpleado"].ToString(),
+                                                   fila["estadoMarca"].ToString(),
                                                    fila["tipoMarca"].ToString(),
-                                                   fila["estadoMarca"].ToString(),                                                   
                                                    DateTime.Parse(fila["fechaMarca"].ToString()),
                                                    fila["creadoPor"].ToString(),
                                                    DateTime.Parse(fila["fechaCreacion"].ToString()),
@@ -530,24 +527,6 @@ namespace Datos
             }
             return retorno;
 
-        }
-        public int retornoIdMarca()
-        {
-            int cont = 0;
-            OracleCommand cmd = new OracleCommand();
-            cmd.CommandText = "select marca_seq.nextval from dual";
-            cmd.CommandType = CommandType.Text;
-            cont = Int16.Parse(cmd.ExecuteScalar().ToString());
-            return cont;
-            {
-
-
-
-
-
-
-
-            }
         }
     }
 }
