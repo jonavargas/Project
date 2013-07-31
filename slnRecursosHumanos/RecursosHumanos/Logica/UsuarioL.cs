@@ -92,12 +92,12 @@ namespace Logica
         /// <returns></returns>
         public override string ToString()
         {
-            return "ID Usuario: " + this.idUsuario +
+            return "Cod. Usuario: " + this.idUsuario +
                    "Tipo Usuario: " + this.tipoUsuario +
                    "Fecha de Modificación: " + this.fechaModificacion +
-                   "Fecha de Creación: " + this.fechaCreacion +                   
+                   "Fecha de Creación: " + this.fechaCreacion +
                    "Creado por: " + this.creadoPor +
-                   "Modificado por: " + this.modificadoPor +                   
+                   "Modificado por: " + this.modificadoPor +
                    "Activo: " + this.activo;
         }
     }
