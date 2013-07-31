@@ -400,7 +400,7 @@ namespace Datos
             try
             {
 
-                string sql = "select m.*, e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 as nombreEmpleado from marca m, Empleado e where m.idEmpleado = e.idEmpleado and  m.fechaMarca >= :fecha1 and m.fechaMarca <= :fecha2";
+                string sql = "select m*, e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 as nombreCompleto from Marca m, Empleado e where m.idEmpleado = e.idEmpleado and  m.fechaMarca >= :fecha1 and m.fechaMarca <= :fecha2";
                 int indices = 2;
 
                 if (pIdEmpleado != "")
@@ -417,7 +417,7 @@ namespace Datos
 
                 if (pNombreEmpleado != "")
                 {
-                    sql += " and e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 like :nombreEmpleado";
+                    sql += " and e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 like :nombreCompleto";
                     indices++;
                 }
 
@@ -429,7 +429,7 @@ namespace Datos
 
                 if (pActivo != "")
                 {
-                    sql += " and m.Activo = :Activo";
+                    sql += " and m.Activo = :activo";
                     indices++;
                 }
 
@@ -478,7 +478,7 @@ namespace Datos
                 {
                     parametros[indices] = new OracleParameter();
                     parametros[indices].OracleType = OracleType.VarChar;
-                    parametros[indices].ParameterName = ":nombreEmpleado";
+                    parametros[indices].ParameterName = ":nombreCompleto";
                     parametros[indices].Value = "%" + pNombreEmpleado + "%";
                     indices++;
                 }
@@ -487,23 +487,21 @@ namespace Datos
                 {
                     parametros[indices] = new OracleParameter();
                     parametros[indices].OracleType = OracleType.VarChar;
-                    parametros[indices].ParameterName = ":Activo";
+                    parametros[indices].ParameterName = ":activo";
                     parametros[indices].Value = pActivo;
-                    indices++;
+
                 }
 
-                DataSet datos = this.cnx.ejecutarConsultaSQL(sql, "marca", parametros);
+                DataSet datos = this.cnx.ejecutarConsultaSQL(sql, "marca");
                 if (this.cnx.IsError == false)
                 {
                     foreach (DataRow fila in datos.Tables[0].Rows)
                     {
-                        retorno.Add(
-                                    new MarcaL(    int.Parse(fila["idMarca"].ToString()),
+                        retorno.Add(new MarcaL(int.Parse(fila["idMarca"].ToString()),
                                                    int.Parse(fila["idUnificacion"].ToString()),
                                                    fila["idEmpleado"].ToString(),
-                                                   fila["nombreEmpleado"].ToString(),
+                                                   fila["estadoMarca"].ToString(),
                                                    fila["tipoMarca"].ToString(),
-                                                   fila["estadoMarca"].ToString(),                                                   
                                                    DateTime.Parse(fila["fechaMarca"].ToString()),
                                                    fila["creadoPor"].ToString(),
                                                    DateTime.Parse(fila["fechaCreacion"].ToString()),
@@ -532,6 +530,7 @@ namespace Datos
             return retorno;
 
         }
+
         public int retornoIdMarca()
         {
             int cont = 0;

@@ -31,6 +31,7 @@ namespace GUI
             this.cnx = pConexion;
             this.lblNombreUsuario.Text = Program.oUsuarioLogueado.IdUsuario;
         }
+
         /// <summary>
         /// Metodo que levanta el formulario de mantenimiento de usuario
         /// </summary>
@@ -43,6 +44,7 @@ namespace GUI
             frmMantUsuario oFrmMantUsuario = new frmMantUsuario(this.cnx);
             oFrmMantUsuario.ShowDialog();
         }
+
         /// <summary>
         /// Metodo que levanta el formulario de mantenimiento de usuario
         /// </summary>
@@ -54,6 +56,7 @@ namespace GUI
             frmMantDepartamento oFrmMantDepa = new frmMantDepartamento(this.cnx);
             oFrmMantDepa.ShowDialog();
         }
+
         /// <summary>
         /// Metodo que levanta el formulario de mantenimiento de deducciones
         /// </summary>
@@ -65,6 +68,7 @@ namespace GUI
             frmMantDeducciones oFrmMantDeducciones = new frmMantDeducciones(this.cnx);
             oFrmMantDeducciones.ShowDialog();
         }
+
         /// <summary>
         /// Metodo que levanta el formulario de mantenimiento de catalogo de fechas
         /// </summary>
@@ -76,6 +80,7 @@ namespace GUI
             frmMantCatalogoFechas oFrmMantCatalogoFechas = new frmMantCatalogoFechas(this.cnx);
             oFrmMantCatalogoFechas.ShowDialog();
         }
+
         /// <summary>
         /// Metodo que levanta el formulario de mantenimiento de parametro
         /// </summary>
@@ -88,6 +93,7 @@ namespace GUI
             oFrmMantParametro.ShowDialog();
 
         }
+
         /// <summary>
         /// /// Metodo que levanta el formulario de mantenimiento de empleado
         /// </summary>
@@ -101,17 +107,35 @@ namespace GUI
 
         }
 
+        /// <summary>
+        /// /// Metodo que levanta el formulario de registro de marcas
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             frmRegistroMarcas ofrmRegistroMarcas = new frmRegistroMarcas(this.cnx);
             ofrmRegistroMarcas.ShowDialog();
         }
 
+        /// <summary>
+        /// /// Metodo que levanta el formulario de mantenimiento de las marcas
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void maToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmConsultaMarcas ofrmConsultaMarcas = new frmConsultaMarcas(this.cnx);
             ofrmConsultaMarcas.ShowDialog();
         }
+
+        /// <summary>
+        /// /// Metodo que levanta el formulario de mantenimiento de unificación
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void unificaciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
