@@ -17,9 +17,6 @@ namespace RecursosHumanos.GUI
             InitializeComponent();
         }
 
-        private void btnSiguiente1_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

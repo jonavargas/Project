@@ -91,13 +91,13 @@ namespace GUI
             
             string codigo = (cmbCodigo.SelectedItem.ToString());
             this.fechaMarca = dtpFecha.Value.Date;
-            int numMarca = int.Parse(txtNumMarca.Text);
+           
             //
            
             string estado = Convert.ToString(txtEstadoMarca.Text);
             if (edicion == false)
             {
-                idUnificacion = int.Parse(txtNumUnificacion.Text);
+                
                
                 if (rdoSalida.Checked == true)
                 {
@@ -113,16 +113,18 @@ namespace GUI
                 }
             }
             else {
+                int numMarca = int.Parse(txtNumMarca.Text);
+                int Unificacion =int.Parse(txtNumUnificacion.Text);
                 if (rdoSalida.Checked == true)
                 {
                     
-                    MarcaL = new MarcaL(numMarca, idUnificacion, codigo, estado, "Salida", fechaMarca, "Proyecto", DateTime.Now, "Proyecto", DateTime.Now, "Sí");
+                    MarcaL = new MarcaL(numMarca, Unificacion, codigo, estado, "Salida", fechaMarca, "Proyecto", DateTime.Now, "Proyecto", DateTime.Now, "Sí");
 
 
                 }
                 else
                 {
-                    MarcaL = new MarcaL(numMarca, idUnificacion, codigo, estado, "Salida", fechaMarca, "Proyecto", DateTime.Now, "Proyecto", DateTime.Now, "Sí"); 
+                    MarcaL = new MarcaL(numMarca, Unificacion, codigo, estado, "Salida", fechaMarca, "Proyecto", DateTime.Now, "Proyecto", DateTime.Now, "Sí"); 
 
                 }
             
