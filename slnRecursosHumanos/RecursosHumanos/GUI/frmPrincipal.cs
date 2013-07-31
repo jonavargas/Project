@@ -112,5 +112,13 @@ namespace GUI
             frmConsultaMarcas ofrmConsultaMarcas = new frmConsultaMarcas(this.cnx);
             ofrmConsultaMarcas.ShowDialog();
         }
+
+        private void unificaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMantUnificacion oFrmMantUnificacion = new frmMantUnificacion(this.cnx);
+            oFrmMantUnificacion.ShowDialog();
+        }
+
+
     }
 }
