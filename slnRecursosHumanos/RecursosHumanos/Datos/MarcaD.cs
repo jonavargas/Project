@@ -50,7 +50,7 @@ namespace Datos
             try
             {
                 //select que carga el dataset con los datos de los usuarios
-                DataSet datos = this.cnx.ejecutarConsultaSQL("select m.*, e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 as nombreEmpleado from Marca m, Empleado e where m.idEmpleado = e.idEmpleado");
+                DataSet datos = this.cnx.ejecutarConsultaSQL("select m.*, e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 as nombreEmpleado from marca m, Empleado e where m.idEmpleado = e.idEmpleado");
                 if (this.cnx.IsError == false)
                 {
                     //se recorre el dataset por cada fila
@@ -61,8 +61,9 @@ namespace Datos
                                     new MarcaL(    int.Parse(fila["idMarca"].ToString()),
                                                    int.Parse(fila["idUnificacion"].ToString()),
                                                    fila["idEmpleado"].ToString(),
-                                                   fila["estadoMarca"].ToString(),
+                                                   fila["nombreEmpleado"].ToString(),
                                                    fila["tipoMarca"].ToString(),
+                                                   fila["estadoMarca"].ToString(),                                                   
                                                    DateTime.Parse(fila["fechaMarca"].ToString()),
                                                    fila["creadoPor"].ToString(),
                                                    DateTime.Parse(fila["fechaCreacion"].ToString()),
@@ -309,35 +310,31 @@ namespace Datos
             try
             {
                 string sql = "update marca " +
-                             "set idMarca = :idMarca, " +
-                             "idUnificacion = :idUnificacion, " +
-                             "idEmpleado = :idEmpleado, " +
-                             "estadoMarca = :estadoMarca, " +
-                             "tipoMarca = :tipoMarca, " +
-                             "fechaMarca = :fechaMarca, " +
-                             "creadoPor = :creadoPor, " +
-                             "fechaCreacion = :fechaCreacion, " +
-                             "modificadoPor = :modificadoPor, " +
-                             "fechaModificacion = :fechaModificacion " +
-                             "activo = :activo " +
-                             "where idMarca = :idMarcaOriginal";
+                             "set idMarca = :idMarca, idUnificacion = :idUnificacion, idEmpleado = :idEmpleado, estadoMarca = :estadoMarca, tipoMarca = :tipoMarca, fechaMarca = :fechaMarca, creadoPor = :creadoPor, fechaCreacion = :fechaCreacion, modificadoPor = :modificadoPor, fechaModificacion = :fechaModificacion, activo = :activo " +
+                             "where idMarca = :idMarcaOriginal";                    
+                    
+                    
+                    
+                    
                 ;
-                OracleParameter[] parametros = new OracleParameter[11];
+                OracleParameter[] parametros = new OracleParameter[12];
 
                 parametros[0] = new OracleParameter();
-                parametros[0].OracleType = OracleType.Int32;
+                parametros[0].OracleType = OracleType.Number;
                 parametros[0].ParameterName = ":idMarca";
                 parametros[0].Value = pMarcaEditada.IdMarca;
 
+                
+
                 parametros[1] = new OracleParameter();
-                parametros[1].OracleType = OracleType.Int32;
-                parametros[1].ParameterName = ":idUnificacion";
-                parametros[1].Value = pMarcaEditada.IdUnificacion;
+                parametros[1].OracleType = OracleType.VarChar;
+                parametros[1].ParameterName = ":idEmpleado";
+                parametros[1].Value = pMarcaEditada.IdEmpleado;
 
                 parametros[2] = new OracleParameter();
-                parametros[2].OracleType = OracleType.VarChar;
-                parametros[2].ParameterName = ":idEmpleado";
-                parametros[2].Value = pMarcaEditada.IdEmpleado;
+                parametros[2].OracleType = OracleType.Number;
+                parametros[2].ParameterName = ":idUnificacion";
+                parametros[2].Value = pMarcaEditada.IdUnificacion;
 
                 parametros[3] = new OracleParameter();
                 parametros[3].OracleType = OracleType.VarChar;
@@ -352,7 +349,7 @@ namespace Datos
                 parametros[5] = new OracleParameter();
                 parametros[5].OracleType = OracleType.DateTime;
                 parametros[5].ParameterName = ":fechaMarca";
-                parametros[5].Value = pMarcaEditada.CreadoPor;
+                parametros[5].Value = pMarcaEditada.FechaMarca;
 
 
                 parametros[6] = new OracleParameter();
@@ -376,9 +373,14 @@ namespace Datos
                 parametros[9].Value = pMarcaEditada.FechaModificacion;
 
                 parametros[10] = new OracleParameter();
-                parametros[10].OracleType = OracleType.Double;
-                parametros[10].ParameterName = ":idMarcaOriginal";
-                parametros[10].Value = pMarcaOriginal.IdMarca;
+                parametros[10].OracleType = OracleType.VarChar;
+                parametros[10].ParameterName = ":activo";
+                parametros[10].Value = pMarcaEditada.Activo;
+
+                parametros[11] = new OracleParameter();
+                parametros[11].OracleType = OracleType.Number;
+                parametros[11].ParameterName = ":idMarcaOriginal";
+                parametros[11].Value = pMarcaOriginal.IdMarca;
 
                 this.cnx.ejecutarSQL(sql, parametros);
                 this.error = this.cnx.IsError;
@@ -398,7 +400,7 @@ namespace Datos
             try
             {
 
-                string sql = "select m*, e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 as nombreCompleto from Marca m, Empleado e where m.idEmpleado = e.idEmpleado and  m.fechaMarca >= :fecha1 and m.fechaMarca <= :fecha2";
+                string sql = "select m.*, e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 as nombreEmpleado from marca m, Empleado e where m.idEmpleado = e.idEmpleado and  m.fechaMarca >= :fecha1 and m.fechaMarca <= :fecha2";
                 int indices = 2;
 
                 if (pIdEmpleado != "")
@@ -415,7 +417,7 @@ namespace Datos
 
                 if (pNombreEmpleado != "")
                 {
-                    sql += " and e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 like :nombreCompleto";
+                    sql += " and e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 like :nombreEmpleado";
                     indices++;
                 }
 
@@ -427,7 +429,7 @@ namespace Datos
 
                 if (pActivo != "")
                 {
-                    sql += " and m.Activo = :activo";
+                    sql += " and m.Activo = :Activo";
                     indices++;
                 }
 
@@ -476,7 +478,7 @@ namespace Datos
                 {
                     parametros[indices] = new OracleParameter();
                     parametros[indices].OracleType = OracleType.VarChar;
-                    parametros[indices].ParameterName = ":nombreCompleto";
+                    parametros[indices].ParameterName = ":nombreEmpleado";
                     parametros[indices].Value = "%" + pNombreEmpleado + "%";
                     indices++;
                 }
@@ -485,21 +487,23 @@ namespace Datos
                 {
                     parametros[indices] = new OracleParameter();
                     parametros[indices].OracleType = OracleType.VarChar;
-                    parametros[indices].ParameterName = ":activo";
+                    parametros[indices].ParameterName = ":Activo";
                     parametros[indices].Value = pActivo;
-                    
+                    indices++;
                 }
 
-                DataSet datos = this.cnx.ejecutarConsultaSQL(sql, "marca");
+                DataSet datos = this.cnx.ejecutarConsultaSQL(sql, "marca", parametros);
                 if (this.cnx.IsError == false)
                 {
                     foreach (DataRow fila in datos.Tables[0].Rows)
                     {
-                        retorno.Add(new MarcaL(    int.Parse(fila["idMarca"].ToString()),
+                        retorno.Add(
+                                    new MarcaL(    int.Parse(fila["idMarca"].ToString()),
                                                    int.Parse(fila["idUnificacion"].ToString()),
                                                    fila["idEmpleado"].ToString(),
-                                                   fila["estadoMarca"].ToString(),
+                                                   fila["nombreEmpleado"].ToString(),
                                                    fila["tipoMarca"].ToString(),
+                                                   fila["estadoMarca"].ToString(),                                                   
                                                    DateTime.Parse(fila["fechaMarca"].ToString()),
                                                    fila["creadoPor"].ToString(),
                                                    DateTime.Parse(fila["fechaCreacion"].ToString()),
@@ -527,6 +531,24 @@ namespace Datos
             }
             return retorno;
 
+        }
+        public int retornoIdMarca()
+        {
+            int cont = 0;
+            OracleCommand cmd = new OracleCommand();
+            cmd.CommandText = "select marca_seq.nextval from dual";
+            cmd.CommandType = CommandType.Text;
+            cont = Int16.Parse(cmd.ExecuteScalar().ToString());
+            return cont;
+            {
+
+
+
+
+
+
+
+            }
         }
     }
 }

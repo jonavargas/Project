@@ -93,19 +93,23 @@ namespace GUI
                (this.cmbDepartamento.Text == "") || (this.txtNombre.Text == ""))
             {
                 MessageBox.Show("Faltan datos requeridos");
-                return;
-            }
-
-            {
-                MessageBox.Show("La fecha de nacimiento no es valida, el empleado debe de ser mayor de 18 años!!!");
-                return;
-            }
+                return;    
+          
+            
+            
+                
+            }else{
 
             oEmpleadoL = new EmpleadoL(this.txtEmpleado.Text, this.cmbDepartamento.Text, this.txtNombre.Text, this.txtApellido1.Text, this.txtApellido2.Text,
                                      int.Parse(this.txtCedula.Text), int.Parse(this.txtTelefono.Text),(this.dtpFechaNacimiento.Text),
+
                                      Double.Parse(this.txtSalarioPorHora.Text), Program.oUsuarioLogueado.IdUsuario, DateTime.Now, Program.oUsuarioLogueado.IdUsuario, DateTime.Now, activo);
             this.aceptar = true;
             this.Close();
+            
+            }
+            
+            
         }
         /// <summary>
         /// Evento del botón Cancelar el cual cierra la ventada si dan click en el

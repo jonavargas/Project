@@ -17,7 +17,10 @@ namespace GUI
         /// <summary>
         /// Variable para hacer la conexión a la base de datos
         /// </summary>
-        private AccesoDatosOracle conexion;
+        private AccesoDatosOracle conexion;       
+        MarcaL oMarcaL,oMarcaCambioEstado;
+        MarcaD oMarcaD;
+      
 
         /// <summary>
         /// Metodo constructor que recibe por parámetro la conexión a la base de datos.
@@ -25,8 +28,9 @@ namespace GUI
         /// <param name="pConexion"></param>
         public frmConsultaMarcas(AccesoDatosOracle pConexion)
         {
-            InitializeComponent(); 
+            InitializeComponent();            
             this.conexion = pConexion;
+            this.cargarGrid();
             this.dtpFecha1.Value = DateTime.Today;
             this.dtpFecha2.Value = DateTime.Today.AddHours(23).AddMinutes(59).AddSeconds(59);
             this.cargarCmbDepartamento(pConexion);
@@ -120,10 +124,22 @@ namespace GUI
 
                 if (oMarcaL.EstadoMarca == "Generada")
                 {
-                    string idEmpleado = oMarcaL.IdEmpleado;
-                    frmEdicionMarcas frmEdicionMarcas = new frmEdicionMarcas(this.conexion);
-                    frmEdicionMarcas.cargarComboEmpleado(idEmpleado);
-                    frmEdicionMarcas.ShowDialog();
+                    frmEdicionMarcas ofrmEdicion = new frmEdicionMarcas(oMarcaL, this.conexion);
+                    ofrmEdicion.ShowDialog();
+                    if (ofrmEdicion.Aceptar)
+                    {
+                        this.oMarcaD = new MarcaD(this.conexion);
+                        oMarcaD.editarMarca(ofrmEdicion.MarcaL, oMarcaL);
+                        if (oMarcaD.Error)
+                        {
+                            MessageBox.Show("Error actualizando los datos:" + oMarcaD.ErrorDescription);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Registro actualizada!!!");
+                            this.cargarGrid();
+                        }
+                    }
 
 
                 }
@@ -191,7 +207,7 @@ namespace GUI
             {
                 if (this.dtpFecha1.Value > this.dtpFecha2.Value)
                 {
-                    MessageBox.Show("Rango de fechas no permitido");
+                    MessageBox.Show("Revisar el rango de fechas");
                     return;
                 }
 
@@ -251,6 +267,40 @@ namespace GUI
                 else
                 {
                     MessageBox.Show("Error cargando los datos!!!");
+                }
+            }
+        }
+
+        private void btnAnular_Click(object sender, EventArgs e)
+        {
+
+            if (this.grdMarcas.RowCount > 0)
+            {
+                MarcaL oMarcaL = (MarcaL)this.grdMarcas.CurrentRow.DataBoundItem;
+
+                if (oMarcaL.EstadoMarca == "Generada")
+                {
+                    DialogResult confirmacion = MessageBox.Show("¿Está seguro de Anular esta Marca?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (confirmacion == DialogResult.No) return;
+                    this.oMarcaCambioEstado = (MarcaL)this.grdMarcas.CurrentRow.DataBoundItem;
+                    oMarcaCambioEstado.EstadoMarca = "Anulada";
+                    oMarcaCambioEstado.FechaModificacion = DateTime.Now;
+                    MarcaD oMarcaD = new MarcaD(this.conexion);
+                    oMarcaD.editarMarca(oMarcaCambioEstado, oMarcaL);
+                    if (oMarcaD.Error)
+                    {
+                        MessageBox.Show("Error actualizando los datos:" + oMarcaD.ErrorDescription);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Marca Anulada!!!");
+                        this.cargarGrid();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("La Marca solo se puede modificar si su estado es 'Generada'");
+                    return;
                 }
             }
         }

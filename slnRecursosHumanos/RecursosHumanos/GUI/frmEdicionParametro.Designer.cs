@@ -62,9 +62,9 @@
             this.lblIdParametro.AutoSize = true;
             this.lblIdParametro.Location = new System.Drawing.Point(20, 12);
             this.lblIdParametro.Name = "lblIdParametro";
-            this.lblIdParametro.Size = new System.Drawing.Size(86, 13);
+            this.lblIdParametro.Size = new System.Drawing.Size(73, 13);
             this.lblIdParametro.TabIndex = 0;
-            this.lblIdParametro.Text = "Cod. Parametro :";
+            this.lblIdParametro.Text = "Id Parametro :";
             // 
             // lblhora_Entrada
             // 
@@ -301,7 +301,7 @@
             this.dtpHoraEntrada.Name = "dtpHoraEntrada";
             this.dtpHoraEntrada.ShowUpDown = true;
             this.dtpHoraEntrada.Size = new System.Drawing.Size(176, 20);
-            this.dtpHoraEntrada.TabIndex = 2;
+            this.dtpHoraEntrada.TabIndex = 42;
             // 
             // dtpHoraSalida
             // 
@@ -311,7 +311,7 @@
             this.dtpHoraSalida.Name = "dtpHoraSalida";
             this.dtpHoraSalida.ShowUpDown = true;
             this.dtpHoraSalida.Size = new System.Drawing.Size(176, 20);
-            this.dtpHoraSalida.TabIndex = 3;
+            this.dtpHoraSalida.TabIndex = 43;
             this.dtpHoraSalida.Value = new System.DateTime(2013, 7, 18, 16, 50, 0, 0);
             // 
             // frmEdicionParametro

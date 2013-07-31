@@ -58,18 +58,18 @@
             this.lblEmpleado.AutoSize = true;
             this.lblEmpleado.Location = new System.Drawing.Point(41, 31);
             this.lblEmpleado.Name = "lblEmpleado";
-            this.lblEmpleado.Size = new System.Drawing.Size(82, 13);
+            this.lblEmpleado.Size = new System.Drawing.Size(69, 13);
             this.lblEmpleado.TabIndex = 0;
-            this.lblEmpleado.Text = "Cod. Empleado:";
+            this.lblEmpleado.Text = "Id Empleado:";
             // 
             // lblDepartamento
             // 
             this.lblDepartamento.AutoSize = true;
             this.lblDepartamento.Location = new System.Drawing.Point(41, 57);
             this.lblDepartamento.Name = "lblDepartamento";
-            this.lblDepartamento.Size = new System.Drawing.Size(102, 13);
+            this.lblDepartamento.Size = new System.Drawing.Size(89, 13);
             this.lblDepartamento.TabIndex = 1;
-            this.lblDepartamento.Text = "Cod. Departamento:";
+            this.lblDepartamento.Text = "Id Departamento:";
             // 
             // lblNombre
             // 

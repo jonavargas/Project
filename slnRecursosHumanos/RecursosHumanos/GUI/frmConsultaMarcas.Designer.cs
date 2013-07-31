@@ -51,7 +51,7 @@
             this.fechaCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modificadoPor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaModificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colActivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpFiltro = new System.Windows.Forms.GroupBox();
             this.lblRango = new System.Windows.Forms.Label();
             this.grpConsulta = new System.Windows.Forms.GroupBox();
@@ -99,7 +99,7 @@
             this.dtpFecha2.Location = new System.Drawing.Point(269, 45);
             this.dtpFecha2.Name = "dtpFecha2";
             this.dtpFecha2.Size = new System.Drawing.Size(125, 22);
-            this.dtpFecha2.TabIndex = 2;
+            this.dtpFecha2.TabIndex = 11;
             // 
             // dtpFecha1
             // 
@@ -108,7 +108,7 @@
             this.dtpFecha1.Location = new System.Drawing.Point(113, 45);
             this.dtpFecha1.Name = "dtpFecha1";
             this.dtpFecha1.Size = new System.Drawing.Size(125, 22);
-            this.dtpFecha1.TabIndex = 1;
+            this.dtpFecha1.TabIndex = 10;
             // 
             // lblFecha
             // 
@@ -162,6 +162,7 @@
             this.btnAnular.Size = new System.Drawing.Size(60, 55);
             this.btnAnular.Text = "Anular";
             this.btnAnular.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
             // 
             // btnRefrescar
             // 
@@ -189,7 +190,7 @@
             this.fechaCreacion,
             this.modificadoPor,
             this.fechaModificacion,
-            this.Activo});
+            this.colActivo});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -199,11 +200,11 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdMarcas.DefaultCellStyle = dataGridViewCellStyle1;
             this.grdMarcas.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.grdMarcas.Location = new System.Drawing.Point(6, 294);
+            this.grdMarcas.Location = new System.Drawing.Point(0, 294);
             this.grdMarcas.Name = "grdMarcas";
             this.grdMarcas.ReadOnly = true;
             this.grdMarcas.Size = new System.Drawing.Size(977, 185);
-            this.grdMarcas.TabIndex = 11;
+            this.grdMarcas.TabIndex = 27;
             // 
             // idMarca
             // 
@@ -230,8 +231,8 @@
             // 
             // NombreEmpleado
             // 
-            this.NombreEmpleado.DataPropertyName = "nombreCompleto";
-            this.NombreEmpleado.HeaderText = "Nombre Empleado";
+            this.NombreEmpleado.DataPropertyName = "nombreEmpleado";
+            this.NombreEmpleado.HeaderText = "Nombre";
             this.NombreEmpleado.Name = "NombreEmpleado";
             this.NombreEmpleado.ReadOnly = true;
             this.NombreEmpleado.Width = 120;
@@ -239,7 +240,7 @@
             // fecha
             // 
             this.fecha.DataPropertyName = "fechaMarca";
-            this.fecha.HeaderText = "Fecha de la Marca";
+            this.fecha.HeaderText = "Fecha";
             this.fecha.Name = "fecha";
             this.fecha.ReadOnly = true;
             this.fecha.Width = 130;
@@ -291,12 +292,12 @@
             this.fechaModificacion.ReadOnly = true;
             this.fechaModificacion.Width = 105;
             // 
-            // Activo
+            // colActivo
             // 
-            this.Activo.DataPropertyName = "activo";
-            this.Activo.HeaderText = "Activo";
-            this.Activo.Name = "Activo";
-            this.Activo.ReadOnly = true;
+            this.colActivo.DataPropertyName = "activo";
+            this.colActivo.HeaderText = "Activo";
+            this.colActivo.Name = "colActivo";
+            this.colActivo.ReadOnly = true;
             // 
             // grpFiltro
             // 
@@ -348,7 +349,7 @@
             this.rbtInactivo.Location = new System.Drawing.Point(366, 99);
             this.rbtInactivo.Name = "rbtInactivo";
             this.rbtInactivo.Size = new System.Drawing.Size(63, 17);
-            this.rbtInactivo.TabIndex = 8;
+            this.rbtInactivo.TabIndex = 33;
             this.rbtInactivo.TabStop = true;
             this.rbtInactivo.Text = "Inactivo";
             this.rbtInactivo.UseVisualStyleBackColor = true;
@@ -359,7 +360,7 @@
             this.rbtActivo.Location = new System.Drawing.Point(258, 98);
             this.rbtActivo.Name = "rbtActivo";
             this.rbtActivo.Size = new System.Drawing.Size(55, 17);
-            this.rbtActivo.TabIndex = 7;
+            this.rbtActivo.TabIndex = 32;
             this.rbtActivo.TabStop = true;
             this.rbtActivo.Text = "Activo";
             this.rbtActivo.UseVisualStyleBackColor = true;
@@ -391,7 +392,7 @@
             this.cmbEmpleado.Location = new System.Drawing.Point(191, 55);
             this.cmbEmpleado.Name = "cmbEmpleado";
             this.cmbEmpleado.Size = new System.Drawing.Size(278, 21);
-            this.cmbEmpleado.TabIndex = 5;
+            this.cmbEmpleado.TabIndex = 4;
             // 
             // label3
             // 
@@ -424,7 +425,7 @@
             this.cmbDepartamento.Location = new System.Drawing.Point(654, 16);
             this.cmbDepartamento.Name = "cmbDepartamento";
             this.cmbDepartamento.Size = new System.Drawing.Size(278, 21);
-            this.cmbDepartamento.TabIndex = 4;
+            this.cmbDepartamento.TabIndex = 5;
             // 
             // lblEstado
             // 
@@ -440,10 +441,10 @@
             // 
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.Black;
-            this.btnLimpiar.Location = new System.Drawing.Point(823, 98);
+            this.btnLimpiar.Location = new System.Drawing.Point(654, 99);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(80, 29);
-            this.btnLimpiar.TabIndex = 10;
+            this.btnLimpiar.TabIndex = 8;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click_1);
@@ -462,10 +463,10 @@
             // 
             this.btnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFiltrar.ForeColor = System.Drawing.Color.Black;
-            this.btnFiltrar.Location = new System.Drawing.Point(670, 98);
+            this.btnFiltrar.Location = new System.Drawing.Point(852, 99);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(80, 29);
-            this.btnFiltrar.TabIndex = 9;
+            this.btnFiltrar.TabIndex = 7;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = true;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click_1);
@@ -545,6 +546,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaCreacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn modificadoPor;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaModificacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Activo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colActivo;
     }
 }

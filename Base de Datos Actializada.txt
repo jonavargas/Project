@@ -115,7 +115,7 @@ create table marca
 );
 
 
-CREATE SEQUENCE seq_marca MINVALUE 0 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 1 
+CREATE SEQUENCE seq_marca MINVALUE 0 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 2
 CACHE 20 NOORDER  NOCYCLE;
 
 create or replace trigger trg_marca
@@ -148,17 +148,4 @@ create table Unificacion
       fechaModificacion date,
       activo varchar(3),
       constraint PK_Unificacion primary key (idUnificacion)
-);
-
-create table fechasPagoDoble
-(       
-       detalleFechaDoble varchar(100) not null,
-       dia number not null,
-       mes varchar(50) not null,
-       creadoPor varchar(100),
-       fechaCreacion date,
-       modificadoPor varchar(100),
-       fechaModificacion date,
-       constraint PK_FechasPagoDoble primary key (detalleFechaDoble)
-       
 );

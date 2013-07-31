@@ -28,7 +28,6 @@ namespace GUI
         {
             InitializeComponent();
             this.aceptar = false;
-            this.cmbDia.Enabled = false;
         }
         /// <summary>
         /// Método constructor el cual recibe por parámetro un catalogo fechas el cual inicializa los atributos existentes
@@ -118,50 +117,49 @@ namespace GUI
                this.aceptar = true;
                this.Close();
            }
-
-         /// <summary>
-         /// Metodo que realiza el cambio de dias dependiendo del mes que seleccionara el usuario
-         /// </summary>
-         /// <param name="sender"></param>
-         /// <param name="e"></param>
+        /// <summary>
+        /// Metodo que realiza el cambio de dias dependiendo del mes que seleccionara el usuario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
          private void cmbMes_SelectedIndexChanged(object sender, EventArgs e)
          {
-             this.cmbDia.Enabled = true;
-             switch (this.cmbMes.SelectedIndex)
-             {
 
-                 case 0:
-                 case 2:
-                 case 4:
-                 case 6:
-                 case 7:
-                 case 9:
-                 case 11:
-                     cmbDia.Items.Clear();
-                     for (int cont = 1; cont < 32; cont++)
-                     {
-                         cmbDia.Items.Add(cont);
-                     }
-                     break;
-                 case 3:
-                 case 5:
-                 case 8:
-                 case 10:
-                     cmbDia.Items.Clear();
-                     for (int cont = 1; cont < 31; cont++)
-                     {
-                         cmbDia.Items.Add(cont);
-                     }
-                     break;
-                 case 1:
-                         cmbDia.Items.Clear();
-                         for (int cont = 1; cont < 29; cont++)
-                         {
-                             cmbDia.Items.Add(cont);
-                         }
-                     break;
-          }
-      }
-   }
+               switch (this.cmbMes.SelectedIndex)
+               {
+
+                   case 0:
+                   case 2:
+                   case 4:
+                   case 6:
+                   case 7:
+                   case 9:
+                   case 11:
+                       cmbDia.Items.Clear();
+                       for (int cont = 1; cont < 32; cont++)
+                       {
+                           cmbDia.Items.Add(cont);
+                       }
+                       break;
+                   case 3:
+                   case 5:
+                   case 8:
+                   case 10:
+                       cmbDia.Items.Clear();
+                       for (int cont = 1; cont < 31; cont++)
+                       {
+                           cmbDia.Items.Add(cont);
+                       }
+                       break;
+                   case 1:
+                           cmbDia.Items.Clear();
+                           for (int cont = 1; cont < 29; cont++)
+                           {
+                               cmbDia.Items.Add(cont);
+                           }
+                       break;
+            }
+        }
+    }
 }

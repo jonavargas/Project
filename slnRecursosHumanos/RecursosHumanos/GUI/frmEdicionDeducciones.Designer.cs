@@ -54,9 +54,9 @@
             this.lblIDDeducciones.AutoSize = true;
             this.lblIDDeducciones.Location = new System.Drawing.Point(28, 21);
             this.lblIDDeducciones.Name = "lblIDDeducciones";
-            this.lblIDDeducciones.Size = new System.Drawing.Size(101, 13);
+            this.lblIDDeducciones.Size = new System.Drawing.Size(88, 13);
             this.lblIDDeducciones.TabIndex = 0;
-            this.lblIDDeducciones.Text = "Cod. Deducciones :";
+            this.lblIDDeducciones.Text = "Id Deducciones :";
             // 
             // lblPorcentaje
             // 
@@ -203,7 +203,7 @@
             this.txtPorcentaje.Location = new System.Drawing.Point(143, 47);
             this.txtPorcentaje.Name = "txtPorcentaje";
             this.txtPorcentaje.Size = new System.Drawing.Size(239, 20);
-            this.txtPorcentaje.TabIndex = 2;
+            this.txtPorcentaje.TabIndex = 14;
             // 
             // frmEdicionDeducciones
             // 

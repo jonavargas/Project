@@ -53,9 +53,9 @@
             this.lblidUsuario.AutoSize = true;
             this.lblidUsuario.Location = new System.Drawing.Point(24, 25);
             this.lblidUsuario.Name = "lblidUsuario";
-            this.lblidUsuario.Size = new System.Drawing.Size(74, 13);
+            this.lblidUsuario.Size = new System.Drawing.Size(61, 13);
             this.lblidUsuario.TabIndex = 0;
-            this.lblidUsuario.Text = "Cod. Usuario :";
+            this.lblidUsuario.Text = "Id Usuario :";
             // 
             // lbltipoUsuario
             // 
@@ -214,7 +214,7 @@
             this.cmbTipoUsuario.Location = new System.Drawing.Point(114, 57);
             this.cmbTipoUsuario.Name = "cmbTipoUsuario";
             this.cmbTipoUsuario.Size = new System.Drawing.Size(211, 21);
-            this.cmbTipoUsuario.TabIndex = 2;
+            this.cmbTipoUsuario.TabIndex = 17;
             // 
             // frmEdicionUsuario
             // 

@@ -126,9 +126,9 @@
             this.lblNombreDepa.AutoSize = true;
             this.lblNombreDepa.Location = new System.Drawing.Point(37, 31);
             this.lblNombreDepa.Name = "lblNombreDepa";
-            this.lblNombreDepa.Size = new System.Drawing.Size(102, 13);
+            this.lblNombreDepa.Size = new System.Drawing.Size(89, 13);
             this.lblNombreDepa.TabIndex = 0;
-            this.lblNombreDepa.Text = "Cod. Departamento:";
+            this.lblNombreDepa.Text = "Id Departamento:";
             // 
             // frmEdicionDepartamento
             // 
