@@ -139,6 +139,12 @@
     <Compile Include="GUI\frmMantParametro.Designer.cs">
       <DependentUpon>frmMantParametro.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frmMantUnificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmMantUnificacion.Designer.cs">
+      <DependentUpon>frmMantUnificacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmMantUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +209,9 @@
     <EmbeddedResource Include="GUI\frmMantParametro.resx">
       <DependentUpon>frmMantParametro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmMantUnificacion.resx">
+      <DependentUpon>frmMantUnificacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmMantUsuario.resx">
       <DependentUpon>frmMantUsuario.cs</DependentUpon>
     </EmbeddedResource>
@@ -262,6 +271,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\password.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
