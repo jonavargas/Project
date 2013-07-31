@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolBotones = new System.Windows.Forms.ToolStrip();
             this.btnSalvar = new System.Windows.Forms.ToolStripButton();
             this.btnAprobar = new System.Windows.Forms.ToolStripButton();
@@ -92,7 +92,7 @@
             this.btnAprobar});
             this.toolBotones.Location = new System.Drawing.Point(0, 0);
             this.toolBotones.Name = "toolBotones";
-            this.toolBotones.Size = new System.Drawing.Size(762, 58);
+            this.toolBotones.Size = new System.Drawing.Size(768, 58);
             this.toolBotones.TabIndex = 0;
             this.toolBotones.Text = "toolStrip1";
             // 
@@ -150,18 +150,18 @@
             this.numeroMarca,
             this.fecha,
             this.tipo});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdUniDatos.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdUniDatos.DefaultCellStyle = dataGridViewCellStyle1;
             this.grdUniDatos.Location = new System.Drawing.Point(8, 270);
             this.grdUniDatos.Name = "grdUniDatos";
             this.grdUniDatos.ReadOnly = true;
-            this.grdUniDatos.Size = new System.Drawing.Size(734, 155);
+            this.grdUniDatos.Size = new System.Drawing.Size(734, 149);
             this.grdUniDatos.TabIndex = 51;
             // 
             // numeroMarca
@@ -550,7 +550,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(762, 251);
+            this.ClientSize = new System.Drawing.Size(768, 516);
             this.Controls.Add(this.tcUnificacion);
             this.Controls.Add(this.toolBotones);
             this.Name = "frmUnificacion";
