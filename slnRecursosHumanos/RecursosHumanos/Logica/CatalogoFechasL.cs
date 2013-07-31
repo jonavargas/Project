@@ -99,14 +99,14 @@ namespace Logica
       /// <returns></returns>
         public override string ToString()
         {
-            return "ID Catalogo de Fechas: " + this.idCatalogoFechas +
-                   "Dia: " + this.dia+
-                   "Mes: " + this.mes +
-                   "Descripción: " + this.descripcion +
-                   "Fecha de Modificación: " + this.fechaModificacion +
-                   "Fecha de Creación: " + this.fechaCreacion +
-                   "Creado por: " + this.creadoPor +
-                   "Modificado por: " + this.modificadoPor +
+            return "Cod. Catalogo de Fechas: " + this.idCatalogoFechas + "\n" +
+                   "Dia: " + this.dia + "\n" +
+                   "Mes: " + this.mes + "\n" +
+                   "Descripción: " + this.descripcion + "\n" +
+                   "Fecha de Modificación: " + this.fechaModificacion + "\n" +
+                   "Fecha de Creación: " + this.fechaCreacion + "\n" +
+                   "Creado por: " + this.creadoPor + "\n" +
+                   "Modificado por: " + this.modificadoPor + "\n" +
                    "Activo: " + this.activo;
         }
     }

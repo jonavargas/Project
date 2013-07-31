@@ -136,22 +136,21 @@ namespace Logica
          /// <returns></returns>
         public override string ToString()
         {
-            return "ID Parametro: " + this.IdParametro +
+            return "Cod. Parametro: " + this.IdParametro +
                    "Hora Entrada: " + this.HoraEntrada +
-                   "Hora Salida: " + this.HoraSalida+
+                   "Hora Salida: " + this.HoraSalida +
                    "Lunes: " + this.Lunes +
                    "Martes: " + this.Martes +
                    "Miércoles: " + this.Miercoles +
-                   "Jueves: " + this.Jueves+
+                   "Jueves: " + this.Jueves +
                    "Viernes: " + this.Viernes +
-                   "Sabado: " + this.Sabado+
+                   "Sabado: " + this.Sabado +
                    "Domingo: " + this.Domingo +
                    "Fecha de Modificación: " + this.FechaModificacion +
                    "Fecha de Creación: " + this.FechaCreacion +
                    "Creado por: " + this.CreadoPor +
-                   "Modificado por: " + this.ModificadoPor +                   
+                   "Modificado por: " + this.ModificadoPor +
                    "Activo: " + this.Activo;
         }
-
     }
 }
