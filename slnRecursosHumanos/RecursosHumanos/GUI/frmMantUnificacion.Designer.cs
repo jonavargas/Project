@@ -30,14 +30,14 @@
         {
             this.grpUnificacion = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbEstadoMarca = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbEmpleado = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cmbDepartamento = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFecha2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFecha1 = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tollConsulta = new System.Windows.Forms.ToolStrip();
@@ -55,14 +55,14 @@
             // grpUnificacion
             // 
             this.grpUnificacion.Controls.Add(this.button1);
-            this.grpUnificacion.Controls.Add(this.comboBox1);
+            this.grpUnificacion.Controls.Add(this.cmbEstadoMarca);
             this.grpUnificacion.Controls.Add(this.label2);
-            this.grpUnificacion.Controls.Add(this.comboBox2);
+            this.grpUnificacion.Controls.Add(this.cmbEmpleado);
             this.grpUnificacion.Controls.Add(this.label3);
-            this.grpUnificacion.Controls.Add(this.comboBox3);
+            this.grpUnificacion.Controls.Add(this.cmbDepartamento);
             this.grpUnificacion.Controls.Add(this.label4);
-            this.grpUnificacion.Controls.Add(this.dateTimePicker1);
-            this.grpUnificacion.Controls.Add(this.dateTimePicker2);
+            this.grpUnificacion.Controls.Add(this.dtpFecha2);
+            this.grpUnificacion.Controls.Add(this.dtpFecha1);
             this.grpUnificacion.Controls.Add(this.label5);
             this.grpUnificacion.Controls.Add(this.label6);
             this.grpUnificacion.Location = new System.Drawing.Point(13, 12);
@@ -75,21 +75,22 @@
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(474, 49);
+            this.button1.Location = new System.Drawing.Point(560, 47);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(80, 29);
-            this.button1.TabIndex = 30;
+            this.button1.TabIndex = 6;
             this.button1.Text = "Filtrar";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // cmbEstadoMarca
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(152, 133);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(259, 21);
-            this.comboBox1.TabIndex = 28;
+            this.cmbEstadoMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEstadoMarca.FormattingEnabled = true;
+            this.cmbEstadoMarca.ItemHeight = 13;
+            this.cmbEstadoMarca.Location = new System.Drawing.Point(205, 133);
+            this.cmbEstadoMarca.Name = "cmbEstadoMarca";
+            this.cmbEstadoMarca.Size = new System.Drawing.Size(259, 21);
+            this.cmbEstadoMarca.TabIndex = 5;
             // 
             // label2
             // 
@@ -97,19 +98,19 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(21, 133);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 16);
+            this.label2.Size = new System.Drawing.Size(128, 16);
             this.label2.TabIndex = 29;
-            this.label2.Text = "Estado:";
+            this.label2.Text = "Estado de la Marca:";
             // 
-            // comboBox2
+            // cmbEmpleado
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.ItemHeight = 13;
-            this.comboBox2.Location = new System.Drawing.Point(152, 96);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(259, 21);
-            this.comboBox2.TabIndex = 26;
+            this.cmbEmpleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEmpleado.FormattingEnabled = true;
+            this.cmbEmpleado.ItemHeight = 13;
+            this.cmbEmpleado.Location = new System.Drawing.Point(205, 96);
+            this.cmbEmpleado.Name = "cmbEmpleado";
+            this.cmbEmpleado.Size = new System.Drawing.Size(259, 21);
+            this.cmbEmpleado.TabIndex = 4;
             // 
             // label3
             // 
@@ -117,18 +118,18 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(21, 96);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 16);
+            this.label3.Size = new System.Drawing.Size(151, 16);
             this.label3.TabIndex = 27;
-            this.label3.Text = "Empleado: ";
+            this.label3.Text = "Nombre del Empleado: ";
             // 
-            // comboBox3
+            // cmbDepartamento
             // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(152, 55);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(259, 21);
-            this.comboBox3.TabIndex = 24;
+            this.cmbDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDepartamento.FormattingEnabled = true;
+            this.cmbDepartamento.Location = new System.Drawing.Point(205, 55);
+            this.cmbDepartamento.Name = "cmbDepartamento";
+            this.cmbDepartamento.Size = new System.Drawing.Size(259, 21);
+            this.cmbDepartamento.TabIndex = 3;
             // 
             // label4
             // 
@@ -140,23 +141,23 @@
             this.label4.TabIndex = 25;
             this.label4.Text = "Departamento:";
             // 
-            // dateTimePicker1
+            // dtpFecha2
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(298, 20);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(113, 22);
-            this.dateTimePicker1.TabIndex = 22;
+            this.dtpFecha2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFecha2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFecha2.Location = new System.Drawing.Point(351, 20);
+            this.dtpFecha2.Name = "dtpFecha2";
+            this.dtpFecha2.Size = new System.Drawing.Size(113, 22);
+            this.dtpFecha2.TabIndex = 2;
             // 
-            // dateTimePicker2
+            // dtpFecha1
             // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(155, 20);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(112, 22);
-            this.dateTimePicker2.TabIndex = 21;
+            this.dtpFecha1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFecha1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFecha1.Location = new System.Drawing.Point(205, 20);
+            this.dtpFecha1.Name = "dtpFecha1";
+            this.dtpFecha1.Size = new System.Drawing.Size(115, 22);
+            this.dtpFecha1.TabIndex = 1;
             // 
             // label5
             // 
@@ -172,7 +173,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(273, 25);
+            this.label6.Location = new System.Drawing.Point(326, 25);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(19, 16);
             this.label6.TabIndex = 23;
@@ -272,14 +273,14 @@
 
         private System.Windows.Forms.GroupBox grpUnificacion;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbEstadoMarca;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbEmpleado;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cmbDepartamento;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpFecha2;
+        private System.Windows.Forms.DateTimePicker dtpFecha1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ToolStrip tollConsulta;
