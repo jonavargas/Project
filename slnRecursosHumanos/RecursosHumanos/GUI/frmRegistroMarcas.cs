@@ -150,5 +150,10 @@ namespace GUI
             CargoPrivateFontCollection();
             CargoEtiqueta(font);
         }
+
+        private void frmRegistroMarcas_Load(object sender, EventArgs e)
+        {
+            this.txtCodigoEmpleado.Focus();
+        }
     }
 }
