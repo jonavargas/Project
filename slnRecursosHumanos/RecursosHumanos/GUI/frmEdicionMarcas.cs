@@ -68,8 +68,6 @@ namespace GUI
             this.txtEstadoMarca.Text = this.oMarcaL.EstadoMarca;
             txtNumMarca.Enabled = false;
             txtNumUnificacion.Enabled = false;
-           
-            
             this.edicion = true;
             
 
