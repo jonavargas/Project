@@ -36,12 +36,13 @@
             this.parametroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.empleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.maToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.lblSesion = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblNombreUsuario = new System.Windows.Forms.ToolStripStatusLabel();
-            this.maToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.unificaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPrincipal.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.SuspendLayout();
@@ -66,7 +67,8 @@
             this.parametroToolStripMenuItem,
             this.usuarioToolStripMenuItem,
             this.empleadoToolStripMenuItem,
-            this.maToolStripMenuItem});
+            this.maToolStripMenuItem,
+            this.unificaciónToolStripMenuItem});
             this.Mantenimientos.Name = "Mantenimientos";
             this.Mantenimientos.Size = new System.Drawing.Size(151, 25);
             this.Mantenimientos.Text = "Mantenimientos";
@@ -113,6 +115,13 @@
             this.empleadoToolStripMenuItem.Text = "Empleado";
             this.empleadoToolStripMenuItem.Click += new System.EventHandler(this.empleadoToolStripMenuItem_Click);
             // 
+            // maToolStripMenuItem
+            // 
+            this.maToolStripMenuItem.Name = "maToolStripMenuItem";
+            this.maToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
+            this.maToolStripMenuItem.Text = "Consultar Marcas";
+            this.maToolStripMenuItem.Click += new System.EventHandler(this.maToolStripMenuItem_Click);
+            // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -150,12 +159,12 @@
             this.lblNombreUsuario.Name = "lblNombreUsuario";
             this.lblNombreUsuario.Size = new System.Drawing.Size(0, 17);
             // 
-            // maToolStripMenuItem
+            // unificaciónToolStripMenuItem
             // 
-            this.maToolStripMenuItem.Name = "maToolStripMenuItem";
-            this.maToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
-            this.maToolStripMenuItem.Text = "Consultar Marcas";
-            this.maToolStripMenuItem.Click += new System.EventHandler(this.maToolStripMenuItem_Click);
+            this.unificaciónToolStripMenuItem.Name = "unificaciónToolStripMenuItem";
+            this.unificaciónToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
+            this.unificaciónToolStripMenuItem.Text = "Unificación";
+            this.unificaciónToolStripMenuItem.Click += new System.EventHandler(this.unificaciónToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -194,6 +203,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem maToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem unificaciónToolStripMenuItem;
     }
 }
 

@@ -1,4 +1,4 @@
-﻿namespace RecursosHumanos.GUI
+﻿namespace GUI
 {
     partial class frmMantUnificacion
     {
@@ -87,6 +87,11 @@
             this.cmbEstadoMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstadoMarca.FormattingEnabled = true;
             this.cmbEstadoMarca.ItemHeight = 13;
+            this.cmbEstadoMarca.Items.AddRange(new object[] {
+            "Generada",
+            "En trámite",
+            "Pagada",
+            "Anulada"});
             this.cmbEstadoMarca.Location = new System.Drawing.Point(205, 133);
             this.cmbEstadoMarca.Name = "cmbEstadoMarca";
             this.cmbEstadoMarca.Size = new System.Drawing.Size(259, 21);
