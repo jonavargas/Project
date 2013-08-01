@@ -172,6 +172,7 @@
             this.btnRefrescar.Size = new System.Drawing.Size(79, 55);
             this.btnRefrescar.Text = "Refrescar";
             this.btnRefrescar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
             // 
             // grdMarcas
             // 

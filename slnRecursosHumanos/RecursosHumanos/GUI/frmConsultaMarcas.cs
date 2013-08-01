@@ -304,5 +304,10 @@ namespace GUI
                 }
             }
         }
+
+        private void btnRefrescar_Click(object sender, EventArgs e)
+        {
+           this.cargarGrid();
+        }
     }
 }
