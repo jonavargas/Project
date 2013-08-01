@@ -398,7 +398,7 @@ namespace Datos
             try
             {
 
-                string sql = "select m*, e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 as nombreCompleto from Marca m, Empleado e where m.idEmpleado = e.idEmpleado and  m.fechaMarca >= :fecha1 and m.fechaMarca <= :fecha2";
+                string sql = "select m.*, e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 as nombreCompleto from Marca m, Empleado e where m.idEmpleado = e.idEmpleado and  m.fechaMarca >= :fecha1 and m.fechaMarca <= :fecha2";
                 int indices = 2;
 
                 if (pIdEmpleado != "")
@@ -490,7 +490,7 @@ namespace Datos
 
                 }
 
-                DataSet datos = this.cnx.ejecutarConsultaSQL(sql, "marca");
+                DataSet datos = this.cnx.ejecutarConsultaSQL(sql, "marca", parametros);
                 if (this.cnx.IsError == false)
                 {
                     foreach (DataRow fila in datos.Tables[0].Rows)
