@@ -398,7 +398,7 @@ namespace Datos
             try
             {
 
-                string sql = "select m.*, e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 as nombreCompleto from Marca m, Empleado e where m.idEmpleado = e.idEmpleado and  m.fechaMarca >= :fecha1 and m.fechaMarca <= :fecha2";
+                string sql = "select m.*, e.nombreEmpleado || ' ' || e.apellido1 || ' ' || e.apellido2 as nombreCompleto from marca m, Empleado e where m.idEmpleado = e.idEmpleado and  m.fechaMarca >= :fecha1 and m.fechaMarca <= :fecha2";
                 int indices = 2;
 
                 if (pIdEmpleado != "")
@@ -498,6 +498,7 @@ namespace Datos
                         retorno.Add(new MarcaL(int.Parse(fila["idMarca"].ToString()),
                                                    int.Parse(fila["idUnificacion"].ToString()),
                                                    fila["idEmpleado"].ToString(),
+                                                   fila["nombreCompleto"].ToString(),
                                                    fila["estadoMarca"].ToString(),
                                                    fila["tipoMarca"].ToString(),
                                                    DateTime.Parse(fila["fechaMarca"].ToString()),
@@ -505,7 +506,9 @@ namespace Datos
                                                    DateTime.Parse(fila["fechaCreacion"].ToString()),
                                                    fila["modificadoPor"].ToString(),
                                                    DateTime.Parse(fila["fechaModificacion"].ToString()),
-                                                   fila["activo"].ToString())
+                                                   fila["activo"].ToString()
+                                                   
+                                                   )
 
                                    );
                     }

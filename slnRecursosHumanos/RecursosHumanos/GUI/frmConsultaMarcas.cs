@@ -31,6 +31,7 @@ namespace GUI
             InitializeComponent();            
             this.conexion = pConexion;
             this.cargarGrid();
+            rbtActivo.Checked = true;
             this.dtpFecha1.Value = DateTime.Today;
             this.dtpFecha2.Value = DateTime.Today.AddHours(23).AddMinutes(59).AddSeconds(59);
             this.cargarCmbDepartamento(pConexion);
@@ -205,69 +206,75 @@ namespace GUI
             string activo = "Activo";
 
             {
-                if (this.dtpFecha1.Value > this.dtpFecha2.Value)
+                if ((this.dtpFecha1.Value < this.dtpFecha2.Value))
                 {
-                    MessageBox.Show("Revisar el rango de fechas");
+
+                    MarcaD oMarcaD = new MarcaD(this.conexion);
+
+                    if (this.cmbCodigo.SelectedValue == null)
+                    {
+                        idEmpleado = "";
+                    }
+                    else
+                    {
+                        idEmpleado = this.cmbCodigo.SelectedValue.ToString();
+                    }
+
+                    if (this.cmbDepartamento.SelectedValue == null)
+                    {
+                        departamento = "";
+                    }
+                    else
+                    {
+                        departamento = this.cmbDepartamento.SelectedValue.ToString();
+                    }
+
+                    if (this.cmbEmpleado.SelectedValue == null)
+                    {
+                        nombreEmpleado = "";
+                    }
+                    else
+                    {
+                        nombreEmpleado = this.cmbEmpleado.SelectedValue.ToString();
+                    }
+                    
+                    if (this.cmbEstadoMarca.SelectedIndex.ToString() != "-1")
+                    {
+                        estadoMarca = this.cmbEstadoMarca.SelectedItem.ToString();
+                    }
+                    else
+                    {
+                        estadoMarca = "";
+                    }
+
+                    if (this.rbtActivo.Checked == true)
+                    {
+                        activo = "Sí";
+                    }
+                    else if (this.rbtInactivo.Checked == true)
+                    {
+                        activo = "No";
+                    }
+
+                    List<MarcaL> listaMarcas = oMarcaD.obtenerMarcaFiltro(this.dtpFecha1.Value, this.dtpFecha2.Value, idEmpleado, departamento,
+                                                                             nombreEmpleado, estadoMarca, activo);
+                    if (!oMarcaD.Error)
+                    {
+                        this.grdMarcas.DataSource = listaMarcas;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error cargando los datos!!!");
+                    }
+
+
+                }
+                else {
+                    MessageBox.Show("Revisar el rango de fechas ya que alguna de las suministradas es errónea");
                     return;
                 }
 
-                MarcaD oMarcaD = new MarcaD(this.conexion);
-
-                if (this.cmbCodigo.SelectedValue == null)
-                {
-                    idEmpleado = "";
-                }
-                else
-                {
-                    idEmpleado = this.cmbCodigo.SelectedValue.ToString();
-                }
-
-                if (this.cmbDepartamento.SelectedValue == null)
-                {
-                    departamento = "";
-                }
-                else
-                {
-                    departamento = this.cmbDepartamento.SelectedValue.ToString();
-                }
-
-                if (this.cmbEmpleado.SelectedValue == null)
-                {
-                    nombreEmpleado = "";
-                }
-                else
-                {
-                    nombreEmpleado = this.cmbEmpleado.SelectedValue.ToString();
-                }
-
-                if (this.cmbEstadoMarca.SelectedIndex.ToString() != "-1")
-                {
-                    estadoMarca = this.cmbEstadoMarca.SelectedItem.ToString();
-                }
-                else
-                {
-                    estadoMarca = "";
-                }
-
-                if (this.rbtActivo.Checked == true)
-                {
-                    activo = "Sí";
-                }
-                else if (this.rbtInactivo.Checked == true)
-                {
-                    activo = "No";
-                }
-
-                List<MarcaL> listaMarcas = oMarcaD.obtenerMarcaFiltro(this.dtpFecha1.Value, this.dtpFecha2.Value, idEmpleado, departamento,
-                                                                         nombreEmpleado, estadoMarca, activo);
-                if (!oMarcaD.Error)
-                {
-                    this.grdMarcas.DataSource = listaMarcas;
-                }
-                else
-                {
-                    MessageBox.Show("Error cargando los datos!!!");
-                }
+               
             }
         }
 

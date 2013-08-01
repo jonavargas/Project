@@ -33,6 +33,8 @@ namespace GUI
         public frmLogin(AccesoDatosOracle pConexion)
         {
             InitializeComponent();
+            this.txtLogin.Text = "proyecto";
+            this.txtClave.Text = "oracle";
             this.aceptar = false;
             this.conexion = pConexion;
             string nombreUsuario = this.txtLogin.Text;
@@ -45,8 +47,10 @@ namespace GUI
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            
             if ((this.txtLogin.Text != "") && (this.txtClave.Text != ""))
             {
+               
                 if ((this.txtLogin.Text.Equals("proyecto")) && (txtClave.Text.Equals("oracle")))
                 {
                     UsuarioD oUsuarioD = new UsuarioD(this.conexion);
