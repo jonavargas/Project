@@ -82,11 +82,12 @@ namespace GUI
 
         private void frmRegistroMarcas_KeyDown(object sender, KeyEventArgs e)
        {
+            //Al oprimir  la tecla esc el form termina la aplicacion y la cierra.
             if (e.KeyCode == Keys.Escape)
             {
                 this.Close();
             }
-
+            //Al oprimir la tecla enter el programa hace la funcion que le corresponde al boton aceptar.
             if (e.KeyCode == Keys.Enter)
             {
                 this.btnMarcar_Click(sender, e);

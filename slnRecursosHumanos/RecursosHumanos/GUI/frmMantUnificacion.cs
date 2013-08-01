@@ -35,10 +35,10 @@ namespace GUI
             this.cargarCmbDepartamento(pConexion);
             this.cargarComboEmpleado(pConexion);
             this.cmbEmpleado.SelectedItem = null;
-            this.cmbEstadoMarca.SelectedItem = null;
             this.cmbDepartamento.SelectedItem = null;
+            this.lblEstadoUnificacion.Text = "OK";
+            this.lblEstadoUnificacion.ForeColor = System.Drawing.Color.Blue;
         }
-
         /// <summary>
         /// Método para cargar el combobox Departamento con los departamentos existentes en la base de datos.
         /// </summary>

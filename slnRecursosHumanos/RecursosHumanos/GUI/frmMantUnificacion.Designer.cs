@@ -30,7 +30,6 @@
         {
             this.grpUnificacion = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.cmbEstadoMarca = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbEmpleado = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,13 +40,14 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tollConsulta = new System.Windows.Forms.ToolStrip();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnNuevo = new System.Windows.Forms.ToolStripButton();
             this.btnAprobar = new System.Windows.Forms.ToolStripButton();
             this.btnReversar = new System.Windows.Forms.ToolStripButton();
             this.btnAnular = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblEstadoUnificacion = new System.Windows.Forms.Label();
             this.grpUnificacion.SuspendLayout();
             this.tollConsulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -56,8 +56,8 @@
             // 
             // grpUnificacion
             // 
+            this.grpUnificacion.Controls.Add(this.lblEstadoUnificacion);
             this.grpUnificacion.Controls.Add(this.button1);
-            this.grpUnificacion.Controls.Add(this.cmbEstadoMarca);
             this.grpUnificacion.Controls.Add(this.label2);
             this.grpUnificacion.Controls.Add(this.cmbEmpleado);
             this.grpUnificacion.Controls.Add(this.label3);
@@ -77,27 +77,12 @@
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(560, 47);
+            this.button1.Location = new System.Drawing.Point(570, 71);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(80, 29);
             this.button1.TabIndex = 6;
             this.button1.Text = "Filtrar";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // cmbEstadoMarca
-            // 
-            this.cmbEstadoMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEstadoMarca.FormattingEnabled = true;
-            this.cmbEstadoMarca.ItemHeight = 13;
-            this.cmbEstadoMarca.Items.AddRange(new object[] {
-            "Generada",
-            "En trámite",
-            "Pagada",
-            "Anulada"});
-            this.cmbEstadoMarca.Location = new System.Drawing.Point(205, 133);
-            this.cmbEstadoMarca.Name = "cmbEstadoMarca";
-            this.cmbEstadoMarca.Size = new System.Drawing.Size(259, 21);
-            this.cmbEstadoMarca.TabIndex = 5;
             // 
             // label2
             // 
@@ -105,9 +90,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(21, 133);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 16);
+            this.label2.Size = new System.Drawing.Size(156, 16);
             this.label2.TabIndex = 29;
-            this.label2.Text = "Estado de la Marca:";
+            this.label2.Text = "Estado de la Unificación:";
             // 
             // cmbEmpleado
             // 
@@ -202,14 +187,6 @@
             this.tollConsulta.Size = new System.Drawing.Size(332, 58);
             this.tollConsulta.TabIndex = 43;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(1, 289);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(721, 162);
-            this.dataGridView1.TabIndex = 44;
-            // 
             // btnNuevo
             // 
             this.btnNuevo.Image = global::RecursosHumanos.Properties.Resources.nuevo;
@@ -255,6 +232,14 @@
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(1, 289);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(721, 162);
+            this.dataGridView1.TabIndex = 44;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tollConsulta);
@@ -263,6 +248,14 @@
             this.groupBox1.Size = new System.Drawing.Size(700, 84);
             this.groupBox1.TabIndex = 45;
             this.groupBox1.TabStop = false;
+            // 
+            // lblEstadoUnificacion
+            // 
+            this.lblEstadoUnificacion.AutoSize = true;
+            this.lblEstadoUnificacion.Location = new System.Drawing.Point(202, 133);
+            this.lblEstadoUnificacion.Name = "lblEstadoUnificacion";
+            this.lblEstadoUnificacion.Size = new System.Drawing.Size(0, 13);
+            this.lblEstadoUnificacion.TabIndex = 5;
             // 
             // frmMantUnificacion
             // 
@@ -290,7 +283,6 @@
 
         private System.Windows.Forms.GroupBox grpUnificacion;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox cmbEstadoMarca;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbEmpleado;
         private System.Windows.Forms.Label label3;
@@ -308,5 +300,6 @@
         private System.Windows.Forms.ToolStripButton btnEditar;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblEstadoUnificacion;
     }
 }

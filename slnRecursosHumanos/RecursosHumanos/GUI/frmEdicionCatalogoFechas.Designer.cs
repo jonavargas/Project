@@ -46,9 +46,10 @@
             this.txtActivo = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.cmbDia = new System.Windows.Forms.ComboBox();
-            this.cmbMes = new System.Windows.Forms.ComboBox();
             this.chkActivo = new System.Windows.Forms.CheckBox();
+            this.lblAviso = new System.Windows.Forms.Label();
+            this.cmbMes = new System.Windows.Forms.ComboBox();
+            this.cmbDia = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblid_CatalogoFechas
@@ -210,17 +211,32 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // cmbDia
+            // chkActivo
             // 
-            this.cmbDia.FormattingEnabled = true;
-            this.cmbDia.Location = new System.Drawing.Point(139, 71);
-            this.cmbDia.Name = "cmbDia";
-            this.cmbDia.Size = new System.Drawing.Size(218, 21);
-            this.cmbDia.TabIndex = 3;
+            this.chkActivo.AutoSize = true;
+            this.chkActivo.Checked = true;
+            this.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkActivo.Location = new System.Drawing.Point(160, 133);
+            this.chkActivo.Name = "chkActivo";
+            this.chkActivo.Size = new System.Drawing.Size(56, 17);
+            this.chkActivo.TabIndex = 5;
+            this.chkActivo.Text = "Activo";
+            this.chkActivo.UseVisualStyleBackColor = true;
+            // 
+            // lblAviso
+            // 
+            this.lblAviso.AutoSize = true;
+            this.lblAviso.Location = new System.Drawing.Point(136, 74);
+            this.lblAviso.Name = "lblAviso";
+            this.lblAviso.Size = new System.Drawing.Size(236, 13);
+            this.lblAviso.TabIndex = 18;
+            this.lblAviso.Text = "Debe elegir el mes, antes de poder elegir el dia!!!";
             // 
             // cmbMes
             // 
+            this.cmbMes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMes.FormattingEnabled = true;
+            this.cmbMes.ItemHeight = 13;
             this.cmbMes.Items.AddRange(new object[] {
             "Enero",
             "Febrero",
@@ -238,28 +254,27 @@
             this.cmbMes.Name = "cmbMes";
             this.cmbMes.Size = new System.Drawing.Size(218, 21);
             this.cmbMes.TabIndex = 2;
-            this.cmbMes.SelectedIndexChanged += new System.EventHandler(this.cmbMes_SelectedIndexChanged);
+            this.cmbMes.SelectedIndexChanged += new System.EventHandler(this.cmbMes_SelectedIndexChanged_1);
             // 
-            // chkActivo
+            // cmbDia
             // 
-            this.chkActivo.AutoSize = true;
-            this.chkActivo.Checked = true;
-            this.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkActivo.Location = new System.Drawing.Point(160, 133);
-            this.chkActivo.Name = "chkActivo";
-            this.chkActivo.Size = new System.Drawing.Size(56, 17);
-            this.chkActivo.TabIndex = 5;
-            this.chkActivo.Text = "Activo";
-            this.chkActivo.UseVisualStyleBackColor = true;
+            this.cmbDia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDia.FormattingEnabled = true;
+            this.cmbDia.ItemHeight = 13;
+            this.cmbDia.Location = new System.Drawing.Point(139, 71);
+            this.cmbDia.Name = "cmbDia";
+            this.cmbDia.Size = new System.Drawing.Size(218, 21);
+            this.cmbDia.TabIndex = 3;
             // 
             // frmEdicionCatalogoFechas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(391, 215);
-            this.Controls.Add(this.chkActivo);
-            this.Controls.Add(this.cmbMes);
+            this.Controls.Add(this.lblAviso);
             this.Controls.Add(this.cmbDia);
+            this.Controls.Add(this.cmbMes);
+            this.Controls.Add(this.chkActivo);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.txtActivo);
@@ -306,8 +321,9 @@
         private System.Windows.Forms.TextBox txtActivo;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.ComboBox cmbDia;
-        private System.Windows.Forms.ComboBox cmbMes;
         private System.Windows.Forms.CheckBox chkActivo;
+        private System.Windows.Forms.Label lblAviso;
+        private System.Windows.Forms.ComboBox cmbMes;
+        private System.Windows.Forms.ComboBox cmbDia;
     }
 }
