@@ -254,6 +254,7 @@
             this.cmbMes.Name = "cmbMes";
             this.cmbMes.Size = new System.Drawing.Size(218, 21);
             this.cmbMes.TabIndex = 2;
+            this.cmbMes.SelectedIndexChanged += new System.EventHandler(this.cmbMes_SelectedIndexChanged_1);
             // 
             // cmbDia
             // 
