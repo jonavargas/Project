@@ -495,7 +495,7 @@ namespace Datos
                 {
                     foreach (DataRow fila in datos.Tables[0].Rows)
                     {
-                        retorno.Add(new MarcaL(int.Parse(fila["idMarca"].ToString()),
+                        retorno.Add(new MarcaL(    int.Parse(fila["idMarca"].ToString()),
                                                    int.Parse(fila["idUnificacion"].ToString()),
                                                    fila["idEmpleado"].ToString(),
                                                    fila["estadoMarca"].ToString(),
@@ -538,12 +538,6 @@ namespace Datos
             cont = Int16.Parse(cmd.ExecuteScalar().ToString());
             return cont;
             {
-
-
-
-
-
-
 
             }
         }

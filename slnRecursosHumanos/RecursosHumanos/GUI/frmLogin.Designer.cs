@@ -107,6 +107,7 @@
             this.txtClave.PasswordChar = '*';
             this.txtClave.Size = new System.Drawing.Size(142, 20);
             this.txtClave.TabIndex = 3;
+            this.txtClave.Text = "oracle";
             // 
             // txtLogin
             // 
@@ -114,6 +115,7 @@
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(142, 20);
             this.txtLogin.TabIndex = 2;
+            this.txtLogin.Text = "proyecto";
             // 
             // lblClave
             // 

@@ -28,6 +28,7 @@ namespace GUI
         {
             InitializeComponent();
             this.aceptar = false;
+            this.cmbDia.Enabled = false;
         }
         /// <summary>
         /// Método constructor el cual recibe por parámetro un catalogo fechas el cual inicializa los atributos existentes
@@ -125,7 +126,8 @@ namespace GUI
 
          private void cmbMes_SelectedIndexChanged(object sender, EventArgs e)
          {
-
+               this.cmbDia.Enabled = true;
+               this.lblAviso.Visible = false;
                switch (this.cmbMes.SelectedIndex)
                {
 
