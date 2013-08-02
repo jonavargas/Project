@@ -138,11 +138,11 @@
     <Compile Include="GUI\frmMantParametro.Designer.cs">
       <DependentUpon>frmMantParametro.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\frmMantUnificacion.cs">
+    <Compile Include="GUI\frmUnificacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\frmMantUnificacion.Designer.cs">
-      <DependentUpon>frmMantUnificacion.cs</DependentUpon>
+    <Compile Include="GUI\frmUnificacion.Designer.cs">
+      <DependentUpon>frmUnificacion.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\frmMantUsuario.cs">
       <SubType>Form</SubType>
@@ -162,11 +162,11 @@
     <Compile Include="GUI\frmRegistroMarcas.Designer.cs">
       <DependentUpon>frmRegistroMarcas.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\frmUnificacion.cs">
+    <Compile Include="GUI\frmManteUnificacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\frmUnificacion.Designer.cs">
-      <DependentUpon>frmUnificacion.cs</DependentUpon>
+    <Compile Include="GUI\frmManteUnificacion.Designer.cs">
+      <DependentUpon>frmManteUnificacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Logica\CatalogoFechasL.cs" />
     <Compile Include="Logica\DeduccionesL.cs" />
@@ -213,8 +213,8 @@
     <EmbeddedResource Include="GUI\frmMantParametro.resx">
       <DependentUpon>frmMantParametro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\frmMantUnificacion.resx">
-      <DependentUpon>frmMantUnificacion.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\frmUnificacion.resx">
+      <DependentUpon>frmUnificacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmMantUsuario.resx">
       <DependentUpon>frmMantUsuario.cs</DependentUpon>
@@ -231,8 +231,8 @@
     <EmbeddedResource Include="GUI\frmRegistroMarcas.resx">
       <DependentUpon>frmRegistroMarcas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\frmUnificacion.resx">
-      <DependentUpon>frmUnificacion.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\frmManteUnificacion.resx">
+      <DependentUpon>frmManteUnificacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
