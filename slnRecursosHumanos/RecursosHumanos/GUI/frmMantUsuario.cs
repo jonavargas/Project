@@ -119,7 +119,7 @@ namespace GUI
             {               
                 UsuarioL oUsuarioOriginal = (UsuarioL)this.grdUsuario.CurrentRow.DataBoundItem;
 
-                frmEdicionUsuario ofrmEdicion = new frmEdicionUsuario(oUsuarioOriginal,this.cnx);
+                frmEdicionUsuario ofrmEdicion = new frmEdicionUsuario(oUsuarioOriginal, this.oUsuarioL,this.cnx);
                 ofrmEdicion.ShowDialog();
                 if (ofrmEdicion.Aceptar)
                 {

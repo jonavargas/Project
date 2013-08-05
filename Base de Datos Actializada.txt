@@ -140,7 +140,7 @@ create table Unificacion
       horaRegular number(9,2),
       horaExtra number(9,2),
       horaDoble number(9,2),
-      aprobacionHExtra varchar(50),
+      aprobacionExtra varchar(50),
       notasAprobacion varchar(100),     
       montoUnificacion number(9,2),     
       salarioBruto number(9,2),
@@ -175,3 +175,6 @@ create table Pago
  constraint montoPago_FK foreign key (montoPago) references unificacion (salarioBruto);
 
 );
+
+INSERT INTO usuario(idUsuario, tipoUsuario, password, fechaModificacion, fechaCreacion, creadoPor, modificadoPor,activo) 
+VALUES('Bryan','Supervisor','oracle',sysdate,sysdate,'Supervisor','Supervisor','Sí');

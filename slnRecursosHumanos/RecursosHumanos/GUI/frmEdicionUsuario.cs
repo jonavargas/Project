@@ -39,14 +39,17 @@ namespace GUI
         /// Método constructor sin parametros y que además inializa el atributo aceptar que corresponde al botón aceptar
         /// en false
         /// </summary>
-        public frmEdicionUsuario(UsuarioL pUsuarioL, AccesoDatosOracle pConexion)
+        public frmEdicionUsuario(UsuarioL pUsuarioL, List<UsuarioL> pUsuarioConectado, AccesoDatosOracle pConexion)
         {
             InitializeComponent();
             this.conexion = pConexion;
             this.txtidUsuario.Text = pUsuarioL.IdUsuario;
             this.txtpassword.Text = pUsuarioL.Password;
             this.chkActivo.Text = pUsuarioL.Activo;
+            this.cmbTipoUsuario.Text = pUsuarioL.TipoUsuario;
             this.aceptar = false;
+            this.oUsuarioL = pUsuarioConectado;
+            this.txtidUsuario.Enabled = false;
             this.edicion = true;
         }
         /// <summary>
@@ -96,54 +99,63 @@ namespace GUI
             {
                 activo = "Sí";
             }
-            
-            if(edicion==false){
-            
-             if ((this.txtidUsuario.Text == "") || 
-                (this.txtpassword.Text == ""))
+            try
             {
-                MessageBox.Show("Faltan datos requeridos!!!");
-                return;
-            }
-            else
-            {
-                UsuarioD oUsuarioD = new UsuarioD(this.conexion);
-                List<UsuarioL> listaUsuario = oUsuarioD.obtenerUsuarioID(this.txtidUsuario.Text);
-                if (listaUsuario.Count != 0)
+                if (edicion == false)
                 {
-                    MessageBox.Show("Error Usuario ya existe por favor ingrese otro nombre!!!");
-                    return;
+
+                    if ((this.txtidUsuario.Text == "") ||
+                       (this.txtpassword.Text == "")||(this.cmbTipoUsuario.SelectedItem==""))
+                    {
+                        MessageBox.Show("Faltan datos requeridos!!!");
+                        return;
+                    }
+                    else
+                    {
+                        UsuarioD oUsuarioD = new UsuarioD(this.conexion);
+                        List<UsuarioL> listaUsuario = oUsuarioD.obtenerUsuarioID(this.txtidUsuario.Text);
+                        if (listaUsuario.Count != 0)
+                        {
+                            MessageBox.Show("Error Usuario ya existe por favor ingrese otro nombre!!!");
+                            return;
+                        }
+                        else
+                        {
+                            this.OUsuarioLNuevo = new UsuarioL(this.txtidUsuario.Text,
+                                                   Convert.ToString(this.cmbTipoUsuario.SelectedValue), this.txtpassword.Text, DateTime.Now,
+                                                   DateTime.Now, OUsuarioL1[0].IdUsuario, OUsuarioL1[0].IdUsuario,
+                                                   activo);
+
+
+                        }
+
+                    }
+
+
                 }
                 else
                 {
+
+                    if (this.chkActivo.Checked)
+                    {
+                        activo = "Sí";
+                    }
+                    txtidUsuario.ReadOnly = false;
+
                     this.OUsuarioLNuevo = new UsuarioL(this.txtidUsuario.Text,
-                                           Convert.ToString(this.cmbTipoUsuario.SelectedItem), this.txtpassword.Text, DateTime.Now,
-                                           DateTime.Now, OUsuarioL1[0].IdUsuario, OUsuarioL1[0].IdUsuario,
-                                           activo);                   
+                                                   Convert.ToString(this.cmbTipoUsuario.SelectedItem), this.txtpassword.Text, DateTime.Now,
+                                                   DateTime.Now, OUsuarioL1[0].IdUsuario, OUsuarioL1[0].IdUsuario,
+                                                   activo);
+
 
 
                 }
-
-             }
-
-
-            }else{
-            
-            if (this.chkActivo.Checked)
-            {
-                activo = "Sí";
             }
-                txtidUsuario.ReadOnly=false;
+            catch (Exception) {
 
-            this.OUsuarioLNuevo = new UsuarioL(this.txtidUsuario.Text,
-                                           Convert.ToString(this.cmbTipoUsuario.SelectedValue), this.txtpassword.Text, DateTime.Now,
-                                           DateTime.Now, OUsuarioL1[0].IdUsuario, OUsuarioL1[0].IdUsuario,
-                                           activo);   
-            
-            
+                MessageBox.Show("Error agreagando Usuario");
             
             }
-
            this.aceptar = true;
                     this.Close();
 
