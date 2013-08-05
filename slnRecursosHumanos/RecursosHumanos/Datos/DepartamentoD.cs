@@ -130,7 +130,7 @@ namespace Datos
             catch(Exception e)
             {
                 this.error = true;
-                this.errorDescription = "Error agregando departamento:" + e.Message;    
+                this.errorDescription = "Error agregando Departamento:" + e.Message;    
             }
         }
         /// <summary>
@@ -158,7 +158,7 @@ namespace Datos
             catch (Exception e)
             {
                 this.error = true;
-                this.errorDescription = "Error borrando departamento:" + e.Message;
+                this.errorDescription = "Error borrando Departamento:" + e.Message;
             }
         }
         /// <summary>
@@ -214,16 +214,68 @@ namespace Datos
             catch (Exception e)
             {
                 this.error = true;
-                this.errorDescription = "Error editando departamento:" + e.Message;
+                this.errorDescription = "Error editando Departamento:" + e.Message;
             }
         }
 
+        public List<DepartamentoL> obtenerIdDepartamento(string pIdDepartamento)
+        {
+           
+            List<DepartamentoL> retorno = new List<DepartamentoL>();
+            try
+            {
+                //select que carga el dataset con los datos de las deducciones
+                string sql = ("select * from Departamento where idDepartamento = :idDepartamento");
+
+                OracleParameter[] parametros = new OracleParameter[1];
+
+                parametros[0] = new OracleParameter();
+                parametros[0].OracleType = OracleType.VarChar;
+                parametros[0].ParameterName = ":idDepartamento";
+                parametros[0].Value = pIdDepartamento;
+
+                DataSet datos = this.cnx.ejecutarConsultaSQL(sql, "Departamento", parametros);
+
+                if (this.cnx.IsError == false)
+                {
+                    //se recorre el dataset por cada fila
+                    foreach (DataRow fila in datos.Tables[0].Rows)
+                    {
+                        //se carca la lista de la lógica de usuario con sus siete atributos
+                        retorno.Add(
+                                    new DepartamentoL(fila["idDepartamento"].ToString(),
+                                                      fila["nombreDepartamento"].ToString(),
+                                                      DateTime.Parse(fila["fechaModificacion"].ToString()),
+                                                      DateTime.Parse(fila["fechaCreacion"].ToString()),
+                                                      fila["creadoPor"].ToString(),
+                                                      fila["modificadoPor"].ToString(),                                                  
+                                                      fila["activo"].ToString()
+                                                )
+                                   );
+                    }
+                }
+                //se validan los errores 
+                else
+                {
+                    this.error = true;
+                    this.errorDescription = "Error obteniendo Departamento:" +
+                                            this.cnx.ErrorDescripcion;
+                }
+            }
+            catch (Exception e)
+            {
+                this.error = true;
+                this.errorDescription = "Error obteniendo Departamento:" + e.Message;
+            }
+
+            return retorno;
+        }
         public DataSet obtenerIdDepartamento()
         {
             DataSet datos = this.cnx.ejecutarConsultaSQL("select * from Departamento");
             try
             {
-                
+
                 if (this.cnx.IsError == true)
                 {
                     this.error = true;
@@ -237,6 +289,8 @@ namespace Datos
                 this.errorDescription = "Error obteniendo Departamento: " + e.Message;
             }
             return datos;
-        }    
+        }
+        
+         
     }
 }

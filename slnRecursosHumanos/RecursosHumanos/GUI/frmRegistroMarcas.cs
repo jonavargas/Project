@@ -63,7 +63,7 @@ namespace GUI
 
                 if (empleado.Count > 0)
                 {
-                    MarcaL oMarcaL = new MarcaL( unificacion, txtCodigoEmpleado.Text, oMarcaD.tipoMarca(txtCodigoEmpleado.Text), "Generada",DateTime.Today, "Empleado", DateTime.Now, "Empleado", DateTime.Now, "Sí");
+                    MarcaL oMarcaL = new MarcaL(txtCodigoEmpleado.Text, unificacion, "Generada", oMarcaD.tipoMarca(txtCodigoEmpleado.Text), DateTime.Today, "Empleado", DateTime.Now, "Empleado", DateTime.Now, "Sí");
                     oMarcaD.agregarMarca2(oMarcaL);
                     txtCodigoEmpleado.Text = "";
                 }

@@ -19,17 +19,20 @@ namespace GUI
         /// Atributos de la clase
         /// </summary>
         AccesoDatosOracle cnx;
+        List<UsuarioL> oUsuarioL;
+        string tipo;
 
         /// <summary>
         /// Metodo constructor con parametros
         /// </summary>
         /// <param name="pConexion"></param>
 
-        public frmPrincipal(AccesoDatosOracle pConexion)
+        public frmPrincipal(List<UsuarioL> pUsuarioL, AccesoDatosOracle pConexion)
         {
             InitializeComponent();
             this.cnx = pConexion;
-            this.lblNombreUsuario.Text = Program.oUsuarioLogueado.IdUsuario;
+            this.oUsuarioL = pUsuarioL;
+            
         }
 
         /// <summary>
@@ -41,7 +44,7 @@ namespace GUI
 
         private void usuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmMantUsuario oFrmMantUsuario = new frmMantUsuario(this.cnx);
+            frmMantUsuario oFrmMantUsuario = new frmMantUsuario(oUsuarioL,this.cnx);
             oFrmMantUsuario.ShowDialog();
         }
 
@@ -53,7 +56,7 @@ namespace GUI
 
         private void departamentoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmMantDepartamento oFrmMantDepa = new frmMantDepartamento(this.cnx);
+            frmMantDepartamento oFrmMantDepa = new frmMantDepartamento(oUsuarioL,this.cnx);
             oFrmMantDepa.ShowDialog();
         }
 
@@ -65,7 +68,7 @@ namespace GUI
 
         private void deduccionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmMantDeducciones oFrmMantDeducciones = new frmMantDeducciones(this.cnx);
+            frmMantDeducciones oFrmMantDeducciones = new frmMantDeducciones(oUsuarioL,this.cnx);
             oFrmMantDeducciones.ShowDialog();
         }
 
@@ -77,7 +80,7 @@ namespace GUI
 
         private void catalogoFechasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmMantCatalogoFechas oFrmMantCatalogoFechas = new frmMantCatalogoFechas(this.cnx);
+            frmMantCatalogoFechas oFrmMantCatalogoFechas = new frmMantCatalogoFechas(oUsuarioL,this.cnx);
             oFrmMantCatalogoFechas.ShowDialog();
         }
 
@@ -89,7 +92,7 @@ namespace GUI
 
         private void parametroToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmMantParametro oFrmMantParametro = new frmMantParametro(this.cnx);
+            frmMantParametro oFrmMantParametro = new frmMantParametro(oUsuarioL,this.cnx);
             oFrmMantParametro.ShowDialog();
 
         }
@@ -102,7 +105,7 @@ namespace GUI
 
         private void empleadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmMantEmpleado oFrmMantEmpleado = new frmMantEmpleado(this.cnx);
+            frmMantEmpleado oFrmMantEmpleado = new frmMantEmpleado(oUsuarioL,this.cnx);
             oFrmMantEmpleado.ShowDialog();
 
         }
@@ -127,7 +130,7 @@ namespace GUI
 
         private void maToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmConsultaMarcas ofrmConsultaMarcas = new frmConsultaMarcas(this.cnx);
+            frmConsultaMarcas ofrmConsultaMarcas = new frmConsultaMarcas(oUsuarioL,this.cnx);
             ofrmConsultaMarcas.ShowDialog();
         }
 

@@ -17,16 +17,19 @@ namespace GUI
         /// <summary>
         /// Attributos de la clase
         /// </summary>
+       
         AccesoDatosOracle cnx;
+        List<UsuarioL> oUsuarioL;
 
         /// <summary>
         /// Constructor con parametros
         /// </summary>
         /// <param name="pConexion"></param>
-        public frmMantCatalogoFechas(AccesoDatosOracle pConexion)
+        public frmMantCatalogoFechas(List<UsuarioL> pOUsuarioL, AccesoDatosOracle pConexion)
         {
             InitializeComponent();
             this.cnx = pConexion;
+            this.oUsuarioL = pOUsuarioL;
             this.cargarGrid();
         }
         /// <summary>
@@ -94,7 +97,7 @@ namespace GUI
         /// <param name="e"></param>
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            frmEdicionCatalogoFechas ofrmEdicion = new frmEdicionCatalogoFechas();
+            frmEdicionCatalogoFechas ofrmEdicion = new frmEdicionCatalogoFechas(this.oUsuarioL, this.cnx);
             ofrmEdicion.ShowDialog();
             if (ofrmEdicion.Aceptar)
             {
@@ -123,7 +126,7 @@ namespace GUI
 
                 CatalogoFechasL oCatalogoFechasOriginal = (CatalogoFechasL)this.grdCatalogoFechas.CurrentRow.DataBoundItem;
 
-                frmEdicionCatalogoFechas ofrmEdicion = new frmEdicionCatalogoFechas(oCatalogoFechasOriginal);
+                frmEdicionCatalogoFechas ofrmEdicion = new frmEdicionCatalogoFechas(oCatalogoFechasOriginal, this.oUsuarioL, this.cnx);
                 ofrmEdicion.ShowDialog();
                 if (ofrmEdicion.Aceptar)
                 {

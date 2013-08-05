@@ -17,26 +17,33 @@ namespace GUI
     {/// <summary>
         /// Atributos de la clase Empleado  el cual verifica el botón aceptar y un objeto tipo Empleado en la parte lógica
         /// </summary>
-        private Boolean aceptar;
-        private EmpleadoL oEmpleadoL;
+        private Boolean aceptar;       
+        private EmpleadoL oEmpleadoL;       
+        List<UsuarioL> oUsuarioL;       
+        AccesoDatosOracle conexion;
+        private bool edicion = false;
         /// <summary>
         /// Método constructor sin parámetros y que además inializa el atributo aceptar que corresponde al botón aceptar
         /// en false
         /// </summary>
 
-        public frmEdicionEmpleado(AccesoDatosOracle pcnx)
+        public frmEdicionEmpleado(List<UsuarioL> pOUsuarioL, AccesoDatosOracle pcnx)
         {
             InitializeComponent();
-            this.aceptar = false;
+            this.conexion = pcnx;
+            this.oUsuarioL = pOUsuarioL;
             this.cargarCombobox(pcnx);
+            this.aceptar = false;
+            
         }
          /// <summary>
         /// Método constructor el cual recibe por parámetro un Emoleado el cual inicializa los atributos existentes
         /// </summary>
         /// <param name="pParametroL"></param>
-        public frmEdicionEmpleado(EmpleadoL pEmpleadoL)
+        public frmEdicionEmpleado(EmpleadoL pEmpleadoL, List<UsuarioL> pOUsuarioLConectado, AccesoDatosOracle pCnx)
         {
             InitializeComponent();
+            this.conexion = pCnx;
             this.aceptar = false;
             this.txtEmpleado.Text = (pEmpleadoL.IdEmpleado);
             this.cmbDepartamento.Text = (pEmpleadoL.IdDepartamento);
@@ -48,6 +55,7 @@ namespace GUI
             this.dtpFechaNacimiento.Text = Convert.ToString(pEmpleadoL.FechaNacimiento);
             this.txtSalarioPorHora.Value = (Decimal)(pEmpleadoL.SalarioPorHora); 
             this.oEmpleadoL = pEmpleadoL;
+            this.edicion = true;
            
         }
 
@@ -63,6 +71,12 @@ namespace GUI
         {
             get { return aceptar; }
         }
+        public List<UsuarioL> OUsuarioL
+        {
+            get { return oUsuarioL; }
+            set { oUsuarioL = value; }
+        }
+       
                
         private string validarActivo()
         {
@@ -90,7 +104,7 @@ namespace GUI
             }
 
             if ((this.txtEmpleado.Text == "") ||
-               (this.cmbDepartamento.Text == "") || (this.txtNombre.Text == ""))
+               (this.txtApellido1.Text == "") || (this.txtApellido2.Text == "")||(this.txtNombre.Text=="")||(this.txtSalarioPorHora.Value>0))
             {
                 MessageBox.Show("Faltan datos requeridos");
                 return;    
@@ -99,11 +113,49 @@ namespace GUI
             
                 
             }else{
+                EmpleadoD oEmpleadoD = new EmpleadoD(this.conexion);
+                List<EmpleadoL> listaEmpleado = oEmpleadoD.buscarEmpleado(this.txtEmpleado.Text);
+                if (this.edicion == false)
+                {
+                    if (listaEmpleado.Count > 0)
+                    {
+                        MessageBox.Show("El código de Empleado ya existe");
+                        this.txtEmpleado.Text = "";
+                        this.txtEmpleado.Focus();
+                        return;
+                    }
+                    else
+                    {
+                        oEmpleadoL = new EmpleadoL(this.txtEmpleado.Text, this.cmbDepartamento.Text, this.txtNombre.Text, this.txtApellido1.Text, this.txtApellido2.Text,
+                                        int.Parse(this.txtCedula.Text), int.Parse(this.txtTelefono.Text), (this.dtpFechaNacimiento.Text),
 
-            oEmpleadoL = new EmpleadoL(this.txtEmpleado.Text, this.cmbDepartamento.Text, this.txtNombre.Text, this.txtApellido1.Text, this.txtApellido2.Text,
-                                     int.Parse(this.txtCedula.Text), int.Parse(this.txtTelefono.Text),(this.dtpFechaNacimiento.Text),
+                                        Double.Parse(this.txtSalarioPorHora.Text), oUsuarioL[0].IdUsuario, DateTime.Now, oUsuarioL[0].IdUsuario, DateTime.Now, activo);
 
-                                     Double.Parse(this.txtSalarioPorHora.Text), Program.oUsuarioLogueado.IdUsuario, DateTime.Now, Program.oUsuarioLogueado.IdUsuario, DateTime.Now, activo);
+
+                    }
+
+
+                }
+                else {
+                    this.txtEmpleado.ReadOnly = false;
+                    this.txtNombre.ReadOnly = false;
+                    this.txtApellido1.ReadOnly = false;
+                    this.txtApellido2.ReadOnly = false;
+                    oEmpleadoL = new EmpleadoL(this.txtEmpleado.Text, this.cmbDepartamento.Text, this.txtNombre.Text, this.txtApellido1.Text, this.txtApellido2.Text,
+                                        int.Parse(this.txtCedula.Text), int.Parse(this.txtTelefono.Text), (this.dtpFechaNacimiento.Text),
+
+                                        Double.Parse(this.txtSalarioPorHora.Text), oUsuarioL[0].IdUsuario, DateTime.Now, oUsuarioL[0].IdUsuario, DateTime.Now, activo);
+
+                
+                
+                }
+
+
+
+
+
+
+           
             this.aceptar = true;
             this.Close();
             

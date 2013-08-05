@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logica;
+using Datos;
 
 namespace GUI
 {
@@ -18,32 +19,46 @@ namespace GUI
         /// </summary>
         private Boolean aceptar;
         private DeduccionesL oDeduccionesL;
+        List<UsuarioL> oUsuarioL;
+        AccesoDatosOracle conexion;        
+        private bool edicion = false;
+        private double monto;
+
+        
+
+        public List<UsuarioL> OUsuarioL1
+        {
+            get { return oUsuarioL; }
+            set { oUsuarioL = value; }
+        }
 
         /// <summary>
         ///  Método constructor sin parametros y que además inializa el atributo aceptar que corresponde al botón aceptar
         /// en false 
         /// </summary>
-        public frmEdicionDeducciones()
+        public frmEdicionDeducciones(List<UsuarioL> pOUsuarioL, AccesoDatosOracle pCnx)
         {
             InitializeComponent();
+            this.conexion = pCnx;
+            this.oUsuarioL = pOUsuarioL;            
             this.aceptar = false;
         }
         /// <summary>
         /// Método constructor el cual recibe por parámetro una Dedección el cual inicializa los atributos existentes
         /// </summary>
         /// <param name="pDeduccionesL"></param>
-         public frmEdicionDeducciones(DeduccionesL pDeduccionesL)
+        public frmEdicionDeducciones(DeduccionesL pDeduccionesLEdicion, List<UsuarioL> pOUsuarioLConectado, AccesoDatosOracle pCnx)
         {
             InitializeComponent();
+            this.conexion = pCnx;
+            this.txtIdDeducciones.Text = pDeduccionesLEdicion.IdDeducciones;          
+            this.txtDescripcion.Text = pDeduccionesLEdicion.Descripcion;
+            this.txtPorcentaje.Value = decimal.Parse(pDeduccionesLEdicion.Porcentaje.ToString());
+            this.oUsuarioL = pOUsuarioLConectado;
+            chkActivo.Checked = true;
+            this.edicion = true;
             this.aceptar = false;
-            this.txtIdDeducciones.Text = Convert.ToString( pDeduccionesL.IdDeducciones);
-            this.txtPorcentaje.Text = Convert.ToString(pDeduccionesL.Porcentaje);            
-            this.txtDescripcion.Text = pDeduccionesL.Descripcion;
-            this.txtFecha_Modificacion.Text = string.Format("{0:d}", pDeduccionesL.FechaModificacion);
-            this.txtFecha_Creacion.Text = string.Format("{0:d}", pDeduccionesL.FechaCreacion);
-            this.txtCreado_por.Text = pDeduccionesL.CreadoPor;
-            this.txtModificado_por.Text = pDeduccionesL.ModificadoPor;
-            this.oDeduccionesL = pDeduccionesL;
+         
         }
         /// <summary>
          /// Propiedades de los atributos Deducciones,el cual permite consultar los valores de los atributos
@@ -81,16 +96,72 @@ namespace GUI
              {
                  activo = "Sí";
              }
-             
+
              if ((this.txtIdDeducciones.Text == "") ||
                 (this.txtPorcentaje.Text == "") || (this.txtDescripcion.Text == ""))
              {
                  MessageBox.Show("Faltan datos requeridos");
                  return;
              }
-             this.oDeduccionesL = new DeduccionesL(this.txtIdDeducciones.Text,
-                                      double.Parse(this.txtPorcentaje.Text), this.txtDescripcion.Text, DateTime.Now, DateTime.Now, Program.oUsuarioLogueado.IdUsuario, Program.oUsuarioLogueado.IdUsuario,
-                                      activo);
+             else {
+
+                 try
+                 {
+                     //se verifica que lo que se alla puesto en este campo sea un valor númerico
+                     this.monto = double.Parse(this.txtPorcentaje.Value.ToString());
+                 }
+                 catch
+                 {
+                     MessageBox.Show("El porcentaje es incorrecto");
+                     this.txtPorcentaje.Text = "";
+                     //se queda el scrol en el txt para modificar el dato mal ingresado
+                     this.txtPorcentaje.Focus();
+                     return;
+                 }
+                 DeduccionesD oDeduccionesD = new DeduccionesD(this.conexion);
+                 List<DeduccionesL> listaDeducciones = oDeduccionesD.obtenerDeduccionId(this.txtIdDeducciones.Text);
+                 if (this.edicion == false)
+                 {
+
+                     if (listaDeducciones.Count > 0)
+                     {
+                         MessageBox.Show("El código de deducción ya existe");
+                         this.txtIdDeducciones.Text = "";
+                         this.txtIdDeducciones.Focus();
+                         return;
+                     }
+                     else
+                     {
+
+                         this.oDeduccionesL = new DeduccionesL(this.txtIdDeducciones.Text,
+                                          double.Parse(this.txtPorcentaje.Text), this.txtDescripcion.Text, DateTime.Now, DateTime.Now, oUsuarioL[0].IdUsuario, oUsuarioL[0].IdUsuario,
+                                          activo);
+
+                     }
+
+
+
+
+
+
+                 }
+                 else {
+
+                     txtIdDeducciones.ReadOnly = false;
+                     this.oDeduccionesL = new DeduccionesL(this.txtIdDeducciones.Text,
+                                          double.Parse(this.txtPorcentaje.Text), this.txtDescripcion.Text, DateTime.Now, DateTime.Now, oUsuarioL[0].IdUsuario, oUsuarioL[0].IdUsuario,
+                                          activo);
+                 
+                 
+                 }
+
+
+                 
+             
+             }
+
+
+             
              this.aceptar = true;
              this.Close();
          }

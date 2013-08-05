@@ -211,6 +211,7 @@
             this.ckdLunes.TabIndex = 4;
             this.ckdLunes.Text = "Lunes";
             this.ckdLunes.UseVisualStyleBackColor = true;
+            //this.ckdLunes.CheckedChanged += new System.EventHandler(this.ckdLunes_CheckedChanged);
             // 
             // ckdMartes
             // 

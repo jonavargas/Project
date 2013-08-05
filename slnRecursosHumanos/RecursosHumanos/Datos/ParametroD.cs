@@ -310,5 +310,67 @@ namespace Datos
               this.errorDescription = "Error editando Parametro: " + e.Message;
           }
        }
+      public List<ParametroL> obtenerParametroId(string pIdParametro)
+      {
+          //lista de la lógica deduccion
+          List<ParametroL> retorno = new List<ParametroL>();
+          try
+          {
+              //select que carga el dataset con los datos de las deducciones
+              string sql = ("select * from Parametro where idParametro = :idParametro");
+
+              OracleParameter[] parametros = new OracleParameter[1];
+
+              parametros[0] = new OracleParameter();
+              parametros[0].OracleType = OracleType.VarChar;
+              parametros[0].ParameterName = ":idParametro";
+              parametros[0].Value = pIdParametro;
+
+              DataSet datos = this.cnx.ejecutarConsultaSQL(sql, "Parametro", parametros);
+
+              if (this.cnx.IsError == false)
+              {
+                  //se recorre el dataset por cada fila
+                  foreach (DataRow fila in datos.Tables[0].Rows)
+                  {
+                      
+                      retorno.Add(
+                                  new ParametroL(fila["idParametro"].ToString(),
+                                                   DateTime.Parse(fila["horaEntrada"].ToString()),
+                                                   DateTime.Parse(fila["horaSalida"].ToString()),
+                                                   fila["lunes"].ToString(),
+                                                   fila["martes"].ToString(),
+                                                   fila["miercoles"].ToString(),
+                                                   fila["jueves"].ToString(),
+                                                   fila["viernes"].ToString(),
+                                                   fila["sabado"].ToString(),
+                                                   fila["domingo"].ToString(),
+                                                   DateTime.Parse(fila["fechaModificacion"].ToString()),
+                                                   DateTime.Parse(fila["fechaCreacion"].ToString()),
+                                                   fila["creadoPor"].ToString(),
+                                                   fila["modificadoPor"].ToString(),
+                                                   fila["activo"].ToString()
+
+                                              )
+                                 );
+                  }
+              }
+              //se validan los errores 
+              else
+              {
+                  this.error = true;
+                  this.errorDescription = "Error obteniendo Parámetro:" +
+                                          this.cnx.ErrorDescripcion;
+              }
+          }
+          catch (Exception e)
+          {
+              this.error = true;
+              this.errorDescription = "Error obteniendo Parámetro:" + e.Message;
+          }
+
+          return retorno;
+      }
+        
     }
 }

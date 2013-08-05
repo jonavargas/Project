@@ -18,18 +18,22 @@ namespace GUI
         /// Atributos de la clase Empleado  el cual recibe en su parte lógica un solo parámetro el cual es la conexión con Oracle
         /// </summary>
         AccesoDatosOracle cnx;
+        List<UsuarioL> oUsuarioL;
+        EmpleadoD oEmpleadoD;
+        DepartamentoD oDepartamentoD;
 
         /// <summary>
         /// Método Constructor de la parte grafica Empleado el cual recibe la conexión a la base de datos Oraclr 
         /// e inicializa los atributos con el parámetro que recibe y además llama al método cargar grid
         /// </summary> 
-        public frmMantEmpleado(AccesoDatosOracle pConexion)
+        public frmMantEmpleado(List<UsuarioL> pOUsuarioL, AccesoDatosOracle pConexion)
         {
             InitializeComponent();
             this.cnx = pConexion;
+            this.oUsuarioL = pOUsuarioL;
             this.cargarGrid();
-            frmEdicionEmpleado ofrmEdicionEmpleado = new frmEdicionEmpleado(pConexion);
-            ofrmEdicionEmpleado.cargarCombobox(pConexion);
+           
+          
             
         }
         /// <summary>
@@ -59,7 +63,7 @@ namespace GUI
         private void btnNuevo_Click_1(object sender, EventArgs e)
         {
 
-            frmEdicionEmpleado ofrmEdicionEmpleado = new frmEdicionEmpleado(this.cnx);
+            frmEdicionEmpleado ofrmEdicionEmpleado = new frmEdicionEmpleado(this.oUsuarioL, this.cnx);
             ofrmEdicionEmpleado.ShowDialog();
             if (ofrmEdicionEmpleado.Aceptar)
             {
@@ -88,7 +92,7 @@ namespace GUI
                 if (this.grdEmpleado.RowCount > 0)
                 {
                     EmpleadoL oEmpleadoOriginal = (EmpleadoL)this.grdEmpleado.CurrentRow.DataBoundItem;
-                    frmEdicionEmpleado ofrmEdicionEmpleado = new frmEdicionEmpleado(oEmpleadoOriginal);
+                    frmEdicionEmpleado ofrmEdicionEmpleado = new frmEdicionEmpleado(oEmpleadoOriginal, this.oUsuarioL, this.cnx);
                     ofrmEdicionEmpleado.cargarCombobox(this.cnx);
                     ofrmEdicionEmpleado.ShowDialog();
                     if (ofrmEdicionEmpleado.Aceptar)

@@ -17,13 +17,20 @@ namespace GUI
         /// <summary>
         ///  Atributos de la clase el cual verifica el botón aceptar.
         /// </summary>
-        private AccesoDatosOracle cnx;
+        private AccesoDatosOracle conexion;
         private Boolean aceptar;
         public MarcaL MarcaL;        
         private bool edicion = false;
         MarcaL oMarcaL;
         string tipo;
         DateTime fechaMarca;
+        List<UsuarioL> oUsuarioConectado;
+
+        public List<UsuarioL> OUsuarioConectado
+        {
+            get { return oUsuarioConectado; }
+            set { oUsuarioConectado = value; }
+        }
 
         public MarcaL MarcaL1
         {
@@ -44,25 +51,28 @@ namespace GUI
         /// 
 
        
-        public frmEdicionMarcas(AccesoDatosOracle pcnx)
+        public frmEdicionMarcas(List<UsuarioL> pUsuarioConectado, AccesoDatosOracle pCnx)
         {
             InitializeComponent();
+            this.conexion = pCnx;
             rdoEntrada.Checked = true;
-            this.cargarComboCodigoEmpleado(pcnx);
-
+            this.cargarComboCodigoEmpleado(pCnx);
             txtEstadoMarca.Text = "Generada";
+            this.oUsuarioConectado = pUsuarioConectado;
+            this.edicion = false;
             
             
            
         }
-        public frmEdicionMarcas(MarcaL pMarcaEditar, AccesoDatosOracle pcnx)
+        public frmEdicionMarcas(MarcaL pMarcaEditar, List<UsuarioL> pUsuarioConectado, AccesoDatosOracle pcnx)
         {
             InitializeComponent();
+            this.conexion = pcnx;
             this.oMarcaL = pMarcaEditar;
+            this.oUsuarioConectado = pUsuarioConectado;
             this.txtNumMarca.Text = this.oMarcaL.IdMarca.ToString();
             this.txtNumUnificacion.Text = this.oMarcaL.IdUnificacion.ToString();
-            this.cmbCodigo.Items.Add(this.oMarcaL.IdEmpleado);
-            
+            this.cmbCodigo.Items.Add(this.oMarcaL.IdEmpleado);            
             this.dtpFecha.Value = this.oMarcaL.FechaMarca;
             this.validarBotonEditar();
             this.txtEstadoMarca.Text = this.oMarcaL.EstadoMarca;
@@ -102,13 +112,13 @@ namespace GUI
                 if (rdoSalida.Checked == true)
                 {
 
-                    MarcaL = new MarcaL(idUnificacion, codigo, estado, "Salida", fechaMarca, "Proyecto", DateTime.Now, "Proyecto", DateTime.Now, "Sí");
+                    MarcaL = new MarcaL(codigo,idUnificacion,estado,"Salida",fechaMarca,"Proyecto",DateTime.Now,"Proyecto",DateTime.Now,"Sí");
 
 
                 }
                 else
                 {
-                    MarcaL = new MarcaL(idUnificacion, codigo, estado, "Entrada", fechaMarca, "Proyecto", DateTime.Now, "Proyecto", DateTime.Now, "Sí");
+                    MarcaL = new MarcaL(codigo,idUnificacion,estado,"Entrada",fechaMarca,"Proyecto",DateTime.Now,"Proyecto",DateTime.Now,"Sí");
 
                 }
             }
@@ -120,13 +130,13 @@ namespace GUI
                 if (rdoSalida.Checked == true)
                 {
 
-                    MarcaL = new MarcaL(numMarca, Unificacion, codigo2, estado, "Salida", fechaMarca, "Proyecto", DateTime.Now, "Proyecto", DateTime.Now, "Sí");
+                    MarcaL = new MarcaL(numMarca,codigo2,Unificacion,estado,"Salida",fechaMarca,"Proyecto",DateTime.Now,"Proyecto",DateTime.Now,"Sí");
 
 
                 }
                 else
                 {
-                    MarcaL = new MarcaL(numMarca, idUnificacion, codigo2, estado, "Salida", fechaMarca, "Proyecto", DateTime.Now, "Proyecto", DateTime.Now, "Sí");
+                    MarcaL = new MarcaL(numMarca,codigo2,idUnificacion,estado,"Entrada",fechaMarca,"Proyecto",DateTime.Now,"Proyecto",DateTime.Now,"Sí");
 
                 }
 
@@ -146,7 +156,7 @@ namespace GUI
         {
             //se valida cual radio button se debe seleccionar cargando el dato a la variable tipo
             this.tipo = this.oMarcaL.TipoMarca;
-            if (this.tipo == "Entrada")
+            if (this.tipo=="Entrada")
             {
                 this.rdoEntrada.Checked = true;
             }

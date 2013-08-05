@@ -19,14 +19,17 @@ namespace GUI
         /// Atributos de la clase
         /// </summary>
         AccesoDatosOracle cnx;
+        List<UsuarioL> oUsuarioL;
+        DepartamentoD oDbDepartamento;
         /// <summary>
         /// Metodo costructor con parametros
         /// </summary>
         /// <param name="pConexion"></param>
-        public frmMantDepartamento(AccesoDatosOracle pConexion)
+        public frmMantDepartamento(List<UsuarioL> pOUsuarioL, AccesoDatosOracle pConexion)
         {
             InitializeComponent();
             this.cnx = pConexion;
+            this.oUsuarioL = pOUsuarioL;
             this.cargarGrid();
 
         }
@@ -57,7 +60,7 @@ namespace GUI
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            frmEdicionDepartamento ofrmEdicionDepa = new frmEdicionDepartamento();
+            frmEdicionDepartamento ofrmEdicionDepa = new frmEdicionDepartamento(this.oUsuarioL, this.cnx);
             ofrmEdicionDepa.ShowDialog();
             if (ofrmEdicionDepa.Aceptar)
             {
@@ -97,7 +100,7 @@ namespace GUI
 
                 DepartamentoL oDepartamentoOriginal = (DepartamentoL)this.grdDepartamento.CurrentRow.DataBoundItem;
 
-                frmEdicionDepartamento ofrmEdicionDepartamento = new frmEdicionDepartamento(oDepartamentoOriginal);
+                frmEdicionDepartamento ofrmEdicionDepartamento = new frmEdicionDepartamento(oDepartamentoOriginal, this.oUsuarioL, this.cnx);
                 ofrmEdicionDepartamento.ShowDialog();
                 if (ofrmEdicionDepartamento.Aceptar)
                 {

@@ -287,7 +287,7 @@ namespace Datos
             catch (Exception e)
             {
                 this.error = true;
-                this.errorDescription = "Error obteniendo empleado:" + e.Message;
+                this.errorDescription = "Error obteniendo Empleado:" + e.Message;
             }
 
             return retorno;            
@@ -413,6 +413,66 @@ namespace Datos
         /// </summary>
         /// <returns></returns>
 
+        public List<EmpleadoL> obtenerDepartamentoEmpleado(string pDepartamento)
+        {
+            //lista de la lógica usuario
+            List<EmpleadoL> retorno = new List<EmpleadoL>();
+            try
+            {
+                //select que carga el dataset con los datos de los usuarios
+                string sql = ("select * from Empleado where idDepartamento = :pidDepartamento");
+
+                OracleParameter[] parametros = new OracleParameter[1];
+
+                parametros[0] = new OracleParameter();
+                parametros[0].OracleType = OracleType.VarChar;
+                parametros[0].ParameterName = ":pidDepartamento";
+                parametros[0].Value = pDepartamento;
+
+                DataSet datos = this.cnx.ejecutarConsultaSQL(sql, "Empleado", parametros);
+
+                if (this.cnx.IsError == false)
+                {
+                    //se recorre el dataset por cada fila
+                    foreach (DataRow fila in datos.Tables[0].Rows)
+                    {
+                        //se carca la lista de la lógica de usuario con sus siete atributos
+                        retorno.Add(
+                                    new EmpleadoL(fila["idEmpleado"].ToString(),
+                                                     fila["idDepartamento"].ToString(),
+                                                     fila["nombreEmpleado"].ToString(),
+                                                     fila["apellido1"].ToString(),
+                                                     fila["apellido2"].ToString(),
+                                                     int.Parse(fila["numCedula"].ToString()),
+                                                     int.Parse(fila["telefono"].ToString()),
+                                                     (fila["fechaNacimiento"].ToString()),
+                                                     double.Parse(fila["salarioPorHora"].ToString()),
+                                                     fila["creadoPor"].ToString(),
+                                                     DateTime.Parse(fila["fechaCreacion"].ToString()),
+                                                     fila["modificadoPor"].ToString(),
+                                                     DateTime.Parse(fila["fechaModificacion"].ToString()),
+                                                     fila["activo"].ToString()
+                                                 )
+                                   );
+                    }
+                }
+                //se validan los errores 
+                else
+                {
+                    this.error = true;
+                    this.errorDescription = "Error obteniendo Empleado:" +
+                                            this.cnx.ErrorDescripcion;
+                }
+            }
+            catch (Exception e)
+            {
+                this.error = true;
+                this.errorDescription = "Error obteniendo Empleado:" + e.Message;
+            }
+
+            return retorno;
+        }
+
         public DataSet obtenerCodigoEmpleado()
         {
             DataSet datos = this.cnx.ejecutarConsultaSQL("select * from Empleado");
@@ -432,5 +492,6 @@ namespace Datos
             }
             return datos;
         }
+
     }
 }
