@@ -18,15 +18,18 @@ namespace GUI
         /// Aributo de la clase
         /// </summary>
         AccesoDatosOracle cnx;
+        List<UsuarioL> oUsuarioL;
+        DeduccionesD oDeduccionesD;
 
         /// <summary>
         /// Metodo constructor con parametros
         /// </summary>
         /// <param name="pConexion"></param>
-        public frmMantDeducciones(AccesoDatosOracle pConexion)
+        public frmMantDeducciones(List<UsuarioL> pOUsuarioL, AccesoDatosOracle pConexion)
         {
             InitializeComponent();
             this.cnx = pConexion;
+            this.oUsuarioL = pOUsuarioL;
             this.cargarGrid();
         }
         /// <summary>
@@ -94,7 +97,7 @@ namespace GUI
         /// <param name="e"></param>
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            frmEdicionDeducciones ofrmEdicion = new frmEdicionDeducciones();
+            frmEdicionDeducciones ofrmEdicion = new frmEdicionDeducciones(this.oUsuarioL, this.cnx);
             ofrmEdicion.ShowDialog();
             if (ofrmEdicion.Aceptar)
             {
@@ -122,7 +125,7 @@ namespace GUI
             {
                 DeduccionesL oDeduccionesOriginal = (DeduccionesL)this.grdDeducciones.CurrentRow.DataBoundItem;
 
-                frmEdicionDeducciones ofrmEdicion = new frmEdicionDeducciones(oDeduccionesOriginal);
+                frmEdicionDeducciones ofrmEdicion = new frmEdicionDeducciones(oDeduccionesOriginal, this.oUsuarioL, this.cnx);
                 ofrmEdicion.ShowDialog();
                 if (ofrmEdicion.Aceptar)
                 {

@@ -226,7 +226,7 @@
             // lblAviso
             // 
             this.lblAviso.AutoSize = true;
-            this.lblAviso.Location = new System.Drawing.Point(136, 74);
+            this.lblAviso.Location = new System.Drawing.Point(136, 71);
             this.lblAviso.Name = "lblAviso";
             this.lblAviso.Size = new System.Drawing.Size(236, 13);
             this.lblAviso.TabIndex = 18;

@@ -88,8 +88,8 @@ namespace Datos
       {
           try
           {
-              string sql = "insert into Usuario(idUsuario,tipoUsuario,password,fechaModificacion,fechaCreacion,creadoPor,modificadoPor,activo) " +
-                           "values(:idUsuario, :tipoUsuario,:password,:fechaModificacion,:fechaCreacion,:creadoPor,:modificadoPor,:activo)";
+              string sql = "insert into Usuario(idUsuario, tipoUsuario, password, fechaModificacion, fechaCreacion, creadoPor, modificadoPor, activo) " +
+                           "values(:idUsuario, :tipoUsuario, :password, :fechaModificacion, :fechaCreacion, :creadoPor, :modificadoPor, :activo)";
 
               OracleParameter[] parametros = new OracleParameter[8];// Parametros
 
@@ -108,15 +108,17 @@ namespace Datos
               parametros[2].ParameterName = ":password";
               parametros[2].Value = pUsuario.Password;
 
-              parametros[3] = new OracleParameter();// Parametro que va a la base de datos a agregar la fecha de creación
+              parametros[3] = new OracleParameter();// Parametro que va a la base de datos a agregar la fecha de modificación
               parametros[3].OracleType = OracleType.DateTime;
-              parametros[3].ParameterName = ":fechaCreacion";
-              parametros[3].Value = pUsuario.FechaCreacion;
+              parametros[3].ParameterName = ":fechaModificacion";
+              parametros[3].Value = pUsuario.FechaModificacion;
 
-              parametros[4] = new OracleParameter();// Parametro que va a la base de datos a agregar la fecha de modificación
+              parametros[4] = new OracleParameter();// Parametro que va a la base de datos a agregar la fecha de creación
               parametros[4].OracleType = OracleType.DateTime;
-              parametros[4].ParameterName = ":fechaModificacion";
-              parametros[4].Value = pUsuario.FechaModificacion;
+              parametros[4].ParameterName = ":fechaCreacion";
+              parametros[4].Value = pUsuario.FechaCreacion;
+
+      
 
               parametros[5] = new OracleParameter();// Parametro que va a la base de datos a agregar el creado por
               parametros[5].OracleType = OracleType.VarChar;
@@ -181,7 +183,7 @@ namespace Datos
           try
           {
               string sql = "update Usuario " +
-                           "set idUsuario = :idUsuario, tipoUsuario  = :tipoUsuario, password= :password,fechaModificacion= :fechaModificacion, modificadoPor= :modificadoPor,activo= :activo " +
+                           "set idUsuario = :idUsuario, tipoUsuario  = :tipoUsuario, password= :password, fechaModificacion= :fechaModificacion, modificadoPor= :modificadoPor,activo= :activo " +
                            "where idUsuario = :idUsuarioOriginal";
 
               OracleParameter[] parametros = new OracleParameter[7];//Parametros
@@ -286,6 +288,61 @@ namespace Datos
                                        "password".ToString())
                          );
           }
+          return retorno;
+      }
+
+      public List<UsuarioL> obtenerUsuarioID(string pIDUsuario)
+      {
+          
+          List<UsuarioL> retorno = new List<UsuarioL>();
+          try
+          {
+              //select que carga el dataset con los datos de los usuarios
+              string sql = ("select * from Usuario where idUsuario = :pIDUsuario");
+
+              OracleParameter[] parametros = new OracleParameter[1];
+
+              parametros[0] = new OracleParameter();
+              parametros[0].OracleType = OracleType.VarChar;
+              parametros[0].ParameterName = ":pIDUsuario";
+              parametros[0].Value = pIDUsuario;
+
+              DataSet datos = this.cnx.ejecutarConsultaSQL(sql, "Usuario", parametros);
+
+              if (this.cnx.IsError == false)
+              {
+                  //se recorre el dataset por cada fila
+                  foreach (DataRow fila in datos.Tables[0].Rows)
+                  {
+                      //se carca la lista 
+                      retorno.Add(
+                                  new UsuarioL(  fila["idUsuario"].ToString(),
+                                                 fila["tipoUsuario"].ToString(),
+                                                 fila["password"].ToString(),
+                                                 Convert.ToDateTime(fila["fechaModificacion"].ToString()),
+                                                 Convert.ToDateTime(fila["fechaCreacion"].ToString()),
+                                                 fila["creadoPor"].ToString(),                                                 
+                                                 fila["modificadoPor"].ToString(),
+                                                 fila["activo"].ToString()
+                                                
+                                              )
+                                 );
+                  }
+              }
+              //se validan los errores 
+              else
+              {
+                  this.error = true;
+                  this.errorDescription = "Error obteniendo usuario:" +
+                                          this.cnx.ErrorDescripcion;
+              }
+          }
+          catch (Exception e)
+          {
+              this.error = true;
+              this.errorDescription = "Error obteniendo usuario:" + e.Message;
+          }
+
           return retorno;
       }
    }

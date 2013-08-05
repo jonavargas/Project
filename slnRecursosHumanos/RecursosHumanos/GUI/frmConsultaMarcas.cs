@@ -20,23 +20,25 @@ namespace GUI
         private AccesoDatosOracle conexion;       
         MarcaL oMarcaL,oMarcaCambioEstado;
         MarcaD oMarcaD;
+        List<UsuarioL> oUsuarioActual;
       
 
         /// <summary>
         /// Metodo constructor que recibe por parámetro la conexión a la base de datos.
         /// </summary>
         /// <param name="pConexion"></param>
-        public frmConsultaMarcas(AccesoDatosOracle pConexion)
+        public frmConsultaMarcas(List<UsuarioL> pUsuarioActual, AccesoDatosOracle pConexion)
         {
             InitializeComponent();            
             this.conexion = pConexion;
+            this.oUsuarioActual = pUsuarioActual;
             this.cargarGrid();
             rbtActivo.Checked = true;
             this.dtpFecha1.Value = DateTime.Today;
             this.dtpFecha2.Value = DateTime.Today.AddHours(23).AddMinutes(59).AddSeconds(59);
             this.cargarCmbDepartamento(pConexion);
             this.cargarComboEmpleado(pConexion);
-            this.cargarComboCodigoEmpleado(pConexion);
+           // this.cargarComboCodigoEmpleado(pConexion);
             this.cmbCodigo.SelectedItem = null;
             this.cmbEmpleado.SelectedItem = null;
             this.cmbEstadoMarca.SelectedItem = null;
@@ -49,14 +51,14 @@ namespace GUI
         /// </summary>
         /// <param name="pcnx"></param>
 
-        public void cargarCmbDepartamento(AccesoDatosOracle pcnx)
+       public void cargarCmbDepartamento(AccesoDatosOracle pcnx)
         {
             DepartamentoD oDepartamentoD = new DepartamentoD(pcnx);
             cmbDepartamento.DataSource = oDepartamentoD.obtenerIdDepartamento().Tables[0].Copy();
             cmbDepartamento.DisplayMember = "idDepartamento";
             cmbDepartamento.ValueMember = "idDepartamento";
         }
-
+        
         /// <summary>
         /// Método para cargar el combobox Empleado con los enpleados existentes en la base de datos.
         /// </summary>
@@ -92,7 +94,7 @@ namespace GUI
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            frmEdicionMarcas ofrmEdicionMarcas = new frmEdicionMarcas(conexion);
+            frmEdicionMarcas ofrmEdicionMarcas = new frmEdicionMarcas(this.oUsuarioActual, this.conexion);
             ofrmEdicionMarcas.ShowDialog();
 
             if (ofrmEdicionMarcas.Aceptar)
@@ -125,7 +127,7 @@ namespace GUI
 
                 if (oMarcaL.EstadoMarca == "Generada")
                 {
-                    frmEdicionMarcas ofrmEdicion = new frmEdicionMarcas(oMarcaL, this.conexion);
+                    frmEdicionMarcas ofrmEdicion = new frmEdicionMarcas(oMarcaL, this.oUsuarioActual, this.conexion);
                     ofrmEdicion.ShowDialog();
                     if (ofrmEdicion.Aceptar)
                     {
@@ -159,9 +161,7 @@ namespace GUI
             this.cmbCodigo.SelectedItem = null;
             this.cmbDepartamento.SelectedItem = null;
             this.cmbEmpleado.SelectedItem = null;
-            this.cmbEstadoMarca.SelectedItem = null;
-            this.rbtActivo.Checked = false;
-            this.rbtInactivo.Checked = false;
+            this.cmbEstadoMarca.SelectedItem = null; 
             this.dtpFecha1.Value = DateTime.Today;
             this.dtpFecha2.Value = DateTime.Today;     
         }
@@ -196,6 +196,9 @@ namespace GUI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        /// 
+
+     
 
         private void btnFiltrar_Click_1(object sender, EventArgs e)
         {
@@ -218,6 +221,8 @@ namespace GUI
                     else
                     {
                         idEmpleado = this.cmbCodigo.SelectedValue.ToString();
+                        
+
                     }
 
                     if (this.cmbDepartamento.SelectedValue == null)

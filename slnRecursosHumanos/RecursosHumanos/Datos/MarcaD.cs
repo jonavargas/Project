@@ -59,11 +59,11 @@ namespace Datos
                         //se carga la lista de la lógica de empleado con sus siete atributos
                         retorno.Add(
                                     new MarcaL(    int.Parse(fila["idMarca"].ToString()),
-                                                   int.Parse(fila["idUnificacion"].ToString()),
-                                                   fila["idEmpleado"].ToString(),
+                                                   fila["idEmpleado"].ToString(),           
+                                                   int.Parse(fila["idUnificacion"].ToString()),                                                   
                                                    fila["nombreEmpleado"].ToString(),
-                                                   fila["tipoMarca"].ToString(),
-                                                   fila["estadoMarca"].ToString(),                                                   
+                                                   fila["estadoMarca"].ToString(),
+                                                   fila["tipoMarca"].ToString(),                                                                                                      
                                                    DateTime.Parse(fila["fechaMarca"].ToString()),
                                                    fila["creadoPor"].ToString(),
                                                    DateTime.Parse(fila["fechaCreacion"].ToString()),
@@ -96,22 +96,23 @@ namespace Datos
             string retorno = "";
             try
             {
-                string sql = "insert into marca(idUnificacion, idEmpleado, estadoMarca, tipoMarca, fechaMarca, creadoPor, fechaCreacion, modificadoPor, fechaModificacion, activo) " +
-                             "values(:idUnificacion, :idEmpleado, :estadoMarca, :tipoMarca, :fechaMarca, :creadoPor, :fechaCreacion, :modificadoPor, :fechaModificacion, :activo) " +
+                string sql = "insert into marca(idEmpleado, idUnificacion,  estadoMarca, tipoMarca, fechaMarca, creadoPor, fechaCreacion, modificadoPor, fechaModificacion, activo) " +
+                             "values(:idEmpleado, :idUnificacion, :estadoMarca, :tipoMarca, :fechaMarca, :creadoPor, :fechaCreacion, :modificadoPor, :fechaModificacion, :activo) " +
                              "returning idMarca into :idMarca";
 
                 OracleParameter[] parametros = new OracleParameter[11];// Parametros
 
-
                 parametros[0] = new OracleParameter();
-                parametros[0].OracleType = OracleType.Number;
-                parametros[0].ParameterName = ":idUnificacion";
-                parametros[0].Value = pMarca.IdUnificacion;
-
+                parametros[0].OracleType = OracleType.VarChar;
+                parametros[0].ParameterName = ":idEmpleado";
+                parametros[0].Value = pMarca.IdEmpleado;
+                
                 parametros[1] = new OracleParameter();
-                parametros[1].OracleType = OracleType.VarChar;
-                parametros[1].ParameterName = ":idEmpleado";
-                parametros[1].Value = pMarca.IdEmpleado;
+                parametros[1].OracleType = OracleType.Number;
+                parametros[1].ParameterName = ":idUnificacion";
+                parametros[1].Value = pMarca.IdUnificacion;
+
+                
 
                 parametros[2] = new OracleParameter();
                 parametros[2].OracleType = OracleType.VarChar;
@@ -176,22 +177,22 @@ namespace Datos
 
             try
             {
-                string sql = "insert into marca(idUnificacion, idEmpleado, estadoMarca, tipoMarca, fechaMarca, creadoPor, fechaCreacion, modificadoPor, fechaModificacion, activo) " +
-                             "values(:idUnificacion, :idEmpleado, :estadoMarca, :tipoMarca, :fechaMarca, :creadoPor, :fechaCreacion, :modificadoPor, :fechaModificacion, :activo) ";
+                string sql = "insert into marca(idEmpleado, idUnificacion, estadoMarca, tipoMarca, fechaMarca, creadoPor, fechaCreacion, modificadoPor, fechaModificacion, activo) " +
+                             "values(:idEmpleado, :idUnificacion, :estadoMarca, :tipoMarca, :fechaMarca, :creadoPor, :fechaCreacion, :modificadoPor, :fechaModificacion, :activo) ";
 
                 OracleParameter[] parametros = new OracleParameter[10];// Parametros
 
 
-
                 parametros[0] = new OracleParameter();
-                parametros[0].OracleType = OracleType.Number;
-                parametros[0].ParameterName = ":idUnificacion";
-                parametros[0].Value = pMarca.IdUnificacion;
+                parametros[0].OracleType = OracleType.VarChar;
+                parametros[0].ParameterName = ":idEmpleado";
+                parametros[0].Value = pMarca.IdEmpleado;
 
                 parametros[1] = new OracleParameter();
-                parametros[1].OracleType = OracleType.VarChar;
-                parametros[1].ParameterName = ":idEmpleado";
-                parametros[1].Value = pMarca.IdEmpleado;
+                parametros[1].OracleType = OracleType.Number;
+                parametros[1].ParameterName = ":idUnificacion";
+                parametros[1].Value = pMarca.IdUnificacion;
+               
 
                 parametros[2] = new OracleParameter();
                 parametros[2].OracleType = OracleType.VarChar;
@@ -308,7 +309,7 @@ namespace Datos
             try
             {
                 string sql = "update marca " +
-                             "set idMarca = :idMarca, idUnificacion = :idUnificacion, idEmpleado = :idEmpleado, estadoMarca = :estadoMarca, tipoMarca = :tipoMarca, fechaMarca = :fechaMarca, creadoPor = :creadoPor, fechaCreacion = :fechaCreacion, modificadoPor = :modificadoPor, fechaModificacion = :fechaModificacion, activo = :activo " +
+                             "set idMarca = :idMarca, idEmpleado = :idEmpleado, idUnificacion = :idUnificacion,  estadoMarca = :estadoMarca, tipoMarca = :tipoMarca, fechaMarca = :fechaMarca, creadoPor = :creadoPor, fechaCreacion = :fechaCreacion, modificadoPor = :modificadoPor, fechaModificacion = :fechaModificacion, activo = :activo " +
                              "where idMarca = :idMarcaOriginal";                    
                     
                     
@@ -495,9 +496,9 @@ namespace Datos
                 {
                     foreach (DataRow fila in datos.Tables[0].Rows)
                     {
-                        retorno.Add(new MarcaL(    int.Parse(fila["idMarca"].ToString()),
-                                                   int.Parse(fila["idUnificacion"].ToString()),
+                        retorno.Add(new MarcaL(    int.Parse(fila["idMarca"].ToString()),                                                   
                                                    fila["idEmpleado"].ToString(),
+                                                   int.Parse(fila["idUnificacion"].ToString()),
                                                    fila["nombreCompleto"].ToString(),
                                                    fila["estadoMarca"].ToString(),
                                                    fila["tipoMarca"].ToString(),

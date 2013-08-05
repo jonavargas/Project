@@ -23,7 +23,7 @@ namespace Logica
         /// <summary>
         /// Metodo cpnstructor con parametros
         /// </summary>
-        
+
 
         public UsuarioL(string pIdUsuario, string pTipoUsuario, string pPassword, DateTime pfechaModificacion, DateTime pfechaCreacion, string pcreadoPor, string pmodificadoPor, string pactivo)
         {
@@ -42,6 +42,11 @@ namespace Logica
             this.idUsuario = pIdUsuario;
             this.tipoUsuario = pTipoUsuario;
             this.password = pPassword;
+        }
+
+        public UsuarioL()
+        {
+            
         }
         /// <summary>
         /// Propiedades de los atributos
@@ -94,6 +99,7 @@ namespace Logica
         {
             return "Cod. Usuario: " + this.idUsuario + "\n" +
                    "Tipo Usuario: " + this.tipoUsuario + "\n" +
+                   "Password:" + this.Password + "\n" +
                    "Fecha de Modificación: " + this.fechaModificacion + "\n" +
                    "Fecha de Creación: " + this.fechaCreacion + "\n" +
                    "Creado por: " + this.creadoPor + "\n" +

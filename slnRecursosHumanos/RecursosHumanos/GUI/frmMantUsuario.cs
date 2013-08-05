@@ -18,10 +18,12 @@ namespace GUI
         /// Atributos de la clase
         /// </summary>
         AccesoDatosOracle cnx;
-        public frmMantUsuario(AccesoDatosOracle pConexion)
+        List<UsuarioL> oUsuarioL;
+        public frmMantUsuario(List<UsuarioL> pUsuarioL, AccesoDatosOracle pConexion)
         {
             InitializeComponent();
             this.cnx = pConexion;
+            this.oUsuarioL = pUsuarioL;
             this.cargarGrid();
         }
         /// <summary>
@@ -89,12 +91,12 @@ namespace GUI
         /// <param name="e"></param>
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            frmEdicionUsuario ofrmEdicion = new frmEdicionUsuario();
+            frmEdicionUsuario ofrmEdicion = new frmEdicionUsuario(this.oUsuarioL,this.cnx);
             ofrmEdicion.ShowDialog();
             if (ofrmEdicion.Aceptar)
             {
                 UsuarioD oUsuarioD = new UsuarioD(this.cnx);
-                oUsuarioD.agregarUsuario(ofrmEdicion.OUsuarioL);
+                oUsuarioD.agregarUsuario(ofrmEdicion.OUsuarioLNuevo);
                 if (oUsuarioD.Error)
                 {
                     MessageBox.Show("Error agregando los datos:" + oUsuarioD.ErrorDescription);
@@ -117,12 +119,12 @@ namespace GUI
             {               
                 UsuarioL oUsuarioOriginal = (UsuarioL)this.grdUsuario.CurrentRow.DataBoundItem;
 
-                frmEdicionUsuario ofrmEdicion = new frmEdicionUsuario(oUsuarioOriginal);
+                frmEdicionUsuario ofrmEdicion = new frmEdicionUsuario(oUsuarioOriginal,this.cnx);
                 ofrmEdicion.ShowDialog();
                 if (ofrmEdicion.Aceptar)
                 {
                     UsuarioD oUsuarioD = new UsuarioD(this.cnx);
-                    oUsuarioD.editarUsuario(oUsuarioOriginal, ofrmEdicion.OUsuarioL);
+                    oUsuarioD.editarUsuario(oUsuarioOriginal, ofrmEdicion.OUsuarioLNuevo);
                     if (oUsuarioD.Error)
                     {
                         MessageBox.Show("Error actualizando los datos:" + oUsuarioD.ErrorDescription);

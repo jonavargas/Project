@@ -14,29 +14,41 @@ namespace GUI
 {
     public partial class frmLogin : Form
     {
-        private bool aceptar;
-        private UsuarioL oLogin;
+        private bool aceptar;        
         private AccesoDatosOracle conexion;
+        string idUsuario;
+        private bool error = false;
+        string tipoUsuario;
+        public List<UsuarioL> oUsuarioL;
+
+        
+
+        public string TipoUsuario
+        {
+            get { return tipoUsuario; }
+            set { tipoUsuario = value; }
+        }
 
         public bool Aceptar
         {
             get { return aceptar; }
             set { aceptar = value; }
         }
-
-        public UsuarioL OLogin
+        public List<UsuarioL> OUsuarioL
         {
-            get { return oLogin; }
-            set { oLogin = value; }
+            get { return oUsuarioL; }
+            set { oUsuarioL = value; }
         }
+
+        
 
         public frmLogin(AccesoDatosOracle pConexion)
         {
-            InitializeComponent();
-            this.txtLogin.Text = "proyecto";
+            InitializeComponent();            
+            this.conexion = pConexion;
+            this.txtLogin.Text = "Bryan";
             this.txtClave.Text = "oracle";
             this.aceptar = false;
-            this.conexion = pConexion;
             string nombreUsuario = this.txtLogin.Text;
         }
 
@@ -45,67 +57,76 @@ namespace GUI
             this.Close();
         }
 
+        private void frmLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            //si se oprime la tecla esc el form termina la aplicacion y la cierra
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+            //si se oprime la tecla enter el programa hace la funcion que le corresponde al boton aceptar
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.btnAceptar_Click(sender, e);
+            }
+        }
+
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            
+
             if ((this.txtLogin.Text != "") && (this.txtClave.Text != ""))
             {
                
-                if ((this.txtLogin.Text.Equals("proyecto")) && (txtClave.Text.Equals("oracle")))
+                
+                UsuarioD oUsuarioD = new UsuarioD(this.conexion);                
+                this.idUsuario=txtLogin.Text;                
+                oUsuarioL = new List<UsuarioL>(oUsuarioD.obtenerUsuarioID(this.idUsuario));
+                this.error = oUsuarioD.Error;
+                if ((this.error == false) || (oUsuarioL.Count > 0))
                 {
-                    UsuarioD oUsuarioD = new UsuarioD(this.conexion);
-                    List<UsuarioL> respuesta = oUsuarioD.usuarioAdministrador(new UsuarioL(this.txtLogin.Text, "Administrador", this.txtClave.Text));
-                    if (oUsuarioD.Error)
+
+                    UsuarioL datosObtenidos = new UsuarioL(
+                                                            oUsuarioL[0].IdUsuario.ToString(),
+                                                            oUsuarioL[0].TipoUsuario.ToString(),
+                                                            oUsuarioL[0].Password.ToString(),
+                                                            Convert.ToDateTime(oUsuarioL[0].FechaModificacion),
+                                                            Convert.ToDateTime(oUsuarioL[0].FechaCreacion),
+                                                            oUsuarioL[0].CreadoPor.ToString(),                                         
+                                                            oUsuarioL[0].ModificadoPor.ToString(),
+                                                            oUsuarioL[0].Activo.ToString()
+                                          
+                                                          );
+
+                    if ((datosObtenidos.IdUsuario.ToString() == txtLogin.Text) && (datosObtenidos.Password.ToString() == txtClave.Text))
                     {
-                        this.txtLogin.Text = "";
-                        this.txtClave.Text = "";
-                        MessageBox.Show("Error validando login:" + oUsuarioD.ErrorDescription);
-                        return;
-                    }
-                    if (respuesta.Count > 0)
-                    {
+
+                        this.tipoUsuario = datosObtenidos.TipoUsuario.ToString();
                         this.aceptar = true;
-                        this.OLogin = new UsuarioL(this.txtLogin.Text, respuesta[0].TipoUsuario, this.txtClave.Text);
                         this.Close();
-                    }
-                    else
-                    {
-                        this.txtLogin.Text = "";
-                        this.txtClave.Text = "";
-                        MessageBox.Show("Login o password inválidos");
-                    }
-                }
-                else
-                {
-                    UsuarioD oUsuarioD = new UsuarioD(this.conexion);
-                    List<UsuarioL> respuesta = oUsuarioD.validarLogin(new UsuarioL(this.txtLogin.Text, "", this.txtClave.Text));
-                    if (oUsuarioD.Error)
-                    {
-                        this.txtLogin.Text = "";
-                        this.txtClave.Text = "";
-                        MessageBox.Show("Error validando login:" + oUsuarioD.ErrorDescription);
+
+
+                    }else{
+
+                        MessageBox.Show("El Logging ó Password ingresados son incorrectos verifique que haya ingresado los datos correctos");
                         return;
-                    }
-                    if (respuesta.Count > 0)
-                    {
-                        this.aceptar = true;
-                        this.OLogin = new UsuarioL(this.txtLogin.Text, respuesta[0].TipoUsuario, this.txtClave.Text);
-                        this.Close();
-                    }
-                    else
-                    {
-                        this.txtLogin.Text = "";
-                        this.txtClave.Text = "";
-                        MessageBox.Show("Login o password inválidos");
-                    }
+
+                          }
+
+
+
                 }
-            }
-            else
-            {
-                this.txtLogin.Text = "";
-                this.txtClave.Text = "";
-                MessageBox.Show("Faltan datos requeridos");
-            }
+                else {
+
+                    MessageBox.Show("El Logging ó Password ingresados son incorrectos verifique que haya ingresado los datos correctos");
+                    return;
+                
+                }
+
+            }else{
+                     this.txtLogin.Text = "";
+                     this.txtClave.Text = "";
+                     MessageBox.Show("Faltan datos requeridos");
+                  }
         }
     }
 }

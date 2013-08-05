@@ -28,26 +28,12 @@ namespace Logica
 
         /// Metodo constructor con parámetros
 
-        public MarcaL(int pIdMarca, int pidUnificacion, string pIdEmpleado,string pnombreEmpleado, string pEstadoMarca, string pTipoMarca, DateTime pfechaMarca, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, DateTime pFechaModificacion, string pActivo)
+        public MarcaL(int pIdMarca, string pIdEmpleado, int pidUnificacion, string pnombreEmpleado, string pEstadoMarca, string pTipoMarca, DateTime pfechaMarca, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, DateTime pFechaModificacion, string pActivo)
         {
             this.idMarca = pIdMarca;
-            this.idUnificacion = pidUnificacion;
             this.idEmpleado = pIdEmpleado;
-            this.nombreEmpleado = pnombreEmpleado;
-            this.fechaMarca = pfechaMarca;           
-            this.tipoMarca = pTipoMarca;
-            this.estadoMarca = pEstadoMarca;
-            this.creadoPor = pCreadoPor;
-            this.fechaCreacion = pFechaCreacion;
-            this.modificadoPor = pModificadoPor;
-            this.fechaModificacion = pFechaModificacion;
-            this.activo = pActivo;
-        }
-        public MarcaL(int pidMarca,int pIdUnificacion, string pIdEmpleado, string pTipoMarca, string pEstadoMarca, DateTime pfechaMarca, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, DateTime pFechaModificacion, string pActivo)
-        {
-            this.idMarca = pidMarca;
-            this.idUnificacion = pIdUnificacion;
-            this.idEmpleado = pIdEmpleado;
+            this.idUnificacion = pidUnificacion;            
+            this.nombreEmpleado = pnombreEmpleado;            
             this.estadoMarca = pEstadoMarca;
             this.tipoMarca = pTipoMarca;
             this.fechaMarca = pfechaMarca;
@@ -57,11 +43,24 @@ namespace Logica
             this.fechaModificacion = pFechaModificacion;
             this.activo = pActivo;
         }
-        public MarcaL( int pIdUnificacion, string pIdEmpleado, string pTipoMarca, string pEstadoMarca, DateTime pfechaMarca, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, DateTime pFechaModificacion, string pActivo)
+        public MarcaL(int pidMarca, string pIdEmpleado, int pIdUnificacion, string pEstadoMarca, string pTipoMarca, DateTime pfechaMarca, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, DateTime pFechaModificacion, string pActivo)
         {
-            
-            this.idUnificacion = pIdUnificacion;
+            this.idMarca = pidMarca;            
             this.idEmpleado = pIdEmpleado;
+            this.idUnificacion = pIdUnificacion;
+            this.estadoMarca = pEstadoMarca;
+            this.tipoMarca = pTipoMarca;
+            this.fechaMarca = pfechaMarca;
+            this.creadoPor = pCreadoPor;
+            this.fechaCreacion = pFechaCreacion;
+            this.modificadoPor = pModificadoPor;
+            this.fechaModificacion = pFechaModificacion;
+            this.activo = pActivo;
+        }
+        public MarcaL(string pIdEmpleado, int pIdUnificacion, string pEstadoMarca, string pTipoMarca, DateTime pfechaMarca, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, DateTime pFechaModificacion, string pActivo)
+        {
+            this.idEmpleado = pIdEmpleado;
+            this.idUnificacion = pIdUnificacion;            
             this.estadoMarca = pEstadoMarca;
             this.tipoMarca = pTipoMarca;
             this.fechaMarca = pfechaMarca;

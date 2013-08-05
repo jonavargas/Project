@@ -14,7 +14,7 @@ namespace GUI
     static class Program
     {
         //public static string usuario = "USER";
-        public static UsuarioL oUsuarioLogueado;
+        public static List<UsuarioL> oUsuarioLogueado;
 
         /// <summary>
         /// Punto de entrada principal para la aplicación.
@@ -41,27 +41,28 @@ namespace GUI
                 if (conexion.IsError == false)
                 {
                     Application.EnableVisualStyles();
-                    Application.SetCompatibleTextRenderingDefault(false);
+                     Application.SetCompatibleTextRenderingDefault(false);
 
-                    frmLogin ofrmLogin = new frmLogin(conexion);
-                    ofrmLogin.ShowDialog();
-                    if (ofrmLogin.Aceptar)
-                    {
-                        oUsuarioLogueado = ofrmLogin.OLogin;
-                        Application.Run(new frmPrincipal(conexion));
-                    }
+                     frmLogin ofrmLogin = new frmLogin(conexion);
+                     ofrmLogin.ShowDialog();
+                     if (ofrmLogin.Aceptar)
+                     {
+                         oUsuarioLogueado = ofrmLogin.oUsuarioL;
+                         Application.Run(new frmPrincipal(oUsuarioLogueado, conexion));
+                     }
+                 }
+                 else
+                 {
+                     MessageBox.Show("Error conectando, detalles:" +
+                                     conexion.ErrorDescripcion, "Error");
+                 }
                 }
                 else
                 {
-                    MessageBox.Show("Error conectando, detalles:" +
-                                    conexion.ErrorDescripcion, "Error");
+                    MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else
-            {
-                MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        
 
         public static DataSet cargarArchivoConfiguracion(ref string estado)
         {

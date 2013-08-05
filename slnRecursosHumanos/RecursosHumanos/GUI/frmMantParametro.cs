@@ -15,10 +15,13 @@ namespace GUI
     public partial class frmMantParametro : Form
     {
         AccesoDatosOracle cnx;
-        public frmMantParametro(AccesoDatosOracle pConexion)
+        List<UsuarioL> oUsuarioL;
+        CatalogoFechasD OCatalogofechasD;
+        public frmMantParametro(List<UsuarioL> pOUsuarioL, AccesoDatosOracle pConexion)
         {
             InitializeComponent();
             this.cnx = pConexion;
+            this.oUsuarioL = pOUsuarioL;
             this.cargarGrid();
 
         }
@@ -68,7 +71,7 @@ namespace GUI
         }
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            frmEdicionParametro ofrmEdicion = new frmEdicionParametro();
+            frmEdicionParametro ofrmEdicion = new frmEdicionParametro(this.oUsuarioL, this.cnx);
             ofrmEdicion.ShowDialog();
             if (ofrmEdicion.Aceptar)
             {
@@ -92,7 +95,7 @@ namespace GUI
 
                 ParametroL oParametroOriginal = (ParametroL)this.grdParametro.CurrentRow.DataBoundItem;
 
-                frmEdicionParametro ofrmEdicion = new frmEdicionParametro(oParametroOriginal);
+                frmEdicionParametro ofrmEdicion = new frmEdicionParametro(oParametroOriginal, this.oUsuarioL, this.cnx);
                 ofrmEdicion.ShowDialog();
                 if (ofrmEdicion.Aceptar)
                 {

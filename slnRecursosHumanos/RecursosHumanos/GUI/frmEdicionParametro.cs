@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logica;
+using Datos;
 
 namespace GUI
 {
@@ -19,30 +20,105 @@ namespace GUI
         /// <summary>
         ///  Atributos de la clase Parámetro el cual verifica el botón aceptar y un objeto tipo parámetro en la parte lógica
         /// </summary>
-        private Boolean aceptar;
-        private ParametroL oParametroL;
+        private Boolean aceptar;       
+        private ParametroL oParametroL;       
+        AccesoDatosOracle conexion;
+        List<UsuarioL> oUsuarioL;
 
+        
+        private bool edicion = false;
+        public Boolean Aceptar1
+        {
+            get { return aceptar; }
+            set { aceptar = value; }
+        }
+        public ParametroL OParametroL1
+        {
+            get { return oParametroL; }
+            set { oParametroL = value; }
+        }
+        public List<UsuarioL> OUsuarioL
+        {
+            get { return oUsuarioL; }
+            set { oUsuarioL = value; }
+        }
         /// <summary>
         /// Método constructor sin parámetros y que además inializa el atributo aceptar que corresponde al botón aceptar
         /// en false
         /// </summary>
-        public frmEdicionParametro()
+        public frmEdicionParametro(List<UsuarioL> pOUsuarioL, AccesoDatosOracle pCnx)
         {
             InitializeComponent();
+            this.conexion = pCnx;
+            this.oUsuarioL = pOUsuarioL;
+            ckdActivo.Checked = true;
             this.aceptar = false;
         }
         /// <summary>
         ///Método constructor el cual recibe por parámetro un parametro el cual inicializa los atributos existentes
         /// </summary>
         /// <param name="pParametroL"></param>
-        public frmEdicionParametro(ParametroL pParametroL)
+        public frmEdicionParametro(ParametroL pParametroL, List<UsuarioL> pOUsuarioLConectado, AccesoDatosOracle pCnx)
         {
             InitializeComponent();
-            this.aceptar = false;
+            this.conexion = pCnx;
             this.txtIdParametro.Text = Convert.ToString(pParametroL.IdParametro);
             this.dtpHoraEntrada.Text = Convert.ToString(pParametroL.HoraEntrada);
             this.dtpHoraSalida.Text = Convert.ToString(pParametroL.HoraSalida);
+            if (pParametroL.Lunes.Equals(true))
+            {
+                ckdLunes.Checked = true;
+
+            }
+            else {
+                if (pParametroL.Martes.Equals(true))
+                {
+                    ckdMartes.Checked = true;
+                }
+                else {
+                    if (pParametroL.Miercoles.Equals(true))
+                    {
+                        ckdMiercoles.Checked = true;
+                    }
+                    else {
+                        if (pParametroL.Jueves.Equals(true))
+                        {
+                            ckdJueves.Checked = true;
+
+                        }
+                        else {
+                            if (pParametroL.Viernes.Equals(true))
+                            {
+                                ckdViernes.Checked = true;
+                            }
+                            else {
+                                if (pParametroL.Sabado.Equals(true))
+                                {
+                                    ckdSabado.Checked = true;
+
+                                }
+                                else { 
+                                if(pParametroL.Domingo.Equals(true)){
+                                    ckdDomingo.Checked = true;
+                                
+                                }
+                                
+                                }
+                            
+                            }
+                        
+                        }
+                    
+                    }
+                
+                }
+            
+            }
+
             this.oParametroL = pParametroL;
+            ckdActivo.Checked = true;
+            this.edicion = true;
+            this.aceptar = false;
         }
         /// <summary>
         /// Properties de la Clase parámetro,el cual permite consultar los valores de los atributos
@@ -207,22 +283,75 @@ namespace GUI
                 MessageBox.Show("Faltan datos requeridos");
                 return;
             }
-            this.oParametroL = new ParametroL(this.txtIdParametro.Text,
-                                        DateTime.Parse(this.dtpHoraEntrada.Text.ToString()),
-                                        DateTime.Parse(this.dtpHoraSalida.Text.ToString()),
-                                        this.validarLunes(),
-                                        this.validarMartes(),
-                                        this.validarMiercoles(),
-                                        this.validarJueves(),
-                                        this.validarViernes(),
-                                        this.validarSabado(),
-                                        this.validarDomingo(),
-                                        DateTime.Now,
-                                        DateTime.Now, Program.oUsuarioLogueado.IdUsuario, Program.oUsuarioLogueado.IdUsuario,
-                                        this.validarActivo());
+
+            ParametroD oParametroD = new ParametroD(this.conexion);
+            List<ParametroL> listaParametro = oParametroD.obtenerParametroId(this.txtIdParametro.Text);
+            if (this.edicion == false)
+            {
+                if (listaParametro.Count > 0)
+                {
+                    MessageBox.Show("El código de Parámetro ya existe");
+                    this.txtIdParametro.Text = "";
+                    this.txtIdParametro.Focus();
+                    return;
+                }
+                else
+                {
+                    this.oParametroL = new ParametroL(this.txtIdParametro.Text,
+                                           DateTime.Parse(this.dtpHoraEntrada.Text.ToString()),
+                                           DateTime.Parse(this.dtpHoraSalida.Text.ToString()),
+                                           this.validarLunes(),
+                                           this.validarMartes(),
+                                           this.validarMiercoles(),
+                                           this.validarJueves(),
+                                           this.validarViernes(),
+                                           this.validarSabado(),
+                                           this.validarDomingo(),
+                                           DateTime.Now,
+                                           DateTime.Now, oUsuarioL[0].IdUsuario, oUsuarioL[0].IdUsuario,
+                                           this.validarActivo());
+
+
+                }
+
+
+
+
+
+
+
+            }
+            else {
+                this.txtIdParametro.ReadOnly = false;
+
+                this.oParametroL = new ParametroL(this.txtIdParametro.Text,
+                                          DateTime.Parse(this.dtpHoraEntrada.Text.ToString()),
+                                          DateTime.Parse(this.dtpHoraSalida.Text.ToString()),
+                                          this.validarLunes(),
+                                          this.validarMartes(),
+                                          this.validarMiercoles(),
+                                          this.validarJueves(),
+                                          this.validarViernes(),
+                                          this.validarSabado(),
+                                          this.validarDomingo(),
+                                          DateTime.Now,
+                                          DateTime.Now, oUsuarioL[0].IdUsuario, oUsuarioL[0].IdUsuario,
+                                          this.validarActivo());
+
+            
+            
+            }  
+            
+            
+            
+            
+            
+           
             this.aceptar = true;
             this.Close();
         }
+
+        
 
     }
 }

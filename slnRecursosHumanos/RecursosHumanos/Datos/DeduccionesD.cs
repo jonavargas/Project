@@ -91,8 +91,8 @@ namespace Datos
        {
            try
            {
-               string sql = "insert into Deducciones(idDeducciones, porcentaje,descripcion,fechaModificacion,fechaCreacion,creadoPor,modificadoPor,activo) " +
-                            "values(:idDeducciones, :porcentaje,:descripcion,:fechaModificacion,:fechaCreacion,:creadoPor,:modificadoPor,:activo)";
+               string sql = "insert into Deducciones(idDeducciones, porcentaje, descripcion, fechaModificacion, fechaCreacion, creadoPor, modificadoPor, activo) " +
+                            "values(:idDeducciones, :porcentaje, :descripcion, :fechaModificacion, :fechaCreacion, :creadoPor, :modificadoPor, :activo)";
 
                OracleParameter[] parametros = new OracleParameter[8];//Parametros
 
@@ -234,5 +234,62 @@ namespace Datos
                this.errorDescription = "Error editando Deducción:" + e.Message;
            }
        }
+
+       public List<DeduccionesL> obtenerDeduccionId(string pIdDeduccion)
+       {
+           //lista de la lógica deduccion
+           List<DeduccionesL> retorno = new List<DeduccionesL>();
+           try
+           {
+               //select que carga el dataset con los datos de las deducciones
+               string sql = ("select * from Deducciones where idDeducciones = :idDeducciones");
+
+               OracleParameter[] parametros = new OracleParameter[1];
+
+               parametros[0] = new OracleParameter();
+               parametros[0].OracleType = OracleType.VarChar;
+               parametros[0].ParameterName = ":idDeducciones";
+               parametros[0].Value = pIdDeduccion;
+
+               DataSet datos = this.cnx.ejecutarConsultaSQL(sql, "Deducciones", parametros);
+
+               if (this.cnx.IsError == false)
+               {
+                   //se recorre el dataset por cada fila
+                   foreach (DataRow fila in datos.Tables[0].Rows)
+                   {
+                       //se carca la lista de la lógica de usuario con sus siete atributos
+                       retorno.Add(
+                                   new DeduccionesL(fila["idDeducciones"].ToString(),
+                                                    double.Parse(fila["porcentaje"].ToString()),
+                                                    fila["descripcion"].ToString(),
+                                                    DateTime.Parse(fila["fechaModificacion"].ToString()),
+                                                    DateTime.Parse(fila["fechaCreacion"].ToString()),
+                                                    fila["creadoPor"].ToString(),
+                                                    fila["modificadoPor"].ToString(),
+                                                    fila["activo"].ToString()
+
+                                               )
+                                  );
+                   }
+               }
+               //se validan los errores 
+               else
+               {
+                   this.error = true;
+                   this.errorDescription = "Error obteniendo deducciones:" +
+                                           this.cnx.ErrorDescripcion;
+               }
+           }
+           catch (Exception e)
+           {
+               this.error = true;
+               this.errorDescription = "Error obteniendo deducciones:" + e.Message;
+           }
+
+           return retorno;
+       }
+        
+
     }
 }
