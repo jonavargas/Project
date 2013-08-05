@@ -18,6 +18,9 @@ create table Usuario
   constraint PK_Usuario primary key (idUsuario)
 );
 
+INSERT INTO usuario(idUsuario, tipoUsuario, password, fechaModificacion, fechaCreacion, creadoPor, modificadoPor, activo)
+VALUES('admin', 'Supervisor', 'admin', '01/01/2013',' 01/01/2013', 'Administrador', 'Administrados', 'Sí');
+
 create table Deducciones
 (
   idDeducciones varchar(50) not null, 

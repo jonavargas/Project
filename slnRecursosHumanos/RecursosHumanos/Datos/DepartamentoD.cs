@@ -290,7 +290,26 @@ namespace Datos
             }
             return datos;
         }
-        
-         
+
+        public DataSet obtenerIdDepartamentoPorIdEmpleado(string idEmpleado)
+        {
+            DataSet datos = this.cnx.ejecutarConsultaSQL("select idDepartamento from Empleado where idEmpleado = '" + idEmpleado + "'");
+            try
+            {
+
+                if (this.cnx.IsError == true)
+                {
+                    this.error = true;
+                    this.errorDescription = "Error obteniendo Departamento: " +
+                                            this.cnx.ErrorDescripcion;
+                }
+            }
+            catch (Exception e)
+            {
+                this.error = true;
+                this.errorDescription = "Error obteniendo Departamento: " + e.Message;
+            }
+            return datos;
+        }  
     }
 }

@@ -21,8 +21,6 @@ namespace GUI
         string tipoUsuario;
         public List<UsuarioL> oUsuarioL;
 
-        
-
         public string TipoUsuario
         {
             get { return tipoUsuario; }
@@ -38,16 +36,12 @@ namespace GUI
         {
             get { return oUsuarioL; }
             set { oUsuarioL = value; }
-        }
-
-        
+        }   
 
         public frmLogin(AccesoDatosOracle pConexion)
         {
             InitializeComponent();            
             this.conexion = pConexion;
-            this.txtLogin.Text = "Bryan";
-            this.txtClave.Text = "oracle";
             this.aceptar = false;
             string nombreUsuario = this.txtLogin.Text;
         }
