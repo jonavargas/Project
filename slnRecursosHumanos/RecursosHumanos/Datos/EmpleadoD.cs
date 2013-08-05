@@ -493,5 +493,61 @@ namespace Datos
             return datos;
         }
 
+        /// <summary>
+        /// Método que se encarga de traer de la base de datos los códigos de empleado que pertenecen
+        /// a un departamento determinado, que se recibe por parámetro,
+        /// </summary>
+        /// <param name="idDepartamento"></param>
+        /// <returns></returns>
+
+        public DataSet obtenerIdEmpleadoPorDepartameno(string idDepartamento)
+        {
+
+            DataSet datos = this.cnx.ejecutarConsultaSQL("select idEmpleado from Empleado where idDepartamento = '" + idDepartamento + "'");
+            try
+            {
+                if (this.cnx.IsError == true)
+                {
+                    this.error = true;
+                    this.errorDescription = "Error obteniendo Empleados: " +
+                                            this.cnx.ErrorDescripcion;
+                }
+            }
+            catch (Exception e)
+            {
+                this.error = true;
+                this.errorDescription = "Error obteniendo Empleados: " + e.Message;
+            }
+            return datos;
+        }
+
+        /// <summary>
+        /// Método que se encarga de traer de la base de datos los nombres de empleado que pertenecen
+        /// a un departamento determinado, que se recibe por parámetro,
+        /// </summary>
+        /// <param name="idDepartamento"></param>
+        /// <returns></returns>
+
+        public DataSet obtenerNombreEmpleadoPorDepartameno(string idDepartamento)
+        {
+
+            DataSet datos = this.cnx.ejecutarConsultaSQL("select nombreEmpleado || ' ' || apellido1 || ' ' || apellido2 as nombreCompleto from Empleado where idDepartamento = '" + idDepartamento + "'");
+            try
+            {
+                if (this.cnx.IsError == true)
+                {
+                    this.error = true;
+                    this.errorDescription = "Error obteniendo Empleados: " +
+                                            this.cnx.ErrorDescripcion;
+                }
+            }
+            catch (Exception e)
+            {
+                this.error = true;
+                this.errorDescription = "Error obteniendo Empleados: " + e.Message;
+            }
+            return datos;
+        }
+
     }
 }

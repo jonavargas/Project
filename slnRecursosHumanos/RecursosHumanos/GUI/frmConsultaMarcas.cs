@@ -38,7 +38,7 @@ namespace GUI
             this.dtpFecha2.Value = DateTime.Today.AddHours(23).AddMinutes(59).AddSeconds(59);
             this.cargarCmbDepartamento(pConexion);
             this.cargarComboEmpleado(pConexion);
-           // this.cargarComboCodigoEmpleado(pConexion);
+            this.cargarComboCodigoEmpleado(pConexion);
             this.cmbCodigo.SelectedItem = null;
             this.cmbEmpleado.SelectedItem = null;
             this.cmbEstadoMarca.SelectedItem = null;
@@ -58,33 +58,64 @@ namespace GUI
             cmbDepartamento.DisplayMember = "idDepartamento";
             cmbDepartamento.ValueMember = "idDepartamento";
         }
-        
-        /// <summary>
-        /// Método para cargar el combobox Empleado con los enpleados existentes en la base de datos.
-        /// </summary>
-        /// <param name="pcnx"></param>
 
-        public void cargarComboEmpleado(AccesoDatosOracle pcnx)
-        {
-            EmpleadoD oEmpleadoD = new EmpleadoD(pcnx);
-            cmbEmpleado.DataSource = oEmpleadoD.obtenerNombreEmpleado().Tables[0].Copy();
-            cmbEmpleado.DisplayMember = "nombreCompleto";
-            cmbEmpleado.ValueMember = "nombreCompleto";
-        }
+       /// <summary>
+       /// Método para cargar el combobox Empleado con los enpleados existentes en la base de datos.
+       /// También rellena el combo box nombre de empleado de acuerdo a los empleados que existen en el departamento seleccionado.
+       /// </summary>
+       /// <param name="pcnx"></param>
 
-        /// <summary>
-        /// Método para cargar el combobox CodigoEmpleadoo con los codigos existentes en la base de datos.
-        /// </summary>
-        /// <param name="pcnx"></param>
+       public void cargarComboEmpleado(AccesoDatosOracle pcnx)
+       {
 
+           if (this.cmbDepartamento.Text == "")
+           {
+               EmpleadoD oEmpleadoD = new EmpleadoD(pcnx);
+               cmbEmpleado.DataSource = oEmpleadoD.obtenerNombreEmpleado().Tables[0].Copy();
+               cmbEmpleado.DisplayMember = "nombreCompleto";
+               cmbEmpleado.ValueMember = "nombreCompleto";
+               this.cmbEmpleado.SelectedItem = null;
+           }
+           else
+           {
+               EmpleadoD oEmpleadoD = new EmpleadoD(pcnx);
+               cmbEmpleado.DataSource = oEmpleadoD.obtenerNombreEmpleadoPorDepartameno(this.cmbDepartamento.SelectedValue.ToString()).Tables[0].Copy();
+               cmbEmpleado.DisplayMember = "nombreCompleto";
+               cmbEmpleado.ValueMember = "nombreCompleto";
+               this.cmbEmpleado.SelectedItem = null;
+           }
 
-        public void cargarComboCodigoEmpleado(AccesoDatosOracle pcnx)
-        {
-            EmpleadoD oEmpleadoD = new EmpleadoD(pcnx);
-            cmbCodigo.DataSource = oEmpleadoD.obtenerCodigoEmpleado().Tables[0].Copy();
-            cmbCodigo.DisplayMember = "idEmpleado";
-            cmbCodigo.ValueMember = "idEmpleado";
-        }
+           if (this.cmbEmpleado.Text != "")
+           {
+
+           }
+       }
+
+       /// <summary>
+       /// Método para cargar el combobox CodigoEmpleadoo con los codigos existentes en la base de datos.
+       /// También rellena el combo box código empleado de acuerdo a los empleados que existen en el departamento seleccionado.
+       /// </summary>
+       /// <param name="pcnx"></param>
+
+       public void cargarComboCodigoEmpleado(AccesoDatosOracle pcnx)
+       {
+           if (this.cmbDepartamento.Text == "")
+           {
+               EmpleadoD oEmpleadoD = new EmpleadoD(pcnx);
+               cmbCodigo.DataSource = oEmpleadoD.obtenerCodigoEmpleado().Tables[0].Copy();
+               cmbCodigo.DisplayMember = "idEmpleado";
+               cmbCodigo.ValueMember = "idEmpleado";
+               this.cmbCodigo.SelectedItem = null;
+           }
+           else
+           {
+               EmpleadoD oEmpleadoD = new EmpleadoD(pcnx);
+               cmbCodigo.DataSource = oEmpleadoD.obtenerIdEmpleadoPorDepartameno(this.cmbDepartamento.SelectedValue.ToString()).Tables[0].Copy();
+               cmbCodigo.DisplayMember = "idEmpleado";
+               cmbCodigo.ValueMember = "idEmpleado";
+               this.cmbCodigo.SelectedItem = null;
+           }
+       }
 
         /// <summary>
         /// Boton nuevo que llama al frmedición marcas
@@ -320,6 +351,12 @@ namespace GUI
         private void btnRefrescar_Click(object sender, EventArgs e)
         {
            this.cargarGrid();
+        }
+
+        private void cmbDepartamento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.cargarComboCodigoEmpleado(this.conexion);
+            this.cargarComboEmpleado(this.conexion);
         }
     }
 }
