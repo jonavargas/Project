@@ -162,11 +162,11 @@
     <Compile Include="GUI\frmRegistroMarcas.Designer.cs">
       <DependentUpon>frmRegistroMarcas.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\frmEdicionUnificacion.cs">
+    <Compile Include="GUI\frmManteUnificacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\frmEdicionUnificacion.Designer.cs">
-      <DependentUpon>frmEdicionUnificacion.cs</DependentUpon>
+    <Compile Include="GUI\frmManteUnificacion.Designer.cs">
+      <DependentUpon>frmManteUnificacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Logica\CatalogoFechasL.cs" />
     <Compile Include="Logica\DeduccionesL.cs" />
@@ -231,8 +231,8 @@
     <EmbeddedResource Include="GUI\frmRegistroMarcas.resx">
       <DependentUpon>frmRegistroMarcas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\frmEdicionUnificacion.resx">
-      <DependentUpon>frmEdicionUnificacion.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\frmManteUnificacion.resx">
+      <DependentUpon>frmManteUnificacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

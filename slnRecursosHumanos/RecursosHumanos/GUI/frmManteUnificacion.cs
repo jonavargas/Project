@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace RecursosHumanos.GUI
 {
-    public partial class frmEdicionUnificacion : Form
+    public partial class frmManteUnificacion : Form
     {
-        public frmEdicionUnificacion()
+        public frmManteUnificacion()
         {
             InitializeComponent();
         }
