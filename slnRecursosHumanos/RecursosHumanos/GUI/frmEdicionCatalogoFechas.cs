@@ -71,7 +71,9 @@ namespace GUI
             InitializeComponent();
             this.conexion = pCnx;
             this.aceptar = false;
+            this.txtCatalogoFechas.Enabled = false;
             this.txtDescripcion.Text = pCatalogoFechasL.Descripcion;
+            this.txtCatalogoFechas.Text = pCatalogoFechasL.IdCatalogoFechas;
             this.cmbDia.Text = pCatalogoFechasL.Dia.ToString();
             this.cmbMes.Text = pCatalogoFechasL.Mes.ToString();
             this.OUsuarioL = pOUsuarioLConectado;            
@@ -108,39 +110,49 @@ namespace GUI
 
          private void btnAceptar_Click(object sender, EventArgs e)
          {
-             bool estadoFecha = false;
+             
              String activo = "No";
 
              if (this.chkActivo.Checked)
              {
                  activo = "Sí";
              }
-
-             if ((this.txtCatalogoFechas.Text != "") && (this.txtDescripcion.Text != "") && (this.cmbDia.SelectedValue != null) && (this.cmbMes.SelectedValue != null))
+             try
              {
-                 if (this.Edicion == false)
+                 if ((this.txtCatalogoFechas.Text != "") && (this.txtDescripcion.Text != "") && (this.cmbDia.SelectedItem != null) && (this.cmbMes.SelectedItem != null))
                  {
-                     this.oCatalogoFechasL = new CatalogoFechasL(this.txtCatalogoFechas.Text,
-                                           int.Parse(this.cmbDia.SelectedValue.ToString()), this.cmbMes.SelectedValue.ToString(), this.txtDescripcion.Text, DateTime.Now,
-                                            DateTime.Now, oUsuarioL[0].IdUsuario, oUsuarioL[0].IdUsuario, activo);
+                     if (this.Edicion == false)
+                     {
+                         this.oCatalogoFechasL = new CatalogoFechasL(this.txtCatalogoFechas.Text,
+                                               int.Parse(this.cmbDia.SelectedItem.ToString()), this.cmbMes.SelectedItem.ToString(), this.txtDescripcion.Text, DateTime.Now,
+                                                DateTime.Now, oUsuarioL[0].IdUsuario, oUsuarioL[0].IdUsuario, activo);
 
+
+
+                     }
+                     else
+                     {
+                         
+                         this.oCatalogoFechasL = new CatalogoFechasL(this.txtCatalogoFechas.Text,
+                                               int.Parse(this.cmbDia.SelectedItem.ToString()), this.cmbMes.SelectedItem.ToString(), this.txtDescripcion.Text, DateTime.Now,
+                                                DateTime.Now, oUsuarioL[0].IdUsuario, oUsuarioL[0].IdUsuario, activo);
+
+
+
+                     }
 
 
                  }
                  else {
-                     this.txtCatalogoFechas.ReadOnly = false;
-                     this.oCatalogoFechasL = new CatalogoFechasL(this.txtCatalogoFechas.Text,
-                                           int.Parse(this.cmbDia.SelectedValue.ToString()), this.cmbMes.SelectedValue.ToString(), this.txtDescripcion.Text, DateTime.Now,
-                                            DateTime.Now, oUsuarioL[0].IdUsuario, oUsuarioL[0].IdUsuario, activo);
-
+                     MessageBox.Show("Error faltan datos requeridos");
                  
                  
                  }
-             
-             
-             }
-             
 
+             }catch(Exception){
+
+                 MessageBox.Show("Error faltan datos requeridos");
+             }
              
                this.aceptar = true;
                this.Close();

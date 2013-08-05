@@ -63,6 +63,7 @@ namespace GUI
             this.txtNombreDepa.Text = pDepartamentoL.NombreDepartamento.ToString();
             this.chkActivo.Text = pDepartamentoL.Activo.ToString();
             this.oDepartamentoL = pDepartamentoL;
+            this.oUsuarioL = pOUsuarioLConectado;
             this.edicion = true;
             this.aceptar = false;
         }
@@ -102,45 +103,50 @@ namespace GUI
                 MessageBox.Show("Faltan datos requeridos");
                 return;
             }
-
-            DepartamentoD oDepartamentoD = new DepartamentoD(this.conexion);
-            List<DepartamentoL> listaDepartamento = oDepartamentoD.obtenerIdDepartamento(this.txtIdDepartamento.Text);
-            if (this.edicion == false)
+            try
             {
-                if (listaDepartamento.Count > 0)
+                DepartamentoD oDepartamentoD = new DepartamentoD(this.conexion);
+                List<DepartamentoL> listaDepartamento = oDepartamentoD.obtenerIdDepartamento(this.txtIdDepartamento.Text);
+                if (this.edicion == false)
                 {
-                    MessageBox.Show("El código de Departamento ya existe");
-                    this.txtIdDepartamento.Text = "";
-                    this.txtIdDepartamento.Focus();
-                    return;
+                    if (listaDepartamento.Count > 0)
+                    {
+                        MessageBox.Show("El código de Departamento ya existe");
+                        this.txtIdDepartamento.Text = "";
+                        this.txtIdDepartamento.Focus();
+                        return;
+
+                    }
+                    else
+                    {
+
+                        this.oDepartamentoL = new DepartamentoL(this.txtIdDepartamento.Text,
+                                             this.txtNombreDepa.Text, DateTime.Now,
+                                                DateTime.Now, oUsuarioL[0].IdUsuario, oUsuarioL[0].IdUsuario,
+                                                activo);
+
+
+                    }
+
+
+
 
                 }
                 else
                 {
-
+                    this.txtIdDepartamento.ReadOnly = false;
                     this.oDepartamentoL = new DepartamentoL(this.txtIdDepartamento.Text,
-                                         this.txtNombreDepa.Text, DateTime.Now,
-                                            DateTime.Now, oUsuarioL[0].IdUsuario, oUsuarioL[0].IdUsuario,
-                                            activo);
+                                             this.txtNombreDepa.Text, DateTime.Now,
+                                                DateTime.Now, oUsuarioL[0].IdUsuario, oUsuarioL[0].IdUsuario,
+                                                activo);
+
 
 
                 }
-
-
-
-
-            }
-            else {
-                this.txtIdDepartamento.ReadOnly = false;
-                this.oDepartamentoL = new DepartamentoL(this.txtIdDepartamento.Text,
-                                         this.txtNombreDepa.Text, DateTime.Now,
-                                            DateTime.Now, oUsuarioL[0].IdUsuario, oUsuarioL[0].IdUsuario,
-                                            activo);         
-            
-            
+            }catch(Exception){
+                MessageBox.Show("Error agregando Departamento");
             
             }
-
            
             this.aceptar = true;
             this.Close();

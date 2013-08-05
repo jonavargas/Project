@@ -4,9 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RecursosHumanos.Logica
+namespace Logica
 {
-    class UnificacionL
+   public class UnificacionL
     {
+
+
+
+
+
     }
 }

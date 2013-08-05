@@ -115,7 +115,7 @@ create table marca
 );
 
 
-CREATE SEQUENCE seq_marca MINVALUE 0 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 0
+CREATE SEQUENCE seq_marca MINVALUE 0 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 1
 CACHE 20 NOORDER  NOCYCLE;
 
 create or replace trigger trg_marca
@@ -150,6 +150,25 @@ create table Unificacion
       activo varchar(3),
      
       constraint Empleado_FK foreign key (idEmpleado) references Empleado (idEmpleado), 
-      constraint Pago_FK foreign key (idPago) references Pago(numRegistro),
+      constraint Pago_FK foreign key (idPago) references Pago(idPago),
       constraint Pk_Unificacion primary key (idUnificacion, salarioBruto, deducciones)
+);
+
+
+create table Pago
+(
+ idPago numeric (10) not null,
+ fechaPago timestamp not null,
+ montoPago numeric (20)not null,
+ montoDeducciones numeric(20) not null,
+ anulado varchar(1) not null,
+ creadoPor varchar (30) not null,
+ fechaCreacion timestamp not null,
+ modificadoPor varchar (30) not null,
+ fechaModificacion timestamp not null,
+ activo  varchar(3),
+ constraint Pk_Pago primary key (idPago),
+ constraint montoDeducciones_FK foreign key (montoDeducciones) references unificacion (deducciones);
+ constraint montoPago_FK foreign key (montoPago) references unificacion (salarioBruto);
+
 );
