@@ -43,6 +43,9 @@ namespace GUI
         {
             InitializeComponent();
             this.conexion = pConexion;
+            this.txtidUsuario.Text = pUsuarioL.IdUsuario;
+            this.txtpassword.Text = pUsuarioL.Password;
+            this.chkActivo.Text = pUsuarioL.Activo;
             this.aceptar = false;
             this.edicion = true;
         }
@@ -54,9 +57,7 @@ namespace GUI
         {
             InitializeComponent();
             this.conexion = pConexion;
-            this.aceptar = false;
-            cmbTipoUsuario.Items.Add("Supervisor");
-            cmbTipoUsuario.Items.Add("Regular");
+            this.aceptar = false;            
             this.OUsuarioL1 = pUsuarioL;
 
 
@@ -116,7 +117,7 @@ namespace GUI
                 else
                 {
                     this.OUsuarioLNuevo = new UsuarioL(this.txtidUsuario.Text,
-                                           Convert.ToString(this.cmbTipoUsuario.SelectedValue), this.txtpassword.Text, DateTime.Now,
+                                           Convert.ToString(this.cmbTipoUsuario.SelectedItem), this.txtpassword.Text, DateTime.Now,
                                            DateTime.Now, OUsuarioL1[0].IdUsuario, OUsuarioL1[0].IdUsuario,
                                            activo);                   
 

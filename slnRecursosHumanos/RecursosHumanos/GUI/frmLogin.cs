@@ -73,60 +73,77 @@ namespace GUI
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-
-            if ((this.txtLogin.Text != "") && (this.txtClave.Text != ""))
+            try
             {
-               
-                
-                UsuarioD oUsuarioD = new UsuarioD(this.conexion);                
-                this.idUsuario=txtLogin.Text;                
-                oUsuarioL = new List<UsuarioL>(oUsuarioD.obtenerUsuarioID(this.idUsuario));
-                this.error = oUsuarioD.Error;
-                if ((this.error == false) || (oUsuarioL.Count > 0))
+
+                if ((this.txtLogin.Text != "") && (this.txtClave.Text != ""))
                 {
 
-                    UsuarioL datosObtenidos = new UsuarioL(
-                                                            oUsuarioL[0].IdUsuario.ToString(),
-                                                            oUsuarioL[0].TipoUsuario.ToString(),
-                                                            oUsuarioL[0].Password.ToString(),
-                                                            Convert.ToDateTime(oUsuarioL[0].FechaModificacion),
-                                                            Convert.ToDateTime(oUsuarioL[0].FechaCreacion),
-                                                            oUsuarioL[0].CreadoPor.ToString(),                                         
-                                                            oUsuarioL[0].ModificadoPor.ToString(),
-                                                            oUsuarioL[0].Activo.ToString()
-                                          
-                                                          );
 
-                    if ((datosObtenidos.IdUsuario.ToString() == txtLogin.Text) && (datosObtenidos.Password.ToString() == txtClave.Text))
+                    UsuarioD oUsuarioD = new UsuarioD(this.conexion);
+                    this.idUsuario = txtLogin.Text;
+                    oUsuarioL = new List<UsuarioL>(oUsuarioD.obtenerUsuarioID(this.idUsuario));
+                    this.error = oUsuarioD.Error;
+                    if ((this.error == false) || (oUsuarioL.Count > 0))
                     {
 
-                        this.tipoUsuario = datosObtenidos.TipoUsuario.ToString();
-                        this.aceptar = true;
-                        this.Close();
+                        UsuarioL datosObtenidos = new UsuarioL(
+                                                                oUsuarioL[0].IdUsuario.ToString(),
+                                                                oUsuarioL[0].TipoUsuario.ToString(),
+                                                                oUsuarioL[0].Password.ToString(),
+                                                                Convert.ToDateTime(oUsuarioL[0].FechaModificacion),
+                                                                Convert.ToDateTime(oUsuarioL[0].FechaCreacion),
+                                                                oUsuarioL[0].CreadoPor.ToString(),
+                                                                oUsuarioL[0].ModificadoPor.ToString(),
+                                                                oUsuarioL[0].Activo.ToString()
+
+                                                              );
+
+                        if ((datosObtenidos.IdUsuario.ToString() == txtLogin.Text) && (datosObtenidos.Password.ToString() == txtClave.Text))
+                        {
+
+                            this.tipoUsuario = datosObtenidos.TipoUsuario.ToString();
+                            this.aceptar = true;
+                            this.Close();
 
 
-                    }else{
+                        }
+                        else
+                        {
+
+                            MessageBox.Show("El Logging ó Password ingresados son incorrectos verifique que haya ingresado los datos correctos");
+                            return;
+
+                        }
+
+
+
+                    }
+                    else
+                    {
 
                         MessageBox.Show("El Logging ó Password ingresados son incorrectos verifique que haya ingresado los datos correctos");
                         return;
 
-                          }
-
-
+                    }
 
                 }
-                else {
-
-                    MessageBox.Show("El Logging ó Password ingresados son incorrectos verifique que haya ingresado los datos correctos");
-                    return;
-                
+                else
+                {
+                    this.txtLogin.Text = "";
+                    this.txtClave.Text = "";
+                    MessageBox.Show("Faltan datos requeridos");
                 }
+            }
+            catch(Exception) 
+            {
+                this.txtLogin.Text = "";
+                this.txtClave.Text = "";
+                MessageBox.Show("El Logging ó Password ingresados son incorrectos verifique que haya ingresado los datos correctos");
+                return;
 
-            }else{
-                     this.txtLogin.Text = "";
-                     this.txtClave.Text = "";
-                     MessageBox.Show("Faltan datos requeridos");
-                  }
+            
+            }
         }
     }
 }

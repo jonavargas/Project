@@ -45,6 +45,13 @@ namespace GUI
             InitializeComponent();
             this.conexion = pCnx;
             this.aceptar = false;
+            this.txtEmpleado.Enabled = false;
+            this.txtNombre.Enabled = false;
+            this.txtApellido1.Enabled = false;
+            this.txtApellido2.Enabled = false;
+            this.txtCedula.Enabled = false;
+            this.dtpFechaNacimiento.Enabled = false;
+         
             this.txtEmpleado.Text = (pEmpleadoL.IdEmpleado);
             this.cmbDepartamento.Text = (pEmpleadoL.IdDepartamento);
             this.txtNombre.Text = (pEmpleadoL.NombreEmpleado);
@@ -55,6 +62,7 @@ namespace GUI
             this.dtpFechaNacimiento.Text = Convert.ToString(pEmpleadoL.FechaNacimiento);
             this.txtSalarioPorHora.Value = (Decimal)(pEmpleadoL.SalarioPorHora); 
             this.oEmpleadoL = pEmpleadoL;
+            this.oUsuarioL = pOUsuarioLConectado;
             this.edicion = true;
            
         }
@@ -102,64 +110,68 @@ namespace GUI
             {
                 activo = "Sí";
             }
-
-            if ((this.txtEmpleado.Text == "") ||
-               (this.txtApellido1.Text == "") || (this.txtApellido2.Text == "")||(this.txtNombre.Text=="")||(this.txtSalarioPorHora.Value>0))
-            {
-                MessageBox.Show("Faltan datos requeridos");
-                return;    
-          
-            
-            
-                
-            }else{
-                EmpleadoD oEmpleadoD = new EmpleadoD(this.conexion);
-                List<EmpleadoL> listaEmpleado = oEmpleadoD.buscarEmpleado(this.txtEmpleado.Text);
-                if (this.edicion == false)
-                {
-                    if (listaEmpleado.Count > 0)
-                    {
-                        MessageBox.Show("El código de Empleado ya existe");
-                        this.txtEmpleado.Text = "";
-                        this.txtEmpleado.Focus();
-                        return;
-                    }
-                    else
-                    {
-                        oEmpleadoL = new EmpleadoL(this.txtEmpleado.Text, this.cmbDepartamento.Text, this.txtNombre.Text, this.txtApellido1.Text, this.txtApellido2.Text,
-                                        int.Parse(this.txtCedula.Text), int.Parse(this.txtTelefono.Text), (this.dtpFechaNacimiento.Text),
-
-                                        Double.Parse(this.txtSalarioPorHora.Text), oUsuarioL[0].IdUsuario, DateTime.Now, oUsuarioL[0].IdUsuario, DateTime.Now, activo);
-
-
-                    }
-
-
-                }
-                else {
-                    this.txtEmpleado.ReadOnly = false;
-                    this.txtNombre.ReadOnly = false;
-                    this.txtApellido1.ReadOnly = false;
-                    this.txtApellido2.ReadOnly = false;
-                    oEmpleadoL = new EmpleadoL(this.txtEmpleado.Text, this.cmbDepartamento.Text, this.txtNombre.Text, this.txtApellido1.Text, this.txtApellido2.Text,
-                                        int.Parse(this.txtCedula.Text), int.Parse(this.txtTelefono.Text), (this.dtpFechaNacimiento.Text),
-
-                                        Double.Parse(this.txtSalarioPorHora.Text), oUsuarioL[0].IdUsuario, DateTime.Now, oUsuarioL[0].IdUsuario, DateTime.Now, activo);
-
-                
-                
-                }
+             try{
+                 if ((this.txtEmpleado.Text == "") ||
+                    (this.txtApellido1.Text == "") || (this.txtApellido2.Text == "") || (this.txtNombre.Text == "") || (this.txtSalarioPorHora.Value == 0))
+                 {
+                     MessageBox.Show("Faltan datos requeridos");
+                     return;
 
 
 
 
+                 }
+                 else
+                 {
+                     EmpleadoD oEmpleadoD = new EmpleadoD(this.conexion);
+                     List<EmpleadoL> listaEmpleado = oEmpleadoD.buscarEmpleado(this.txtEmpleado.Text);
+                     if (this.edicion == false)
+                     {
+                         if (listaEmpleado.Count > 0)
+                         {
+                             MessageBox.Show("El código de Empleado ya existe");
+                             this.txtEmpleado.Text = "";
+                             this.txtEmpleado.Focus();
+                             return;
+                         }
+                         else
+                         {
+                             oEmpleadoL = new EmpleadoL(this.txtEmpleado.Text, this.cmbDepartamento.Text, this.txtNombre.Text, this.txtApellido1.Text, this.txtApellido2.Text,
+                                             int.Parse(this.txtCedula.Text), int.Parse(this.txtTelefono.Text), (this.dtpFechaNacimiento.Text),
+
+                                             Double.Parse(this.txtSalarioPorHora.Text), oUsuarioL[0].IdUsuario, DateTime.Now, oUsuarioL[0].IdUsuario, DateTime.Now, activo);
 
 
+                         }
+
+
+                     }
+                     else
+                     {
+                        
+                         oEmpleadoL = new EmpleadoL(this.txtEmpleado.Text, this.cmbDepartamento.Text, this.txtNombre.Text, this.txtApellido1.Text, this.txtApellido2.Text,
+                                             int.Parse(this.txtCedula.Text), int.Parse(this.txtTelefono.Text), (this.dtpFechaNacimiento.Text),
+
+                                             Double.Parse(this.txtSalarioPorHora.Text), oUsuarioL[0].IdUsuario, DateTime.Now, oUsuarioL[0].IdUsuario, DateTime.Now, activo);
+
+
+
+                     }
+
+
+
+
+
+                 }
            
-            this.aceptar = true;
-            this.Close();
+            
+            }catch(Exception){
+                MessageBox.Show("Error agregando Empleado");
+            
             
             }
+             this.aceptar = true;
+             this.Close();
             
             
         }

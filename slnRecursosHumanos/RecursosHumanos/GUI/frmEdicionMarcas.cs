@@ -98,49 +98,51 @@ namespace GUI
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             int idUnificacion = 0;
-
-
             this.fechaMarca = dtpFecha.Value.Date;
-
-            //
-
             string estado = Convert.ToString(txtEstadoMarca.Text);
-            if (edicion == false)
+            try
             {
-                string codigo = (cmbCodigo.SelectedValue.ToString());
 
-                if (rdoSalida.Checked == true)
+                if (edicion == false)
                 {
+                    string codigo = (cmbCodigo.SelectedValue.ToString());
 
-                    MarcaL = new MarcaL(codigo,idUnificacion,estado,"Salida",fechaMarca,"Proyecto",DateTime.Now,"Proyecto",DateTime.Now,"Sí");
+                    if (rdoSalida.Checked == true)
+                    {
+
+                        MarcaL = new MarcaL(codigo, idUnificacion, estado, "Salida", fechaMarca, "Proyecto", DateTime.Now, "Proyecto", DateTime.Now, "Sí");
 
 
+                    }
+                    else
+                    {
+                        MarcaL = new MarcaL(codigo, idUnificacion, estado, "Entrada", fechaMarca, "Proyecto", DateTime.Now, "Proyecto", DateTime.Now, "Sí");
+
+                    }
                 }
                 else
                 {
-                    MarcaL = new MarcaL(codigo,idUnificacion,estado,"Entrada",fechaMarca,"Proyecto",DateTime.Now,"Proyecto",DateTime.Now,"Sí");
+                    int Unificacion = int.Parse(txtNumUnificacion.Text);
+                    int numMarca = int.Parse(txtNumMarca.Text);
+                    string codigo2 = (cmbCodigo.SelectedItem.ToString());
+                    if (rdoSalida.Checked == true)
+                    {
+
+                        MarcaL = new MarcaL(numMarca, codigo2, Unificacion, estado, "Salida", fechaMarca, "Proyecto", DateTime.Now, "Proyecto", DateTime.Now, "Sí");
+
+
+                    }
+                    else
+                    {
+                        MarcaL = new MarcaL(numMarca, codigo2, idUnificacion, estado, "Entrada", fechaMarca, "Proyecto", DateTime.Now, "Proyecto", DateTime.Now, "Sí");
+
+                    }
+
 
                 }
-            }
-            else
-            {
-                int Unificacion = int.Parse(txtNumUnificacion.Text);
-                int numMarca = int.Parse(txtNumMarca.Text);
-                string codigo2 = (cmbCodigo.SelectedItem.ToString());
-                if (rdoSalida.Checked == true)
-                {
-
-                    MarcaL = new MarcaL(numMarca,codigo2,Unificacion,estado,"Salida",fechaMarca,"Proyecto",DateTime.Now,"Proyecto",DateTime.Now,"Sí");
-
-
-                }
-                else
-                {
-                    MarcaL = new MarcaL(numMarca,codigo2,idUnificacion,estado,"Entrada",fechaMarca,"Proyecto",DateTime.Now,"Proyecto",DateTime.Now,"Sí");
-
-                }
-
-
+            }catch(Exception){
+            MessageBox.Show("Error agregando Marca");
+            
             }
             this.Aceptar = true;
             this.Close();

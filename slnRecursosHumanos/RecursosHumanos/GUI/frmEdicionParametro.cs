@@ -62,59 +62,54 @@ namespace GUI
         {
             InitializeComponent();
             this.conexion = pCnx;
+            this.txtIdParametro.Enabled = false;
             this.txtIdParametro.Text = Convert.ToString(pParametroL.IdParametro);
             this.dtpHoraEntrada.Text = Convert.ToString(pParametroL.HoraEntrada);
             this.dtpHoraSalida.Text = Convert.ToString(pParametroL.HoraSalida);
-            if (pParametroL.Lunes.Equals(true))
+            if (pParametroL.Lunes.Equals("Sí"))
             {
                 ckdLunes.Checked = true;
 
             }
-            else {
-                if (pParametroL.Martes.Equals(true))
+
+            if (pParametroL.Martes.Equals("Sí"))
                 {
                     ckdMartes.Checked = true;
                 }
-                else {
-                    if (pParametroL.Miercoles.Equals(true))
+
+            if (pParametroL.Miercoles.Equals("Sí"))
                     {
                         ckdMiercoles.Checked = true;
                     }
-                    else {
-                        if (pParametroL.Jueves.Equals(true))
+
+            if (pParametroL.Jueves.Equals("Sí"))
                         {
                             ckdJueves.Checked = true;
 
                         }
-                        else {
-                            if (pParametroL.Viernes.Equals(true))
+
+            if (pParametroL.Viernes.Equals("Sí"))
                             {
                                 ckdViernes.Checked = true;
                             }
-                            else {
-                                if (pParametroL.Sabado.Equals(true))
+
+            if (pParametroL.Sabado.Equals("Sí"))
                                 {
                                     ckdSabado.Checked = true;
 
                                 }
-                                else { 
-                                if(pParametroL.Domingo.Equals(true)){
+
+            if (pParametroL.Domingo.Equals("Sí"))
+            {
                                     ckdDomingo.Checked = true;
                                 
                                 }
-                                
-                                }
-                            
-                            }
-                        
-                        }
-                    
-                    }
-                
-                }
-            
-            }
 
+
+
+
+
+            this.oUsuarioL = pOUsuarioLConectado;
             this.oParametroL = pParametroL;
             ckdActivo.Checked = true;
             this.edicion = true;
@@ -283,33 +278,63 @@ namespace GUI
                 MessageBox.Show("Faltan datos requeridos");
                 return;
             }
-
-            ParametroD oParametroD = new ParametroD(this.conexion);
-            List<ParametroL> listaParametro = oParametroD.obtenerParametroId(this.txtIdParametro.Text);
-            if (this.edicion == false)
+            try
             {
-                if (listaParametro.Count > 0)
+                ParametroD oParametroD = new ParametroD(this.conexion);
+                List<ParametroL> listaParametro = oParametroD.obtenerParametroId(this.txtIdParametro.Text);
+                if (this.edicion == false)
                 {
-                    MessageBox.Show("El código de Parámetro ya existe");
-                    this.txtIdParametro.Text = "";
-                    this.txtIdParametro.Focus();
-                    return;
+                    if (listaParametro.Count > 0)
+                    {
+                        MessageBox.Show("El código de Parámetro ya existe");
+                        this.txtIdParametro.Text = "";
+                        this.txtIdParametro.Focus();
+                        return;
+                    }
+                    else
+                    {
+                        this.oParametroL = new ParametroL(this.txtIdParametro.Text,
+                                               DateTime.Parse(this.dtpHoraEntrada.Text.ToString()),
+                                               DateTime.Parse(this.dtpHoraSalida.Text.ToString()),
+                                               this.validarLunes(),
+                                               this.validarMartes(),
+                                               this.validarMiercoles(),
+                                               this.validarJueves(),
+                                               this.validarViernes(),
+                                               this.validarSabado(),
+                                               this.validarDomingo(),
+                                               DateTime.Now,
+                                               DateTime.Now, oUsuarioL[0].IdUsuario, oUsuarioL[0].IdUsuario,
+                                               this.validarActivo());
+
+
+                    }
+
+
+
+
+
+
+
                 }
                 else
                 {
+
+
                     this.oParametroL = new ParametroL(this.txtIdParametro.Text,
-                                           DateTime.Parse(this.dtpHoraEntrada.Text.ToString()),
-                                           DateTime.Parse(this.dtpHoraSalida.Text.ToString()),
-                                           this.validarLunes(),
-                                           this.validarMartes(),
-                                           this.validarMiercoles(),
-                                           this.validarJueves(),
-                                           this.validarViernes(),
-                                           this.validarSabado(),
-                                           this.validarDomingo(),
-                                           DateTime.Now,
-                                           DateTime.Now, oUsuarioL[0].IdUsuario, oUsuarioL[0].IdUsuario,
-                                           this.validarActivo());
+                                              DateTime.Parse(this.dtpHoraEntrada.Text.ToString()),
+                                              DateTime.Parse(this.dtpHoraSalida.Text.ToString()),
+                                              this.validarLunes(),
+                                              this.validarMartes(),
+                                              this.validarMiercoles(),
+                                              this.validarJueves(),
+                                              this.validarViernes(),
+                                              this.validarSabado(),
+                                              this.validarDomingo(),
+                                              DateTime.Now,
+                                              DateTime.Now, oUsuarioL[0].IdUsuario, oUsuarioL[0].IdUsuario,
+                                              this.validarActivo());
+
 
 
                 }
@@ -317,35 +342,10 @@ namespace GUI
 
 
 
-
-
-
+            }catch(Exception){
+                MessageBox.Show("Error agregando Parámetro ");
+            
             }
-            else {
-                this.txtIdParametro.ReadOnly = false;
-
-                this.oParametroL = new ParametroL(this.txtIdParametro.Text,
-                                          DateTime.Parse(this.dtpHoraEntrada.Text.ToString()),
-                                          DateTime.Parse(this.dtpHoraSalida.Text.ToString()),
-                                          this.validarLunes(),
-                                          this.validarMartes(),
-                                          this.validarMiercoles(),
-                                          this.validarJueves(),
-                                          this.validarViernes(),
-                                          this.validarSabado(),
-                                          this.validarDomingo(),
-                                          DateTime.Now,
-                                          DateTime.Now, oUsuarioL[0].IdUsuario, oUsuarioL[0].IdUsuario,
-                                          this.validarActivo());
-
-            
-            
-            }  
-            
-            
-            
-            
-            
            
             this.aceptar = true;
             this.Close();
