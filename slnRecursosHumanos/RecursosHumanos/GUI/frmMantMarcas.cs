@@ -52,12 +52,12 @@ namespace GUI
         /// <param name="pcnx"></param>
 
        public void cargarCmbDepartamento(AccesoDatosOracle pcnx)
-        {
+       {
             DepartamentoD oDepartamentoD = new DepartamentoD(pcnx);
             cmbDepartamento.DataSource = oDepartamentoD.obtenerIdDepartamento().Tables[0].Copy();
             cmbDepartamento.DisplayMember = "idDepartamento";
             cmbDepartamento.ValueMember = "idDepartamento";
-        }
+       }
 
        /// <summary>
        /// Método para cargar el combobox Empleado con los enpleados existentes en la base de datos.

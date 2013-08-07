@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.grpUnificacion = new System.Windows.Forms.GroupBox();
-            this.lblEstadoUnificacion = new System.Windows.Forms.Label();
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbCodigo = new System.Windows.Forms.ComboBox();
@@ -48,6 +47,7 @@
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
             this.grdMarcas = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.grpUnificacion.SuspendLayout();
             this.tollConsulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdMarcas)).BeginInit();
@@ -56,7 +56,7 @@
             // 
             // grpUnificacion
             // 
-            this.grpUnificacion.Controls.Add(this.lblEstadoUnificacion);
+            this.grpUnificacion.Controls.Add(this.cmbEstado);
             this.grpUnificacion.Controls.Add(this.btnFiltrar);
             this.grpUnificacion.Controls.Add(this.label2);
             this.grpUnificacion.Controls.Add(this.cmbCodigo);
@@ -72,14 +72,6 @@
             this.grpUnificacion.Size = new System.Drawing.Size(700, 166);
             this.grpUnificacion.TabIndex = 42;
             this.grpUnificacion.TabStop = false;
-            // 
-            // lblEstadoUnificacion
-            // 
-            this.lblEstadoUnificacion.AutoSize = true;
-            this.lblEstadoUnificacion.Location = new System.Drawing.Point(202, 133);
-            this.lblEstadoUnificacion.Name = "lblEstadoUnificacion";
-            this.lblEstadoUnificacion.Size = new System.Drawing.Size(0, 13);
-            this.lblEstadoUnificacion.TabIndex = 5;
             // 
             // btnFiltrar
             // 
@@ -99,9 +91,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(21, 133);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(156, 16);
+            this.label2.Size = new System.Drawing.Size(54, 16);
             this.label2.TabIndex = 29;
-            this.label2.Text = "Estado de la Unificación:";
+            this.label2.Text = "Estado:";
             // 
             // cmbCodigo
             // 
@@ -194,7 +186,7 @@
             this.btnEditar});
             this.tollConsulta.Location = new System.Drawing.Point(3, 16);
             this.tollConsulta.Name = "tollConsulta";
-            this.tollConsulta.Size = new System.Drawing.Size(363, 58);
+            this.tollConsulta.Size = new System.Drawing.Size(332, 58);
             this.tollConsulta.TabIndex = 43;
             // 
             // btnNuevo
@@ -260,6 +252,21 @@
             this.groupBox1.TabIndex = 45;
             this.groupBox1.TabStop = false;
             // 
+            // cmbEstado
+            // 
+            this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Items.AddRange(new object[] {
+            "Generada",
+            "En trámite",
+            "Pagada",
+            "Anulada"});
+            this.cmbEstado.Location = new System.Drawing.Point(205, 132);
+            this.cmbEstado.Name = "cmbEstado";
+            this.cmbEstado.Size = new System.Drawing.Size(259, 21);
+            this.cmbEstado.TabIndex = 5;
+            this.cmbEstado.Tag = "6";
+            // 
             // frmUnificacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -303,6 +310,6 @@
         private System.Windows.Forms.ToolStripButton btnEditar;
         private System.Windows.Forms.DataGridView grdMarcas;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblEstadoUnificacion;
+        private System.Windows.Forms.ComboBox cmbEstado;
     }
 }

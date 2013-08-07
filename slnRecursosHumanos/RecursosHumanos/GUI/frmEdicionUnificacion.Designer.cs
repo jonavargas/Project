@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolBotones = new System.Windows.Forms.ToolStrip();
             this.btnSalvar = new System.Windows.Forms.ToolStripButton();
             this.tcUnificacion = new System.Windows.Forms.TabControl();
@@ -44,10 +44,9 @@
             this.btnBorrarMarca = new System.Windows.Forms.ToolStripButton();
             this.btnCargarMarca = new System.Windows.Forms.ToolStripButton();
             this.grpDatos1 = new System.Windows.Forms.GroupBox();
-            this.txtUnifi = new System.Windows.Forms.TextBox();
+            this.txNumUni = new System.Windows.Forms.TextBox();
             this.lblNumUnificacion = new System.Windows.Forms.Label();
-            this.cmbEmpleado = new System.Windows.Forms.ComboBox();
-            this.txtEstMarcas = new System.Windows.Forms.TextBox();
+            this.cmbCodEmpleado = new System.Windows.Forms.ComboBox();
             this.lblEmpleado = new System.Windows.Forms.Label();
             this.lblEstadoMarcas = new System.Windows.Forms.Label();
             this.lblAl = new System.Windows.Forms.Label();
@@ -71,6 +70,7 @@
             this.lblTotHorDob = new System.Windows.Forms.Label();
             this.txtTotHorReg = new System.Windows.Forms.TextBox();
             this.lblTotHorReg = new System.Windows.Forms.Label();
+            this.lblEstadoUnificacion = new System.Windows.Forms.Label();
             this.toolBotones.SuspendLayout();
             this.tcUnificacion.SuspendLayout();
             this.tp1.SuspendLayout();
@@ -137,14 +137,14 @@
             this.numeroMarca,
             this.fecha,
             this.tipo});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdUniDatos.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdUniDatos.DefaultCellStyle = dataGridViewCellStyle4;
             this.grdUniDatos.Location = new System.Drawing.Point(8, 270);
             this.grdUniDatos.Name = "grdUniDatos";
             this.grdUniDatos.ReadOnly = true;
@@ -242,10 +242,10 @@
             // 
             // grpDatos1
             // 
-            this.grpDatos1.Controls.Add(this.txtUnifi);
+            this.grpDatos1.Controls.Add(this.lblEstadoUnificacion);
+            this.grpDatos1.Controls.Add(this.txNumUni);
             this.grpDatos1.Controls.Add(this.lblNumUnificacion);
-            this.grpDatos1.Controls.Add(this.cmbEmpleado);
-            this.grpDatos1.Controls.Add(this.txtEstMarcas);
+            this.grpDatos1.Controls.Add(this.cmbCodEmpleado);
             this.grpDatos1.Controls.Add(this.lblEmpleado);
             this.grpDatos1.Controls.Add(this.lblEstadoMarcas);
             this.grpDatos1.Controls.Add(this.lblAl);
@@ -260,42 +260,34 @@
             this.grpDatos1.TabIndex = 48;
             this.grpDatos1.TabStop = false;
             // 
-            // txtUnifi
+            // txNumUni
             // 
-            this.txtUnifi.Location = new System.Drawing.Point(137, 145);
-            this.txtUnifi.Name = "txtUnifi";
-            this.txtUnifi.Size = new System.Drawing.Size(122, 22);
-            this.txtUnifi.TabIndex = 6;
-            this.txtUnifi.Tag = "8";
+            this.txNumUni.Location = new System.Drawing.Point(157, 107);
+            this.txNumUni.Name = "txNumUni";
+            this.txNumUni.Size = new System.Drawing.Size(122, 22);
+            this.txNumUni.TabIndex = 6;
+            this.txNumUni.Tag = "8";
             // 
             // lblNumUnificacion
             // 
             this.lblNumUnificacion.AutoSize = true;
             this.lblNumUnificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumUnificacion.Location = new System.Drawing.Point(10, 148);
+            this.lblNumUnificacion.Location = new System.Drawing.Point(10, 110);
             this.lblNumUnificacion.Name = "lblNumUnificacion";
-            this.lblNumUnificacion.Size = new System.Drawing.Size(125, 16);
+            this.lblNumUnificacion.Size = new System.Drawing.Size(128, 16);
             this.lblNumUnificacion.TabIndex = 48;
-            this.lblNumUnificacion.Text = "Número unificación:";
+            this.lblNumUnificacion.Text = "Número Unificación:";
             // 
-            // cmbEmpleado
+            // cmbCodEmpleado
             // 
-            this.cmbEmpleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEmpleado.FormattingEnabled = true;
-            this.cmbEmpleado.ItemHeight = 16;
-            this.cmbEmpleado.Location = new System.Drawing.Point(137, 9);
-            this.cmbEmpleado.Name = "cmbEmpleado";
-            this.cmbEmpleado.Size = new System.Drawing.Size(312, 24);
-            this.cmbEmpleado.TabIndex = 1;
-            this.cmbEmpleado.Tag = "";
-            // 
-            // txtEstMarcas
-            // 
-            this.txtEstMarcas.Location = new System.Drawing.Point(137, 107);
-            this.txtEstMarcas.Name = "txtEstMarcas";
-            this.txtEstMarcas.Size = new System.Drawing.Size(122, 22);
-            this.txtEstMarcas.TabIndex = 5;
-            this.txtEstMarcas.Tag = "7";
+            this.cmbCodEmpleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCodEmpleado.FormattingEnabled = true;
+            this.cmbCodEmpleado.ItemHeight = 16;
+            this.cmbCodEmpleado.Location = new System.Drawing.Point(157, 9);
+            this.cmbCodEmpleado.Name = "cmbCodEmpleado";
+            this.cmbCodEmpleado.Size = new System.Drawing.Size(312, 24);
+            this.cmbCodEmpleado.TabIndex = 1;
+            this.cmbCodEmpleado.Tag = "";
             // 
             // lblEmpleado
             // 
@@ -303,25 +295,25 @@
             this.lblEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmpleado.Location = new System.Drawing.Point(10, 17);
             this.lblEmpleado.Name = "lblEmpleado";
-            this.lblEmpleado.Size = new System.Drawing.Size(77, 16);
+            this.lblEmpleado.Size = new System.Drawing.Size(124, 16);
             this.lblEmpleado.TabIndex = 37;
-            this.lblEmpleado.Text = "Empleado: ";
+            this.lblEmpleado.Text = "Código Empleado: ";
             // 
             // lblEstadoMarcas
             // 
             this.lblEstadoMarcas.AutoSize = true;
             this.lblEstadoMarcas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstadoMarcas.Location = new System.Drawing.Point(10, 112);
+            this.lblEstadoMarcas.Location = new System.Drawing.Point(10, 142);
             this.lblEstadoMarcas.Name = "lblEstadoMarcas";
             this.lblEstadoMarcas.Size = new System.Drawing.Size(102, 16);
             this.lblEstadoMarcas.TabIndex = 46;
-            this.lblEstadoMarcas.Text = "Estado marcas:";
+            this.lblEstadoMarcas.Text = "Estado Marcas:";
             // 
             // lblAl
             // 
             this.lblAl.AutoSize = true;
             this.lblAl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAl.Location = new System.Drawing.Point(280, 44);
+            this.lblAl.Location = new System.Drawing.Point(300, 44);
             this.lblAl.Name = "lblAl";
             this.lblAl.Size = new System.Drawing.Size(19, 16);
             this.lblAl.TabIndex = 43;
@@ -331,7 +323,12 @@
             // 
             this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Location = new System.Drawing.Point(137, 72);
+            this.cmbEstado.Items.AddRange(new object[] {
+            "Generada",
+            "En trámite",
+            "Pagada",
+            "Anulada"});
+            this.cmbEstado.Location = new System.Drawing.Point(157, 72);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(122, 24);
             this.cmbEstado.TabIndex = 4;
@@ -361,7 +358,7 @@
             // 
             this.dateFecha1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateFecha1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateFecha1.Location = new System.Drawing.Point(137, 39);
+            this.dateFecha1.Location = new System.Drawing.Point(157, 39);
             this.dateFecha1.Name = "dateFecha1";
             this.dateFecha1.Size = new System.Drawing.Size(122, 22);
             this.dateFecha1.TabIndex = 2;
@@ -371,7 +368,7 @@
             // 
             this.dateFecha2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateFecha2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateFecha2.Location = new System.Drawing.Point(325, 38);
+            this.dateFecha2.Location = new System.Drawing.Point(345, 38);
             this.dateFecha2.Name = "dateFecha2";
             this.dateFecha2.Size = new System.Drawing.Size(124, 22);
             this.dateFecha2.TabIndex = 3;
@@ -533,6 +530,14 @@
             this.lblTotHorReg.TabIndex = 0;
             this.lblTotHorReg.Text = "Total horas regulares :";
             // 
+            // lblEstadoUnificacion
+            // 
+            this.lblEstadoUnificacion.AutoSize = true;
+            this.lblEstadoUnificacion.Location = new System.Drawing.Point(154, 142);
+            this.lblEstadoUnificacion.Name = "lblEstadoUnificacion";
+            this.lblEstadoUnificacion.Size = new System.Drawing.Size(0, 16);
+            this.lblEstadoUnificacion.TabIndex = 49;
+            // 
             // frmEdicionUnificacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -575,14 +580,13 @@
         private System.Windows.Forms.DateTimePicker dateFecha1;
         private System.Windows.Forms.Label lblFechas;
         private System.Windows.Forms.Label lblAl;
-        private System.Windows.Forms.ComboBox cmbEmpleado;
+        private System.Windows.Forms.ComboBox cmbCodEmpleado;
         private System.Windows.Forms.Label lblEmpleado;
         private System.Windows.Forms.Label lblEstadoMarcas;
         private System.Windows.Forms.ComboBox cmbEstado;
         private System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.GroupBox grpDatos1;
-        private System.Windows.Forms.TextBox txtEstMarcas;
-        private System.Windows.Forms.TextBox txtUnifi;
+        private System.Windows.Forms.TextBox txNumUni;
         private System.Windows.Forms.Label lblNumUnificacion;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btnCargarMarca;
@@ -608,5 +612,6 @@
         private System.Windows.Forms.Label lblTotHorDobles;
         private System.Windows.Forms.TextBox txtMontHorReg;
         private System.Windows.Forms.Label lblMontoHorReg;
+        private System.Windows.Forms.Label lblEstadoUnificacion;
     }
 }

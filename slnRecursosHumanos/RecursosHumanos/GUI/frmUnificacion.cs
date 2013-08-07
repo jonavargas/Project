@@ -39,8 +39,7 @@ namespace GUI
             this.cargarComboCodigoEmpleado(pConexion);
             this.cmbCodigo.SelectedItem = null;
             this.cmbDepartamento.SelectedItem = null;
-            this.lblEstadoUnificacion.Text = "OK";
-            this.lblEstadoUnificacion.ForeColor = System.Drawing.Color.Blue;
+           
         }
 
         public frmUnificacion(UnificacionL pUnificacionEditar, List<UsuarioL> pUsuarioActual, AccesoDatosOracle pConexion)
@@ -53,8 +52,6 @@ namespace GUI
             this.cargarComboCodigoEmpleado(pConexion);
             this.cmbCodigo.SelectedItem = null;
             this.cmbDepartamento.SelectedItem = null;
-            this.lblEstadoUnificacion.Text = "OK";
-            this.lblEstadoUnificacion.ForeColor = System.Drawing.Color.Blue;
         }
         /// <summary>
         /// Método para cargar el combobox Departamento con los departamentos existentes en la base de datos.
@@ -179,7 +176,7 @@ namespace GUI
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            frmEdicionUnificacion ofrmEdicionUnificacion = new frmEdicionUnificacion();
+            frmEdicionUnificacion ofrmEdicionUnificacion = new frmEdicionUnificacion(this.conexion);
             ofrmEdicionUnificacion.ShowDialog();
         }
     }
