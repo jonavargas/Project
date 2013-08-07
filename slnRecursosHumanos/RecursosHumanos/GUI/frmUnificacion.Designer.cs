@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.grpUnificacion = new System.Windows.Forms.GroupBox();
+            this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.cmbCodigo = new System.Windows.Forms.ComboBox();
+            this.cmbNombreEmpleado = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbDepartamento = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -47,7 +48,6 @@
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
             this.grdMarcas = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.grpUnificacion.SuspendLayout();
             this.tollConsulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdMarcas)).BeginInit();
@@ -59,7 +59,7 @@
             this.grpUnificacion.Controls.Add(this.cmbEstado);
             this.grpUnificacion.Controls.Add(this.btnFiltrar);
             this.grpUnificacion.Controls.Add(this.label2);
-            this.grpUnificacion.Controls.Add(this.cmbCodigo);
+            this.grpUnificacion.Controls.Add(this.cmbNombreEmpleado);
             this.grpUnificacion.Controls.Add(this.label3);
             this.grpUnificacion.Controls.Add(this.cmbDepartamento);
             this.grpUnificacion.Controls.Add(this.label4);
@@ -72,6 +72,21 @@
             this.grpUnificacion.Size = new System.Drawing.Size(700, 166);
             this.grpUnificacion.TabIndex = 42;
             this.grpUnificacion.TabStop = false;
+            // 
+            // cmbEstado
+            // 
+            this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Items.AddRange(new object[] {
+            "Generada",
+            "En trámite",
+            "Pagada",
+            "Anulada"});
+            this.cmbEstado.Location = new System.Drawing.Point(205, 132);
+            this.cmbEstado.Name = "cmbEstado";
+            this.cmbEstado.Size = new System.Drawing.Size(259, 21);
+            this.cmbEstado.TabIndex = 5;
+            this.cmbEstado.Tag = "6";
             // 
             // btnFiltrar
             // 
@@ -95,15 +110,16 @@
             this.label2.TabIndex = 29;
             this.label2.Text = "Estado:";
             // 
-            // cmbCodigo
+            // cmbNombreEmpleado
             // 
-            this.cmbCodigo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCodigo.FormattingEnabled = true;
-            this.cmbCodigo.ItemHeight = 13;
-            this.cmbCodigo.Location = new System.Drawing.Point(205, 96);
-            this.cmbCodigo.Name = "cmbCodigo";
-            this.cmbCodigo.Size = new System.Drawing.Size(259, 21);
-            this.cmbCodigo.TabIndex = 4;
+            this.cmbNombreEmpleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbNombreEmpleado.FormattingEnabled = true;
+            this.cmbNombreEmpleado.ItemHeight = 13;
+            this.cmbNombreEmpleado.Location = new System.Drawing.Point(205, 96);
+            this.cmbNombreEmpleado.Name = "cmbNombreEmpleado";
+            this.cmbNombreEmpleado.Size = new System.Drawing.Size(259, 21);
+            this.cmbNombreEmpleado.TabIndex = 4;
+            this.cmbNombreEmpleado.SelectedIndexChanged += new System.EventHandler(this.cmbNombreEmpleado_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -252,21 +268,6 @@
             this.groupBox1.TabIndex = 45;
             this.groupBox1.TabStop = false;
             // 
-            // cmbEstado
-            // 
-            this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Items.AddRange(new object[] {
-            "Generada",
-            "En trámite",
-            "Pagada",
-            "Anulada"});
-            this.cmbEstado.Location = new System.Drawing.Point(205, 132);
-            this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(259, 21);
-            this.cmbEstado.TabIndex = 5;
-            this.cmbEstado.Tag = "6";
-            // 
             // frmUnificacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -294,7 +295,7 @@
         private System.Windows.Forms.GroupBox grpUnificacion;
         private System.Windows.Forms.Button btnFiltrar;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cmbCodigo;
+        private System.Windows.Forms.ComboBox cmbNombreEmpleado;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmbDepartamento;
         private System.Windows.Forms.Label label4;
