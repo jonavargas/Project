@@ -60,10 +60,8 @@ namespace GUI
             txtEstadoMarca.Text = "Generada";
             this.oUsuarioConectado = pUsuarioConectado;
             this.edicion = false;
-            
-            
-           
         }
+
         public frmEdicionMarcas(MarcaL pMarcaEditar, List<UsuarioL> pUsuarioConectado, AccesoDatosOracle pcnx)
         {
             InitializeComponent();
@@ -82,6 +80,7 @@ namespace GUI
             
 
         }
+
         /// <summary>
         /// Método para cargar el combobox CodigoEmpleado con los codigos existentes en la base de datos.
         /// </summary>
