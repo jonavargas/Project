@@ -28,15 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolBotones = new System.Windows.Forms.ToolStrip();
             this.btnSalvar = new System.Windows.Forms.ToolStripButton();
             this.tcUnificacion = new System.Windows.Forms.TabControl();
             this.tp1 = new System.Windows.Forms.TabPage();
-            this.grdUniDatos = new System.Windows.Forms.DataGridView();
-            this.numeroMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grdMarcas = new System.Windows.Forms.DataGridView();
             this.grpBotones = new System.Windows.Forms.GroupBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnNuevo = new System.Windows.Forms.ToolStripButton();
@@ -44,37 +41,37 @@
             this.btnBorrarMarca = new System.Windows.Forms.ToolStripButton();
             this.btnCargarMarca = new System.Windows.Forms.ToolStripButton();
             this.grpDatos1 = new System.Windows.Forms.GroupBox();
+            this.lblEstadoUnificacion = new System.Windows.Forms.Label();
             this.txNumUni = new System.Windows.Forms.TextBox();
             this.lblNumUnificacion = new System.Windows.Forms.Label();
-            this.cmbCodEmpleado = new System.Windows.Forms.ComboBox();
+            this.cmbIDEmpleado = new System.Windows.Forms.ComboBox();
             this.lblEmpleado = new System.Windows.Forms.Label();
             this.lblEstadoMarcas = new System.Windows.Forms.Label();
             this.lblAl = new System.Windows.Forms.Label();
             this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.lblFechas = new System.Windows.Forms.Label();
             this.lblEstado = new System.Windows.Forms.Label();
-            this.dateFecha1 = new System.Windows.Forms.DateTimePicker();
-            this.dateFecha2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFecha1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFecha2 = new System.Windows.Forms.DateTimePicker();
             this.tp2 = new System.Windows.Forms.TabPage();
             this.grpTotPag = new System.Windows.Forms.GroupBox();
-            this.txtMonHorExt = new System.Windows.Forms.TextBox();
+            this.txtmontoExtra = new System.Windows.Forms.TextBox();
             this.lblMonHorExt = new System.Windows.Forms.Label();
-            this.txtMonHorReg = new System.Windows.Forms.TextBox();
+            this.txtmontoDobles = new System.Windows.Forms.TextBox();
             this.lblTotHorDobles = new System.Windows.Forms.Label();
-            this.txtMontHorReg = new System.Windows.Forms.TextBox();
+            this.txtmontoRegular = new System.Windows.Forms.TextBox();
             this.lblMontoHorReg = new System.Windows.Forms.Label();
             this.grpTotHor = new System.Windows.Forms.GroupBox();
-            this.txtTotHorasExtr = new System.Windows.Forms.TextBox();
+            this.txthoraExtra = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtTotHorDob = new System.Windows.Forms.TextBox();
+            this.txthoraDoble = new System.Windows.Forms.TextBox();
             this.lblTotHorDob = new System.Windows.Forms.Label();
-            this.txtTotHorReg = new System.Windows.Forms.TextBox();
+            this.txthoraRegular = new System.Windows.Forms.TextBox();
             this.lblTotHorReg = new System.Windows.Forms.Label();
-            this.lblEstadoUnificacion = new System.Windows.Forms.Label();
             this.toolBotones.SuspendLayout();
             this.tcUnificacion.SuspendLayout();
             this.tp1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdUniDatos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdMarcas)).BeginInit();
             this.grpBotones.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.grpDatos1.SuspendLayout();
@@ -118,7 +115,7 @@
             // 
             // tp1
             // 
-            this.tp1.Controls.Add(this.grdUniDatos);
+            this.tp1.Controls.Add(this.grdMarcas);
             this.tp1.Controls.Add(this.grpBotones);
             this.tp1.Controls.Add(this.grpDatos1);
             this.tp1.Location = new System.Drawing.Point(4, 25);
@@ -129,48 +126,23 @@
             this.tp1.Text = "Datos";
             this.tp1.UseVisualStyleBackColor = true;
             // 
-            // grdUniDatos
+            // grdMarcas
             // 
-            this.grdUniDatos.AllowUserToDeleteRows = false;
-            this.grdUniDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdUniDatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.numeroMarca,
-            this.fecha,
-            this.tipo});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdUniDatos.DefaultCellStyle = dataGridViewCellStyle4;
-            this.grdUniDatos.Location = new System.Drawing.Point(8, 270);
-            this.grdUniDatos.Name = "grdUniDatos";
-            this.grdUniDatos.ReadOnly = true;
-            this.grdUniDatos.Size = new System.Drawing.Size(734, 149);
-            this.grdUniDatos.TabIndex = 51;
-            // 
-            // numeroMarca
-            // 
-            this.numeroMarca.HeaderText = "Número marca";
-            this.numeroMarca.Name = "numeroMarca";
-            this.numeroMarca.ReadOnly = true;
-            this.numeroMarca.Width = 150;
-            // 
-            // fecha
-            // 
-            this.fecha.HeaderText = "Fecha";
-            this.fecha.Name = "fecha";
-            this.fecha.ReadOnly = true;
-            this.fecha.Width = 150;
-            // 
-            // tipo
-            // 
-            this.tipo.HeaderText = "Tipo";
-            this.tipo.Name = "tipo";
-            this.tipo.ReadOnly = true;
-            this.tipo.Width = 150;
+            this.grdMarcas.AllowUserToDeleteRows = false;
+            this.grdMarcas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdMarcas.DefaultCellStyle = dataGridViewCellStyle1;
+            this.grdMarcas.Location = new System.Drawing.Point(8, 270);
+            this.grdMarcas.Name = "grdMarcas";
+            this.grdMarcas.ReadOnly = true;
+            this.grdMarcas.Size = new System.Drawing.Size(734, 149);
+            this.grdMarcas.TabIndex = 51;
             // 
             // grpBotones
             // 
@@ -206,6 +178,7 @@
             this.btnNuevo.Tag = "12";
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnEditarMarca
             // 
@@ -217,6 +190,7 @@
             this.btnEditarMarca.Tag = "10";
             this.btnEditarMarca.Text = "Editar Marca";
             this.btnEditarMarca.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnEditarMarca.Click += new System.EventHandler(this.btnEditarMarca_Click);
             // 
             // btnBorrarMarca
             // 
@@ -228,6 +202,7 @@
             this.btnBorrarMarca.Tag = "11";
             this.btnBorrarMarca.Text = "Borrar Marca";
             this.btnBorrarMarca.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnBorrarMarca.Click += new System.EventHandler(this.btnBorrarMarca_Click);
             // 
             // btnCargarMarca
             // 
@@ -239,26 +214,35 @@
             this.btnCargarMarca.Tag = "9";
             this.btnCargarMarca.Text = "Cargar Marca";
             this.btnCargarMarca.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnCargarMarca.Click += new System.EventHandler(this.btnCargarMarca_Click);
             // 
             // grpDatos1
             // 
             this.grpDatos1.Controls.Add(this.lblEstadoUnificacion);
             this.grpDatos1.Controls.Add(this.txNumUni);
             this.grpDatos1.Controls.Add(this.lblNumUnificacion);
-            this.grpDatos1.Controls.Add(this.cmbCodEmpleado);
+            this.grpDatos1.Controls.Add(this.cmbIDEmpleado);
             this.grpDatos1.Controls.Add(this.lblEmpleado);
             this.grpDatos1.Controls.Add(this.lblEstadoMarcas);
             this.grpDatos1.Controls.Add(this.lblAl);
             this.grpDatos1.Controls.Add(this.cmbEstado);
             this.grpDatos1.Controls.Add(this.lblFechas);
             this.grpDatos1.Controls.Add(this.lblEstado);
-            this.grpDatos1.Controls.Add(this.dateFecha1);
-            this.grpDatos1.Controls.Add(this.dateFecha2);
+            this.grpDatos1.Controls.Add(this.dtpFecha1);
+            this.grpDatos1.Controls.Add(this.dtpFecha2);
             this.grpDatos1.Location = new System.Drawing.Point(8, 6);
             this.grpDatos1.Name = "grpDatos1";
             this.grpDatos1.Size = new System.Drawing.Size(734, 175);
             this.grpDatos1.TabIndex = 48;
             this.grpDatos1.TabStop = false;
+            // 
+            // lblEstadoUnificacion
+            // 
+            this.lblEstadoUnificacion.AutoSize = true;
+            this.lblEstadoUnificacion.Location = new System.Drawing.Point(154, 142);
+            this.lblEstadoUnificacion.Name = "lblEstadoUnificacion";
+            this.lblEstadoUnificacion.Size = new System.Drawing.Size(0, 16);
+            this.lblEstadoUnificacion.TabIndex = 49;
             // 
             // txNumUni
             // 
@@ -278,16 +262,16 @@
             this.lblNumUnificacion.TabIndex = 48;
             this.lblNumUnificacion.Text = "Número Unificación:";
             // 
-            // cmbCodEmpleado
+            // cmbIDEmpleado
             // 
-            this.cmbCodEmpleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCodEmpleado.FormattingEnabled = true;
-            this.cmbCodEmpleado.ItemHeight = 16;
-            this.cmbCodEmpleado.Location = new System.Drawing.Point(157, 9);
-            this.cmbCodEmpleado.Name = "cmbCodEmpleado";
-            this.cmbCodEmpleado.Size = new System.Drawing.Size(312, 24);
-            this.cmbCodEmpleado.TabIndex = 1;
-            this.cmbCodEmpleado.Tag = "";
+            this.cmbIDEmpleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbIDEmpleado.FormattingEnabled = true;
+            this.cmbIDEmpleado.ItemHeight = 16;
+            this.cmbIDEmpleado.Location = new System.Drawing.Point(157, 9);
+            this.cmbIDEmpleado.Name = "cmbIDEmpleado";
+            this.cmbIDEmpleado.Size = new System.Drawing.Size(312, 24);
+            this.cmbIDEmpleado.TabIndex = 1;
+            this.cmbIDEmpleado.Tag = "";
             // 
             // lblEmpleado
             // 
@@ -354,25 +338,25 @@
             this.lblEstado.TabIndex = 45;
             this.lblEstado.Text = "Estado:";
             // 
-            // dateFecha1
+            // dtpFecha1
             // 
-            this.dateFecha1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateFecha1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateFecha1.Location = new System.Drawing.Point(157, 39);
-            this.dateFecha1.Name = "dateFecha1";
-            this.dateFecha1.Size = new System.Drawing.Size(122, 22);
-            this.dateFecha1.TabIndex = 2;
-            this.dateFecha1.Tag = "4";
+            this.dtpFecha1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFecha1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFecha1.Location = new System.Drawing.Point(157, 39);
+            this.dtpFecha1.Name = "dtpFecha1";
+            this.dtpFecha1.Size = new System.Drawing.Size(122, 22);
+            this.dtpFecha1.TabIndex = 2;
+            this.dtpFecha1.Tag = "4";
             // 
-            // dateFecha2
+            // dtpFecha2
             // 
-            this.dateFecha2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateFecha2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateFecha2.Location = new System.Drawing.Point(345, 38);
-            this.dateFecha2.Name = "dateFecha2";
-            this.dateFecha2.Size = new System.Drawing.Size(124, 22);
-            this.dateFecha2.TabIndex = 3;
-            this.dateFecha2.Tag = "5";
+            this.dtpFecha2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFecha2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFecha2.Location = new System.Drawing.Point(345, 38);
+            this.dtpFecha2.Name = "dtpFecha2";
+            this.dtpFecha2.Size = new System.Drawing.Size(124, 22);
+            this.dtpFecha2.TabIndex = 3;
+            this.dtpFecha2.Tag = "5";
             // 
             // tp2
             // 
@@ -388,11 +372,11 @@
             // 
             // grpTotPag
             // 
-            this.grpTotPag.Controls.Add(this.txtMonHorExt);
+            this.grpTotPag.Controls.Add(this.txtmontoExtra);
             this.grpTotPag.Controls.Add(this.lblMonHorExt);
-            this.grpTotPag.Controls.Add(this.txtMonHorReg);
+            this.grpTotPag.Controls.Add(this.txtmontoDobles);
             this.grpTotPag.Controls.Add(this.lblTotHorDobles);
-            this.grpTotPag.Controls.Add(this.txtMontHorReg);
+            this.grpTotPag.Controls.Add(this.txtmontoRegular);
             this.grpTotPag.Controls.Add(this.lblMontoHorReg);
             this.grpTotPag.Location = new System.Drawing.Point(390, 6);
             this.grpTotPag.Name = "grpTotPag";
@@ -401,14 +385,14 @@
             this.grpTotPag.TabStop = false;
             this.grpTotPag.Text = "Total a pagar";
             // 
-            // txtMonHorExt
+            // txtmontoExtra
             // 
-            this.txtMonHorExt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMonHorExt.Location = new System.Drawing.Point(179, 100);
-            this.txtMonHorExt.Name = "txtMonHorExt";
-            this.txtMonHorExt.ReadOnly = true;
-            this.txtMonHorExt.Size = new System.Drawing.Size(159, 26);
-            this.txtMonHorExt.TabIndex = 6;
+            this.txtmontoExtra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmontoExtra.Location = new System.Drawing.Point(179, 100);
+            this.txtmontoExtra.Name = "txtmontoExtra";
+            this.txtmontoExtra.ReadOnly = true;
+            this.txtmontoExtra.Size = new System.Drawing.Size(159, 26);
+            this.txtmontoExtra.TabIndex = 6;
             // 
             // lblMonHorExt
             // 
@@ -420,14 +404,14 @@
             this.lblMonHorExt.TabIndex = 5;
             this.lblMonHorExt.Text = "Monto horas Extras :";
             // 
-            // txtMonHorReg
+            // txtmontoDobles
             // 
-            this.txtMonHorReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMonHorReg.Location = new System.Drawing.Point(179, 62);
-            this.txtMonHorReg.Name = "txtMonHorReg";
-            this.txtMonHorReg.ReadOnly = true;
-            this.txtMonHorReg.Size = new System.Drawing.Size(159, 26);
-            this.txtMonHorReg.TabIndex = 4;
+            this.txtmontoDobles.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmontoDobles.Location = new System.Drawing.Point(179, 62);
+            this.txtmontoDobles.Name = "txtmontoDobles";
+            this.txtmontoDobles.ReadOnly = true;
+            this.txtmontoDobles.Size = new System.Drawing.Size(159, 26);
+            this.txtmontoDobles.TabIndex = 4;
             // 
             // lblTotHorDobles
             // 
@@ -439,14 +423,14 @@
             this.lblTotHorDobles.TabIndex = 3;
             this.lblTotHorDobles.Text = "Monto horas dobles :";
             // 
-            // txtMontHorReg
+            // txtmontoRegular
             // 
-            this.txtMontHorReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMontHorReg.Location = new System.Drawing.Point(179, 27);
-            this.txtMontHorReg.Name = "txtMontHorReg";
-            this.txtMontHorReg.ReadOnly = true;
-            this.txtMontHorReg.Size = new System.Drawing.Size(159, 26);
-            this.txtMontHorReg.TabIndex = 2;
+            this.txtmontoRegular.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmontoRegular.Location = new System.Drawing.Point(179, 27);
+            this.txtmontoRegular.Name = "txtmontoRegular";
+            this.txtmontoRegular.ReadOnly = true;
+            this.txtmontoRegular.Size = new System.Drawing.Size(159, 26);
+            this.txtmontoRegular.TabIndex = 2;
             // 
             // lblMontoHorReg
             // 
@@ -460,11 +444,11 @@
             // 
             // grpTotHor
             // 
-            this.grpTotHor.Controls.Add(this.txtTotHorasExtr);
+            this.grpTotHor.Controls.Add(this.txthoraExtra);
             this.grpTotHor.Controls.Add(this.label1);
-            this.grpTotHor.Controls.Add(this.txtTotHorDob);
+            this.grpTotHor.Controls.Add(this.txthoraDoble);
             this.grpTotHor.Controls.Add(this.lblTotHorDob);
-            this.grpTotHor.Controls.Add(this.txtTotHorReg);
+            this.grpTotHor.Controls.Add(this.txthoraRegular);
             this.grpTotHor.Controls.Add(this.lblTotHorReg);
             this.grpTotHor.Location = new System.Drawing.Point(3, 6);
             this.grpTotHor.Name = "grpTotHor";
@@ -473,14 +457,14 @@
             this.grpTotHor.TabStop = false;
             this.grpTotHor.Text = "Total horas";
             // 
-            // txtTotHorasExtr
+            // txthoraExtra
             // 
-            this.txtTotHorasExtr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotHorasExtr.Location = new System.Drawing.Point(166, 96);
-            this.txtTotHorasExtr.Name = "txtTotHorasExtr";
-            this.txtTotHorasExtr.ReadOnly = true;
-            this.txtTotHorasExtr.Size = new System.Drawing.Size(159, 26);
-            this.txtTotHorasExtr.TabIndex = 5;
+            this.txthoraExtra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txthoraExtra.Location = new System.Drawing.Point(166, 96);
+            this.txthoraExtra.Name = "txthoraExtra";
+            this.txthoraExtra.ReadOnly = true;
+            this.txthoraExtra.Size = new System.Drawing.Size(159, 26);
+            this.txthoraExtra.TabIndex = 5;
             // 
             // label1
             // 
@@ -492,14 +476,14 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Total horas extras :";
             // 
-            // txtTotHorDob
+            // txthoraDoble
             // 
-            this.txtTotHorDob.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotHorDob.Location = new System.Drawing.Point(166, 58);
-            this.txtTotHorDob.Name = "txtTotHorDob";
-            this.txtTotHorDob.ReadOnly = true;
-            this.txtTotHorDob.Size = new System.Drawing.Size(159, 26);
-            this.txtTotHorDob.TabIndex = 3;
+            this.txthoraDoble.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txthoraDoble.Location = new System.Drawing.Point(166, 58);
+            this.txthoraDoble.Name = "txthoraDoble";
+            this.txthoraDoble.ReadOnly = true;
+            this.txthoraDoble.Size = new System.Drawing.Size(159, 26);
+            this.txthoraDoble.TabIndex = 3;
             // 
             // lblTotHorDob
             // 
@@ -511,14 +495,14 @@
             this.lblTotHorDob.TabIndex = 2;
             this.lblTotHorDob.Text = "Total horas dobles :";
             // 
-            // txtTotHorReg
+            // txthoraRegular
             // 
-            this.txtTotHorReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotHorReg.Location = new System.Drawing.Point(166, 23);
-            this.txtTotHorReg.Name = "txtTotHorReg";
-            this.txtTotHorReg.ReadOnly = true;
-            this.txtTotHorReg.Size = new System.Drawing.Size(159, 26);
-            this.txtTotHorReg.TabIndex = 1;
+            this.txthoraRegular.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txthoraRegular.Location = new System.Drawing.Point(166, 23);
+            this.txthoraRegular.Name = "txthoraRegular";
+            this.txthoraRegular.ReadOnly = true;
+            this.txthoraRegular.Size = new System.Drawing.Size(159, 26);
+            this.txthoraRegular.TabIndex = 1;
             // 
             // lblTotHorReg
             // 
@@ -529,14 +513,6 @@
             this.lblTotHorReg.Size = new System.Drawing.Size(142, 16);
             this.lblTotHorReg.TabIndex = 0;
             this.lblTotHorReg.Text = "Total horas regulares :";
-            // 
-            // lblEstadoUnificacion
-            // 
-            this.lblEstadoUnificacion.AutoSize = true;
-            this.lblEstadoUnificacion.Location = new System.Drawing.Point(154, 142);
-            this.lblEstadoUnificacion.Name = "lblEstadoUnificacion";
-            this.lblEstadoUnificacion.Size = new System.Drawing.Size(0, 16);
-            this.lblEstadoUnificacion.TabIndex = 49;
             // 
             // frmEdicionUnificacion
             // 
@@ -552,7 +528,7 @@
             this.toolBotones.PerformLayout();
             this.tcUnificacion.ResumeLayout(false);
             this.tp1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdUniDatos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdMarcas)).EndInit();
             this.grpBotones.ResumeLayout(false);
             this.grpBotones.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -576,11 +552,11 @@
         private System.Windows.Forms.TabControl tcUnificacion;
         private System.Windows.Forms.TabPage tp1;
         private System.Windows.Forms.TabPage tp2;
-        private System.Windows.Forms.DateTimePicker dateFecha2;
-        private System.Windows.Forms.DateTimePicker dateFecha1;
+        private System.Windows.Forms.DateTimePicker dtpFecha2;
+        private System.Windows.Forms.DateTimePicker dtpFecha1;
         private System.Windows.Forms.Label lblFechas;
         private System.Windows.Forms.Label lblAl;
-        private System.Windows.Forms.ComboBox cmbCodEmpleado;
+        private System.Windows.Forms.ComboBox cmbIDEmpleado;
         private System.Windows.Forms.Label lblEmpleado;
         private System.Windows.Forms.Label lblEstadoMarcas;
         private System.Windows.Forms.ComboBox cmbEstado;
@@ -594,23 +570,20 @@
         private System.Windows.Forms.ToolStripButton btnBorrarMarca;
         private System.Windows.Forms.ToolStripButton btnNuevo;
         private System.Windows.Forms.GroupBox grpBotones;
-        private System.Windows.Forms.DataGridView grdUniDatos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numeroMarca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipo;
+        private System.Windows.Forms.DataGridView grdMarcas;
         private System.Windows.Forms.GroupBox grpTotPag;
         private System.Windows.Forms.GroupBox grpTotHor;
-        private System.Windows.Forms.TextBox txtTotHorDob;
+        private System.Windows.Forms.TextBox txthoraDoble;
         private System.Windows.Forms.Label lblTotHorDob;
-        private System.Windows.Forms.TextBox txtTotHorReg;
+        private System.Windows.Forms.TextBox txthoraRegular;
         private System.Windows.Forms.Label lblTotHorReg;
-        private System.Windows.Forms.TextBox txtTotHorasExtr;
+        private System.Windows.Forms.TextBox txthoraExtra;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtMonHorExt;
+        private System.Windows.Forms.TextBox txtmontoExtra;
         private System.Windows.Forms.Label lblMonHorExt;
-        private System.Windows.Forms.TextBox txtMonHorReg;
+        private System.Windows.Forms.TextBox txtmontoDobles;
         private System.Windows.Forms.Label lblTotHorDobles;
-        private System.Windows.Forms.TextBox txtMontHorReg;
+        private System.Windows.Forms.TextBox txtmontoRegular;
         private System.Windows.Forms.Label lblMontoHorReg;
         private System.Windows.Forms.Label lblEstadoUnificacion;
     }

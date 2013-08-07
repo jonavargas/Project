@@ -232,7 +232,7 @@ namespace GUI
             string departamento = "";
             string nombreEmpleado = "";
             string estadoMarca = "";
-            string activo = "Activo";
+            string activo = "Sí";
 
             {
                 if ((this.dtpFecha1.Value < this.dtpFecha2.Value))
@@ -309,37 +309,43 @@ namespace GUI
             }
         }
 
-        private void btnAnular_Click(object sender, EventArgs e)
+        public void btnAnular_Click(object sender, EventArgs e)
         {
-
-            if (this.grdMarcas.RowCount > 0)
+            try
             {
-                MarcaL oMarcaL = (MarcaL)this.grdMarcas.CurrentRow.DataBoundItem;
-
-                if (oMarcaL.EstadoMarca == "Generada")
+                if (this.grdMarcas.RowCount > 0)
                 {
-                    DialogResult confirmacion = MessageBox.Show("¿Está seguro de Anular esta Marca?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (confirmacion == DialogResult.No) return;
-                    this.oMarcaCambioEstado = (MarcaL)this.grdMarcas.CurrentRow.DataBoundItem;
-                    oMarcaCambioEstado.EstadoMarca = "Anulada";
-                    oMarcaCambioEstado.FechaModificacion = DateTime.Now;
-                    MarcaD oMarcaD = new MarcaD(this.conexion);
-                    oMarcaD.editarMarca(oMarcaCambioEstado, oMarcaL);
-                    if (oMarcaD.Error)
+                    MarcaL oMarcaL = (MarcaL)this.grdMarcas.CurrentRow.DataBoundItem;
+
+                    if (oMarcaL.EstadoMarca == "Generada")
                     {
-                        MessageBox.Show("Error actualizando los datos:" + oMarcaD.ErrorDescription);
+                        DialogResult confirmacion = MessageBox.Show("¿Está seguro de Anular esta Marca?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (confirmacion == DialogResult.No) return;
+                        this.oMarcaCambioEstado = (MarcaL)this.grdMarcas.CurrentRow.DataBoundItem;
+                        oMarcaCambioEstado.EstadoMarca = "Anulada";
+                        oMarcaCambioEstado.FechaModificacion = DateTime.Now;
+                        MarcaD oMarcaD = new MarcaD(this.conexion);
+                        oMarcaD.editarMarca(oMarcaCambioEstado, oMarcaL);
+                        if (oMarcaD.Error)
+                        {
+                            MessageBox.Show("Error actualizando los datos:" + oMarcaD.ErrorDescription);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Marca Anulada!!!");
+                            this.cargarGrid();
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Marca Anulada!!!");
-                        this.cargarGrid();
+                        MessageBox.Show("La Marca solo se puede modificar si su estado es 'Generada'");
+                        return;
                     }
                 }
-                else
-                {
-                    MessageBox.Show("La Marca solo se puede modificar si su estado es 'Generada'");
-                    return;
-                }
+            }catch(Exception ){
+                MessageBox.Show("Error anulando");
+                return;
+            
             }
         }
 
