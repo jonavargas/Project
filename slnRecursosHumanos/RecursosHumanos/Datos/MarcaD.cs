@@ -449,9 +449,9 @@ namespace Datos
                 if (pDepartamento != "")
                 {
                     parametros[indices] = new OracleParameter();
-                    parametros[indices].OracleType = OracleType.Int32;
+                    parametros[indices].OracleType = OracleType.VarChar;
                     parametros[indices].ParameterName = ":idDepartamento";
-                    parametros[indices].Value = Convert.ToInt32(pDepartamento);
+                    parametros[indices].Value = pDepartamento;
                     indices++;
                 }
 

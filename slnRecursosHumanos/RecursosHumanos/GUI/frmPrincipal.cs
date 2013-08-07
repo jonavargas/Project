@@ -139,13 +139,10 @@ namespace GUI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-
-        private void unificaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CrearUnificacion_Click(object sender, EventArgs e)
         {
-            frmEdicionUnificacion oFrmEdicion = new frmEdicionUnificacion(oUsuarioL, this.cnx);
+            frmUnificacion oFrmEdicion = new frmUnificacion(oUsuarioL, this.cnx);
             oFrmEdicion.ShowDialog();
         }
-
-
     }
 }

@@ -18,8 +18,13 @@ create table Usuario
   constraint PK_Usuario primary key (idUsuario)
 );
 
-INSERT INTO usuario(idUsuario, tipoUsuario, password, fechaModificacion, fechaCreacion, creadoPor, modificadoPor, activo)
+INSERT INTO usuario(idUsuario, tipoUsuario, password, fechaModificacion, fechaCreacion, creadoPor, modificadoPor,activo)
 VALUES('admin', 'Supervisor', 'admin', '01/01/2013',' 01/01/2013', 'Administrador', 'Administrados', 'Sí');
+
+
+INSERT INTO usuario(idUsuario, tipoUsuario, password, fechaModificacion, fechaCreacion, creadoPor, modificadoPor,activo) 
+VALUES('Bryan','Supervisor','oracle',sysdate,sysdate,'Supervisor','Supervisor','Sí');
+
 
 create table Deducciones
 (
@@ -178,6 +183,3 @@ create table Pago
  constraint montoPago_FK foreign key (montoPago) references unificacion (salarioBruto);
 
 );
-
-INSERT INTO usuario(idUsuario, tipoUsuario, password, fechaModificacion, fechaCreacion, creadoPor, modificadoPor,activo) 
-VALUES('Bryan','Supervisor','oracle',sysdate,sysdate,'Supervisor','Supervisor','Sí');

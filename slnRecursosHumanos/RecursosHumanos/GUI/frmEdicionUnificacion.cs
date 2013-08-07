@@ -13,7 +13,7 @@ using Datos;
 
 namespace GUI
 {
-    public partial class frmEdicionUnificacion : Form
+    public partial class frmUnificacion : Form
     {
         /// <summary>
         /// Variable para hacer la conexión a la base de datos
@@ -28,7 +28,7 @@ namespace GUI
         /// Metodo constructor que recibe por parámetro la conexión a la base de datos.
         /// </summary>
         /// <param name="pConexion"></param>
-        public frmEdicionUnificacion(List<UsuarioL> pUsuarioActual, AccesoDatosOracle pConexion)
+        public frmUnificacion(List<UsuarioL> pUsuarioActual, AccesoDatosOracle pConexion)
         {
             InitializeComponent();
             this.dtpFecha1.Value = DateTime.Today;
@@ -42,7 +42,7 @@ namespace GUI
             this.lblEstadoUnificacion.ForeColor = System.Drawing.Color.Blue;
         }
 
-        public frmEdicionUnificacion(UnificacionL pUnificacionEditar, List<UsuarioL> pUsuarioActual, AccesoDatosOracle pConexion)
+        public frmUnificacion(UnificacionL pUnificacionEditar, List<UsuarioL> pUsuarioActual, AccesoDatosOracle pConexion)
         {
             InitializeComponent();
             this.dtpFecha1.Value = DateTime.Today;

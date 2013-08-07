@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class frmEdicionUnificacion
+    partial class frmUnificacion
     {
         /// <summary>
         /// Required designer variable.
@@ -259,7 +259,7 @@
             this.groupBox1.TabIndex = 45;
             this.groupBox1.TabStop = false;
             // 
-            // frmEdicionUnificacion
+            // frmUnificacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -267,9 +267,9 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grdMarcas);
             this.Controls.Add(this.grpUnificacion);
-            this.Name = "frmEdicionUnificacion";
+            this.Name = "frmUnificacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Mantenimiento Unificación";
+            this.Text = "Unificación";
             this.grpUnificacion.ResumeLayout(false);
             this.grpUnificacion.PerformLayout();
             this.tollConsulta.ResumeLayout(false);

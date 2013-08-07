@@ -1,6 +1,6 @@
 ﻿namespace RecursosHumanos.GUI
 {
-    partial class frmMantUnificacion
+    partial class frmEdicionUnificacion
     {
         /// <summary>
         /// Required designer variable.
@@ -192,7 +192,7 @@
             this.btnCargarMarca});
             this.toolStrip1.Location = new System.Drawing.Point(3, 16);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(417, 58);
+            this.toolStrip1.Size = new System.Drawing.Size(386, 58);
             this.toolStrip1.TabIndex = 49;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -533,16 +533,16 @@
             this.lblTotHorReg.TabIndex = 0;
             this.lblTotHorReg.Text = "Total horas regulares :";
             // 
-            // frmMantUnificacion
+            // frmEdicionUnificacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(768, 516);
             this.Controls.Add(this.tcUnificacion);
             this.Controls.Add(this.toolBotones);
-            this.Name = "frmMantUnificacion";
+            this.Name = "frmEdicionUnificacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Unificación";
+            this.Text = "Edición Unificación";
             this.toolBotones.ResumeLayout(false);
             this.toolBotones.PerformLayout();
             this.tcUnificacion.ResumeLayout(false);

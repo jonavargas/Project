@@ -37,12 +37,13 @@
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.empleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.maToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.RegistroMarcas = new System.Windows.Forms.ToolStripMenuItem();
+            this.IngresoMarcas = new System.Windows.Forms.ToolStripMenuItem();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.lblSesion = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblNombreUsuario = new System.Windows.Forms.ToolStripStatusLabel();
-            this.unificaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Unificacion = new System.Windows.Forms.ToolStripMenuItem();
+            this.CrearUnificacion = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPrincipal.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +53,8 @@
             this.mnuPrincipal.Font = new System.Drawing.Font("Centaur", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mnuPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Mantenimientos,
-            this.toolStripMenuItem1});
+            this.RegistroMarcas,
+            this.Unificacion});
             this.mnuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mnuPrincipal.Name = "mnuPrincipal";
             this.mnuPrincipal.Size = new System.Drawing.Size(747, 29);
@@ -67,8 +69,7 @@
             this.parametroToolStripMenuItem,
             this.usuarioToolStripMenuItem,
             this.empleadoToolStripMenuItem,
-            this.maToolStripMenuItem,
-            this.unificaciónToolStripMenuItem});
+            this.maToolStripMenuItem});
             this.Mantenimientos.Name = "Mantenimientos";
             this.Mantenimientos.Size = new System.Drawing.Size(151, 25);
             this.Mantenimientos.Text = "Mantenimientos";
@@ -122,20 +123,20 @@
             this.maToolStripMenuItem.Text = "Consultar Marcas";
             this.maToolStripMenuItem.Click += new System.EventHandler(this.maToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem1
+            // RegistroMarcas
             // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(78, 25);
-            this.toolStripMenuItem1.Text = "Marcas";
+            this.RegistroMarcas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.IngresoMarcas});
+            this.RegistroMarcas.Name = "RegistroMarcas";
+            this.RegistroMarcas.Size = new System.Drawing.Size(78, 25);
+            this.RegistroMarcas.Text = "Marcas";
             // 
-            // toolStripMenuItem2
+            // IngresoMarcas
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(224, 26);
-            this.toolStripMenuItem2.Text = "Ingreso de Marcas";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            this.IngresoMarcas.Name = "IngresoMarcas";
+            this.IngresoMarcas.Size = new System.Drawing.Size(224, 26);
+            this.IngresoMarcas.Text = "Ingreso de Marcas";
+            this.IngresoMarcas.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // statusBar
             // 
@@ -159,12 +160,20 @@
             this.lblNombreUsuario.Name = "lblNombreUsuario";
             this.lblNombreUsuario.Size = new System.Drawing.Size(0, 17);
             // 
-            // unificaciónToolStripMenuItem
+            // Unificacion
             // 
-            this.unificaciónToolStripMenuItem.Name = "unificaciónToolStripMenuItem";
-            this.unificaciónToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
-            this.unificaciónToolStripMenuItem.Text = "Unificación";
-            this.unificaciónToolStripMenuItem.Click += new System.EventHandler(this.unificaciónToolStripMenuItem_Click);
+            this.Unificacion.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.CrearUnificacion});
+            this.Unificacion.Name = "Unificacion";
+            this.Unificacion.Size = new System.Drawing.Size(116, 25);
+            this.Unificacion.Text = "Unificación";
+            // 
+            // CrearUnificacion
+            // 
+            this.CrearUnificacion.Name = "CrearUnificacion";
+            this.CrearUnificacion.Size = new System.Drawing.Size(174, 26);
+            this.CrearUnificacion.Text = "Unificación";
+            this.CrearUnificacion.Click += new System.EventHandler(this.CrearUnificacion_Click);
             // 
             // frmPrincipal
             // 
@@ -200,10 +209,11 @@
         private System.Windows.Forms.StatusStrip statusBar;
         private System.Windows.Forms.ToolStripStatusLabel lblSesion;
         private System.Windows.Forms.ToolStripStatusLabel lblNombreUsuario;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem RegistroMarcas;
+        private System.Windows.Forms.ToolStripMenuItem IngresoMarcas;
         private System.Windows.Forms.ToolStripMenuItem maToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem unificaciónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Unificacion;
+        private System.Windows.Forms.ToolStripMenuItem CrearUnificacion;
     }
 }
 
