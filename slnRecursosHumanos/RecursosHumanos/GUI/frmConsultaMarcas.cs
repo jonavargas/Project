@@ -84,11 +84,6 @@ namespace GUI
                cmbEmpleado.ValueMember = "nombreCompleto";
                this.cmbEmpleado.SelectedItem = null;
            }
-
-           if (this.cmbEmpleado.Text != "")
-           {
-
-           }
        }
 
        /// <summary>

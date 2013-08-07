@@ -142,8 +142,8 @@ namespace GUI
 
         private void unificaciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmMantUnificacion oFrmMantUnificacion = new frmMantUnificacion(this.cnx);
-            oFrmMantUnificacion.ShowDialog();
+            frmEdicionUnificacion oFrmEdicion = new frmEdicionUnificacion(oUsuarioL, this.cnx);
+            oFrmEdicion.ShowDialog();
         }
 
 

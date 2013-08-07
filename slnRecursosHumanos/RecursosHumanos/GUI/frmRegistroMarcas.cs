@@ -54,7 +54,7 @@ namespace GUI
         {
             int  unificacion=0;
             MarcaD oMarcaD = new MarcaD(this.cnx);
-            int contMarcas = oMarcaD.retornoIdMarca();
+            
             EmpleadoD oEmpleadoD = new EmpleadoD(this.cnx);
             List<EmpleadoL> empleado = oEmpleadoD.buscarEmpleado(this.txtCodigoEmpleado.Text);
 

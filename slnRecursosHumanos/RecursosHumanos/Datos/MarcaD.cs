@@ -449,9 +449,9 @@ namespace Datos
                 if (pDepartamento != "")
                 {
                     parametros[indices] = new OracleParameter();
-                    parametros[indices].OracleType = OracleType.VarChar;
+                    parametros[indices].OracleType = OracleType.Int32;
                     parametros[indices].ParameterName = ":idDepartamento";
-                    parametros[indices].Value = pDepartamento;
+                    parametros[indices].Value = Convert.ToInt32(pDepartamento);
                     indices++;
                 }
 
@@ -533,17 +533,6 @@ namespace Datos
 
         }
 
-        public int retornoIdMarca()
-        {
-            int cont = 0;
-            OracleCommand cmd = new OracleCommand();
-            cmd.CommandText = "select marca_seq.nextval from dual";
-            cmd.CommandType = CommandType.Text;
-            cont = Int16.Parse(cmd.ExecuteScalar().ToString());
-            return cont;
-            {
-
-            }
-        }
+       
     }
 }

@@ -11,10 +11,10 @@ namespace Logica
         private int idUnificacion;        
         private string idEmpleado;       
         private int idPago;        
-        private DateTime fechaUnificacion;        
-        private double HorasRegulares;        
-        private double HorasExtras;       
-        private double HorasDobles;        
+        private DateTime fechaUnificacion;
+        private double horaRegular;       
+        private double horaExtra;        
+        private double horaDoble;              
         private string aprobacionExtra;        
         private string detalleAprobacionExtra;       
         private double porcentajeDeduccion;
@@ -31,30 +31,31 @@ namespace Logica
         private DateTime fechaModificacion;        
         private string activo;       
         private string nombreCompleto;
-
        
 
-        public UnificacionL(int pIdUnificacion, string pIdEmpleado, int pIdPago, DateTime pFechaUnificacion, double pHorasRegulares,
-                             double pHorasExtras, double pHorasDobles, string pAprobacionExtra, string pDetalleAprobacionExtra,
-                             double pPorcentajeDeduccion, double pPagoRegular, double pPagoExtra, double pPagoDoble, double pMontoDeduccion,
-                             string pEstadoUnificacion, double pSalarioBruto, double pMontoUnificacion, string pCreadoPor, DateTime pFechaCreacion,
+
+
+        public UnificacionL(int pIdUnificacion, string pIdEmpleado, int pIdPago, string pEstadoUnificacion, DateTime pFechaUnificacion, double pHoraRegular,
+                             double pHoraExtra, double pHoraDoble, string pAprobacionExtra, string pDetalleAprobacionExtra,
+                             double pPorcentajeDeduccion, double pMontoDeduccion, double pPagoRegular, double pPagoExtra, double pPagoDoble,
+                             double pSalarioBruto, double pMontoUnificacion, string pCreadoPor, DateTime pFechaCreacion,
                              string pModificadoPor, DateTime pFechaModificacion,string pactivo)
         {
             this.idUnificacion = pIdUnificacion;
             this.idEmpleado = pIdEmpleado;
             this.idPago = pIdPago;
+            this.estadoUnificacion = pEstadoUnificacion;
             this.fechaUnificacion = pFechaUnificacion;
-            this.HorasRegulares = pHorasRegulares;
-            this.HorasExtras = pHorasExtras;
-            this.HorasDobles = pHorasDobles;
+            this.horaRegular = pHoraRegular;
+            this.horaExtra = pHoraExtra;
+            this.horaDoble = pHoraDoble;
             this.aprobacionExtra = pAprobacionExtra;
-            this.detalleAprobacionExtra = pDetalleAprobacionExtra;
-            this.porcentajeDeduccion = pPorcentajeDeduccion;
+            this.detalleAprobacionExtra = pDetalleAprobacionExtra;           
             this.pagoRegular = pPagoRegular;
             this.pagoExtra = pPagoExtra;
             this.pagoDoble = pPagoDoble;
-            this.montoDeduccion = pMontoDeduccion;
-            this.estadoUnificacion = pEstadoUnificacion;
+            this.porcentajeDeduccion = pPorcentajeDeduccion;
+            this.montoDeduccion = pMontoDeduccion;           
             this.salarioBruto = pSalarioBruto;
             this.montoUnificacion = pMontoUnificacion;
             this.creadoPor = pCreadoPor;
@@ -67,28 +68,28 @@ namespace Logica
         
         }
 
-        public UnificacionL(int pIdUnificacion, string pIdEmpleado, int pIdPago, DateTime pFechaUnificacion, double pHorasRegulares,
-                             double pHorasExtras, double pHorasDobles, string pAprobacionExtra, string pDetalleAprobacionExtra,
-                             double pPorcentajeDeduccion, double pPagoRegular, double pPagoExtra, double pPagoDoble, double pMontoDeduccion,
-                             string pEstadoUnificacion, double pSalarioBruto, double pMontoUnificacion, string pCreadoPor, DateTime pFechaCreacion,
+        public UnificacionL( int pIdUnificacion, string pIdEmpleado, int pIdPago, string pEstadoUnificacion, DateTime pFechaUnificacion, double pHoraRegular,
+                             double pHoraExtra, double pHoraDoble, string pAprobacionExtra, string pDetalleAprobacionExtra,
+                             double pPorcentajeDeduccion, double pMontoDeduccion, double pPagoRegular, double pPagoExtra, double pPagoDoble,
+                              double pSalarioBruto, double pMontoUnificacion, string pCreadoPor, DateTime pFechaCreacion,
                              string pModificadoPor, DateTime pFechaModificacion,string pnombreCompleto, string pactivo)
         {
 
             this.idUnificacion = pIdUnificacion;
             this.idEmpleado = pIdEmpleado;
             this.idPago = pIdPago;
+            this.estadoUnificacion = pEstadoUnificacion;
             this.fechaUnificacion = pFechaUnificacion;
-            this.HorasRegulares = pHorasRegulares;
-            this.HorasExtras = pHorasExtras;
-            this.HorasDobles = pHorasDobles;
+            this.horaRegular = pHoraRegular;
+            this.horaExtra = pHoraExtra;
+            this.horaDoble = pHoraDoble;
             this.aprobacionExtra = pAprobacionExtra;
-            this.detalleAprobacionExtra = pDetalleAprobacionExtra;
-            this.porcentajeDeduccion = pPorcentajeDeduccion;
+            this.detalleAprobacionExtra = pDetalleAprobacionExtra;           
             this.pagoRegular = pPagoRegular;
             this.pagoExtra = pPagoExtra;
             this.pagoDoble = pPagoDoble;
-            this.montoDeduccion = pMontoDeduccion;
-            this.estadoUnificacion = pEstadoUnificacion;
+            this.porcentajeDeduccion = pPorcentajeDeduccion;
+            this.montoDeduccion = pMontoDeduccion;            
             this.salarioBruto = pSalarioBruto;
             this.montoUnificacion = pMontoUnificacion;
             this.creadoPor = pCreadoPor;
@@ -101,6 +102,8 @@ namespace Logica
         
         
         }
+
+        
         public int IdUnificacion
         {
             get { return idUnificacion; }
@@ -121,21 +124,17 @@ namespace Logica
             get { return fechaUnificacion; }
             set { fechaUnificacion = value; }
         }
-        public double HorasRegulares1
+        public double HoraRegular
         {
-            get { return HorasRegulares; }
-            set { HorasRegulares = value; }
+            get { return horaRegular; }
+            set { horaRegular = value; }
         }
-        public double HorasExtras1
+        public double HoraDoble
         {
-            get { return HorasExtras; }
-            set { HorasExtras = value; }
-        }
-        public double HorasDobles1
-        {
-            get { return HorasDobles; }
-            set { HorasDobles = value; }
-        }
+            get { return horaDoble; }
+            set { horaDoble = value; }
+        } 
+
         public string AprobacionExtra
         {
             get { return aprobacionExtra; }
@@ -160,6 +159,11 @@ namespace Logica
         {
             get { return pagoExtra; }
             set { pagoExtra = value; }
+        }
+        public double HoraExtra
+        {
+            get { return horaExtra; }
+            set { horaExtra = value; }
         }
         public double PagoDoble
         {
@@ -222,20 +226,19 @@ namespace Logica
             return  "ID Unificacion:"+this.IdUnificacion+"\n"+
                     "ID Empleado:"+this.IdEmpleado+"\n"+
                     "ID Pago:"+this.IdPago+"\n"+
+                    "Estado Unificación:" + this.EstadoUnificacion + "\n" +
                     "Fecha Unificacion:"+this.FechaUnificacion+"\n"+
-                    "Horas Regulares:"+this.HorasExtras1+"\n"+
-                    "Horas Extra:"+this.HorasExtras1+"\n"+
-                    "Horas Dobles:"+this.HorasDobles1+"\n"+
+                    "Horas Regulares:"+this.HoraExtra+"\n"+
+                    "Horas Extra:"+this.HoraExtra+"\n"+
+                    "Horas Dobles:"+this.HoraDoble+"\n"+
                     "Aprovación horas Extra:"+this.AprobacionExtra+"\n"+
                     "Detalle de aprovación horas extra:"+this.DetalleAprobacionExtra+"\n"+
                     "Porcentaje de Deducción:"+this.PorcentajeDeduccion+"\n"+
+                    "Monto Deducciones:" + this.MontoDeduccion + "\n" +
                     "Monto de horas Regulares:"+this.PagoRegular+"\n"+
                     "Monto de horas Extra:"+this.PagoExtra+"\n"+
-                    "Monto de horas Dobles:"+this.PagoDoble+"\n"+
-                    "Monto Deducciones:"+this.MontoDeduccion+"\n"+
-                    "Estado Unificación:"+this.EstadoUnificacion+"\n"+
+                    "Monto de horas Dobles:"+this.PagoDoble+"\n"+          
                     "Salario Bruto:"+this.SalarioBruto+"\n"+
-                    "Estado Unificación:"+this.EstadoUnificacion+"\n"+
                     "Monto Unificación:"+this.MontoUnificacion+"\n"+
                     "Creado Por:"+this.CreadoPor+"\n"+
                     "Fecha Creación:"+this.FechaCreacion+"\n"+
