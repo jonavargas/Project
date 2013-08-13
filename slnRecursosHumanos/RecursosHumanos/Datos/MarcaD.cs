@@ -91,6 +91,14 @@ namespace Datos
             return retorno;
         }
 
+        /// <summary>
+        /// Método que agrega un nueva marca a la Base de Datos de Oracle,el cual recibe por parámetro una marca  que viene cargado con 
+        /// los respectivos valores para ser pasados a la base de datos ya creada,ademas procede a realizar una consulta al sql para saber si
+        /// los parámetros creados coinciden con los de la base de datos y si considen procede a insertarlos
+        /// </summary>
+        /// <param name="pMarca"></param>
+        /// <returns></returns>
+
         public string agregarMarca(MarcaL pMarca)
         {
             string retorno = "";
@@ -172,6 +180,13 @@ namespace Datos
             return retorno;
         }
 
+        /// <summary>
+        /// Método que agrega una nueva marca a la Base de Datos de Oracle,el cual recibe por parámetro una marca que viene cargado con 
+        /// los respectivos valores para ser pasados a la base de datos ya creada,ademas procede a realizar una consulta al sql para saber si
+        /// los parámetros creados coinciden con los de la base de datos y si considen procede a insertarlos
+        /// </summary>
+        /// <param name="pMarca"></param>
+
         public void agregarMarca2(MarcaL pMarca)
         {
 
@@ -245,6 +260,12 @@ namespace Datos
             }
 
         }
+        /// <summary>
+        /// Metodo para obtener el tipo de marca que realizo el empleado
+        /// </summary>
+        /// <param name="pEmpleado"></param>
+        /// <returns></returns>
+
 
         private DataSet tipoMarca1(string pEmpleado)
         {
@@ -268,6 +289,12 @@ namespace Datos
             return retorno;
 
         }
+
+        /// <summary>
+        /// Método para obtener el tipo de marca
+        /// </summary>
+        /// <param name="pEmpleado"></param>
+        /// <returns></returns>
         public string tipoMarca(string pEmpleado)
         {
             MarcaL oMarcaL = new MarcaL();
@@ -301,9 +328,13 @@ namespace Datos
 
             }
             return tipo;
-
         }
 
+        /// <summary>
+        /// Método que nos sirve para editar la marca y cambia los datos editados
+        /// </summary>
+        /// <param name="pMarcaEditada"></param>
+        /// <param name="pMarcaOriginal"></param>
         public void editarMarca(MarcaL pMarcaEditada, MarcaL pMarcaOriginal)
         {
             try
@@ -391,7 +422,17 @@ namespace Datos
                 this.errorDescription = "Error editando marca:" + e.Message;
             }
         }
-
+        /// <summary>
+        /// Metodo que sirve para obtener la marca por un filtro de acceso rapido a los datos
+        /// </summary>
+        /// <param name="pFecha1"></param>
+        /// <param name="pFecha2"></param>
+        /// <param name="pIdEmpleado"></param>
+        /// <param name="pDepartamento"></param>
+        /// <param name="pNombreEmpleado"></param>
+        /// <param name="pEstadoMarca"></param>
+        /// <param name="pActivo"></param>
+        /// <returns></returns>
         public List<MarcaL> obtenerMarcaFiltro(DateTime pFecha1, DateTime pFecha2, string pIdEmpleado, string pDepartamento,
                                                string pNombreEmpleado, string  pEstadoMarca, string pActivo)
         {

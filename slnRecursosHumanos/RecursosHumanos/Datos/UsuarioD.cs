@@ -234,6 +234,12 @@ namespace Datos
           }
        }
 
+        /// <summary>
+        /// Método para validar que el login sea el correcto y se encuentre en la base de datos
+        /// </summary>
+        /// <param name="pLogin"></param>
+        /// <returns></returns>
+
       public List<UsuarioL> validarLogin(UsuarioL pLogin)
       {
           List<UsuarioL> retorno = new List<UsuarioL>();
@@ -277,6 +283,11 @@ namespace Datos
           }
           return retorno;
       }
+        /// <summary>
+        /// Método para saber cual usuario esta conectado a la aplicación
+        /// </summary>
+        /// <param name="pLogin"></param>
+        /// <returns></returns>
 
       public List<UsuarioL> usuarioAdministrador(UsuarioL pLogin)
       {
@@ -290,6 +301,12 @@ namespace Datos
           }
           return retorno;
       }
+
+        /// <summary>
+        /// Método para obtener el id del usuario
+        /// </summary>
+        /// <param name="pIDUsuario"></param>
+        /// <returns></returns>
 
       public List<UsuarioL> obtenerUsuarioID(string pIDUsuario)
       {

@@ -43,6 +43,10 @@ namespace Logica
             this.fechaModificacion = pFechaModificacion;
             this.activo = pActivo;
         }
+        /// <summary>
+        /// Metodo constructor con parámetros
+        /// </summary>
+        
         public MarcaL(int pidMarca, string pIdEmpleado, int pIdUnificacion, string pEstadoMarca, string pTipoMarca, DateTime pfechaMarca, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, DateTime pFechaModificacion, string pActivo)
         {
             this.idMarca = pidMarca;            
@@ -57,6 +61,10 @@ namespace Logica
             this.fechaModificacion = pFechaModificacion;
             this.activo = pActivo;
         }
+        /// <summary>
+        /// Metodo constructor con parámetros
+        /// </summary>
+        
         public MarcaL(string pIdEmpleado, int pIdUnificacion, string pEstadoMarca, string pTipoMarca, DateTime pfechaMarca, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, DateTime pFechaModificacion, string pActivo)
         {
             this.idEmpleado = pIdEmpleado;
@@ -70,6 +78,9 @@ namespace Logica
             this.fechaModificacion = pFechaModificacion;
             this.activo = pActivo;
         }
+        /// <summary>
+        /// Método constructor vácio
+        /// </summary>
 
         public MarcaL()
         {
