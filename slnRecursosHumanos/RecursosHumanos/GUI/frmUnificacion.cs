@@ -176,7 +176,7 @@ namespace GUI
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            frmEdicionUnificacion ofrmEdicionUnificacion = new frmEdicionUnificacion(oUsuarioActual,this.conexion);
+            frmEdicionUnificacion ofrmEdicionUnificacion = new frmEdicionUnificacion(this.oUsuarioActual,this.conexion);
             ofrmEdicionUnificacion.ShowDialog();
         }
     }

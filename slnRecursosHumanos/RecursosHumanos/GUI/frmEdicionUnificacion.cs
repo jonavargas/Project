@@ -293,7 +293,7 @@ namespace GUI
             {
                 if (!this.conexion.IsError)
                 {
-                    UnificacionL oUnificacionL = new UnificacionL(0, this.cmbIDEmpleado.SelectedValue.ToString(), 0, this.cmbEstado.SelectedItem.ToString(), DateTime.Now, 0, 0, 0, "", "", 0, 0, 0, 0, 0, 0, 0, this.oUsuarioConectado[0].IdUsuario, DateTime.Parse(this.dtpFecha1.Text), this.oUsuarioConectado[0].IdUsuario, DateTime.Parse(this.dtpFecha2.Text), "Sí");
+                    UnificacionL oUnificacionL = new UnificacionL(0, this.cmbIDEmpleado.SelectedValue.ToString(), 0, this.cmbEstado.SelectedItem.ToString(), DateTime.Now, 0, 0, 0, "", "", 0, 0, 0, 0, 0, 0, 0, "Bryan", DateTime.Parse(this.dtpFecha1.Text), "Bryan", DateTime.Parse(this.dtpFecha2.Text), "Sí");
 
                     string numeroUnificacion = oUnificacionD.agregarUnificacion(oUnificacionL);
                     this.numeroUnificacion = int.Parse(numeroUnificacion);
