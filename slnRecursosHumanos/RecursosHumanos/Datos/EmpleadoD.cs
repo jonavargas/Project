@@ -549,26 +549,5 @@ namespace Datos
             return datos;
         }
 
-
-
-        public DataSet obtenerIdEmpleadoPorNombreCompleto(string nombreCompleto)
-        {
-            DataSet datos = this.cnx.ejecutarConsultaSQL("select idEmpleado from Empleado where nombreEmpleado || ' ' || apellido1 || ' ' || apellido2 = '" + nombreCompleto + "'");
-            try
-            {
-                if (this.cnx.IsError == true)
-                {
-                    this.error = true;
-                    this.errorDescription = "Error obteniendo Empleados: " +
-                                            this.cnx.ErrorDescripcion;
-                }
-            }
-            catch (Exception e)
-            {
-                this.error = true;
-                this.errorDescription = "Error obteniendo Empleados: " + e.Message;
-            }
-            return datos;
-        }
     }
 }
