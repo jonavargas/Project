@@ -67,7 +67,6 @@ namespace GUI
             this.txtNumUni.Enabled = false;
         }
 
-
         /// <summary>
         /// Método para cargar el combobox CodigoEmpleadoo con los codigos existentes en la base de datos.
         /// También rellena el combo box código empleado de acuerdo a los empleados que existen en el departamento seleccionado.

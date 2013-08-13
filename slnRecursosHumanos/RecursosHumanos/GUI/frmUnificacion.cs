@@ -36,23 +36,12 @@ namespace GUI
             this.dtpFecha2.Value = DateTime.Today.AddHours(23).AddMinutes(59).AddSeconds(59);
             this.conexion = pConexion;
             this.cargarCmbDepartamento(pConexion);
-            this.cargarComboCodigoEmpleado(pConexion);
-            this.cmbCodigo.SelectedItem = null;
+            this.cargarComboNombreEmpleado(pConexion);
+            this.cmbNombreEmpleado.SelectedItem = null;
             this.cmbDepartamento.SelectedItem = null;
            
         }
 
-        public frmUnificacion(UnificacionL pUnificacionEditar, List<UsuarioL> pUsuarioActual, AccesoDatosOracle pConexion)
-        {
-            InitializeComponent();
-            this.dtpFecha1.Value = DateTime.Today;
-            this.dtpFecha2.Value = DateTime.Today.AddHours(23).AddMinutes(59).AddSeconds(59);
-            this.conexion = pConexion;
-            this.cargarCmbDepartamento(pConexion);
-            this.cargarComboCodigoEmpleado(pConexion);
-            this.cmbCodigo.SelectedItem = null;
-            this.cmbDepartamento.SelectedItem = null;
-        }
         /// <summary>
         /// Método para cargar el combobox Departamento con los departamentos existentes en la base de datos.
         /// </summary>
@@ -70,23 +59,23 @@ namespace GUI
         /// Método para cargar el combobox Empleado con los enpleados existentes en la base de datos.
         /// </summary>
         /// <param name="pcnx"></param>
-        public void cargarComboCodigoEmpleado(AccesoDatosOracle pcnx)
+        public void cargarComboNombreEmpleado(AccesoDatosOracle pcnx)
         {
             if (this.cmbDepartamento.Text == "")
             {
                 EmpleadoD oEmpleadoD = new EmpleadoD(pcnx);
-                cmbCodigo.DataSource = oEmpleadoD.obtenerCodigoEmpleado().Tables[0].Copy();
-                cmbCodigo.DisplayMember = "idEmpleado";
-                cmbCodigo.ValueMember = "idEmpleado";
-                this.cmbCodigo.SelectedItem = null;
+                cmbNombreEmpleado.DataSource = oEmpleadoD.obtenerNombreEmpleado().Tables[0].Copy();
+                cmbNombreEmpleado.DisplayMember = "nombreCompleto";
+                cmbNombreEmpleado.ValueMember = "nombreCompleto";
+                this.cmbNombreEmpleado.SelectedItem = null;
             }
             else
             {
                 EmpleadoD oEmpleadoD = new EmpleadoD(pcnx);
-                cmbCodigo.DataSource = oEmpleadoD.obtenerIdEmpleadoPorDepartameno(this.cmbDepartamento.SelectedValue.ToString()).Tables[0].Copy();
-                cmbCodigo.DisplayMember = "idEmpleado";
-                cmbCodigo.ValueMember = "idEmpleado";
-                this.cmbCodigo.SelectedItem = null;
+                cmbNombreEmpleado.DataSource = oEmpleadoD.obtenerNombreEmpleadoPorDepartameno(this.cmbDepartamento.SelectedValue.ToString()).Tables[0].Copy();
+                cmbNombreEmpleado.DisplayMember = "nombreCompleto";
+                cmbNombreEmpleado.ValueMember = "nombreCompleto";
+                this.cmbNombreEmpleado.SelectedItem = null;
             }
         }
 
@@ -134,17 +123,14 @@ namespace GUI
                         departamento = this.cmbDepartamento.SelectedValue.ToString();
                     }
 
-                    if (this.cmbCodigo.SelectedValue == null)
+                    if (this.cmbNombreEmpleado.SelectedValue == null)
                     {
                         nombreEmpleado = "";
                     }
                     else
                     {
-                        nombreEmpleado = this.cmbCodigo.SelectedValue.ToString();
+                        nombreEmpleado = this.cmbNombreEmpleado.SelectedValue.ToString();
                     }
-
-                  
-
 
                     List<MarcaL> listaMarcas = oMarcaD.obtenerMarcaFiltro(this.dtpFecha1.Value, this.dtpFecha2.Value, idEmpleado, departamento,
                                                                              nombreEmpleado, estadoMarca, activo);
@@ -171,13 +157,34 @@ namespace GUI
 
         private void cmbDepartamento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.cargarComboCodigoEmpleado(this.conexion);
+            this.cargarComboNombreEmpleado(this.conexion);
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             frmEdicionUnificacion ofrmEdicionUnificacion = new frmEdicionUnificacion(oUsuarioActual,this.conexion);
             ofrmEdicionUnificacion.ShowDialog();
+        }
+
+        public void NombreCompletoEnId() 
+        {
+            string nombreCompleto = "";
+            object id = "";
+
+            EmpleadoD oEmpleadoD = new EmpleadoD(this.conexion);
+            //if (this.cmbNombreEmpleado.SelectedText != "")
+            //{
+                nombreCompleto = this.cmbNombreEmpleado.SelectedValue.ToString();
+                id = (oEmpleadoD.obtenerIdEmpleadoPorNombreCompleto(nombreCompleto).Tables[0].Rows.Count + 1);
+           // }
+            
+            //return id.ToString();
+            MessageBox.Show("" + id);
+        }
+
+        private void cmbNombreEmpleado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.NombreCompletoEnId();
         }
     }
 }
