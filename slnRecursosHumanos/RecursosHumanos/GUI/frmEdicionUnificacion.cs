@@ -23,6 +23,8 @@ namespace GUI
         List<UsuarioL> oUsuarioConectado;
         MarcaL oMarcaL, oMarcaCambioEstado;
         MarcaD oMarcaD;
+        int numeroUnificacion = 0;
+        
 
         public List<UsuarioL> OUsuarioConectado
         {
@@ -30,15 +32,39 @@ namespace GUI
             set { oUsuarioConectado = value; }
         }
 
-        public frmEdicionUnificacion(AccesoDatosOracle pConexion)
+        public frmEdicionUnificacion(List<UsuarioL> pUsuarioConectado, AccesoDatosOracle pConexion)
         {
             InitializeComponent();
             this.conexion = pConexion;
+            this.OUsuarioConectado = pUsuarioConectado;
+            this.cargarComboCodigoEmpleado(pConexion);
+            this.grpBotones.Visible = false;
+            this.txthoraDoble.Text = Convert.ToString(0);
+            this.txthoraExtra.Text = Convert.ToString(0);
+            this.txthoraRegular.Text = Convert.ToString(0);
+            this.txtmontoDobles.Text = Convert.ToString(0);
+            this.txtmontoRegular.Text = Convert.ToString(0);
+            this.txtmontoExtra.Text = Convert.ToString(0);
+            this.txthoraDoble.Enabled = false;
+            this.txthoraExtra.Enabled = false;
+            this.txthoraRegular.Enabled = false;
+            this.txtmontoDobles.Enabled = false;
+            this.txtmontoRegular.Enabled = false;
+            this.txtmontoExtra.Enabled = false;            
+            this.lblEstadoUnificacion.Text = "OK";
+            this.lblEstadoUnificacion.ForeColor = System.Drawing.Color.Blue;
+            this.txtNumUni.Enabled = false;
+        }
+        public frmEdicionUnificacion(UnificacionL pUnificacionEditar,List<UsuarioL> pUsuarioConectado, AccesoDatosOracle pConexion)
+        {
+            InitializeComponent();
+            this.conexion = pConexion;
+            this.OUsuarioConectado = pUsuarioConectado;
             this.cargarComboCodigoEmpleado(pConexion);
             this.cmbIDEmpleado.SelectedItem = null;
             this.lblEstadoUnificacion.Text = "OK";
             this.lblEstadoUnificacion.ForeColor = System.Drawing.Color.Blue;
-            this.txNumUni.Enabled = false;
+            this.txtNumUni.Enabled = false;
         }
 
 
@@ -94,6 +120,28 @@ namespace GUI
                     
                     List<MarcaL> listaMarcas = oMarcaD.obtenerMarcaFiltro(this.dtpFecha1.Value, this.dtpFecha2.Value, idEmpleado, departamento,
                                                                              nombreEmpleado, estadoMarca, activo);
+
+
+                    for (int i = 0; i < listaMarcas.Count; i++)
+                    {
+                        listaMarcas[i].IdUnificacion = this.numeroUnificacion;
+                        listaMarcas[i].EstadoMarca = "Trámite";
+                        listaMarcas[i].ModificadoPor = this.oUsuarioConectado[0].IdUsuario;
+                        listaMarcas[i].FechaModificacion = DateTime.Now;
+                        MarcaL marcaEditada = listaMarcas[i];
+
+                        oMarcaD.editarMarca(marcaEditada, marcaEditada);
+                        if (oMarcaD.Error)
+                        {
+                            this.conexion.rollbackTransaccion();
+                            MessageBox.Show("Error, detalle:" + oMarcaD.ErrorDescription);
+                            return;
+                        }
+                    }
+
+
+
+                    
                     if (!oMarcaD.Error)
                     {
                         this.grdMarcas.DataSource = listaMarcas;
@@ -238,275 +286,46 @@ namespace GUI
             }
         }
 
-         private void validarMarcas()
+        private void btnSalvar_Click(object sender, EventArgs e)
         {
-            this.txthoraDoble.Text = "0";
-            this.txtmontoDobles.Text = "0";
-            this.txthoraExtra.Text = "0";
-            this.txthoraRegular.Text = "0";
-            this.txtmontoExtraOrdinario.Text = "0";
-            this.txtmontoRegular.Text = "0";
-            this.txtPorcentajeDeduccion.Text = "0";
-            this.txtMontoDeduccion.Text = "0";
-            this.txtNeto.Text = "0";
-            this.txtBruto.Text = "0";
-            this.pagoDoble = 0;
-            this.pagoExtra = 0;
-            this.pagoOrdinario = 0;
-            this.montoDeduccion = 0;
-            Boolean banderaError = false;
-            this.txtEstadoMarcas.BackColor = System.Drawing.Color.LightBlue;
-
-            if (this.grdMarcas.RowCount > 0)
+            UnificacionD oUnificacionD = new UnificacionD(this.conexion);
+            try
             {
-                                    #region Crear parejas de marcas
-                                    //int contador = 0;
-                                    int cantidadFilas = this.grdMarcas.RowCount;
-                                    for (int contador = 0; contador < cantidadFilas; contador++)
-                                    //if (this.grdMarcas.RowCount >= contador)
-                                    {
+                if (!this.conexion.IsError)
+                {
+                    UnificacionL oUnificacionL = new UnificacionL(0, this.cmbIDEmpleado.SelectedItem.ToString(), 0, this.cmbEstado.SelectedItem.ToString(), DateTime.Now, 0, 0, 0, "", "", 0, 0, 0, 0, 0, 0, 0, OUsuarioConectado[0].IdUsuario, DateTime.Parse(this.dtpFecha1.Text), OUsuarioConectado[0].IdUsuario, DateTime.Parse(this.dtpFecha2.Text), "Sí");
 
-                                        #region marcaEntrada
-                                        int idMarca = Convert.ToInt32(this.grdMarcas["idMarca", contador].Value.ToString());
-                                        int idUnificacion = Convert.ToInt32(this.grdMarcas["idUnificacion", contador].Value.ToString());
-                                        string idEmpleado = this.grdMarcas["idEmpleado", contador].Value.ToString();
-                                        string nombre = this.grdMarcas[3, contador].Value.ToString();
-                                        DateTime fecha = DateTime.Parse(this.grdMarcas["fecha", contador].Value.ToString());
-                                        string tipo = this.grdMarcas["tipo", contador].Value.ToString();
-                                        string estado = this.grdMarcas["estado", contador].Value.ToString();
-                                        string creadoPor = this.grdMarcas["creadoPor", contador].Value.ToString();
-                                        DateTime fechaCreacion = DateTime.Parse(this.grdMarcas["fechaCreacion", contador].Value.ToString());
-                                        string modificadoPor = this.grdMarcas["modificadoPor", contador].Value.ToString();
-                                        DateTime fechaModificacion = DateTime.Parse(this.grdMarcas["fechaModificacion", contador].Value.ToString());
-                                        #endregion
+                    string numeroUnificacion = oUnificacionD.agregarUnificacion(oUnificacionL);
+                    this.numeroUnificacion = int.Parse(numeroUnificacion);
+                    this.txtNumUni.Text = numeroUnificacion;
+                    this.cmbIDEmpleado.Enabled = false;
+                    this.dtpFecha1.Enabled = false;
+                    this.dtpFecha2.Enabled = false;
+                    this.cmbEstado.Enabled = false;
+                    this.grpBotones.Visible=true;
 
-                                        marcaEntrada = new MarcasL(idMarca, idUnificacion, idEmpleado, fecha, tipo, estado, creadoPor, fechaCreacion, modificadoPor, fechaModificacion, nombre);
-                                        marcaSalida = new MarcasL(idMarca, idUnificacion, idEmpleado, fecha, tipo, estado, creadoPor, fechaCreacion, modificadoPor, fechaModificacion, nombre);
-                                        contador++;
-
-                                        if (contador < cantidadFilas)
-                                        {
-                                            #region marcaSalida
-                                            idMarca = Convert.ToInt32(this.grdMarcas["idMarca", contador].Value.ToString());
-                                            idUnificacion = Convert.ToInt32(this.grdMarcas["idUnificacion", contador].Value.ToString());
-                                            idEmpleado = this.grdMarcas["idEmpleado", contador].Value.ToString();
-                                            nombre = this.grdMarcas[3, contador].Value.ToString();
-                                            fecha = DateTime.Parse(this.grdMarcas["fecha", contador].Value.ToString());
-                                            tipo = this.grdMarcas["tipo", contador].Value.ToString();
-                                            estado = this.grdMarcas["estado", contador].Value.ToString();
-                                            creadoPor = this.grdMarcas["creadoPor", contador].Value.ToString();
-                                            fechaCreacion = DateTime.Parse(this.grdMarcas["fechaCreacion", contador].Value.ToString());
-                                            modificadoPor = this.grdMarcas["modificadoPor", contador].Value.ToString();
-                                            fechaModificacion = DateTime.Parse(this.grdMarcas["fechaModificacion", contador].Value.ToString());
-                                            #endregion
-
-                                            marcaSalida = new MarcasL(idMarca, idUnificacion, idEmpleado, fecha, tipo, estado, creadoPor, fechaCreacion, modificadoPor, fechaModificacion, nombre);
-                                        }
-                                    #endregion
-
-                                    #region verificar errores de marcas
-                                        //iguala las marcas para descartar alguna ultima marca que sea de entrada y no se le alla asignado una salida
-                                        if (marcaEntrada.IdMarca != marcaSalida.IdMarca)
-                                        {
-                                            fechaEntrada = marcaEntrada.Fecha.Date;
-                                            fechaSalida = marcaSalida.Fecha.Date;
-
-                                            if (fechaEntrada == fechaSalida)
-                                            {
-                                                if (marcaEntrada.Tipo == "e" && marcaSalida.Tipo == "s")
-                                                {
-                                                    if (banderaError == false)
-                                                    {
-                                        #endregion
-
-                                    #region cálculoHorasDobles
-                                    this.horasTotales = marcaSalida.Fecha - marcaEntrada.Fecha;
-                                    CategoriaFechasDoblesL objFechasDobles = new CategoriaFechasDoblesL(this.cnx);
-                                    //EmpleadoL obj = new EmpleadoL();
-
-                                    if (objFechasDobles.validarFechaDoble(marcaEntrada.Fecha) == true)
-                                    {
-                                        horasDobles = Convert.ToDouble(this.txtHorasDobles.Text) + objFechasDobles.horasDobles(this.horasTotales);
-                                        this.txtHorasDobles.Text = horasDobles.ToString();
-
-                                        if (this.grdEmpleadosUnificar.RowCount > 0)
-                                        {
-                                            int fila = this.grdEmpleadosUnificar.CurrentRow.Index;
-
-                                            string pId = this.grdEmpleadosUnificar["colId", fila].Value.ToString();
-                                            string pNombre = this.grdEmpleadosUnificar["colNombre", fila].Value.ToString();
-                                            string pApellido1 = this.grdEmpleadosUnificar["colApellido1", fila].Value.ToString();
-                                            string pApellido2 = this.grdEmpleadosUnificar["colApellido2", fila].Value.ToString();
-                                            string pNombreCompleto = this.grdEmpleadosUnificar["colNombreCompelto", fila].Value.ToString();
-                                            string pEmail = this.grdEmpleadosUnificar["colEmail", fila].Value.ToString();
-                                            int pTelefono = Convert.ToInt32(this.grdEmpleadosUnificar["colTelefono", fila].Value.ToString());
-                                            string pDepartamento = this.grdEmpleadosUnificar["colIdDepartamento", fila].Value.ToString();
-                                            double pSalario = Convert.ToDouble(this.grdEmpleadosUnificar["colPrecioHora", fila].Value.ToString());
-                                            string pEstado = this.grdEmpleadosUnificar["colEstado", fila].Value.ToString();
-                                            string pCreadoPor = this.grdEmpleadosUnificar["colCreadoPor", fila].Value.ToString();
-                                            DateTime pFechaCreacion = Convert.ToDateTime(this.grdEmpleadosUnificar["colFechaCreacion", fila].Value.ToString());
-                                            string pModificadoPor = this.grdEmpleadosUnificar["colModificadoPor", fila].Value.ToString();
-                                            DateTime pFechaMod = Convert.ToDateTime(this.grdEmpleadosUnificar["colFechaModificacion", fila].Value.ToString());
-
-
-                                            empleado = new EmpleadoL(pId, pNombre, pApellido1, pApellido2, pNombreCompleto, pEmail,
-                                                                                pTelefono, pDepartamento, pSalario, pEstado, pCreadoPor,
-                                                                                pFechaCreacion, pModificadoPor, pFechaMod);
-
-                                            pagoDoble = empleado.pagoDoble(Convert.ToDouble(this.txtHorasDobles.Text));
-                                            this.txtPagoDoble.Text = pagoDoble.ToString();
-
-
-                                            this.txtEstadoMarcas.Text = "Ok";
-                                        }
-                                    }
-                                    #endregion
-
-                                    #region cálculo horas Ordinarias y extras
-                                    else
-                                    {
-
-                                        if (this.grdEmpleadosUnificar.RowCount > 0)
-                                        {
-                                            int fila = this.grdEmpleadosUnificar.CurrentRow.Index;
-
-                                            string pId = this.grdEmpleadosUnificar["colId", fila].Value.ToString();
-                                            string pNombre = this.grdEmpleadosUnificar["colNombre", fila].Value.ToString();
-                                            string pApellido1 = this.grdEmpleadosUnificar["colApellido1", fila].Value.ToString();
-                                            string pApellido2 = this.grdEmpleadosUnificar["colApellido2", fila].Value.ToString();
-                                            string pNombreCompleto = this.grdEmpleadosUnificar["colNombreCompelto", fila].Value.ToString();
-                                            string pEmail = this.grdEmpleadosUnificar["colEmail", fila].Value.ToString();
-                                            int pTelefono = Convert.ToInt32(this.grdEmpleadosUnificar["colTelefono", fila].Value.ToString());
-                                            string pDepartamento = this.grdEmpleadosUnificar["colIdDepartamento", fila].Value.ToString();
-                                            double pSalario = Convert.ToDouble(this.grdEmpleadosUnificar["colPrecioHora", fila].Value.ToString());
-                                            string pEstado = this.grdEmpleadosUnificar["colEstado", fila].Value.ToString();
-                                            string pCreadoPor = this.grdEmpleadosUnificar["colCreadoPor", fila].Value.ToString();
-                                            DateTime pFechaCreacion = Convert.ToDateTime(this.grdEmpleadosUnificar["colFechaCreacion", fila].Value.ToString());
-                                            string pModificadoPor = this.grdEmpleadosUnificar["colModificadoPor", fila].Value.ToString();
-                                            DateTime pFechaMod = Convert.ToDateTime(this.grdEmpleadosUnificar["colFechaModificacion", fila].Value.ToString());
-
-
-                                            empleado = new EmpleadoL(pId, pNombre, pApellido1, pApellido2, pNombreCompleto, pEmail,
-                                                                                pTelefono, pDepartamento, pSalario, pEstado, pCreadoPor,
-                                                                                pFechaCreacion, pModificadoPor, pFechaMod);
-
-                                            HorarioL objHorario = new HorarioL(this.cnx);
-                                            //objHorario.calculaExtraYOrdinaria(marcaEntrada, marcaSalida, this.horasTotales);
-                                            objHorario.calculaExtraYOrdinariaPrueba(marcaEntrada, marcaSalida);
-
-                                            this.horasExtras = objHorario.HorasExtrasConvertidas + Convert.ToDouble(this.txtHoraExtraOrdinaria.Text);
-                                            this.txtHoraExtraOrdinaria.Text = this.horasExtras.ToString();
-
-                                            this.pagoExtra = /*Convert.ToDouble(this.txtPagoExtraOrdinario.Text) + */empleado.pagoExtraOrdinario(Convert.ToDouble(this.horasExtras));
-                                            this.txtPagoExtraOrdinario.Text = this.pagoExtra.ToString();
-
-                                            this.horasOrdinarias = objHorario.HorasOrdinariasConvertidas + Convert.ToDouble(this.txtHorasOrdinarias.Text);
-                                            this.txtHorasOrdinarias.Text = this.horasOrdinarias.ToString();
-
-                                            this.pagoOrdinario = /*Convert.ToDouble(this.txtPagoOrdinario.Text) +*/ empleado.pagoOrdinario(Convert.ToDouble(this.horasOrdinarias));
-                                            this.txtPagoOrdinario.Text = this.pagoOrdinario.ToString();
-
-                                            this.txtEstadoMarcas.Text = "Ok";
-                                        }
-                                    }
-                                    #endregion
-
-                                    #region Calcula salario Bruto
-
-                                    this.calcularSalarioBruto();
-                                    this.txtBruto.Text = salarioBruto.ToString();
-
-                                    #endregion
-
-                                    #region Calcula Deducciones Empleados
-
-                                    DeduccionEmpleadoL oDeduccionEmpleado = new DeduccionEmpleadoL(this.cnx);
-                                    oDeduccionEmpleado.calcularDeduccionesEmpleado(this.empleado);
-                                    this.porcentajeDeduccion = oDeduccionEmpleado.PorcentajeSumado;
-                                    this.txtPorcentajeDeduccion.Text = Convert.ToString(this.porcentajeDeduccion) + " %";
-
-                                    this.montoDeduccion = this.salarioBruto * (porcentajeDeduccion / 100);
-                                    this.txtMontoDeduccion.Text = this.montoDeduccion.ToString();
-                                    #endregion
-
-                                    #region Calcula Salario Neto
-
-                                    this.calcularSalarioNeto();
-                                    this.txtNeto.Text = this.salarioNeto.ToString();
-                                }
-
-                            }
-                                    #endregion
-
-                                    #region ErrorMarcas
-                            else
-                            {
-                                banderaError = true;
-                                this.porcentajeDeduccion = 0.0;
-                                this.pagoOrdinario = 0.0;
-                                this.pagoExtra = 0.0;
-                                this.pagoDoble = 0.0;
-                                this.montoDeduccion = 0.0;
-                                this.salarioBruto = 0.0;
-                                this.salarioNeto = 0.0;                                        
-                                this.txtBruto.Text = "0.0";
-                                this.txtNeto.Text = "0.0";
-                                this.txtHorasDobles.Text = "0.0";
-                                this.txtPagoDoble.Text = "0.0";
-                                this.txtHoraExtraOrdinaria.Text = "0.0";
-                                this.txtHorasOrdinarias.Text = "0.0";
-                                this.txtEstadoMarcas.BackColor = System.Drawing.Color.Red;
-                                this.txtEstadoMarcas.Text = "Error";
-                                //this.grdMarcas.ForeColor = Color.Red;
-                                //return;
-                            }
-                        }
-                        else
-                        {
-                            banderaError = true;
-                            this.porcentajeDeduccion = 0.0;
-                            this.pagoOrdinario = 0.0;
-                            this.pagoExtra = 0.0;
-                            this.pagoDoble = 0.0;
-                            this.montoDeduccion = 0.0;
-                            this.salarioBruto = 0.0;
-                            this.salarioNeto = 0.0; 
-                            this.txtBruto.Text = "0.0";
-                            this.txtNeto.Text = "0.0";
-                            this.txtHorasDobles.Text = "0.0";
-                            this.txtPagoDoble.Text = "0.0";
-                            this.txtHoraExtraOrdinaria.Text = "0.0";
-                            this.txtHorasOrdinarias.Text = "0.0";
-                            this.txtEstadoMarcas.BackColor = System.Drawing.Color.Red;
-                            this.txtEstadoMarcas.Text = "Error";
-                            //this.grdMarcas.ForeColor = Color.Red;
-                            //return;
-                        }
-
-                    }
-                    else
-                    {
-                        banderaError = true;
-                        this.porcentajeDeduccion = 0.0;
-                        this.pagoOrdinario = 0.0;
-                        this.pagoExtra = 0.0;
-                        this.pagoDoble = 0.0;
-                        this.montoDeduccion = 0.0;
-                        this.salarioBruto = 0.0;
-                        this.salarioNeto = 0.0; 
-                        this.txtBruto.Text = "0.0";
-                        this.txtNeto.Text = "0.0";
-                        this.txtHorasDobles.Text = "0.0";
-                        this.txtPagoDoble.Text = "0.0";
-                        this.txtHoraExtraOrdinaria.Text = "0.0";
-                        this.txtHorasOrdinarias.Text = "0.0";
-                        this.txtEstadoMarcas.BackColor = System.Drawing.Color.Red;
-                        this.txtEstadoMarcas.Text = "Error";
-
-                            #endregion
-                    }
+                    MessageBox.Show("La Unificacion fue agregada con exito");
                 }
+                else {
+                    this.conexion.rollbackTransaccion();
+                    MessageBox.Show("Error agregando Unificacion");
+                
+                }
+
             }
+            catch (Exception)
+            {
+                this.conexion.rollbackTransaccion();
+                MessageBox.Show("Error agregando Unificacion");
+
+
+
+            }
+
+
+        }
+
+    
 
 
     }

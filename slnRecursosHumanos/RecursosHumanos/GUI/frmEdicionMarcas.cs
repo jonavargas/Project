@@ -55,6 +55,7 @@ namespace GUI
         {
             InitializeComponent();
             this.conexion = pCnx;
+            this.OUsuarioConectado = pUsuarioConectado;
             rdoEntrada.Checked = true;
             this.cargarComboCodigoEmpleado(pCnx);
             txtEstadoMarca.Text = "Generada";
@@ -66,6 +67,7 @@ namespace GUI
         {
             InitializeComponent();
             this.conexion = pcnx;
+            this.OUsuarioConectado = pUsuarioConectado;
             this.oMarcaL = pMarcaEditar;
             this.oUsuarioConectado = pUsuarioConectado;
             this.txtNumMarca.Text = this.oMarcaL.IdMarca.ToString();
@@ -127,13 +129,13 @@ namespace GUI
                     if (rdoSalida.Checked == true)
                     {
 
-                        MarcaL = new MarcaL(numMarca, codigo2, Unificacion, estado, "Salida", fechaMarca, "Proyecto", DateTime.Now, "Proyecto", DateTime.Now, "Sí");
+                        MarcaL = new MarcaL(numMarca, codigo2, Unificacion, estado, "Salida", fechaMarca, OUsuarioConectado[0].IdUsuario, DateTime.Now, OUsuarioConectado[0].IdUsuario, DateTime.Now, "Sí");
 
 
                     }
                     else
                     {
-                        MarcaL = new MarcaL(numMarca, codigo2, idUnificacion, estado, "Entrada", fechaMarca, "Proyecto", DateTime.Now, "Proyecto", DateTime.Now, "Sí");
+                        MarcaL = new MarcaL(numMarca, codigo2, idUnificacion, estado, "Entrada", fechaMarca, OUsuarioConectado[0].IdUsuario, DateTime.Now, OUsuarioConectado[0].IdUsuario, DateTime.Now, "Sí");
 
                     }
 

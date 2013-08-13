@@ -42,7 +42,7 @@
             this.btnCargarMarca = new System.Windows.Forms.ToolStripButton();
             this.grpDatos1 = new System.Windows.Forms.GroupBox();
             this.lblEstadoUnificacion = new System.Windows.Forms.Label();
-            this.txNumUni = new System.Windows.Forms.TextBox();
+            this.txtNumUni = new System.Windows.Forms.TextBox();
             this.lblNumUnificacion = new System.Windows.Forms.Label();
             this.cmbIDEmpleado = new System.Windows.Forms.ComboBox();
             this.lblEmpleado = new System.Windows.Forms.Label();
@@ -101,6 +101,7 @@
             this.btnSalvar.Tag = "";
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // tcUnificacion
             // 
@@ -219,7 +220,7 @@
             // grpDatos1
             // 
             this.grpDatos1.Controls.Add(this.lblEstadoUnificacion);
-            this.grpDatos1.Controls.Add(this.txNumUni);
+            this.grpDatos1.Controls.Add(this.txtNumUni);
             this.grpDatos1.Controls.Add(this.lblNumUnificacion);
             this.grpDatos1.Controls.Add(this.cmbIDEmpleado);
             this.grpDatos1.Controls.Add(this.lblEmpleado);
@@ -244,13 +245,13 @@
             this.lblEstadoUnificacion.Size = new System.Drawing.Size(0, 16);
             this.lblEstadoUnificacion.TabIndex = 49;
             // 
-            // txNumUni
+            // txtNumUni
             // 
-            this.txNumUni.Location = new System.Drawing.Point(157, 107);
-            this.txNumUni.Name = "txNumUni";
-            this.txNumUni.Size = new System.Drawing.Size(122, 22);
-            this.txNumUni.TabIndex = 6;
-            this.txNumUni.Tag = "8";
+            this.txtNumUni.Location = new System.Drawing.Point(157, 107);
+            this.txtNumUni.Name = "txtNumUni";
+            this.txtNumUni.Size = new System.Drawing.Size(122, 22);
+            this.txtNumUni.TabIndex = 6;
+            this.txtNumUni.Tag = "8";
             // 
             // lblNumUnificacion
             // 
@@ -308,10 +309,7 @@
             this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstado.FormattingEnabled = true;
             this.cmbEstado.Items.AddRange(new object[] {
-            "Generada",
-            "En trámite",
-            "Pagada",
-            "Anulada"});
+            "Generada"});
             this.cmbEstado.Location = new System.Drawing.Point(157, 72);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(122, 24);
@@ -562,7 +560,7 @@
         private System.Windows.Forms.ComboBox cmbEstado;
         private System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.GroupBox grpDatos1;
-        private System.Windows.Forms.TextBox txNumUni;
+        private System.Windows.Forms.TextBox txtNumUni;
         private System.Windows.Forms.Label lblNumUnificacion;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btnCargarMarca;
