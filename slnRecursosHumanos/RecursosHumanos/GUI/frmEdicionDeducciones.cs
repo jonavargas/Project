@@ -24,8 +24,6 @@ namespace GUI
         private bool edicion = false;
         private double monto;
 
-        
-
         public List<UsuarioL> OUsuarioL1
         {
             get { return oUsuarioL; }
@@ -139,11 +137,6 @@ namespace GUI
 
                      }
 
-
-
-
-
-
                  }
                  else {
 
@@ -152,16 +145,9 @@ namespace GUI
                                           double.Parse(this.txtPorcentaje.Text), this.txtDescripcion.Text, DateTime.Now, DateTime.Now, oUsuarioL[0].IdUsuario, oUsuarioL[0].IdUsuario,
                                           activo);
                  
-                 
                  }
-
-
-                 
-             
              }
 
-
-             
              this.aceptar = true;
              this.Close();
          }

@@ -128,9 +128,6 @@ namespace GUI
 
                     }
 
-
-
-
                 }
                 else
                 {
@@ -139,8 +136,6 @@ namespace GUI
                                              this.txtNombreDepa.Text, DateTime.Now,
                                                 DateTime.Now, oUsuarioL[0].IdUsuario, oUsuarioL[0].IdUsuario,
                                                 activo);
-
-
 
                 }
             }catch(Exception){

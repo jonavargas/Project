@@ -105,10 +105,6 @@ namespace GUI
                                 
                                 }
 
-
-
-
-
             this.oUsuarioL = pOUsuarioLConectado;
             this.oParametroL = pParametroL;
             ckdActivo.Checked = true;
@@ -309,13 +305,6 @@ namespace GUI
 
 
                     }
-
-
-
-
-
-
-
                 }
                 else
                 {
@@ -339,9 +328,6 @@ namespace GUI
 
                 }
 
-
-
-
             }catch(Exception){
                 MessageBox.Show("Error agregando Parámetro ");
             
@@ -350,8 +336,5 @@ namespace GUI
             this.aceptar = true;
             this.Close();
         }
-
-        
-
     }
 }

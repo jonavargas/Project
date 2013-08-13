@@ -29,7 +29,6 @@ namespace GUI
             set { oCatalogoFechasL = value; }
         }
 
-
         public bool Edicion
         {
             get { return edicion; }
@@ -127,8 +126,6 @@ namespace GUI
                                                int.Parse(this.cmbDia.SelectedItem.ToString()), this.cmbMes.SelectedItem.ToString(), this.txtDescripcion.Text, DateTime.Now,
                                                 DateTime.Now, oUsuarioL[0].IdUsuario, oUsuarioL[0].IdUsuario, activo);
 
-
-
                      }
                      else
                      {
@@ -136,8 +133,6 @@ namespace GUI
                          this.oCatalogoFechasL = new CatalogoFechasL(this.txtCatalogoFechas.Text,
                                                int.Parse(this.cmbDia.SelectedItem.ToString()), this.cmbMes.SelectedItem.ToString(), this.txtDescripcion.Text, DateTime.Now,
                                                 DateTime.Now, oUsuarioL[0].IdUsuario, oUsuarioL[0].IdUsuario, activo);
-
-
 
                      }
 

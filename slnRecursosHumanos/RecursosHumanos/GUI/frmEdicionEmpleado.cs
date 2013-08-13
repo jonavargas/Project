@@ -51,7 +51,6 @@ namespace GUI
             this.txtApellido2.Enabled = false;
             this.txtCedula.Enabled = false;
             this.dtpFechaNacimiento.Enabled = false;
-         
             this.txtEmpleado.Text = (pEmpleadoL.IdEmpleado);
             this.cmbDepartamento.Text = (pEmpleadoL.IdDepartamento);
             this.txtNombre.Text = (pEmpleadoL.NombreEmpleado);
@@ -117,9 +116,6 @@ namespace GUI
                      MessageBox.Show("Faltan datos requeridos");
                      return;
 
-
-
-
                  }
                  else
                  {
@@ -138,9 +134,7 @@ namespace GUI
                          {
                              oEmpleadoL = new EmpleadoL(this.txtEmpleado.Text, this.cmbDepartamento.Text, this.txtNombre.Text, this.txtApellido1.Text, this.txtApellido2.Text,
                                              int.Parse(this.txtCedula.Text), int.Parse(this.txtTelefono.Text), (this.dtpFechaNacimiento.Text),
-
                                              Double.Parse(this.txtSalarioPorHora.Text), oUsuarioL[0].IdUsuario, DateTime.Now, oUsuarioL[0].IdUsuario, DateTime.Now, activo);
-
 
                          }
 
@@ -151,16 +145,8 @@ namespace GUI
                         
                          oEmpleadoL = new EmpleadoL(this.txtEmpleado.Text, this.cmbDepartamento.Text, this.txtNombre.Text, this.txtApellido1.Text, this.txtApellido2.Text,
                                              int.Parse(this.txtCedula.Text), int.Parse(this.txtTelefono.Text), (this.dtpFechaNacimiento.Text),
-
                                              Double.Parse(this.txtSalarioPorHora.Text), oUsuarioL[0].IdUsuario, DateTime.Now, oUsuarioL[0].IdUsuario, DateTime.Now, activo);
-
-
-
                      }
-
-
-
-
 
                  }
            
