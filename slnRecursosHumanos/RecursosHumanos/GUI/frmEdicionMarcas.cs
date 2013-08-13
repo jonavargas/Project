@@ -111,13 +111,13 @@ namespace GUI
                     if (rdoSalida.Checked == true)
                     {
 
-                        MarcaL = new MarcaL(codigo, idUnificacion, estado, "Salida", fechaMarca, "Proyecto", DateTime.Now, "Proyecto", DateTime.Now, "Sí");
+                        MarcaL = new MarcaL(codigo, idUnificacion, estado, "Salida", fechaMarca, this.OUsuarioConectado[0].IdUsuario, DateTime.Now, this.OUsuarioConectado[0].IdUsuario, DateTime.Now, "Sí");
 
 
                     }
                     else
                     {
-                        MarcaL = new MarcaL(codigo, idUnificacion, estado, "Entrada", fechaMarca, "Proyecto", DateTime.Now, "Proyecto", DateTime.Now, "Sí");
+                        MarcaL = new MarcaL(codigo, idUnificacion, estado, "Entrada", fechaMarca, this.OUsuarioConectado[0].IdUsuario, DateTime.Now, this.OUsuarioConectado[0].IdUsuario, DateTime.Now, "Sí");
 
                     }
                 }
