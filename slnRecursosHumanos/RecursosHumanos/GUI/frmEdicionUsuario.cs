@@ -23,6 +23,9 @@ namespace GUI
         private UsuarioL oUsuarioLNuevo;
         private bool edicion = false;
 
+        /// <summary>
+        /// Métodos Gets y Sets
+        /// </summary>
         public UsuarioL OUsuarioLNuevo
         {
             get { return oUsuarioLNuevo; }
@@ -68,8 +71,6 @@ namespace GUI
         /// <summary>
         /// Properties de la Clase usuario,el cual permite consultar los valores de los atributos
         /// </summary>
-
-
 
         public Boolean Aceptar
         {
@@ -125,12 +126,9 @@ namespace GUI
                                                    Convert.ToString(this.cmbTipoUsuario.SelectedValue), this.txtpassword.Text, DateTime.Now,
                                                    DateTime.Now, OUsuarioL1[0].IdUsuario, OUsuarioL1[0].IdUsuario,
                                                    activo);
-
-
                         }
 
                     }
-
 
                 }
                 else
@@ -147,8 +145,6 @@ namespace GUI
                                                    DateTime.Now, OUsuarioL1[0].IdUsuario, OUsuarioL1[0].IdUsuario,
                                                    activo);
 
-
-
                 }
             }
             catch (Exception) {
@@ -161,9 +157,6 @@ namespace GUI
 
             }
         }
-
-      
-
     }
   
            

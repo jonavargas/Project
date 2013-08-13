@@ -14,6 +14,9 @@ namespace GUI
 {
     public partial class frmLogin : Form
     {
+        /// <summary>
+        /// Atributos de la clase
+        /// </summary>
         private bool aceptar;        
         private AccesoDatosOracle conexion;
         string idUsuario;
@@ -21,6 +24,9 @@ namespace GUI
         string tipoUsuario;
         public List<UsuarioL> oUsuarioL;
 
+        /// <summary>
+        /// Métodos Gets y Sets
+        /// </summary>
         public string TipoUsuario
         {
             get { return tipoUsuario; }
@@ -38,6 +44,10 @@ namespace GUI
             set { oUsuarioL = value; }
         }   
 
+        /// <summary>
+        /// Método constructor
+        /// </summary>
+        /// <param name="pConexion"></param>
         public frmLogin(AccesoDatosOracle pConexion)
         {
             InitializeComponent();            
@@ -46,25 +56,39 @@ namespace GUI
             string nombreUsuario = this.txtLogin.Text;
         }
 
+        /// <summary>
+        /// Método que ejecuta la opción del botón cancelar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Método que permite asignar acciones de botones a las teclas
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmLogin_KeyDown(object sender, KeyEventArgs e)
         {
-            //si se oprime la tecla esc el form termina la aplicacion y la cierra
+            //Al presionar la tecla esc el form termina la aplicacion y la cierra
             if (e.KeyCode == Keys.Escape)
             {
                 this.Close();
             }
-            //si se oprime la tecla enter el programa hace la funcion que le corresponde al boton aceptar
+            //Al presionar la tecla enter el programa hace la funcion que le corresponde al boton aceptar
             if (e.KeyCode == Keys.Enter)
             {
                 this.btnAceptar_Click(sender, e);
             }
         }
-
+        /// <summary>
+        /// Método que ejecuta la acción del botón aceptar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             try
@@ -109,9 +133,6 @@ namespace GUI
                             return;
 
                         }
-
-
-
                     }
                     else
                     {

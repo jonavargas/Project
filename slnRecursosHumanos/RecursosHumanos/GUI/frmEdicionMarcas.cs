@@ -96,6 +96,12 @@ namespace GUI
             this.cmbCodigo.SelectedItem = null;
         }
 
+
+        /// <summary>
+        /// Método que ejecuta el botón aceptar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             int idUnificacion = 0;
@@ -138,8 +144,6 @@ namespace GUI
                         MarcaL = new MarcaL(numMarca, codigo2, idUnificacion, estado, "Entrada", fechaMarca, OUsuarioConectado[0].IdUsuario, DateTime.Now, OUsuarioConectado[0].IdUsuario, DateTime.Now, "Sí");
 
                     }
-
-
                 }
             }catch(Exception){
             MessageBox.Show("Error agregando Marca");
@@ -170,7 +174,6 @@ namespace GUI
             }
 
         }
-
         
     }
 }

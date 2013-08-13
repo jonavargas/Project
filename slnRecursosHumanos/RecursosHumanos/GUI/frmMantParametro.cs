@@ -14,9 +14,18 @@ namespace GUI
 {
     public partial class frmMantParametro : Form
     {
+        /// <summary>
+        /// Atributos de la clase
+        /// </summary>
         AccesoDatosOracle cnx;
         List<UsuarioL> oUsuarioL;
         CatalogoFechasD OCatalogofechasD;
+
+        /// <summary>
+        /// Constructor 
+        /// </summary>
+        /// <param name="pOUsuarioL"></param>
+        /// <param name="pConexion"></param>
         public frmMantParametro(List<UsuarioL> pOUsuarioL, AccesoDatosOracle pConexion)
         {
             InitializeComponent();
@@ -25,6 +34,9 @@ namespace GUI
             this.cargarGrid();
 
         }
+        /// <summary>
+        /// Método que se encarga de cargar el grid
+        /// </summary>
         public void cargarGrid()
         {
             try
@@ -41,11 +53,22 @@ namespace GUI
                 MessageBox.Show("Error cargando los datos" + e.Message);
             }
         }
+        /// <summary>
+        /// Método que se encarga de refrescar el grid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRefrescar_Click(object sender, EventArgs e)
         {
             this.cargarGrid();
             MessageBox.Show("Datos actualizados!!!");
         }
+
+        /// <summary>
+        /// Método que se encarga de borrar el arametro seleccionado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             if (this.grdParametro.RowCount > 0)
@@ -69,6 +92,12 @@ namespace GUI
                 }
             }
         }
+
+        /// <summary>
+        /// Método que se encarga de crear un nuevo párametro
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             frmEdicionParametro ofrmEdicion = new frmEdicionParametro(this.oUsuarioL, this.cnx);
@@ -88,6 +117,12 @@ namespace GUI
                 }
             }
         }
+
+        /// <summary>
+        /// Método que se encarga de editar un párametro seleccionado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (this.grdParametro.RowCount > 0)

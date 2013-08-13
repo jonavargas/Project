@@ -144,6 +144,11 @@ namespace GUI
             }
         }
 
+        /// <summary>
+        /// Método que ejecuta la acción de editar Marcas
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (this.grdMarcas.RowCount > 0)
@@ -223,8 +228,6 @@ namespace GUI
         /// <param name="sender"></param>
         /// <param name="e"></param>
         /// 
-
-     
 
         private void btnFiltrar_Click_1(object sender, EventArgs e)
         {
@@ -309,6 +312,11 @@ namespace GUI
             }
         }
 
+        /// <summary>
+        /// Método que se encarga de anular una marca seleccionada
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void btnAnular_Click(object sender, EventArgs e)
         {
             try
@@ -349,11 +357,21 @@ namespace GUI
             }
         }
 
+        /// <summary>
+        /// Método que se encarga de refrescar el grid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRefrescar_Click(object sender, EventArgs e)
         {
            this.cargarGrid();
         }
 
+        /// <summary>
+        /// Método que se encarga de rellenar los combos de id empleado y de nombre de empleado  con los empleados existentes en el departamento seleccionado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbDepartamento_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.cargarComboCodigoEmpleado(this.conexion);
