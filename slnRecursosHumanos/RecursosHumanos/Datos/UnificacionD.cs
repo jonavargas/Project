@@ -103,8 +103,8 @@ namespace Datos
           string retorno = "";
           try
           {
-              string sql = "insert into unificacion(idEmpleado, idPago, estadoUnificacion, fechaUnificacion, horaRegular, horaExtra, horaDobles, aprobacionExtra, notasAprobacion, pagoRegular, pagoExtra, pagoDoble, porcentajeDeduccion, montoDeduccion, salarioBruto, montoUnificacion,  creadoPor, fechaCreacion, modificadoPor, fechaModificacion, activo) " +
-                           "values(:idEmpleado, :idPago, :estadoUnificacion, :fechaUnificacion, :horaRegular, :horaExtra, :horaDobles, :aprobacionExtra, :notasAprobacion, :pagoRegular, :pagoExtra, :pagoDoble, :porcentajeDeduccion, :montoDeduccion, :salarioBruto, :montoUnificacion, :creadoPor, :fechaCreacion, :modificadoPor, :fechaModificacion, :activo) " +
+              string sql = "insert into unificacion(idEmpleado, idPago, estadoUnificacion, fechaUnificacion, horaRegular, horaExtra, horaDoble, aprobacionExtra, notasAprobacion, pagoRegular, pagoExtra, pagoDoble, porcentajeDeduccion, montoDeduccion, salarioBruto, montoUnificacion,  creadoPor, fechaCreacion, modificadoPor, fechaModificacion, activo) " +
+                           "values(:idEmpleado, :idPago, :estadoUnificacion, :fechaUnificacion, :horaRegular, :horaExtra, :horaDoble, :aprobacionExtra, :notasAprobacion, :pagoRegular, :pagoExtra, :pagoDoble, :porcentajeDeduccion, :montoDeduccion, :salarioBruto, :montoUnificacion, :creadoPor, :fechaCreacion, :modificadoPor, :fechaModificacion, :activo) " +
                            "returning idUnificacion into :idUnificacion";
 
               OracleParameter[] parametros = new OracleParameter[22];
@@ -115,7 +115,7 @@ namespace Datos
               parametros[0].Value = pUnificacion.IdEmpleado;
 
               parametros[1] = new OracleParameter();
-              parametros[1].OracleType = OracleType.Number;
+              parametros[1].OracleType = OracleType.VarChar;
               parametros[1].ParameterName = ":idPago";
               parametros[1].Value = pUnificacion.IdPago;
 
@@ -213,7 +213,6 @@ namespace Datos
               parametros[20].OracleType = OracleType.VarChar;
               parametros[20].ParameterName = ":activo";
               parametros[20].Value = pUnificacion.Activo;
-
 
               parametros[21] = new OracleParameter();
               parametros[21].OracleType = OracleType.Number;
