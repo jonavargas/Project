@@ -32,6 +32,7 @@ namespace GUI
         public frmUnificacion(List<UsuarioL> pUsuarioActual, AccesoDatosOracle pConexion)
         {
             InitializeComponent();
+            this.oUsuarioActual = pUsuarioActual;
             this.dtpFecha1.Value = DateTime.Today;
             this.dtpFecha2.Value = DateTime.Today.AddHours(23).AddMinutes(59).AddSeconds(59);
             this.conexion = pConexion;
@@ -45,6 +46,7 @@ namespace GUI
         public frmUnificacion(UnificacionL pUnificacionEditar, List<UsuarioL> pUsuarioActual, AccesoDatosOracle pConexion)
         {
             InitializeComponent();
+            this.oUsuarioActual = pUsuarioActual;
             this.dtpFecha1.Value = DateTime.Today;
             this.dtpFecha2.Value = DateTime.Today.AddHours(23).AddMinutes(59).AddSeconds(59);
             this.conexion = pConexion;
