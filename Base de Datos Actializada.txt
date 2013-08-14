@@ -1,9 +1,4 @@
 
-Acceso como Adminisrador.
-usuario: proyecto
-password: oracle
-
-************************************************
 
 create table Usuario
 ( 
@@ -18,9 +13,15 @@ create table Usuario
   constraint PK_Usuario primary key (idUsuario)
 );
 
-INSERT INTO usuario(idUsuario, tipoUsuario, password, fechaModificacion, fechaCreacion, creadoPor, modificadoPor,activo)
-VALUES('admin', 'Supervisor', 'admin', '01/01/2013',' 01/01/2013', 'Administrador', 'Administrados', 'Sí');
 
+INSERT INTO usuario(idUsuario, tipoUsuario, password, fechaModificacion, fechaCreacion, creadoPor, modificadoPor,activo)
+VALUES('admin', 'Supervisor', 'admin', 'sysdate',' sysdate', 'Supervisor', 'Supervisor', 'Sí');
+
+INSERT INTO usuario(idUsuario, tipoUsuario, password, fechaModificacion, fechaCreacion, creadoPor, modificadoPor,activo) 
+VALUES('Ericka','Supervisor','oracle',sysdate,sysdate,'Supervisor','Supervisor','Sí');
+
+INSERT INTO usuario(idUsuario, tipoUsuario, password, fechaModificacion, fechaCreacion, creadoPor, modificadoPor,activo) 
+VALUES('Jona','Supervisor','oracle',sysdate,sysdate,'Supervisor','Supervisor','Sí');
 
 INSERT INTO usuario(idUsuario, tipoUsuario, password, fechaModificacion, fechaCreacion, creadoPor, modificadoPor,activo) 
 VALUES('Bryan','Supervisor','oracle',sysdate,sysdate,'Supervisor','Supervisor','Sí');
@@ -166,18 +167,14 @@ create table Unificacion
       constraint Unificacion_FK2 foreign key (idMarca) references Marca(idMarca)
 );
 
+CREATE SEQUENCE seq_Unificacion MINVALUE 0 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 1
+CACHE 20 NOORDER  NOCYCLE;
 
-create table Pago
-(
-     idPago numeric (10) not null,
-     fechaPago timestamp not null,
-     montoPago numeric (20)not null,
-     montoDeduccion numeric (15,2),
-     anulado varchar(1) not null,
-     creadoPor varchar (30) not null,
-     fechaCreacion timestamp not null,
-     modificadoPor varchar (30) not null,
-     fechaModificacion timestamp not null,
-     activo  varchar(3),
-     constraint Pk_Pago primary key (idPago)
-);
+create or replace trigger trg_Unificacion
+BEFORE INSERT ON unificacion FOR EACH ROW
+BEGIN
+   SELECT seq_Unificacion.NEXTVAL
+   INTO :NEW.idUnificacion
+   FROM DUAL;
+END;
+
