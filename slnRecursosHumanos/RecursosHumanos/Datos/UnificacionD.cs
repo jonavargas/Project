@@ -115,7 +115,7 @@ namespace Datos
               parametros[0].Value = pUnificacion.IdEmpleado;
 
               parametros[1] = new OracleParameter();
-              parametros[1].OracleType = OracleType.VarChar;
+              parametros[1].OracleType = OracleType.Number;
               parametros[1].ParameterName = ":idPago";
               parametros[1].Value = pUnificacion.IdPago;
 

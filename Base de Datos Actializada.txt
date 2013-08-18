@@ -141,8 +141,7 @@ create table Unificacion
 (
       idUnificacion number not null,
       idEmpleado varchar (50) not null,
-      idPago varchar(50) not null,
-      idMarca number not null,
+      idPago number(15,2) not null,      
       estadoUnificacion varchar(50),
       fechaUnificacion date,
       horaRegular number(9,2),
@@ -163,8 +162,7 @@ create table Unificacion
       fechaModificacion date,
       activo varchar(3),
       constraint Pk_Unificacion primary key (idUnificacion),
-      constraint Unificacion_FK1 foreign key (idEmpleado) references Empleado (idEmpleado), 
-      constraint Unificacion_FK2 foreign key (idMarca) references Marca(idMarca)
+      constraint Unificacion_FK1 foreign key (idEmpleado) references Empleado (idEmpleado)      
 );
 
 CREATE SEQUENCE seq_Unificacion MINVALUE 0 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 1
