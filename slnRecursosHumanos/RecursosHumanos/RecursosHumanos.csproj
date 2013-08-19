@@ -191,6 +191,9 @@
     <Compile Include="Logica\UsuarioL.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\frmEdicionPagos.resx">
+      <DependentUpon>frmEdicionPagos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmMantMarcas.resx">
       <DependentUpon>frmMantMarcas.cs</DependentUpon>
     </EmbeddedResource>
