@@ -144,5 +144,11 @@ namespace GUI
             frmUnificacion oFrmEdicion = new frmUnificacion(oUsuarioL, this.cnx);
             oFrmEdicion.ShowDialog();
         }
+
+        private void pagosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPagos oFrmPagos = new frmPagos();
+            oFrmPagos.ShowDialog();
+        }
     }
 }

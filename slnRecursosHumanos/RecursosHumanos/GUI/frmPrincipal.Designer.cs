@@ -39,11 +39,12 @@
             this.maToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RegistroMarcas = new System.Windows.Forms.ToolStripMenuItem();
             this.IngresoMarcas = new System.Windows.Forms.ToolStripMenuItem();
+            this.Unificacion = new System.Windows.Forms.ToolStripMenuItem();
+            this.CrearUnificacion = new System.Windows.Forms.ToolStripMenuItem();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.lblSesion = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblNombreUsuario = new System.Windows.Forms.ToolStripStatusLabel();
-            this.Unificacion = new System.Windows.Forms.ToolStripMenuItem();
-            this.CrearUnificacion = new System.Windows.Forms.ToolStripMenuItem();
+            this.pagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPrincipal.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.SuspendLayout();
@@ -138,6 +139,22 @@
             this.IngresoMarcas.Text = "Ingreso de Marcas";
             this.IngresoMarcas.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
+            // Unificacion
+            // 
+            this.Unificacion.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.CrearUnificacion,
+            this.pagosToolStripMenuItem});
+            this.Unificacion.Name = "Unificacion";
+            this.Unificacion.Size = new System.Drawing.Size(117, 25);
+            this.Unificacion.Text = "Administrar";
+            // 
+            // CrearUnificacion
+            // 
+            this.CrearUnificacion.Name = "CrearUnificacion";
+            this.CrearUnificacion.Size = new System.Drawing.Size(174, 26);
+            this.CrearUnificacion.Text = "Unificación";
+            this.CrearUnificacion.Click += new System.EventHandler(this.CrearUnificacion_Click);
+            // 
             // statusBar
             // 
             this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -160,20 +177,12 @@
             this.lblNombreUsuario.Name = "lblNombreUsuario";
             this.lblNombreUsuario.Size = new System.Drawing.Size(0, 17);
             // 
-            // Unificacion
+            // pagosToolStripMenuItem
             // 
-            this.Unificacion.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.CrearUnificacion});
-            this.Unificacion.Name = "Unificacion";
-            this.Unificacion.Size = new System.Drawing.Size(116, 25);
-            this.Unificacion.Text = "Unificación";
-            // 
-            // CrearUnificacion
-            // 
-            this.CrearUnificacion.Name = "CrearUnificacion";
-            this.CrearUnificacion.Size = new System.Drawing.Size(174, 26);
-            this.CrearUnificacion.Text = "Unificación";
-            this.CrearUnificacion.Click += new System.EventHandler(this.CrearUnificacion_Click);
+            this.pagosToolStripMenuItem.Name = "pagosToolStripMenuItem";
+            this.pagosToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.pagosToolStripMenuItem.Text = "Pagos";
+            this.pagosToolStripMenuItem.Click += new System.EventHandler(this.pagosToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -214,6 +223,7 @@
         private System.Windows.Forms.ToolStripMenuItem maToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Unificacion;
         private System.Windows.Forms.ToolStripMenuItem CrearUnificacion;
+        private System.Windows.Forms.ToolStripMenuItem pagosToolStripMenuItem;
     }
 }
 

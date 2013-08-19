@@ -52,6 +52,7 @@
     <Compile Include="Datos\DepartamentoD.cs" />
     <Compile Include="Datos\EmpleadoD.cs" />
     <Compile Include="Datos\MarcaD.cs" />
+    <Compile Include="Datos\PagosD.cs" />
     <Compile Include="Datos\ParametroD.cs" />
     <Compile Include="Datos\UnificacionD.cs" />
     <Compile Include="Datos\UsuarioD.cs" />
@@ -186,6 +187,7 @@
     <Compile Include="Logica\DepartamentoL.cs" />
     <Compile Include="Logica\EmpleadoL.cs" />
     <Compile Include="Logica\MarcaL.cs" />
+    <Compile Include="Logica\PagosL.cs" />
     <Compile Include="Logica\ParametroL.cs" />
     <Compile Include="Logica\UnificacionL.cs" />
     <Compile Include="Logica\UsuarioL.cs" />

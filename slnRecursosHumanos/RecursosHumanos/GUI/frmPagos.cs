@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RecursosHumanos.GUI
+namespace GUI
 {
     public partial class frmPagos : Form
     {

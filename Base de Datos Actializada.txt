@@ -176,3 +176,29 @@ BEGIN
    FROM DUAL;
 END;
 
+create table Pago
+(
+     idPago numeric not null,
+     fechaPago1 date not null,
+     fechaPago2 date not null,
+     totalPago numeric not null,
+     totalDeducciones numeric (15,2)not null,
+     anulado varchar(2) not null,
+     descripcion varchar(200),
+     creadoPor varchar (30) not null,
+     fechaCreacion timestamp not null,
+     modificadoPor varchar (30) not null,
+     fechaModificacion timestamp not null,
+     constraint Pk_Pago primary key (idPago)
+);
+
+CREATE SEQUENCE seq_Pago MINVALUE 1 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 2 
+CACHE 20 NOORDER  NOCYCLE;
+
+create or replace trigger trg_Pago
+BEFORE INSERT ON Pago FOR EACH ROW
+BEGIN
+   SELECT seq_Pago.NEXTVAL
+   INTO :NEW.idPago 
+   FROM DUAL;
+END;  

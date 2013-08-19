@@ -1,4 +1,4 @@
-﻿namespace RecursosHumanos.GUI
+﻿namespace GUI
 {
     partial class frmPagos
     {
