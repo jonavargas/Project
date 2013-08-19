@@ -55,6 +55,12 @@
     <Compile Include="Datos\ParametroD.cs" />
     <Compile Include="Datos\UnificacionD.cs" />
     <Compile Include="Datos\UsuarioD.cs" />
+    <Compile Include="GUI\frmEdicionPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmEdicionPagos.Designer.cs">
+      <DependentUpon>frmEdicionPagos.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmMantMarcas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,12 @@
     <Compile Include="GUI\frmMantParametro.Designer.cs">
       <DependentUpon>frmMantParametro.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frmPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmPagos.Designer.cs">
+      <DependentUpon>frmPagos.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmUnificacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmMantParametro.resx">
       <DependentUpon>frmMantParametro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmPagos.resx">
+      <DependentUpon>frmPagos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmUnificacion.resx">
       <DependentUpon>frmUnificacion.cs</DependentUpon>
@@ -292,6 +307,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cargar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Consultar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Anular.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
