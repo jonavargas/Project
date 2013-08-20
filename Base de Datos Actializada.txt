@@ -2,9 +2,9 @@
 
 create table Usuario
 ( 
-  idUsuario varchar(50) not null,
-  tipoUsuario varchar(10) not null,
-  password varchar(50) not null,
+  idUsuario varchar(50),
+  tipoUsuario varchar(10),
+  password varchar(50),
   fechaModificacion date,
   fechaCreacion date,
   creadoPor varchar(100),
@@ -13,9 +13,8 @@ create table Usuario
   constraint PK_Usuario primary key (idUsuario)
 );
 
-
 INSERT INTO usuario(idUsuario, tipoUsuario, password, fechaModificacion, fechaCreacion, creadoPor, modificadoPor,activo)
-VALUES('admin', 'Supervisor', 'admin', 'sysdate',' sysdate', 'Supervisor', 'Supervisor', 'Sí');
+VALUES('admin', 'Supervisor', 'admin', sysdate, sysdate, 'Supervisor', 'Supervisor', 'Sí');
 
 INSERT INTO usuario(idUsuario, tipoUsuario, password, fechaModificacion, fechaCreacion, creadoPor, modificadoPor,activo) 
 VALUES('Ericka','Supervisor','oracle',sysdate,sysdate,'Supervisor','Supervisor','Sí');

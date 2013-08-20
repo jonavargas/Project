@@ -45,6 +45,7 @@ namespace GUI
                 MessageBox.Show("Error cargando los datos" + e.Message);
             }
         }
+
         /// <summary>
         /// Metodo que refresca los datos realizados
         /// </summary>
@@ -55,6 +56,7 @@ namespace GUI
             this.cargarGrid();
             MessageBox.Show("Datos actualizados!!!");
         }
+
         /// <summary>
         /// Metodo que borra la línea seleccionada
         /// </summary>
@@ -70,7 +72,7 @@ namespace GUI
 
                 UsuarioL oUsuarioL = (UsuarioL)this.grdUsuario.CurrentRow.DataBoundItem;
 
-               UsuarioD oUsuarioD = new UsuarioD(this.cnx);
+                UsuarioD oUsuarioD = new UsuarioD(this.cnx);
                 oUsuarioD.borrarUsuario(oUsuarioL);
 
                 if (oUsuarioD.Error)
@@ -84,6 +86,7 @@ namespace GUI
                 }
             }
         }
+
         /// <summary>
         /// Metodo que crea un nuevo registro
         /// </summary>
@@ -108,6 +111,7 @@ namespace GUI
                 }
             }
         }
+
         /// <summary>
         /// Metodo que edita la línea seleccionada 
         /// </summary>
