@@ -193,7 +193,7 @@ namespace Datos
         /// </summary>
         /// <param name="pPagosL"></param>
 
-        public void editarPago(PagosL pPagosL)
+        public void editarPagos(PagosL pPagosL)
         {
             try
             {

@@ -25,7 +25,7 @@ namespace Logica
         private DateTime fechaModificacion;
 
         /// <summary>
-        /// Metodo Constructor con parámetros los cuales cargan con valores los atributos de la clase PagoL
+        /// Método Constructor con parámetros los cuales cargan con valores los atributos de la clase PagoL
         /// </summary>     
         public PagosL(int pIdPago, DateTime pFecha1, DateTime pFecha2, double pTotalPago, double pTotalDeducciones, 
                       string pAnulado, string pDescripcion, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, 
@@ -115,7 +115,7 @@ namespace Logica
         }
 
         /// <summary>
-        ///  Metodo ToString el cual devuelve todos los datos con sus respectivos valores
+        ///  Método ToString el cual devuelve todos los datos con sus respectivos valores
         /// </summary>
         /// <returns></returns>
 
