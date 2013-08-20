@@ -24,7 +24,8 @@ namespace GUI
         MarcaL oMarcaL, oMarcaCambioEstado;
         MarcaD oMarcaD;
         int numeroUnificacion = 0;
-        
+        MarcaL marcaEntrada;
+        MarcaL marcaSalida;
 
         public List<UsuarioL> OUsuarioConectado
         {
@@ -92,7 +93,7 @@ namespace GUI
             {
                 if ((this.dtpFecha1.Value < this.dtpFecha2.Value))
                 {
-
+                    Boolean banderaError = false;
                     MarcaD oMarcaD = new MarcaD(this.conexion);
 
                     if (this.cmbIDEmpleado.SelectedValue == null)
@@ -120,6 +121,69 @@ namespace GUI
                     
                     List<MarcaL> listaMarcas = oMarcaD.obtenerMarcaFiltro(this.dtpFecha1.Value, this.dtpFecha2.Value, idEmpleado, departamento,
                                                                              nombreEmpleado, estadoMarca, activo);
+
+
+
+
+
+                    if (this.grdMarcas.RowCount > 0)
+                    { 
+                    int cantidadFilas = this.grdMarcas.RowCount;
+                    for (int contador = 0; contador < cantidadFilas; contador++) {
+
+                        int idMarca = Convert.ToInt32(this.grdMarcas["idMarca", contador].Value.ToString());
+                        int idUnificacion = Convert.ToInt32(this.grdMarcas["idUnificacion", contador].Value.ToString());
+                        idEmpleado = this.grdMarcas["idEmpleado", contador].Value.ToString();
+                        string nombre = this.grdMarcas[3, contador].Value.ToString();
+                        DateTime fecha = DateTime.Parse(this.grdMarcas["fecha", contador].Value.ToString());
+                        string tipo = this.grdMarcas["tipo", contador].Value.ToString();
+                        string estado = this.grdMarcas["estado", contador].Value.ToString();
+                        string creadoPor = this.grdMarcas["creadoPor", contador].Value.ToString();
+                        DateTime fechaCreacion = DateTime.Parse(this.grdMarcas["fechaCreacion", contador].Value.ToString());
+                        string modificadoPor = this.grdMarcas["modificadoPor", contador].Value.ToString();
+                        DateTime fechaModificacion = DateTime.Parse(this.grdMarcas["fechaModificacion", contador].Value.ToString());
+                        activo = this.grdMarcas["activo", contador].Value.ToString();
+
+
+                        marcaEntrada = new MarcaL(idMarca, idEmpleado, idUnificacion,, nombre, estado, tipo, fecha, creadoPor, fechaCreacion, modificadoPor, fechaModificacion,activo);
+                        marcaSalida = new MarcaL(idMarca, idEmpleado, idUnificacion,, nombre, estado, tipo, fecha, creadoPor, fechaCreacion, modificadoPor, fechaModificacion,activo);
+                        contador++;
+            
+                         if (contador < cantidadFilas)
+                                        {
+                                            #region marcaSalida
+                                            idMarca = Convert.ToInt32(this.grdMarcas["idMarca", contador].Value.ToString());
+                                            idUnificacion = Convert.ToInt32(this.grdMarcas["idUnificacion", contador].Value.ToString());
+                                            idEmpleado = this.grdMarcas["idEmpleado", contador].Value.ToString();
+                                            nombre = this.grdMarcas[3, contador].Value.ToString();
+                                            fecha = DateTime.Parse(this.grdMarcas["fecha", contador].Value.ToString());
+                                            tipo = this.grdMarcas["tipo", contador].Value.ToString();
+                                            estado = this.grdMarcas["estado", contador].Value.ToString();
+                                            creadoPor = this.grdMarcas["creadoPor", contador].Value.ToString();
+                                            fechaCreacion = DateTime.Parse(this.grdMarcas["fechaCreacion", contador].Value.ToString());
+                                            modificadoPor = this.grdMarcas["modificadoPor", contador].Value.ToString();
+                                            fechaModificacion = DateTime.Parse(this.grdMarcas["fechaModificacion", contador].Value.ToString());
+                                            #endregion
+
+                                            marcaSalida = new MarcaL(idMarca, idEmpleado, idUnificacion,, nombre, estado, tipo, fecha, creadoPor, fechaCreacion, modificadoPor, fechaModificacion,activo);
+                    
+                    
+                    
+                    
+                    
+                    
+                    }
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    }
+
+
 
 
                     for (int i = 0; i < listaMarcas.Count; i++)
