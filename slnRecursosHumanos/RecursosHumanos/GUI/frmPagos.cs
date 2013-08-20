@@ -18,9 +18,20 @@ namespace GUI
         /// Variable para hacer la conexión a la base de datos
         /// </summary>
         private AccesoDatosOracle conexion;
-        PagosL oPagosL, oPagoCambioEstado;
+        PagosL oPagosL;
         PagosD oPagosD;
         List<UsuarioL> oUsuarioActual;
+        List<UnificacionL> oUnificacion;
+        List<MarcaL> oMarca;
+        int idPago = 0;
+        string descripcion;
+        string estado = "Pagado";
+        string anulado = "No";
+        double totalPago = 0;
+        double totalDeducciones = 0;
+        DateTime fechaCreacion = DateTime.Now;
+        DateTime fechaModificacion = DateTime.Now;
+        string creadoPor;
 
         public frmPagos(List<UsuarioL> pUsuarioActual, AccesoDatosOracle pConexion)
         {

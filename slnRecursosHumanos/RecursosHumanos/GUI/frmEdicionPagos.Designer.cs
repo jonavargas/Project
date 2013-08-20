@@ -50,6 +50,10 @@
             this.txtTotalDeducciones = new System.Windows.Forms.TextBox();
             this.txtNumPagos = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.idUnificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDepartamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbVE.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -125,6 +129,11 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idUnificacion,
+            this.nombreEmpleado,
+            this.idDepartamento,
+            this.totalPago});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.Location = new System.Drawing.Point(3, 2);
             this.dataGridView1.Name = "dataGridView1";
@@ -269,6 +278,33 @@
             this.txtDescripcion.Size = new System.Drawing.Size(317, 67);
             this.txtDescripcion.TabIndex = 48;
             // 
+            // idUnificacion
+            // 
+            this.idUnificacion.DataPropertyName = "idUnificacion";
+            this.idUnificacion.HeaderText = "ID Unificación";
+            this.idUnificacion.Name = "idUnificacion";
+            this.idUnificacion.Width = 130;
+            // 
+            // nombreEmpleado
+            // 
+            this.nombreEmpleado.DataPropertyName = "nombreEmpleado";
+            this.nombreEmpleado.HeaderText = "Nombre";
+            this.nombreEmpleado.Name = "nombreEmpleado";
+            // 
+            // idDepartamento
+            // 
+            this.idDepartamento.DataPropertyName = "idDepartamento";
+            this.idDepartamento.HeaderText = "Departamento";
+            this.idDepartamento.Name = "idDepartamento";
+            this.idDepartamento.Width = 110;
+            // 
+            // totalPago
+            // 
+            this.totalPago.DataPropertyName = "totalPago";
+            this.totalPago.HeaderText = "Total a Pagar";
+            this.totalPago.Name = "totalPago";
+            this.totalPago.Width = 130;
+            // 
             // frmEdicionPagos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -328,5 +364,9 @@
         private System.Windows.Forms.TextBox txtTotalDeducciones;
         private System.Windows.Forms.TextBox txtNumPagos;
         private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idUnificacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreEmpleado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDepartamento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalPago;
     }
 }
