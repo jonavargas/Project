@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Datos;
 
 namespace Logica
 {
@@ -20,6 +21,8 @@ namespace Logica
         private string modificadoPor;
         private string creadoPor;
         private string activo;
+        bool retorno = false;
+        AccesoDatosOracle conexion;
 
       /// <summary>
       /// Metodo constructor con parametros
@@ -44,6 +47,10 @@ namespace Logica
             this.modificadoPor = pModificadoPor;
             this.creadoPor = pCreadoPor;
             this.activo = pActivo;
+        }
+        public CatalogoFechasL()
+        {
+            
         }
       /// <summary>
       /// Propiedades de los atributos
@@ -93,6 +100,52 @@ namespace Logica
             get { return activo; }
             set { activo = value; }
         }
+
+
+        public bool validarFecha(DateTime pFechaEntrada)
+        {
+            this.retorno = false;
+            DateTime fechaConvertidaCatalogo;
+            DateTime fechaConvertidaParametro;
+
+            CatalogoFechasD oFechas = new CatalogoFechasD(this.conexion);
+            List<CatalogoFechasL> listaFechas = oFechas.obtenerCatalogoFechas();
+
+            int indice = listaFechas.Count;
+
+            if (listaFechas.Count != 0)
+            {
+                for (int contador = 0; contador < indice; contador++)
+                {
+                    fechaConvertidaCatalogo = Convert.ToDateTime((listaFechas[contador].Dia + "/" + listaFechas[contador].Mes));
+                    fechaConvertidaParametro = Convert.ToDateTime(pFechaEntrada.Day + "/" + pFechaEntrada.Month);
+
+                    if (fechaConvertidaParametro == fechaConvertidaCatalogo)
+                    {
+                        retorno = true;
+                    }
+                }
+            }
+            return retorno;
+        }
+
+        public double horasDobles(TimeSpan pHoras)
+        {
+            string horasEnteras = pHoras.ToString();
+            string[] listaHoras = horasEnteras.Split(':');
+
+            double horas = Double.Parse(listaHoras[0].ToString());
+            int minutos = ((int.Parse(listaHoras[1].ToString())) * 100 / 60);
+            double horasConvertidas = (Double.Parse(horas + "." + minutos));
+
+            return horasConvertidas;
+        }
+
+
+
+
+
+
       /// <summary>
       /// Metodo Tostring
       /// </summary>
