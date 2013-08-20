@@ -79,7 +79,7 @@
             this.cmbEstado.FormattingEnabled = true;
             this.cmbEstado.Items.AddRange(new object[] {
             "Generada",
-            "En trámite",
+            "Trámite",
             "Pagada",
             "Anulada"});
             this.cmbEstado.Location = new System.Drawing.Point(205, 132);
@@ -126,9 +126,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(21, 96);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(151, 16);
+            this.label3.Size = new System.Drawing.Size(93, 16);
             this.label3.TabIndex = 27;
-            this.label3.Text = "Nombre del Empleado: ";
+            this.label3.Text = "ID Empleado: ";
             // 
             // cmbDepartamento
             // 
