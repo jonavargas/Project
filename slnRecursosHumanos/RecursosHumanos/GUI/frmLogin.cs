@@ -15,7 +15,7 @@ namespace GUI
     public partial class frmLogin : Form
     {
         /// <summary>
-        /// Atributos de la clase
+        /// Atributos de la clase Longin
         /// </summary>
         private bool aceptar;        
         private AccesoDatosOracle conexion;
