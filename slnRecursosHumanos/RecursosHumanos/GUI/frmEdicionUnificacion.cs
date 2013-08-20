@@ -26,6 +26,9 @@ namespace GUI
         int numeroUnificacion = 0;
         MarcaL marcaEntrada;
         MarcaL marcaSalida;
+        DateTime fechaEntrada;
+        DateTime fechaSalida;
+        TimeSpan horasTotales;//se utliza timespan la que es la opcion que nos permite capturar el intervalo de timepo que exite entre la hora de entrada y salida
 
         public List<UsuarioL> OUsuarioConectado
         {
@@ -90,46 +93,47 @@ namespace GUI
             string estadoMarca = "";
             string activo = "Sí";
 
+
+            if ((this.dtpFecha1.Value < this.dtpFecha2.Value))
             {
-                if ((this.dtpFecha1.Value < this.dtpFecha2.Value))
+                Boolean banderaError = false;
+                MarcaD oMarcaD = new MarcaD(this.conexion);
+
+                if (this.cmbIDEmpleado.SelectedValue == null)
                 {
-                    Boolean banderaError = false;
-                    MarcaD oMarcaD = new MarcaD(this.conexion);
-
-                    if (this.cmbIDEmpleado.SelectedValue == null)
-                    {
-                        idEmpleado = "";
-                    }
-                    else
-                    {
-                        idEmpleado = this.cmbIDEmpleado.SelectedValue.ToString();
+                    idEmpleado = "";
+                }
+                else
+                {
+                    idEmpleado = this.cmbIDEmpleado.SelectedValue.ToString();
 
 
-                    }                
+                }
 
-                  
 
-                    if (this.cmbEstado.SelectedIndex.ToString() != "-1")
-                    {
-                        estadoMarca = this.cmbEstado.SelectedItem.ToString();
-                    }
-                    else
-                    {
-                        estadoMarca = "";
-                    }
 
-                    
-                    List<MarcaL> listaMarcas = oMarcaD.obtenerMarcaFiltro(this.dtpFecha1.Value, this.dtpFecha2.Value, idEmpleado, departamento,
-                                                                             nombreEmpleado, estadoMarca, activo);
+                if (this.cmbEstado.SelectedIndex.ToString() != "-1")
+                {
+                    estadoMarca = this.cmbEstado.SelectedItem.ToString();
+                }
+                else
+                {
+                    estadoMarca = "";
+                }
+
+
+                List<MarcaL> listaMarcas = oMarcaD.obtenerMarcaFiltro(this.dtpFecha1.Value, this.dtpFecha2.Value, idEmpleado, departamento,
+                                                                         nombreEmpleado, estadoMarca, activo);
 
 
 
 
 
-                    if (this.grdMarcas.RowCount > 0)
-                    { 
+                if (this.grdMarcas.RowCount > 0)
+                {
                     int cantidadFilas = this.grdMarcas.RowCount;
-                    for (int contador = 0; contador < cantidadFilas; contador++) {
+                    for (int contador = 0; contador < cantidadFilas; contador++)
+                    {
 
                         int idMarca = Convert.ToInt32(this.grdMarcas["idMarca", contador].Value.ToString());
                         int idUnificacion = Convert.ToInt32(this.grdMarcas["idUnificacion", contador].Value.ToString());
@@ -145,91 +149,106 @@ namespace GUI
                         activo = this.grdMarcas["activo", contador].Value.ToString();
 
 
-                        marcaEntrada = new MarcaL(idMarca, idEmpleado, idUnificacion,nombre, estado, tipo, fecha, creadoPor, fechaCreacion, modificadoPor, fechaModificacion,activo);
-                        marcaSalida = new MarcaL(idMarca, idEmpleado, idUnificacion, nombre, estado, tipo, fecha, creadoPor, fechaCreacion, modificadoPor, fechaModificacion,activo);
+                        marcaEntrada = new MarcaL(idMarca, idEmpleado, idUnificacion, nombre, estado, tipo, fecha, creadoPor, fechaCreacion, modificadoPor, fechaModificacion, activo);
+                        marcaSalida = new MarcaL(idMarca, idEmpleado, idUnificacion, nombre, estado, tipo, fecha, creadoPor, fechaCreacion, modificadoPor, fechaModificacion, activo);
                         contador++;
-            
-                         if (contador < cantidadFilas)
-                                        {
-                                            #region marcaSalida
-                                            idMarca = Convert.ToInt32(this.grdMarcas["idMarca", contador].Value.ToString());
-                                            idUnificacion = Convert.ToInt32(this.grdMarcas["idUnificacion", contador].Value.ToString());
-                                            idEmpleado = this.grdMarcas["idEmpleado", contador].Value.ToString();
-                                            nombre = this.grdMarcas[3, contador].Value.ToString();
-                                            fecha = DateTime.Parse(this.grdMarcas["fecha", contador].Value.ToString());
-                                            tipo = this.grdMarcas["tipo", contador].Value.ToString();
-                                            estado = this.grdMarcas["estado", contador].Value.ToString();
-                                            creadoPor = this.grdMarcas["creadoPor", contador].Value.ToString();
-                                            fechaCreacion = DateTime.Parse(this.grdMarcas["fechaCreacion", contador].Value.ToString());
-                                            modificadoPor = this.grdMarcas["modificadoPor", contador].Value.ToString();
-                                            fechaModificacion = DateTime.Parse(this.grdMarcas["fechaModificacion", contador].Value.ToString());
-                                            #endregion
 
-                                            marcaSalida = new MarcaL(idMarca, idEmpleado, idUnificacion, nombre, estado, tipo, fecha, creadoPor, fechaCreacion, modificadoPor, fechaModificacion,activo);
-                    
-                    
-                    
-                    
-                    
-                    
-                    }
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    }
-
-
-
-
-                    for (int i = 0; i < listaMarcas.Count; i++)
-                    {
-                        listaMarcas[i].IdUnificacion = this.numeroUnificacion;
-                        listaMarcas[i].EstadoMarca = "Trámite";
-                        listaMarcas[i].ModificadoPor = this.oUsuarioConectado[0].IdUsuario;
-                        listaMarcas[i].FechaModificacion = DateTime.Now;
-                        MarcaL marcaEditada = listaMarcas[i];
-
-                        oMarcaD.editarMarca(marcaEditada, marcaEditada);
-                        if (oMarcaD.Error)
+                        if (contador < cantidadFilas)
                         {
-                            this.conexion.rollbackTransaccion();
-                            MessageBox.Show("Error, detalle:" + oMarcaD.ErrorDescription);
-                            return;
+                            #region marcaSalida
+                            idMarca = Convert.ToInt32(this.grdMarcas["idMarca", contador].Value.ToString());
+                            idUnificacion = Convert.ToInt32(this.grdMarcas["idUnificacion", contador].Value.ToString());
+                            idEmpleado = this.grdMarcas["idEmpleado", contador].Value.ToString();
+                            nombre = this.grdMarcas[3, contador].Value.ToString();
+                            fecha = DateTime.Parse(this.grdMarcas["fecha", contador].Value.ToString());
+                            tipo = this.grdMarcas["tipo", contador].Value.ToString();
+                            estado = this.grdMarcas["estado", contador].Value.ToString();
+                            creadoPor = this.grdMarcas["creadoPor", contador].Value.ToString();
+                            fechaCreacion = DateTime.Parse(this.grdMarcas["fechaCreacion", contador].Value.ToString());
+                            modificadoPor = this.grdMarcas["modificadoPor", contador].Value.ToString();
+                            fechaModificacion = DateTime.Parse(this.grdMarcas["fechaModificacion", contador].Value.ToString());
+                            #endregion
+
+                            marcaSalida = new MarcaL(idMarca, idEmpleado, idUnificacion, nombre, estado, tipo, fecha, creadoPor, fechaCreacion, modificadoPor, fechaModificacion, activo);
+
                         }
+                        if (marcaEntrada.IdMarca != marcaSalida.IdMarca)
+                        {
+                            fechaEntrada = marcaEntrada.FechaMarca.Date;
+                            fechaSalida = marcaSalida.FechaMarca.Date;
+
+                            if (fechaEntrada == fechaSalida)
+                            {
+                                if (marcaEntrada.TipoMarca == "Entrada" && marcaSalida.TipoMarca == "Salida")
+                                {
+                                    if (banderaError == false)
+                                    {
+
+                                        this.horasTotales =marcaSalida.FechaMarca - marcaEntrada.FechaMarca;
+
+
+
+
+
+                                    }
+
+
+
+
+
+
+                                }
+
+
+
+
+                                for (int i = 0; i < listaMarcas.Count; i++)
+                                {
+                                    listaMarcas[i].IdUnificacion = this.numeroUnificacion;
+                                    listaMarcas[i].EstadoMarca = "Trámite";
+                                    listaMarcas[i].ModificadoPor = this.oUsuarioConectado[0].IdUsuario;
+                                    listaMarcas[i].FechaModificacion = DateTime.Now;
+                                    MarcaL marcaEditada = listaMarcas[i];
+
+                                    oMarcaD.editarMarca(marcaEditada, marcaEditada);
+                                    if (oMarcaD.Error)
+                                    {
+                                        this.conexion.rollbackTransaccion();
+                                        MessageBox.Show("Error, detalle:" + oMarcaD.ErrorDescription);
+                                        return;
+                                    }
+                                }
+
+
+
+
+                                if (!oMarcaD.Error)
+                                {
+                                    this.grdMarcas.DataSource = listaMarcas;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Error cargando los datos!!!");
+                                }
+
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Revisar el rango de fechas ya que alguna de las suministradas es errónea");
+                                return;
+                            }
+
+
+                        }
+
+
+
                     }
-
-
-
-                    
-                    if (!oMarcaD.Error)
-                    {
-                        this.grdMarcas.DataSource = listaMarcas;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error cargando los datos!!!");
-                    }
-
-
                 }
-                else
-                {
-                    MessageBox.Show("Revisar el rango de fechas ya que alguna de las suministradas es errónea");
-                    return;
-                }
-
-
             }
-
-
-
         }
-        }
+                
 
         private void btnBorrarMarca_Click(object sender, EventArgs e)
         {
