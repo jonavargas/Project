@@ -134,6 +134,7 @@ namespace Logica
             get { return activo; }
             set { activo = value; }
         }
+
         /// <summary>
         ///  Metodo ToString el cual devuelve todos los datos con sus respectivos valores
         /// </summary>

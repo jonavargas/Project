@@ -9,10 +9,13 @@ namespace Logica
 {
     class PagosL
     {
+        /// <summary>
+        /// Atributos de la clase PagoL
+        /// </summary>
         private int idPago;
         private DateTime fecha1;
         private DateTime fecha2;
-        private double totalPagos;
+        private double totalPago;
         private double totalDeducciones;
         private string anulado;
         private string descripcion;
@@ -21,14 +24,17 @@ namespace Logica
         private string modificadoPor;
         private DateTime fechaModificacion;
 
-        public PagosL(int pIdPago, DateTime pFecha1, DateTime pFecha2, double pTotalPagos, double pTotalDeducciones, 
-                     string pAnulado, string pDescripcion, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, 
-                     DateTime pFechaModificacion)
+        /// <summary>
+        /// Metodo Constructor con parámetros los cuales cargan con valores los atributos de la clase PagoL
+        /// </summary>     
+        public PagosL(int pIdPago, DateTime pFecha1, DateTime pFecha2, double pTotalPago, double pTotalDeducciones, 
+                      string pAnulado, string pDescripcion, string pCreadoPor, DateTime pFechaCreacion, string pModificadoPor, 
+                      DateTime pFechaModificacion)
         {
             this.idPago = pIdPago;
             this.fecha1 = pFecha1;
             this.fecha2 = pFecha2;
-            this.totalPagos = pTotalPagos;
+            this.totalPago = pTotalPago;
             this.totalDeducciones = pTotalDeducciones;
             this.anulado = pAnulado;
             this.descripcion = pDescripcion;
@@ -37,6 +43,10 @@ namespace Logica
             this.modificadoPor = pModificadoPor;
             this.fechaModificacion = pFechaModificacion;
         }
+
+        /// <summary>
+        /// Properties de cada atributo de la clase PagoL el cual permite consultar o modificar el valor de los mismos 
+        /// </summary>
 
         public int IdPago
         {
@@ -56,10 +66,10 @@ namespace Logica
             set { fecha2 = value; }
         }
 
-        public double TotalPagos
+        public double TotalPago
         {
-            get { return totalPagos; }
-            set { totalPagos = value; }
+            get { return totalPago; }
+            set { totalPago = value; }
         }
 
         public double TotalDeducciones
@@ -86,20 +96,17 @@ namespace Logica
             set { creadoPor = value; }
         }
         
-
         public DateTime FechaCreacion
         {
             get { return fechaCreacion; }
             set { fechaCreacion = value; }
         }
-        
 
         public string ModificadoPor
         {
             get { return modificadoPor; }
             set { modificadoPor = value; }
         }
-        
 
         public DateTime FechaModificacion
         {
@@ -107,12 +114,17 @@ namespace Logica
             set { fechaModificacion = value; }
         }
 
+        /// <summary>
+        ///  Metodo ToString el cual devuelve todos los datos con sus respectivos valores
+        /// </summary>
+        /// <returns></returns>
+
         public override string ToString()
         {
             return  "ID Pago:" + this.IdPago + "\n" +
                     "Fecha Inicial:" + this.fecha1 + "\n" +
                     "Fecha Final:" + this.fecha2 + "\n" +
-                    "Total Neto de Pago:" + this.totalPagos + "\n" +
+                    "Total Neto de Pago:" + this.totalPago + "\n" +
                     "Total Deducciones:" + this.totalDeducciones + "\n" +
                     "Estado del Pago:" + this.anulado + "\n" +
                     "Descripción:" + this.descripcion + "\n" +

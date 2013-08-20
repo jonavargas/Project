@@ -39,12 +39,12 @@
             this.maToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RegistroMarcas = new System.Windows.Forms.ToolStripMenuItem();
             this.IngresoMarcas = new System.Windows.Forms.ToolStripMenuItem();
-            this.Unificacion = new System.Windows.Forms.ToolStripMenuItem();
+            this.Procesos = new System.Windows.Forms.ToolStripMenuItem();
             this.CrearUnificacion = new System.Windows.Forms.ToolStripMenuItem();
+            this.pagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.lblSesion = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblNombreUsuario = new System.Windows.Forms.ToolStripStatusLabel();
-            this.pagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPrincipal.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.SuspendLayout();
@@ -55,7 +55,7 @@
             this.mnuPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Mantenimientos,
             this.RegistroMarcas,
-            this.Unificacion});
+            this.Procesos});
             this.mnuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mnuPrincipal.Name = "mnuPrincipal";
             this.mnuPrincipal.Size = new System.Drawing.Size(747, 29);
@@ -139,14 +139,14 @@
             this.IngresoMarcas.Text = "Ingreso de Marcas";
             this.IngresoMarcas.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
-            // Unificacion
+            // Procesos
             // 
-            this.Unificacion.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Procesos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.CrearUnificacion,
             this.pagosToolStripMenuItem});
-            this.Unificacion.Name = "Unificacion";
-            this.Unificacion.Size = new System.Drawing.Size(117, 25);
-            this.Unificacion.Text = "Administrar";
+            this.Procesos.Name = "Procesos";
+            this.Procesos.Size = new System.Drawing.Size(90, 25);
+            this.Procesos.Text = "Procesos";
             // 
             // CrearUnificacion
             // 
@@ -154,6 +154,13 @@
             this.CrearUnificacion.Size = new System.Drawing.Size(174, 26);
             this.CrearUnificacion.Text = "Unificación";
             this.CrearUnificacion.Click += new System.EventHandler(this.CrearUnificacion_Click);
+            // 
+            // pagosToolStripMenuItem
+            // 
+            this.pagosToolStripMenuItem.Name = "pagosToolStripMenuItem";
+            this.pagosToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
+            this.pagosToolStripMenuItem.Text = "Pagos";
+            this.pagosToolStripMenuItem.Click += new System.EventHandler(this.pagosToolStripMenuItem_Click);
             // 
             // statusBar
             // 
@@ -176,13 +183,6 @@
             // 
             this.lblNombreUsuario.Name = "lblNombreUsuario";
             this.lblNombreUsuario.Size = new System.Drawing.Size(0, 17);
-            // 
-            // pagosToolStripMenuItem
-            // 
-            this.pagosToolStripMenuItem.Name = "pagosToolStripMenuItem";
-            this.pagosToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
-            this.pagosToolStripMenuItem.Text = "Pagos";
-            this.pagosToolStripMenuItem.Click += new System.EventHandler(this.pagosToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -221,7 +221,7 @@
         private System.Windows.Forms.ToolStripMenuItem RegistroMarcas;
         private System.Windows.Forms.ToolStripMenuItem IngresoMarcas;
         private System.Windows.Forms.ToolStripMenuItem maToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem Unificacion;
+        private System.Windows.Forms.ToolStripMenuItem Procesos;
         private System.Windows.Forms.ToolStripMenuItem CrearUnificacion;
         private System.Windows.Forms.ToolStripMenuItem pagosToolStripMenuItem;
     }

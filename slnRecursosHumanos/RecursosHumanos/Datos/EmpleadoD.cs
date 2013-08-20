@@ -102,7 +102,7 @@ namespace Datos
             return retorno;
         }
         /// <summary>
-        /// Método que agrega unnuevo empleado a la Base de Datos de Oracle,el cual recibe por parámetro un Empleado que viene cargado con 
+        /// Método que agrega un nuevo empleado a la Base de Datos de Oracle,el cual recibe por parámetro un Empleado que viene cargado con 
         /// los respectivos valores para ser pasados a la base de datos ya creada,ademas procede a realizar una consulta al sql para saber si
         /// los parámetros creados coinciden con los de la base de datos y si considen procede a insertarlos
         /// </summary>
@@ -197,9 +197,10 @@ namespace Datos
                 this.errorDescription = "Error agregando Empleado: " + e.Message;
             }
         }
+
         /// <summary>
         /// Método que borra un Empleado,el cual procede a recibir un parámetro de tipo Empleado y verifica que en la base de datos 
-        /// exista un parámetro igual y procede a eliminar este
+        /// exista un parámetro igual y procede a eliminar esté
         /// </summary>
         /// <param name="pEmpleado"></param>
 
@@ -294,7 +295,7 @@ namespace Datos
         }
 
         /// <summary>
-        /// Metodo que nos facilita editar una linea del empleado que se encuentre seleccionada
+        /// Método que nos facilita editar una linea del empleado que se encuentre seleccionada
         /// </summary>
         /// <param name="pEmpleadoOriginal"></param>
         /// <param name="pEmpleadoEditado"></param>
