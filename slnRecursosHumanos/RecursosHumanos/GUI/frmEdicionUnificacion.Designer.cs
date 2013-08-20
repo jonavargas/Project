@@ -108,7 +108,7 @@
             this.tcUnificacion.Controls.Add(this.tp1);
             this.tcUnificacion.Controls.Add(this.tp2);
             this.tcUnificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tcUnificacion.Location = new System.Drawing.Point(0, 55);
+            this.tcUnificacion.Location = new System.Drawing.Point(0, 50);
             this.tcUnificacion.Name = "tcUnificacion";
             this.tcUnificacion.SelectedIndex = 0;
             this.tcUnificacion.Size = new System.Drawing.Size(762, 454);
