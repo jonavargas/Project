@@ -145,8 +145,8 @@ namespace GUI
                         activo = this.grdMarcas["activo", contador].Value.ToString();
 
 
-                        marcaEntrada = new MarcaL(idMarca, idEmpleado, idUnificacion,, nombre, estado, tipo, fecha, creadoPor, fechaCreacion, modificadoPor, fechaModificacion,activo);
-                        marcaSalida = new MarcaL(idMarca, idEmpleado, idUnificacion,, nombre, estado, tipo, fecha, creadoPor, fechaCreacion, modificadoPor, fechaModificacion,activo);
+                        marcaEntrada = new MarcaL(idMarca, idEmpleado, idUnificacion,nombre, estado, tipo, fecha, creadoPor, fechaCreacion, modificadoPor, fechaModificacion,activo);
+                        marcaSalida = new MarcaL(idMarca, idEmpleado, idUnificacion, nombre, estado, tipo, fecha, creadoPor, fechaCreacion, modificadoPor, fechaModificacion,activo);
                         contador++;
             
                          if (contador < cantidadFilas)
@@ -165,7 +165,7 @@ namespace GUI
                                             fechaModificacion = DateTime.Parse(this.grdMarcas["fechaModificacion", contador].Value.ToString());
                                             #endregion
 
-                                            marcaSalida = new MarcaL(idMarca, idEmpleado, idUnificacion,, nombre, estado, tipo, fecha, creadoPor, fechaCreacion, modificadoPor, fechaModificacion,activo);
+                                            marcaSalida = new MarcaL(idMarca, idEmpleado, idUnificacion, nombre, estado, tipo, fecha, creadoPor, fechaCreacion, modificadoPor, fechaModificacion,activo);
                     
                     
                     
@@ -228,6 +228,7 @@ namespace GUI
 
 
 
+        }
         }
 
         private void btnBorrarMarca_Click(object sender, EventArgs e)
