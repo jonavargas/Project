@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RecursosHumanos.GUI
+namespace GUI
 {
     public partial class frmEdicionPagos : Form
     {
         public frmEdicionPagos()
         {
             InitializeComponent();
+            this.txtNumPagos.ReadOnly = true;
+            this.txtTotalDeducciones.ReadOnly = true;
+            this.txtTotalPagos.ReadOnly = true;
         }
+
+
     }
 }

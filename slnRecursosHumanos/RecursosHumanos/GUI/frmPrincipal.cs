@@ -23,7 +23,7 @@ namespace GUI
         string tipo;
 
         /// <summary>
-        /// Metodo constructor con parametros
+        /// Método constructor con parametros
         /// </summary>
         /// <param name="pConexion"></param>
 
@@ -36,7 +36,7 @@ namespace GUI
         }
 
         /// <summary>
-        /// Metodo que levanta el formulario de mantenimiento de usuario
+        /// Método que levanta el formulario de mantenimiento de usuario
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -49,7 +49,7 @@ namespace GUI
         }
 
         /// <summary>
-        /// Metodo que levanta el formulario de mantenimiento de usuario
+        /// Método que levanta el formulario de mantenimiento de usuario
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -61,7 +61,7 @@ namespace GUI
         }
 
         /// <summary>
-        /// Metodo que levanta el formulario de mantenimiento de deducciones
+        /// Método que levanta el formulario de mantenimiento de deducciones
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -73,7 +73,7 @@ namespace GUI
         }
 
         /// <summary>
-        /// Metodo que levanta el formulario de mantenimiento de catalogo de fechas
+        /// Método que levanta el formulario de mantenimiento de catalogo de fechas
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -85,7 +85,7 @@ namespace GUI
         }
 
         /// <summary>
-        /// Metodo que levanta el formulario de mantenimiento de parametro
+        /// Método que levanta el formulario de mantenimiento de parametro
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -98,7 +98,7 @@ namespace GUI
         }
 
         /// <summary>
-        /// /// Metodo que levanta el formulario de mantenimiento de empleado
+        /// Método que levanta el formulario de mantenimiento de empleado
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -111,7 +111,7 @@ namespace GUI
         }
 
         /// <summary>
-        /// /// Metodo que levanta el formulario de registro de marcas
+        /// Método que levanta el formulario de registro de marcas
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -123,7 +123,7 @@ namespace GUI
         }
 
         /// <summary>
-        /// /// Metodo que levanta el formulario de mantenimiento de las marcas
+        ///  Método que levanta el formulario de mantenimiento de las marcas
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -135,7 +135,7 @@ namespace GUI
         }
 
         /// <summary>
-        /// /// Metodo que levanta el formulario de mantenimiento de unificación
+        /// Método que levanta el formulario de unificación
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -145,9 +145,14 @@ namespace GUI
             oFrmEdicion.ShowDialog();
         }
 
+        /// <summary>
+        /// Método que levanta el formulario de Pagos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pagosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmPagos oFrmPagos = new frmPagos();
+            frmPagos oFrmPagos = new frmPagos(oUsuarioL, this.cnx);
             oFrmPagos.ShowDialog();
         }
     }

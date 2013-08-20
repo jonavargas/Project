@@ -30,9 +30,9 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.btnNuevo = new System.Windows.Forms.ToolStripButton();
+            this.btnAnular = new System.Windows.Forms.ToolStripButton();
+            this.btnConsultar = new System.Windows.Forms.ToolStripButton();
             this.cmbDepartamento = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dtpFecha2 = new System.Windows.Forms.DateTimePicker();
@@ -59,41 +59,42 @@
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(30, 30);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3});
+            this.btnNuevo,
+            this.btnAnular,
+            this.btnConsultar});
             this.toolStrip1.Location = new System.Drawing.Point(0, 156);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(845, 52);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // btnNuevo
             // 
-            this.toolStripButton1.Image = global::RecursosHumanos.Properties.Resources.nuevo;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(46, 49);
-            this.toolStripButton1.Text = "Nuevo";
-            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnNuevo.Image = global::RecursosHumanos.Properties.Resources.nuevo;
+            this.btnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(46, 49);
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
-            // toolStripButton2
+            // btnAnular
             // 
-            this.toolStripButton2.Image = global::RecursosHumanos.Properties.Resources.Anular;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(46, 49);
-            this.toolStripButton2.Text = "Anular";
-            this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnAnular.Image = global::RecursosHumanos.Properties.Resources.Anular;
+            this.btnAnular.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAnular.Name = "btnAnular";
+            this.btnAnular.Size = new System.Drawing.Size(46, 49);
+            this.btnAnular.Text = "Anular";
+            this.btnAnular.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // toolStripButton3
+            // btnConsultar
             // 
-            this.toolStripButton3.Image = global::RecursosHumanos.Properties.Resources.Consultar;
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(62, 49);
-            this.toolStripButton3.Text = "Consultar";
-            this.toolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnConsultar.Image = global::RecursosHumanos.Properties.Resources.Consultar;
+            this.btnConsultar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(62, 49);
+            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // cmbDepartamento
             // 
@@ -198,9 +199,9 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton btnNuevo;
+        private System.Windows.Forms.ToolStripButton btnAnular;
+        private System.Windows.Forms.ToolStripButton btnConsultar;
         private System.Windows.Forms.ComboBox cmbDepartamento;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtpFecha2;

@@ -1,4 +1,4 @@
-﻿namespace RecursosHumanos.GUI
+﻿namespace GUI
 {
     partial class frmEdicionPagos
     {
@@ -46,9 +46,9 @@
             this.lblNumeroPago = new System.Windows.Forms.Label();
             this.lblTotalDeducciones = new System.Windows.Forms.Label();
             this.lblTotalPagos = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtTotalPagos = new System.Windows.Forms.TextBox();
+            this.txtTotalDeducciones = new System.Windows.Forms.TextBox();
+            this.txtNumPagos = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.tbVE.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -239,26 +239,26 @@
             this.lblTotalPagos.TabIndex = 44;
             this.lblTotalPagos.Text = "Total Pagos:";
             // 
-            // textBox1
+            // txtTotalPagos
             // 
-            this.textBox1.Location = new System.Drawing.Point(650, 80);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(144, 20);
-            this.textBox1.TabIndex = 45;
+            this.txtTotalPagos.Location = new System.Drawing.Point(650, 80);
+            this.txtTotalPagos.Name = "txtTotalPagos";
+            this.txtTotalPagos.Size = new System.Drawing.Size(144, 20);
+            this.txtTotalPagos.TabIndex = 45;
             // 
-            // textBox2
+            // txtTotalDeducciones
             // 
-            this.textBox2.Location = new System.Drawing.Point(650, 121);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(144, 20);
-            this.textBox2.TabIndex = 46;
+            this.txtTotalDeducciones.Location = new System.Drawing.Point(650, 121);
+            this.txtTotalDeducciones.Name = "txtTotalDeducciones";
+            this.txtTotalDeducciones.Size = new System.Drawing.Size(144, 20);
+            this.txtTotalDeducciones.TabIndex = 46;
             // 
-            // textBox3
+            // txtNumPagos
             // 
-            this.textBox3.Location = new System.Drawing.Point(650, 162);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(144, 20);
-            this.textBox3.TabIndex = 47;
+            this.txtNumPagos.Location = new System.Drawing.Point(650, 162);
+            this.txtNumPagos.Name = "txtNumPagos";
+            this.txtNumPagos.Size = new System.Drawing.Size(144, 20);
+            this.txtNumPagos.TabIndex = 47;
             // 
             // txtDescripcion
             // 
@@ -275,9 +275,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 480);
             this.Controls.Add(this.txtDescripcion);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNumPagos);
+            this.Controls.Add(this.txtTotalDeducciones);
+            this.Controls.Add(this.txtTotalPagos);
             this.Controls.Add(this.lblTotalPagos);
             this.Controls.Add(this.lblTotalDeducciones);
             this.Controls.Add(this.lblNumeroPago);
@@ -324,9 +324,9 @@
         private System.Windows.Forms.Label lblNumeroPago;
         private System.Windows.Forms.Label lblTotalDeducciones;
         private System.Windows.Forms.Label lblTotalPagos;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtTotalPagos;
+        private System.Windows.Forms.TextBox txtTotalDeducciones;
+        private System.Windows.Forms.TextBox txtNumPagos;
         private System.Windows.Forms.TextBox txtDescripcion;
     }
 }
