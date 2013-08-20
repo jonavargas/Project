@@ -21,7 +21,7 @@ namespace Logica
         private string activo;
 
         /// <summary>
-        /// Metodo cpnstructor con parametros
+        /// Método constructor con parametros
         /// </summary>
 
 
@@ -92,7 +92,7 @@ namespace Logica
             set { activo = value; }
         }
         /// <summary>
-        /// Metodo ToString
+        /// Método ToString
         /// </summary>
         /// <returns></returns>
         public override string ToString()

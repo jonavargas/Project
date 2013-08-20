@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace Logica
 {
+
+
    public class UnificacionL
     {
+
+       /// <summary>
+       /// Atributos de la clase UnificaciónL 
+       /// </summary>
         private int idUnificacion;        
         private string idEmpleado;       
         private int idPago;        
@@ -34,7 +40,10 @@ namespace Logica
        
 
 
-
+        /// <summary>
+        /// Método Constructor con parámetros, se inicializan las variables con el valor que entra por parámetros
+        /// </summary>
+        
         public UnificacionL(int pIdUnificacion, string pIdEmpleado, int pIdPago, string pEstadoUnificacion, DateTime pFechaUnificacion, double pHoraRegular,
                              double pHoraExtra, double pHoraDoble, string pAprobacionExtra, string pDetalleAprobacionExtra,
                              double pPorcentajeDeduccion, double pMontoDeduccion, double pPagoRegular, double pPagoExtra, double pPagoDoble,
@@ -62,11 +71,12 @@ namespace Logica
             this.fechaCreacion = pFechaCreacion;
             this.modificadoPor = pModificadoPor;
             this.fechaModificacion = pFechaModificacion;
-            this.activo = pactivo;
-
-
-        
+            this.activo = pactivo;        
         }
+       /// <summary>
+       /// Segundo método constructor que recibe parámetros y se inializan los atributos. 
+       /// </summary>
+             
 
         public UnificacionL( int pIdUnificacion, string pIdEmpleado, int pIdPago, string pEstadoUnificacion, DateTime pFechaUnificacion, double pHoraRegular,
                              double pHoraExtra, double pHoraDoble, string pAprobacionExtra, string pDetalleAprobacionExtra,
@@ -97,13 +107,14 @@ namespace Logica
             this.modificadoPor = pModificadoPor;
             this.fechaModificacion = pFechaModificacion;
             this.nombreCompleto = pnombreCompleto;
-            this.activo = pactivo;
-        
-        
-        
+            this.activo = pactivo;     
+                
         }
 
-        
+       /// <summary>
+       /// Propiedades de los atributos de la clase.
+       /// </summary>
+ 
         public int IdUnificacion
         {
             get { return idUnificacion; }
@@ -221,6 +232,11 @@ namespace Logica
             get { return nombreCompleto; }
             set { nombreCompleto = value; }
         }
+
+       /// <summary>
+       /// Método toString
+       /// </summary>
+       /// <returns></returns>
         public override string ToString()
         {
             return  "ID Unificacion:"+this.IdUnificacion+"\n"+

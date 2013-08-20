@@ -35,6 +35,10 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.idUnificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDepartamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -50,10 +54,6 @@
             this.txtTotalDeducciones = new System.Windows.Forms.TextBox();
             this.txtNumPagos = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.idUnificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDepartamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbVE.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -72,7 +72,7 @@
             this.tbVE.Location = new System.Drawing.Point(0, 202);
             this.tbVE.Name = "tbVE";
             this.tbVE.SelectedIndex = 0;
-            this.tbVE.Size = new System.Drawing.Size(817, 278);
+            this.tbVE.Size = new System.Drawing.Size(818, 278);
             this.tbVE.TabIndex = 0;
             // 
             // tabPage1
@@ -112,7 +112,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(809, 252);
+            this.tabPage2.Size = new System.Drawing.Size(810, 252);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Vista Empleados";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -134,11 +134,38 @@
             this.nombreEmpleado,
             this.idDepartamento,
             this.totalPago});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 2);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 20);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(807, 247);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // idUnificacion
+            // 
+            this.idUnificacion.DataPropertyName = "idUnificacion";
+            this.idUnificacion.HeaderText = "ID Unificación";
+            this.idUnificacion.Name = "idUnificacion";
+            this.idUnificacion.Width = 130;
+            // 
+            // nombreEmpleado
+            // 
+            this.nombreEmpleado.DataPropertyName = "nombreEmpleado";
+            this.nombreEmpleado.HeaderText = "Nombre";
+            this.nombreEmpleado.Name = "nombreEmpleado";
+            // 
+            // idDepartamento
+            // 
+            this.idDepartamento.DataPropertyName = "idDepartamento";
+            this.idDepartamento.HeaderText = "Departamento";
+            this.idDepartamento.Name = "idDepartamento";
+            this.idDepartamento.Width = 110;
+            // 
+            // totalPago
+            // 
+            this.totalPago.DataPropertyName = "totalPago";
+            this.totalPago.HeaderText = "Total a Pagar";
+            this.totalPago.Name = "totalPago";
+            this.totalPago.Width = 130;
             // 
             // toolStrip1
             // 
@@ -148,7 +175,7 @@
             this.toolStripButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(817, 52);
+            this.toolStrip1.Size = new System.Drawing.Size(818, 52);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -253,21 +280,21 @@
             this.txtTotalPagos.Location = new System.Drawing.Point(650, 80);
             this.txtTotalPagos.Name = "txtTotalPagos";
             this.txtTotalPagos.Size = new System.Drawing.Size(144, 20);
-            this.txtTotalPagos.TabIndex = 45;
+            this.txtTotalPagos.TabIndex = 2;
             // 
             // txtTotalDeducciones
             // 
             this.txtTotalDeducciones.Location = new System.Drawing.Point(650, 121);
             this.txtTotalDeducciones.Name = "txtTotalDeducciones";
             this.txtTotalDeducciones.Size = new System.Drawing.Size(144, 20);
-            this.txtTotalDeducciones.TabIndex = 46;
+            this.txtTotalDeducciones.TabIndex = 3;
             // 
             // txtNumPagos
             // 
             this.txtNumPagos.Location = new System.Drawing.Point(650, 162);
             this.txtNumPagos.Name = "txtNumPagos";
             this.txtNumPagos.Size = new System.Drawing.Size(144, 20);
-            this.txtNumPagos.TabIndex = 47;
+            this.txtNumPagos.TabIndex = 4;
             // 
             // txtDescripcion
             // 
@@ -276,40 +303,13 @@
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(317, 67);
-            this.txtDescripcion.TabIndex = 48;
-            // 
-            // idUnificacion
-            // 
-            this.idUnificacion.DataPropertyName = "idUnificacion";
-            this.idUnificacion.HeaderText = "ID Unificación";
-            this.idUnificacion.Name = "idUnificacion";
-            this.idUnificacion.Width = 130;
-            // 
-            // nombreEmpleado
-            // 
-            this.nombreEmpleado.DataPropertyName = "nombreEmpleado";
-            this.nombreEmpleado.HeaderText = "Nombre";
-            this.nombreEmpleado.Name = "nombreEmpleado";
-            // 
-            // idDepartamento
-            // 
-            this.idDepartamento.DataPropertyName = "idDepartamento";
-            this.idDepartamento.HeaderText = "Departamento";
-            this.idDepartamento.Name = "idDepartamento";
-            this.idDepartamento.Width = 110;
-            // 
-            // totalPago
-            // 
-            this.totalPago.DataPropertyName = "totalPago";
-            this.totalPago.HeaderText = "Total a Pagar";
-            this.totalPago.Name = "totalPago";
-            this.totalPago.Width = 130;
+            this.txtDescripcion.TabIndex = 1;
             // 
             // frmEdicionPagos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(817, 480);
+            this.ClientSize = new System.Drawing.Size(818, 480);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtNumPagos);
             this.Controls.Add(this.txtTotalDeducciones);

@@ -12,7 +12,7 @@ namespace Datos
     class PagosD
     {
         /// <summary>
-        /// Atributos de la clase Empleado en la parte de Datos donde establece conexión con la Base de Datos de Oracle,tambien se crea 
+        /// Atributos de la clase PagosD en la parte de Datos donde establece conexión con la Base de Datos de Oracle,tambien se crea 
         /// un atributo por si ocurre un error en el proceso de conexión y adémas detalla que tipo de error fue el que se presento
         /// </summary>
 
@@ -21,7 +21,7 @@ namespace Datos
         private string errorDescription = "";
 
         /// <summary>
-        /// Método Constructor de la Clase Empleado el cual recibe como  parámetro una conexión a Acceso de datos Oracle el cual es el que 
+        /// Método Constructor de la Clase PagosD el cual recibe como  parámetro una conexión a Acceso de datos Oracle el cual es el que 
         /// inicializa el atributo 
         /// </summary>
         public PagosD(AccesoDatosOracle pCnx)
