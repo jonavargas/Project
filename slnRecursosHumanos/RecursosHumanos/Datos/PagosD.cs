@@ -117,59 +117,59 @@ namespace Datos
                              "values(:fechaPago1, :fechaPago2, :totalPagos, :totalDeducciones, :anulado, :descripcion, :creadoPor, :fechaCreacion, :modificadoPor, :fechaModificacion) " +
                              "returning idPago into :idPago";
 
-                OracleParameter[] parametros = new OracleParameter[11];
+                OracleParameter[] parametros = new OracleParameter[11];// Parametros
 
-                parametros[0] = new OracleParameter();
+                parametros[0] = new OracleParameter();//Parámetro que agrega a la base de datos una fechaPago1.
                 parametros[0].OracleType = OracleType.DateTime;
                 parametros[0].ParameterName = ":fechaPago1";
                 parametros[0].Value = pPagosL.Fecha1;
 
-                parametros[1] = new OracleParameter();
+                parametros[1] = new OracleParameter();//Parámetro que agrega a la base de datos una fechaPago2.
                 parametros[1].OracleType = OracleType.DateTime;
                 parametros[1].ParameterName = ":fechaPago2";
                 parametros[1].Value = pPagosL.Fecha2;
 
-                parametros[2] = new OracleParameter();
+                parametros[2] = new OracleParameter();//Parámetro que agrega a la base de datos una totalPago.
                 parametros[2].OracleType = OracleType.Double;
                 parametros[2].ParameterName = ":totalPago";
                 parametros[2].Value = pPagosL.TotalPago;
 
-                parametros[3] = new OracleParameter();
+                parametros[3] = new OracleParameter();//Parámetro que agrega a la base de datos una totalDeducciones.
                 parametros[3].OracleType = OracleType.Double;
                 parametros[3].ParameterName = ":totalDeducciones";
                 parametros[3].Value = pPagosL.TotalDeducciones;
 
-                parametros[4] = new OracleParameter();
+                parametros[4] = new OracleParameter();//Parámetro que agrega a la base de datos una anulado.
                 parametros[4].OracleType = OracleType.VarChar;
                 parametros[4].ParameterName = ":anulado";
                 parametros[4].Value = pPagosL.Anulado;
 
-                parametros[5] = new OracleParameter();
+                parametros[5] = new OracleParameter();//Parámetro que agrega a la base de datos una descripcion.
                 parametros[5].OracleType = OracleType.VarChar;
                 parametros[5].ParameterName = ":descripcion";
                 parametros[5].Value = pPagosL.Descripcion;
 
-                parametros[6] = new OracleParameter();
+                parametros[6] = new OracleParameter();//Parámetro que agrega a la base de datos una creadoPor.
                 parametros[6].OracleType = OracleType.VarChar;
                 parametros[6].ParameterName = ":creadoPor";
                 parametros[6].Value = pPagosL.CreadoPor;
 
-                parametros[7] = new OracleParameter();
+                parametros[7] = new OracleParameter();//Parámetro que agrega a la base de datos una fechaCreacion.
                 parametros[7].OracleType = OracleType.DateTime;
                 parametros[7].ParameterName = ":fechaCreacion";
                 parametros[7].Value = pPagosL.FechaCreacion;
 
-                parametros[8] = new OracleParameter();
+                parametros[8] = new OracleParameter();//Parámetro que agrega a la base de datos una modificadoPor.
                 parametros[8].OracleType = OracleType.VarChar;
                 parametros[8].ParameterName = ":modificadoPor";
                 parametros[8].Value = pPagosL.ModificadoPor;
 
-                parametros[9] = new OracleParameter();
+                parametros[9] = new OracleParameter();//Parámetro que agrega a la base de datos una fechaModificacion.
                 parametros[9].OracleType = OracleType.DateTime;
                 parametros[9].ParameterName = ":fechaModificacion";
                 parametros[9].Value = pPagosL.FechaModificacion;
 
-                parametros[10] = new OracleParameter();
+                parametros[10] = new OracleParameter();//Parámetro que agrega a la base de datos una idPago.
                 parametros[10].OracleType = OracleType.Number;
                 parametros[10].ParameterName = ":idPago";
                 parametros[10].Direction = ParameterDirection.Output;
@@ -211,64 +211,64 @@ namespace Datos
                              "fechaModificacion = :fechaModificacion " +
                              "where idPago = :idPagoOriginal";
 
-                OracleParameter[] parametros = new OracleParameter[12];
+                OracleParameter[] parametros = new OracleParameter[12];//Parámetros
 
-                parametros[0] = new OracleParameter();
+                parametros[0] = new OracleParameter();//Parámetro que edita en la base de datos un idPago.
                 parametros[0].OracleType = OracleType.Number;
                 parametros[0].ParameterName = ":idPago";
                 parametros[0].Value = pPagosL.IdPago;
 
-                parametros[1] = new OracleParameter();
+                parametros[1] = new OracleParameter();//Parámetro que edita en la base de datos un fechaPago1.
                 parametros[1].OracleType = OracleType.DateTime;
                 parametros[1].ParameterName = ":fechaPago1";
                 parametros[1].Value = pPagosL.Fecha1;
 
-                parametros[2] = new OracleParameter();
+                parametros[2] = new OracleParameter();//Parámetro que edita en la base de datos un fechaPago2.
                 parametros[2].OracleType = OracleType.DateTime;
                 parametros[2].ParameterName = ":fechaPago2";
                 parametros[2].Value = pPagosL.Fecha2;
 
-                parametros[3] = new OracleParameter();
+                parametros[3] = new OracleParameter();//Parámetro que edita en la base de datos un totalPago.
                 parametros[3].OracleType = OracleType.Double;
                 parametros[3].ParameterName = ":totalPago";
                 parametros[3].Value = pPagosL.TotalPago;
 
-                parametros[4] = new OracleParameter();
+                parametros[4] = new OracleParameter();//Parámetro que edita en la base de datos un totalDeducciones.
                 parametros[4].OracleType = OracleType.Double;
                 parametros[4].ParameterName = ":totalDeducciones";
                 parametros[4].Value = pPagosL.TotalDeducciones;
 
-                parametros[5] = new OracleParameter();
+                parametros[5] = new OracleParameter();//Parámetro que edita en la base de datos un anulado.
                 parametros[5].OracleType = OracleType.VarChar;
                 parametros[5].ParameterName = ":anulado";
                 parametros[5].Value = pPagosL.Anulado;
 
-                parametros[6] = new OracleParameter();
+                parametros[6] = new OracleParameter();//Parámetro que edita en la base de datos un descripcion.
                 parametros[6].OracleType = OracleType.VarChar;
                 parametros[6].ParameterName = ":descripcion";
                 parametros[6].Value = pPagosL.Descripcion;
 
-                parametros[7] = new OracleParameter();
+                parametros[7] = new OracleParameter();//Parámetro que edita en la base de datos un creadoPor.
                 parametros[7].OracleType = OracleType.VarChar;
                 parametros[7].ParameterName = ":creadoPor";
                 parametros[7].Value = pPagosL.CreadoPor;
 
-                parametros[8] = new OracleParameter();
+                parametros[8] = new OracleParameter();//Parámetro que edita en la base de datos un fechaCreacion.
                 parametros[8].OracleType = OracleType.DateTime;
                 parametros[8].ParameterName = ":fechaCreacion";
                 parametros[8].Value = pPagosL.FechaCreacion;
 
-                parametros[9] = new OracleParameter();
+                parametros[9] = new OracleParameter();//Parámetro que edita en la base de datos un modificadoPor.
                 parametros[9].OracleType = OracleType.VarChar;
                 parametros[9].ParameterName = ":modificadoPor";
                 parametros[9].Value = pPagosL.ModificadoPor;
 
-                parametros[10] = new OracleParameter();
+                parametros[10] = new OracleParameter();//Parámetro que edita en la base de datos un fechaModificacion.
                 parametros[10].OracleType = OracleType.DateTime;
                 parametros[10].ParameterName = ":fechaModificacion";
                 parametros[10].Value = pPagosL.FechaModificacion;
 
-                parametros[11] = new OracleParameter();
+                parametros[11] = new OracleParameter();//Parámetro que edita en la base de datos un idPagoOriginal.
                 parametros[11].OracleType = OracleType.Double;
                 parametros[11].ParameterName = ":idPagoOriginal";
                 parametros[11].Value = pPagosL.IdPago;
